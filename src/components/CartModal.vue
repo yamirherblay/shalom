@@ -35,8 +35,13 @@
       <q-card-section class="row items-center justify-between q-gutter-sm">
         <div class="text-subtitle1">Total: {{ currency(cart.total) }}</div>
         <div class="row q-gutter-sm">
-          <q-btn color="positive" icon="whatsapp" :disable="!cart.items.length" @click="buyWhatsApp">Solicitar por WhatsApp</q-btn>
-<!--          <q-btn color="primary" :to="{ name: 'checkout' }" :disable="!cart.items.length" v-close-popup>Finalizar compra</q-btn>-->
+          <q-btn color="positive" icon="fa-brands fa-whatsapp" :disable="!cart.items.length" @click="buyWhatsApp">Solicitar por WhatsApp</q-btn>
+          <q-btn color="primary"
+                 icon="trash"
+                 :disable="!cart.items.length"
+                 @click="emptyCarshop">
+            Vaciar carrito.
+          </q-btn>
         </div>
       </q-card-section>
     </q-card>
@@ -71,7 +76,7 @@ const WHATSAPP_NUMBER = '14328882324';
 function buyWhatsApp() {
   if (!cart.items.length) return;
   const lines: string[] = [];
-  lines.push('Pedido MercadoTexas:');
+  lines.push(`Hola, me interesa comprar en MercadoTexas los siguientes productos: `);
   cart.items.forEach((it, idx) => {
     lines.push(`${idx + 1}. ${it.product.name} x${it.quantity} — ${currency(it.product.price)} c/u = ${currency(it.product.price * it.quantity)}`);
   });
@@ -79,6 +84,10 @@ function buyWhatsApp() {
   const text = encodeURIComponent(lines.join('\n'));
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
   window.open(url, '_blank');
+
+}
+function emptyCarshop(){
+  cart.clear();
 }
 
 function currency(n: number) { return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP' }).format(n); }

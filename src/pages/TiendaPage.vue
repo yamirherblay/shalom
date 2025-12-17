@@ -32,7 +32,6 @@
         >
           <q-card flat bordered class="product-card column full-height">
             <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image" />
-
             <q-card-section class="q-pb-none">
               <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }}</div>
               <div class="text-primary text-weight-bold">{{ formatPrice(product.price) }}</div>
@@ -48,14 +47,17 @@
                   type="number"
                   dense
                   outlined
-                  class="qty-input q-mx-xs"
+                  class="qty-input q-mb-auto q-mx-xxs"
                   :min="1"
                   :max="99"
                   @update:model-value="onQtyInput(product?.id)"
                 />
                 <q-btn size="sm" round flat icon="add" @click="incQty(product.id)" />
               </div>
-              <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" @click="addToCart(product)" />
+              <div class="row q-gutter-xs">
+                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" @click="buyWhatsAppProduct(product)" />
+                <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" @click="addToCart(product)" />
+              </div>
             </q-card-actions>
           </q-card>
         </div>
@@ -92,7 +94,8 @@ const categories = ref<Category[]>([
   { key: 'carnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
   { key: 'confituras', label: 'Confituras', image: '/images/confituras.webp' },
   { key: 'belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
-  { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'}
+  { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
+  { key:'bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
 ])
 
 const products = ref<Product[]>([])
@@ -179,6 +182,17 @@ const barStyle = {
   backgroundColor: 'rgba(0,0,0,0.08)',
   width: '4px',
   height: '4px',
+}
+const WHATSAPP_NUMBER = '14328882324'
+function buyWhatsAppProduct(product: Product) {
+  const quantity = Math.max(1, qty[product.id] || 1)
+  const lines: string[] = []
+  lines.push(`Hola, me interesa comprar este producto de MercadoTexas:`)
+  lines.push(`- ${product.name} x${quantity} — ${formatPrice(product.price)} c/u`)
+  lines.push(`Subtotal: ${formatPrice(product.price * quantity)}`)
+  const text = encodeURIComponent(lines.join('\n'))
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`
+  window.open(url, '_blank')
 }
 </script>
 

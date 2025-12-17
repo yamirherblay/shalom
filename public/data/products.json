@@ -23,11 +23,11 @@
   { "id": "pasta-codigo-doga", "name": "pasta codigo Doga", "price": 170, "category": "hogar", "image": "/images/productos/pasta codigo Doga.webp" },
   { "id": "pasta-codito-500g", "name": "pasta codito 500g", "price": 165, "category": "hogar", "image": "/images/productos/pasta codito 500g.webp" },
   { "id": "pasta-de-tomate-400g", "name": "pasta de tomate 400g", "price": 130, "category": "hogar", "image": "/images/productos/pasta de tomate 400g.webp" },
-  { "id": "perfume-blue-moon", "name": "perfume Blue Moon", "price": 750, "category": "hogar", "image": "/images/productos/perfume Blue Moon.webp" },
+  { "id": "perfume-blue-moon", "name": "perfume Blue Moon", "price": 750, "category": "belleza", "image": "/images/productos/perfume Blue Moon.webp" },
   { "id": "refresco-coco-pina-royal-juice", "name": "Refresco coco pina Royal Juice", "price": 145, "category": "hogar", "image": "/images/productos/Refresco coco pina Royal Juice.webp" },
   { "id": "refresco-coco-pina", "name": "refresco coco pina", "price": 145, "category": "hogar", "image": "/images/productos/refresco coco pina.webp" },
-  { "id": "refresco-sabor-naranja", "name": "refresco sabor naranja", "price": 145, "category": "hogar", "image": "/images/productos/refresco sabor naranja.webp" },
-  { "id": "refrescos-limon-royal", "name": "Refrescos Limon Royal", "price": 145, "category": "hogar", "image": "/images/productos/Refrescos Limon Royal.webp" },
+  { "id": "refresco-sabor-naranja", "name": "refresco sabor naranja", "price": 145, "category": "confituras", "image": "/images/productos/refresco sabor naranja.webp" },
+  { "id": "refrescos-limon-royal", "name": "Refrescos Limon Royal", "price": 145, "category": "confituras", "image": "/images/productos/Refrescos Limon Royal.webp" },
   { "id": "refrescos-varios-fresa", "name": "Refrescos varios fresa", "price": 145, "category": "hogar", "image": "/images/productos/Refrescos varios fresa.webp" },
   { "id": "toallas-humedas-100-pc", "name": "toallas humedas 100 pc", "price": 125, "category": "hogar", "image": "/images/productos/toallas humedas 100 pc.webp" }
 ]
