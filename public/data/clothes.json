@@ -1,0 +1,39 @@
+[
+{
+  "id": "vestido-verano-01",
+  "name": "Vestido de ocasion",
+  "price": 1250,
+  "image": "/images/clothes/dress1.jpg",
+  "shortDescription": "Fresco y ligero, perfecto para días soleados."
+},
+  {
+    "id": "vestido-verano-001",
+    "name": "Vestido de verano",
+    "price": 1250,
+    "image": "/images/clothes/dress2.webp",
+    "shortDescription": "Fresco y ligero, perfecto para días soleados."
+  },
+  {
+    "id": "camisa-verano-002",
+    "name": "camisas Largas",
+    "price": 1500,
+    "image": "/images/clothes/camisas largas.jpg",
+    "shortDescription": "Fresco y ligero, perfecto para días soleados."
+  },
+  {
+    "id": "pants-womans-01",
+    "name": "Pantalonetas Largas",
+    "price": 3600,
+    "image": "/images/clothes/pants woman.webp",
+    "shortDescription": "Divino para tardear."
+  },
+  {
+    "id": "sweater-mans-01",
+    "name": "Sweater manga Largas",
+    "price": 2600,
+    "image": "/images/clothes/sweater grey.webp",
+    "shortDescription": "Divino para tardear en invierno."
+  }
+
+
+]

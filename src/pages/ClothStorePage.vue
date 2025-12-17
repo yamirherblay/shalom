@@ -9,14 +9,14 @@
     <offers-carousel :items="offers" />
 
     <div class="row q-gutter-sm q-mt-lg justify-center">
-      <q-btn color="primary" icon="store" label="Ir a la tienda" to="/tienda"/>
-      <q-btn flat color="primary" icon="home" label="Inicio" to="/"/>
+      <q-btn color="primary" icon="store" label="Ir al Mercado" to="/tienda" />
     </div>
   </q-page>
 </template>
 
 <script setup lang="ts">
 import OffersCarousel from 'src/components/OffersCarousel.vue';
+import { onMounted, ref } from 'vue';
 
 interface OfferItem {
   id: string;
@@ -26,37 +26,15 @@ interface OfferItem {
   shortDescription?: string;
 }
 
-const offers: OfferItem[] = [
-  {
-    id: 'vestido-verano-01',
-    name: 'Vestido de verano',
-    price: 1250,
-    image: '/images/ropa/vestido-verano.webp',
-    shortDescription: 'Fresco y ligero, perfecto para días soleados.'
-  },
-  {
-    id: 'zapatillas-urbanas-01',
-    name: 'Zapatillas urbanas',
-    price: 2200,
-    image: '/images/ropa/zapatillas-urbanas.webp',
-    shortDescription: 'Comodidad para el día a día.'
-  },
-  {
-    id: 'camisa-lino-01',
-    name: 'Camisa de lino',
-    price: 1450,
-    image: '/images/clothes/camisa-lino.webp',
-    shortDescription: 'Transpirable y elegante.'
-  },
-  {
-    id: 'bolso-mano-01',
-    name: 'Bolso de mano',
-    price: 980,
-    image: '/images/ropa/bolso-mano.webp',
-    shortDescription: 'Estilo y practicidad.'
+const offers = ref<OfferItem[]>([]);
+onMounted(async () => {
+  try {
+    const res = await fetch('/data/clothes.json');
+    offers.value = await res.json();
+  } catch (e) {
+    console.error('Error cargando ropas.json', e);
   }
-];
+});
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

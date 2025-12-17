@@ -1,8 +1,8 @@
 <template>
-  <q-dialog v-model="modelValue">
+  <q-dialog v-model="modelValue" persistent>
     <q-card style="min-width: 340px; max-width: 640px; width: 100%">
       <q-card-section class="row items-center q-pb-none">
-        <div class="text-h6">Tus productos solicitados en cesta:</div>
+        <div class="text-h6">Tus productos en cesta:</div>
         <q-space />
         <q-btn icon="close" flat round dense v-close-popup />
       </q-card-section>
@@ -52,6 +52,7 @@
 import { ref, watch } from 'vue';
 import { useCartStore } from 'src/stores/cart';
 
+
 const cart = useCartStore();
 
 const props = defineProps<{ modelValue: boolean }>();
@@ -72,7 +73,7 @@ function inc(id: string) { const q = (buffer.value[id] || 1) + 1; buffer.value[i
 function dec(id: string) { const q = Math.max(1, (buffer.value[id] || 1) - 1); buffer.value[id] = q; cart.setQuantity(id, q); }
 function apply(id: string) { const q = Math.max(1, buffer.value[id] || 1); cart.setQuantity(id, q); }
 
-const WHATSAPP_NUMBER = '14328882324';
+const WHATSAPP_NUMBER = '5354512675';
 function buyWhatsApp() {
   if (!cart.items.length) return;
   const lines: string[] = [];
@@ -83,6 +84,7 @@ function buyWhatsApp() {
   lines.push(`Total: ${currency(cart.total)}`);
   const text = encodeURIComponent(lines.join('\n'));
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
   window.open(url, '_blank');
 
 }

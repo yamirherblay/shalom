@@ -7,18 +7,18 @@
           <span>Mercado Texas</span>
         </q-toolbar-title>
         <!-- Desktop navigation (hidden on small screens) -->
-        <div class="row items-center gt-sm q-gutter-sm">
+        <div class="row items-center gt-sm q-gutter-x-xs">
           <q-btn flat dense label="" to="/" icon="home" class="gt-xs" />
           <q-btn flat dense label="Mercado" to="/tienda" icon="store" class="gt-xs" />
           <q-btn flat dense label="Sabrina's Fashion" to="/clothStore" icon="checkroom" class="gt-xs" />
           <q-btn flat dense label="Quiénes somos" to="/about" icon="info" class="gt-xs" />
           <q-btn flat dense label="Contacto" to="/contact" icon="contact_support" class="gt-xs"  />
-
+        </div>
         <!-- Cart button -->
         <q-btn flat round dense icon="shopping_cart" @click="showCart = true">
           <q-badge color="red" text-color="white" floating v-if="cart.count">{{ cart.count }}</q-badge>
         </q-btn>
-        </div>
+
       </q-toolbar>
     </q-header>
 

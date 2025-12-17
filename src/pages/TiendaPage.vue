@@ -33,6 +33,14 @@
           <q-card flat bordered class="product-card column full-height">
             <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image" />
             <q-card-section class="q-pb-none">
+              <q-chip
+                :label="product.estado"
+                class="q-px-md q-py-xs fa-text-height"
+                :color="product.estado ==='Disponible'? 'blue' : 'red'"
+                :text-color="product.estado ==='Disponible' ? 'white' : 'grey'"
+              />
+            </q-card-section>
+            <q-card-section class="q-pb-none">
               <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }}</div>
               <div class="text-primary text-weight-bold">{{ formatPrice(product.price) }}</div>
             </q-card-section>
@@ -40,21 +48,7 @@
             <q-separator />
 
             <q-card-actions align="between" class="q-pa-sm">
-              <div class="row items-center">
-                <q-btn size="sm" round flat icon="remove" @click="decQty(product.id)" />
-                <q-input
-                  v-model.number="qty[product.id]"
-                  type="number"
-                  dense
-                  outlined
-                  class="qty-input q-mb-auto q-mx-xxs"
-                  :min="1"
-                  :max="99"
-                  @update:model-value="onQtyInput(product?.id)"
-                />
-                <q-btn size="sm" round flat icon="add" @click="incQty(product.id)" />
-              </div>
-              <div class="row q-gutter-xs">
+              <div class="row q-gutter-xs" v-if="product.estado == 'Disponible'">
                 <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" @click="buyWhatsAppProduct(product)" />
                 <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" @click="addToCart(product)" />
               </div>
@@ -84,6 +78,7 @@ type Product = {
   price: number
   image: string
   category: string
+  estado:string
 }
 
 const categories = ref<Category[]>([
@@ -96,6 +91,7 @@ const categories = ref<Category[]>([
   { key: 'belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
   { key:'bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
+  { key:'ofertas',label:'Ofertas',image:'/images/ofertas.webp' },
 ])
 
 const products = ref<Product[]>([])
@@ -135,24 +131,7 @@ function selectCategory(key: string) {
 }
 
 function formatPrice(value: number) {
-  return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'USD' }).format(value)
-}
-
-function incQty(id: string) {
-  qty[id] = Math.min((qty[id] || 1) + 1, 99)
-}
-
-function decQty(id: string) {
-  qty[id] = Math.max((qty[id] || 1) - 1, 1)
-}
-
-function onQtyInput(id: string) {
-  const n = Number(qty[id])
-  if (Number.isNaN(n)) {
-    qty[id] = 1
-    return
-  }
-  qty[id] = Math.max(1, Math.min(n, 99))
+  return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'CUP' }).format(value)
 }
 
 function addToCart(product: Product) {
@@ -255,5 +234,6 @@ function buyWhatsAppProduct(product: Product) {
   top: 56px; /* altura del header de Quasar (aprox) */
   z-index: 10; /* sobre el contenido de la página */
 }
+
 
 </style>

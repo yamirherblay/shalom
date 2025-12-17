@@ -11,7 +11,7 @@
     </section>
 
     <!-- Qué ofrecemos (categorías) -->
-    <section class="q-pa-lg bg-secondary-ligth text-white">
+    <section class="q-pa-lg text-grey-light ">
       <div class="text-h5 text-center q-mb-md">¿Qué ofrecemos?</div>
       <div class="q-gutter-md">
         <div class="row q-col-gutter-md items-center justify-evenly">
@@ -43,15 +43,7 @@
         </div>
       </div>
     </section>
-    <!-- Footer -->
-    <footer class="bg-primary-ligth text-white q-pa-md">
-      <div class="row items-center justify-between">
-        <div>© {{ new Date().getFullYear() }} MercadoTexas</div>
-        <div class="row items-center">
-          <q-icon name="call" class="q-mr-xs" /> <span>+53 5122304</span>
-        </div>
-      </div>
-    </footer>
+
   </q-page>
 </template>
 
