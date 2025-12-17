@@ -57,6 +57,10 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <!-- Footer persistente -->
+    <footer-bar />
+
     <!-- Cart modal -->
     <cart-modal v-model="showCart" />
   </q-layout>
@@ -66,6 +70,7 @@
 import { ref } from 'vue';
 import { useCartStore } from 'src/stores/cart';
 import CartModal from 'src/components/CartModal.vue';
+import FooterBar from 'src/components/FooterBar.vue';
 
 const leftDrawerOpen = ref(false);
 const showCart = ref(false);
