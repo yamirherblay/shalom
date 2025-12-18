@@ -37,7 +37,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  brand: 'Mercado Variado Texas',
+  brand: 'Mercado Texas',
   phone: '+53 54512675',
   email: 'mercadotexas@gmail.com',
   whatsapp: '+53 54512675'

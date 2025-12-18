@@ -32,8 +32,7 @@
     </info-section>
 
     <div class="row q-gutter-sm justify-center">
-      <q-btn color="primary" icon="store" label="Ir a la tienda" to="/tienda"/>
-      <q-btn flat color="primary" icon="home" label="Inicio" to="/"/>
+      <q-btn color="primary" icon="store" label="Ir al mercado" to="/tienda"/>
     </div>
   </q-page>
 </template>

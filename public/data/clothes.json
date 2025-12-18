@@ -4,6 +4,8 @@
   "name": "Vestido de ocasion",
   "price": 1250,
   "image": "/images/clothes/dress1.jpg",
+  "oferta": true,
+  "estado": "Disponible",
   "shortDescription": "Fresco y ligero, perfecto para días soleados."
 },
   {
@@ -11,6 +13,9 @@
     "name": "Vestido de verano",
     "price": 1250,
     "image": "/images/clothes/dress2.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
     "shortDescription": "Fresco y ligero, perfecto para días soleados."
   },
   {
@@ -18,6 +23,9 @@
     "name": "camisas Largas",
     "price": 1500,
     "image": "/images/clothes/camisas largas.jpg",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "hombre",
     "shortDescription": "Fresco y ligero, perfecto para días soleados."
   },
   {
@@ -25,6 +33,9 @@
     "name": "Pantalonetas Largas",
     "price": 3600,
     "image": "/images/clothes/pants woman.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
     "shortDescription": "Divino para tardear."
   },
   {
@@ -32,6 +43,9 @@
     "name": "Sweater manga Largas",
     "price": 2600,
     "image": "/images/clothes/sweater grey.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "hombre",
     "shortDescription": "Divino para tardear en invierno."
   }
 
