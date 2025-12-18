@@ -31,10 +31,15 @@
           class="col-6 col-sm-4 col-md-3 col-lg-2"
         >
           <q-card flat bordered class="product-card column full-height">
-            <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image" />
+            <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image">
+            <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
+              <q-badge color="red" text-color="white" label="En Oferta" />
+            </div>
+            </q-img>>
             <q-card-section class="q-pb-none">
-              <q-chip
+              <q-badge
                 :label="product.estado"
+                dense
                 class="q-px-md q-py-xs fa-text-height"
                 :color="product.estado ==='Disponible'? 'blue' : 'red'"
                 :text-color="product.estado ==='Disponible' ? 'white' : 'grey'"
@@ -76,6 +81,7 @@ type Product = {
   id: string
   name: string
   price: number
+  oferta: boolean
   image: string
   category: string
   estado:string

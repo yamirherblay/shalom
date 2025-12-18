@@ -20,7 +20,17 @@
     <q-separator />
 
     <q-card-actions align="right">
-      <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" />
+      <q-btn
+        color="positive"
+        unelevated
+        size="sm"
+        icon="fa-brands fa-whatsapp"
+        label="Solicitar por WhatsApp"
+        title="Comprar por WhatsApp"
+        alt="Comprar por WhatsApp"
+        aria-label="Comprar por WhatsApp"
+        @click="buyWhatsAppItem()"
+      />
     </q-card-actions>
   </q-card>
 </template>
@@ -41,15 +51,27 @@ export interface ClothesItem {
 const props = defineProps<{ item: ClothesItem }>();
 
 function currency(n: number) {
-  return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP', maximumFractionDigits: 0 }).format(n);
 }
 
 const statusColor = computed(() => {
   const st = (props.item.estado || '').toLowerCase();
-  if (st.includes('dispon')) return 'positive';
-  if (st.includes('agota')) return 'negative';
+  if (st.includes('dispon')) return 'blue';
+  if (st.includes('agota')) return 'red';
   return 'grey-6';
 });
+
+const WHATSAPP_NUMBER = '14328882324';
+function buyWhatsAppItem() {
+  const quantity = 1;
+  const lines: string[] = [];
+  lines.push('Hola, me interesa comprar este producto de MercadoTexas:');
+  lines.push(`- ${props.item.name} x${quantity} — ${currency(props.item.price)} c/u`);
+  lines.push(`Subtotal: ${currency(props.item.price * quantity)}`);
+  const text = encodeURIComponent(lines.join('\n'));
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  window.open(url, '_blank');
+}
 </script>
 
 <style scoped>

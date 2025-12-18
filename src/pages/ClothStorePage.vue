@@ -29,6 +29,7 @@
         animated
         arrows
         infinite
+        autoplay
         control-color="primary"
         class="bg-transparent"
         :height="carouselHeight"
