@@ -15,7 +15,7 @@ const routes: RouteRecordRaw[] = [
   // Catch-all route goes to the same blank page for now
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/BlankPage.vue'),
+    component: () => import('pages/ErrorNotFound.vue'),
   },
 ];
 

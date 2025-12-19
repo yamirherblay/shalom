@@ -54,7 +54,7 @@ import { useQuasar } from 'quasar';
 const $q = useQuasar();
 
 // Número de WhatsApp al que se enviará el mensaje (solo dígitos, formato internacional)
-const WHATSAPP_NUMBER = '14328882324';
+const WHATSAPP_NUMBER = '5354512675';
 
 const formRef = ref();
 const loading = ref(false);

@@ -3,6 +3,12 @@
 
     <!-- Hero Section -->
     <section class="q-pa-xl text-white hero-section">
+      <!-- Marquee message at the top of hero -->
+      <div class="marquee-bar">
+        <div class="marquee-track ">
+          Aceptamos Moneda nacional, Zelle y Transferencias!
+        </div>
+      </div>
       <div class="column items-center text-center">
         <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra Tienda</div>
         <div class="text-subtitle1 q-mb-lg">Ofertas irresistibles y productos seleccionados para ti</div>
@@ -72,7 +78,7 @@ const categories = ref<Category[]>([
   { key: 'ropa', label: 'Ropa', image: '/images/tiendaRopa.jpg' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
   { key: 'ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
-  { key: 'carnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
+  { key: 'Cárnicos', label: 'Cárnicos', image: '/images/Cárnicos.webp' },
   { key: 'confituras', label: 'Confituras', image: '/images/confituras.webp' },
   { key: 'belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
@@ -90,6 +96,8 @@ const categories = ref<Category[]>([
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* leave space for the marquee at the very top */
+  padding-top: 5rem;
 }
 
 .hero-section::before {
@@ -121,4 +129,37 @@ const categories = ref<Category[]>([
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
+.marquee-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: rgba(169, 168, 169, 0.92);
+  color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.marquee-track {
+  white-space: nowrap;
+  display: inline-block;
+  padding-left: 100%;
+  font-weight: 600;
+  font-size: 1.125rem;
+  animation: marquee-scroll 12s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; padding-left: 0; }
+}
+
 </style>

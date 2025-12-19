@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf" :class="{ 'clear-layout': isClothStore }">
     <q-header class="bg-primary" elevated color="white">
       <q-toolbar>
         <q-toolbar-title class="row items-center q-mr-md">
@@ -67,7 +67,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useCartStore } from 'src/stores/cart';
 import CartModal from 'src/components/CartModal.vue';
 import FooterBar from 'src/components/FooterBar.vue';
@@ -75,7 +76,13 @@ import FooterBar from 'src/components/FooterBar.vue';
 const leftDrawerOpen = ref(false);
 const showCart = ref(false);
 const cart = useCartStore();
+
+const route = useRoute();
+const isClothStore = computed(() => route.name === 'clothStore' || route.path === '/clothStore');
 </script>
 <style lang="scss" scoped>
 
+.clear-layout {
+  background: rgba(176, 146, 243, 0.83);
+}
 </style>

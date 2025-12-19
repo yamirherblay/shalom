@@ -30,12 +30,15 @@
           :key="product.id"
           class="col-6 col-sm-4 col-md-3 col-lg-2"
         >
-          <q-card flat bordered class="product-card column full-height">
+          <q-card
+                  flat
+                  bordered
+                  class="product-card column full-height">
             <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image">
             <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
               <q-badge color="red" text-color="white" label="En Oferta" />
             </div>
-            </q-img>>
+            </q-img>
             <q-card-section class="q-pb-none">
               <q-badge
                 :label="product.estado"
@@ -89,15 +92,17 @@ type Product = {
 
 const categories = ref<Category[]>([
   { key: 'all', label: 'Todas' },
-  { key: 'ropa', label: 'Ropa', image: '/images/tiendaRopa.jpg' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
-  { key: 'ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
-  { key: 'carnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
-  { key: 'confituras', label: 'Confituras', image: '/images/confituras.webp' },
-  { key: 'belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
+  { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
+  { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
+  { key:'Granos', label: 'Granos', image: '/images/granos.webp' },
+  { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
+  { key: 'Belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
-  { key:'bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
-  { key:'ofertas',label:'Ofertas',image:'/images/ofertas.webp' },
+  { key:'Bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
+  { key:'Aseo' , label:'Aseo',image:'/images/aseo.webp' },
+  { key:'Sazon', label:'Sazon',image:'/images/sazon.webp' },
+  {key: 'Enlatados', label:'Enlatados',image:'/images/enlatados.jpg' },
 ])
 
 const products = ref<Product[]>([])
@@ -168,7 +173,7 @@ const barStyle = {
   width: '4px',
   height: '4px',
 }
-const WHATSAPP_NUMBER = '14328882324'
+const WHATSAPP_NUMBER = '5354512675'
 function buyWhatsAppProduct(product: Product) {
   const quantity = Math.max(1, qty[product.id] || 1)
   const lines: string[] = []

@@ -1,8 +1,8 @@
 <template>
   <q-card class="clothes-card">
-    <q-img :src="item.image || '/images/placeholder.svg'" :alt="item.name">
-      <div class="absolute-top-right q-pa-sm" v-if="item.oferta">
-        <q-badge color="red" text-color="white" label="Oferta" />
+    <q-img :src="item.image || '/images/placeholder.svg'" ratio="1" :alt="item.name">
+      <div class="absolute-top-right badge-ofert q-pa-sm" v-if="item.oferta">
+        <q-badge class="badge-ofert" label="Oferta" />
       </div>
     </q-img>
 
@@ -13,7 +13,7 @@
       </div>
       <div class="row items-center q-mt-sm justify-between">
         <div class="text-h6">{{ currency(item.price) }}</div>
-        <q-badge :color="statusColor" :label="item.estado || '—'" />
+        <q-badge class="badge-purple " :label="item.estado || '—'" />
       </div>
     </q-card-section>
 
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+
 
 export interface ClothesItem {
   id: string;
@@ -54,14 +54,7 @@ function currency(n: number) {
   return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP', maximumFractionDigits: 0 }).format(n);
 }
 
-const statusColor = computed(() => {
-  const st = (props.item.estado || '').toLowerCase();
-  if (st.includes('dispon')) return 'blue';
-  if (st.includes('agota')) return 'red';
-  return 'grey-6';
-});
-
-const WHATSAPP_NUMBER = '14328882324';
+const WHATSAPP_NUMBER = '5354512675';
 function buyWhatsAppItem() {
   const quantity = 1;
   const lines: string[] = [];
@@ -78,7 +71,20 @@ function buyWhatsAppItem() {
 .clothes-card {
   width: 100%;
   max-width: 320px;
+  border: 2px solid #c28cf6; /* morado claro */
+  border-radius: 12px;
 }
+
+.badge-purple {
+  background: rgba(139, 92, 246, 0.18); /* morado traslúcido */
+  color: #5b2e86; /* texto morado oscuro para contraste */
+  border: 1px solid rgba(139, 92, 246, 0.35); /* borde sutil */
+}
+.badge-ofert {
+  background: rgba(248, 248, 248, 0.18); /* morado traslúcido */
+  color: #5b2e86; /* texto morado oscuro para contraste */
+}
+
 
 /* two-line clamp utility */
 .ellipsis-2-lines {

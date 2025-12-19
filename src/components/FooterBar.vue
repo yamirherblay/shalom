@@ -1,5 +1,5 @@
 <template>
-  <q-footer class="bg-secondary text-accent" bordered>
+  <q-footer :class="isClothStore ? 'custom-footer text-white' : 'bg-secondary text-accent'" bordered>
     <q-toolbar class="q-py-sm q-px-md">
       <div class="row items-center justify-between full-width q-col-gutter-md">
         <!-- Brand / Logo -->
@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
 interface Props {
   brand?: string;
@@ -40,7 +41,7 @@ const props = withDefaults(defineProps<Props>(), {
   brand: 'Mercado Texas',
   phone: '+53 54512675',
   email: 'mercadotexas@gmail.com',
-  whatsapp: '+53 54512675'
+  whatsapp: '+5354512675'
 });
 
 const year = computed(() => new Date().getFullYear());
@@ -48,8 +49,12 @@ const year = computed(() => new Date().getFullYear());
 // expose props for template (script setup auto-exposes)
 const { brand, phone, email, whatsapp } = props;
 
+const route = useRoute();
+const isClothStore = computed(() => route.name === 'clothStore' || route.path === '/clothStore');
 </script>
 
 <style scoped>
-/* Customize for dark mode if needed */
+.custom-footer {
+  background: rgba(176, 146, 243, 0.83);
+}
 </style>

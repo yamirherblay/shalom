@@ -1,19 +1,19 @@
 <template>
-  <q-page padding class="q-gutter-md">
+  <q-page padding class="q-gutter-md back-page ">
     <div class="column items-center q-gutter-xs text-center q-mb-md">
       <div class="text-h5 text-weight-bold">Sabrina's Fashion</div>
       <div class="text-subtitle2 text-grey-7">Ofertas de ropa, calzado y más</div>
     </div>
-    <section class="q-mb-md sticky-cats">
-      <q-scroll-area class="cat-scroll rounded-borders" :horizontal="true" :thumb-style="thumbStyle" :bar-style="barStyle">
-        <div class="row no-wrap q-gutter-sm items-center">
+    <section class="q-mb-md  sticky-cats" >
+      <q-scroll-area class="cat-scroll  rounded-borders" :horizontal="true" :thumb-style="thumbStyle" :bar-style="barStyle">
+        <div class="row no-wrap q-gutter-sm items-center ">
           <q-chip
             v-for="cat in categories"
             :key="cat.key"
             clickable
             :color="selectedCategory === cat.key ? 'primary' : 'grey-3'"
             :text-color="selectedCategory === cat.key ? 'white' : 'dark'"
-            class="q-px-md q-py-xs text-weight-medium"
+            class="q-px-md q-py-xs text-weight-medium justify-center"
             @click="selectCategory(cat.key)"
           >
             <span class="q-ml-xs">{{ cat.label }}</span>
@@ -169,5 +169,10 @@ onMounted(async () => {
   position: sticky;
   top: 56px; /* altura del header de Quasar (aprox) */
   z-index: 10; /* sobre el contenido de la página */
+
+}
+.back-page {
+  background: linear-gradient(#fdfdfd, #bd6cf4);
+
 }
 </style>

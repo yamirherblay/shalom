@@ -1,53 +1,472 @@
 [
-{
-  "id": "vestido-verano-01",
-  "name": "Vestido de ocasion",
-  "price": 1250,
-  "image": "/images/clothes/dress1.jpg",
-  "oferta": true,
-  "estado": "Disponible",
-  "shortDescription": "Fresco y ligero, perfecto para días soleados."
-},
+  {
+    "id": "blusa-alto-standing",
+    "name": "Blusa alto standing",
+    "price": 8400,
+    "image": "/images/clothes/Blusa Alto standing.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Corte elegante y tela suave para un look distinguido."
+  },
+  {
+    "id": "blusa-de-hilo-blanca",
+    "name": "Blusa de hilo blanca",
+    "price": 5600,
+    "image": "/images/clothes/Blusa de hilo blanca.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Ligera y fresca, ideal para días soleados."
+  },
+  {
+    "id": "camisa-beisbolera-2",
+    "name": "Camisa beisbolera (modelo 2)",
+    "price": 6900,
+    "image": "/images/clothes/Camisa Beisbolera 2.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Estilo deportivo con acabado premium."
+  },
+  {
+    "id": "camisa-beisbolera-1",
+    "name": "Camisa beisbolera",
+    "price": 6500,
+    "image": "/images/clothes/Camisa Beisbolera.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Cómoda y versátil para uso diario."
+  },
+  {
+    "id": "camisa-hombre-verano",
+    "name": "Camisa de hombre para verano",
+    "price": 5200,
+    "image": "/images/clothes/Camisa de hombre para Verano.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Tejido transpirable para el calor tropical."
+  },
+  {
+    "id": "camisas-largas",
+    "name": "Camisas largas",
+    "price": 6100,
+    "image": "/images/clothes/camisas largas.jpg",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Mangas largas con ajuste cómodo y moderno."
+  },
+  {
+    "id": "camisa-veraniega",
+    "name": "Camisa veraniega",
+    "price": 5300,
+    "image": "/images/clothes/Camisa Veraniega.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Colores vivos para resaltar tu estilo."
+  },
+  {
+    "id": "chaqueta-mezclilla-1",
+    "name": "Chaqueta de mezclilla (1)",
+    "price": 9200,
+    "image": "/images/clothes/Chaqueta de mezclilla 1.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Denim resistente con corte clásico."
+  },
+  {
+    "id": "chaqueta-mezclilla",
+    "name": "Chaqueta de mezclilla",
+    "price": 8950,
+    "image": "/images/clothes/Chaqueta de Mezclilla.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Ideal para completar tu outfit casual."
+  },
+  {
+    "id": "vestido-ocasion-01",
+    "name": "Vestido de ocasión",
+    "price": 7600,
+    "image": "/images/clothes/dress1.jpg",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Elegante y cómodo para eventos especiales."
+  },
   {
     "id": "vestido-verano-001",
     "name": "Vestido de verano",
-    "price": 1250,
+    "price": 5900,
     "image": "/images/clothes/dress2.webp",
-    "oferta": true,
+    "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
     "shortDescription": "Fresco y ligero, perfecto para días soleados."
   },
   {
-    "id": "camisa-verano-002",
-    "name": "camisas Largas",
-    "price": 1500,
-    "image": "/images/clothes/camisas largas.jpg",
+    "id": "fleteras-colores",
+    "name": "Fleteras varios colores",
+    "price": 3500,
+    "image": "/images/clothes/Fleteras varios colores.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Colores divertidos para combinar con tu look."
+  },
+  {
+    "id": "juego-playa-estampado",
+    "name": "Juego estampado de playa",
+    "price": 6800,
+    "image": "/images/clothes/Juego estampado de playa.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Conjunto ideal para la brisa marina."
+  },
+  {
+    "id": "juego-top-saya-corta",
+    "name": "Juego top y saya corta",
+    "price": 6200,
+    "image": "/images/clothes/Juego Top y saya corta.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Estilo juvenil y cómodo para salir."
+  },
+  {
+    "id": "juego-saya-y-blusa",
+    "name": "Juego saya y blusa",
+    "price": 6400,
+    "image": "/images/clothes/Juego Zaya y blusa.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Conjunto femenino de gran estilo."
+  },
+  {
+    "id": "overoll-joven",
+    "name": "Overol de joven",
+    "price": 8100,
+    "image": "/images/clothes/Overoll de joven.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Moderno y práctico para diario."
+  },
+  {
+    "id": "pantalon-bebitos",
+    "name": "Pantalón de bebitos",
+    "price": 3700,
+    "image": "/images/clothes/Pantalon de bebitos.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "bebé",
+    "shortDescription": "Suave y cómodo para los más pequeños."
+  },
+  {
+    "id": "pantalon-mezclilla-1",
+    "name": "Pantalón de mezclilla (1)",
+    "price": 7200,
+    "image": "/images/clothes/Pantalon de mezclilla 1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Fresco y ligero, perfecto para días soleados."
+    "shortDescription": "Denim resistente con ajuste clásico."
   },
   {
-    "id": "pants-womans-01",
-    "name": "Pantalonetas Largas",
-    "price": 3600,
+    "id": "pantalon-puno-unix",
+    "name": "Pantalón de puño unisex",
+    "price": 6100,
+    "image": "/images/clothes/Pantalon de puno unix.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "unisex",
+    "shortDescription": "Comodidad y estilo para cualquier ocasión."
+  },
+  {
+    "id": "pants-woman",
+    "name": "Pantalón para mujer",
+    "price": 6600,
     "image": "/images/clothes/pants woman.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Divino para tardear."
+    "shortDescription": "Corte favorecedor y tela suave."
   },
   {
-    "id": "sweater-mans-01",
-    "name": "Sweater manga Largas",
-    "price": 2600,
-    "image": "/images/clothes/sweater grey.webp",
+    "id": "pesquero-juvenil",
+    "name": "Pesquero juvenil",
+    "price": 5800,
+    "image": "/images/clothes/Pesquero Juvenil.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Fresco y casual para el día a día."
+  },
+  {
+    "id": "pitusa-faja-ancha",
+    "name": "Pitusa faja ancha",
+    "price": 5400,
+    "image": "/images/clothes/PItusa Faja ancha.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Ajuste cómodo con estilo moderno."
+  },
+  {
+    "id": "pullover-bebito",
+    "name": "Pulóver bebito",
+    "price": 3900,
+    "image": "/images/clothes/Pullover bebito .webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "bebé",
+    "shortDescription": "Abriga sin perder suavidad."
+  },
+  {
+    "id": "pullover-cuello",
+    "name": "Pulóver de cuello",
+    "price": 6300,
+    "image": "/images/clothes/Pullover de cuello1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Divino para tardear en invierno."
+    "shortDescription": "Cuello alto para noches frescas."
+  },
+  {
+    "id": "pullover-juvenil-1",
+    "name": "Pulóver juvenil (1)",
+    "price": 5200,
+    "image": "/images/clothes/Pullover Juvenil1.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Estampado moderno y cómodo."
+  },
+  {
+    "id": "pullover-juvenil-2a",
+    "name": "Pulóver juvenil (2)",
+    "price": 5100,
+    "image": "/images/clothes/Pullover Juvenil 2.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Suave al tacto, ideal para diario."
+  },
+  {
+    "id": "pullover-juvenil-2b",
+    "name": "Pulóver juvenil (2b)",
+    "price": 5050,
+    "image": "/images/clothes/Pullover Juvenil2.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Cálido y ligero, fácil de combinar."
+  },
+  {
+    "id": "pullover-juvenil-5",
+    "name": "Pulóver juvenil (5)",
+    "price": 5300,
+    "image": "/images/clothes/Pullover juvenil 5.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Colores vibrantes para tu día."
+  },
+  {
+    "id": "pullovers-juvenil-21",
+    "name": "Pulóver juvenil (21)",
+    "price": 5450,
+    "image": "/images/clothes/Pullovers Juvenil 21.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "juvenil",
+    "shortDescription": "Ajuste clásico de gran comodidad."
+  },
+  {
+    "id": "saya-mezclilla",
+    "name": "Saya de mezclilla",
+    "price": 6000,
+    "image": "/images/clothes/Saya Mezclilla.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Denim suave con estilo femenino."
+  },
+  {
+    "id": "short-azul-felpa",
+    "name": "Short azul felpa",
+    "price": 4600,
+    "image": "/images/clothes/short Azul Felpa.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Suave y cómodo para entrenar o descansar."
+  },
+  {
+    "id": "short-corto-mezclilla-1",
+    "name": "Short corto mezclilla (1)",
+    "price": 4800,
+    "image": "/images/clothes/Short corto mezclilla 1.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Corte moderno en denim fresco."
+  },
+  {
+    "id": "short-corto-mezclilla-3",
+    "name": "Short corto mezclilla (3)",
+    "price": 4950,
+    "image": "/images/clothes/Short Corto mezclilla 3.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Perfecto para días calurosos."
+  },
+  {
+    "id": "short-corto-mezclilla",
+    "name": "Short corto mezclilla",
+    "price": 4700,
+    "image": "/images/clothes/Short corto mezclilla .webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Denim suave con buen ajuste."
+  },
+  {
+    "id": "short-hombre-mezclilla",
+    "name": "Short de hombre mezclilla",
+    "price": 5200,
+    "image": "/images/clothes/Short de hombre mezclilla.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Resistente y cómodo para el día a día."
+  },
+  {
+    "id": "short-felpa-gorda",
+    "name": "Short felpa gorda",
+    "price": 4550,
+    "image": "/images/clothes/short Felpa gorda.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Abrigo ligero con gran suavidad."
+  },
+  {
+    "id": "short-mezclilla-4",
+    "name": "Short mezclilla (4)",
+    "price": 4850,
+    "image": "/images/clothes/Short Mezclilla 4.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Clásico y fácil de combinar."
+  },
+  {
+    "id": "short-mezclilla-5",
+    "name": "Short mezclilla (5)",
+    "price": 4900,
+    "image": "/images/clothes/Short mezclilla 5.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Denim con toque moderno."
+  },
+  {
+    "id": "short-mezclilla-6",
+    "name": "Short mezclilla (6)",
+    "price": 5000,
+    "image": "/images/clothes/Short Mezclilla 6.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Corte cómodo para uso diario."
+  },
+  {
+    "id": "short-mezclilla-hombre",
+    "name": "Short mezclilla hombre",
+    "price": 5350,
+    "image": "/images/clothes/short mezclilla Hombre.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Denim robusto y durable."
+  },
+  {
+    "id": "sweater-blanco",
+    "name": "Sweater blanco",
+    "price": 6100,
+    "image": "/images/clothes/Sweater blanco.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "unisex",
+    "shortDescription": "Básico infaltable, suave y combinable."
+  },
+  {
+    "id": "sweater-blanco-rojo",
+    "name": "Sweater blanco y rojo",
+    "price": 6050,
+    "image": "/images/clothes/Sweater Blanco y Rojo.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "unisex",
+    "shortDescription": "Contraste de color con gran estilo."
+  },
+  {
+    "id": "sweater-gris",
+    "name": "Sweater gris",
+    "price": 5900,
+    "image": "/images/clothes/sweater grey.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "hombre",
+    "shortDescription": "Abrigo ligero para media estación."
+  },
+  {
+    "id": "vestido-corto-azul",
+    "name": "Vestido corto azul",
+    "price": 7400,
+    "image": "/images/clothes/Vestido Corto Azul.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Color vibrante con caída perfecta."
+  },
+  {
+    "id": "vestido-de-ocasion-1",
+    "name": "Vestido de ocasión (1)",
+    "price": 7950,
+    "image": "/images/clothes/Vestido de ocacion 1.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Elegancia para momentos especiales."
+  },
+  {
+    "id": "vestido-nocturno-casual",
+    "name": "Vestido nocturno casual",
+    "price": 8200,
+    "image": "/images/clothes/Vestido nocturno casual.webp",
+    "oferta": true,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Ideal para salidas nocturnas con estilo."
+  },
+  {
+    "id": "vestido-ocasion-especial",
+    "name": "Vestido ocasión especial",
+    "price": 9100,
+    "image": "/images/clothes/Vestido Ocasion Especial.webp",
+    "oferta": false,
+    "estado": "Disponible",
+    "category": "mujer",
+    "shortDescription": "Diseño sofisticado y femenino."
   }
-
-
 ]
