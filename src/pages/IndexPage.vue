@@ -75,14 +75,14 @@ useMeta({
 type Category = { key: string; label: string; image: string };
 
 const categories = ref<Category[]>([
-  { key: 'ropa', label: 'Ropa', image: '/images/tiendaRopa.jpg' },
+  { key: 'Aseo', label: 'Aseo', image: '/images/aseo.webp' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
-  { key: 'ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
-  { key: 'Cárnicos', label: 'Cárnicos', image: '/images/Cárnicos.webp' },
-  { key: 'confituras', label: 'Confituras', image: '/images/confituras.webp' },
+  { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
+  { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
+  { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
   { key: 'belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
-  { key: 'bebidas' , label: 'Bebidas', image: '/images/bebidas.webp' },
+  { key: 'Bebidas' , label: 'Bebidas', image: '/images/bebidas.webp' },
 
 ]);
 
