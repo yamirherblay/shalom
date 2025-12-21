@@ -2,7 +2,7 @@
   { "id": "aceite-laloba-900ml", "name": "aceite laloba 900ml", "price": 950, "category": "hogar", "image": "/images/productos/aceite laloba 900ml.webp", "oferta": false, "estado": "Disponible" },
   { "id": "adorno-floral-1", "name": "Adorno Floral", "price": 2500, "category": "hogar", "image": "/images/productos/Adorno Floral 1.webp", "oferta": false, "estado": "Disponible" },
   { "id": "adorno-floral-girasol", "name": "Adorno Floral Girasol", "price": 1500, "category": "hogar", "image": "/images/productos/Adorno Floral Girasol.webp", "oferta": false, "estado": "Disponible" },
-  { "id": "agua-natural-ciego-montero-500-ml", "name": "Agua Natural Ciego Montero 500 ml", "price": 150, "category": "Bebidas", "image": "/images/productos/Agua Natural Ciego Montero 500 ml.webp", "oferta": false, "estado": "Disponible" },
+  { "id": "agua-natural-ciego-montero-500-ml", "name": "Agua Natural Ciego Montero 500 ml", "price": 150, "category": "Bebidas", "image": "/images/productos/Agua Natural Ciego Montero 500 ml.webp", "oferta": false, "estado": "Disponible"},
   { "id": "arroz-brazileiro-rainha", "name": "Arroz Brazileiro Rainha 1 kg", "price": 640, "category": "Granos", "image": "/images/productos/Arroz Brazileiro Rainha.webp", "oferta": false, "estado": "Disponible" },
   { "id": "arroz-disempre-1-kg", "name": "Arroz Disempre 1 kg", "price": 620, "category": "Granos", "image": "/images/productos/Arroz Disempre 1 kg.webp", "oferta": false, "estado": "Disponible" },
   { "id": "azucar-blanca-uniao-1kg", "name": "Azucar blanca Uniao 1kg", "price": 620, "category": "Granos", "image": "/images/productos/Azucar blanca Uniao 1kg.webp", "oferta": false, "estado": "Disponible" },

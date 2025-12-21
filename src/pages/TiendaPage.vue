@@ -50,7 +50,7 @@
             </q-card-section>
             <q-card-section class="q-pb-none">
               <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }}</div>
-              <div class="text-primary text-weight-bold">{{ formatPrice(product.price) }}</div>
+              <div class="text-primary text-weight-bold">{{ formatProductPrice(product) }}</div>
             </q-card-section>
 
             <q-separator />
@@ -58,6 +58,7 @@
             <q-card-actions align="between" class="q-pa-sm">
               <div class="row q-gutter-xs" v-if="product.estado == 'Disponible'">
                 <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" @click="buyWhatsAppProduct(product)" />
+                <q-btn v-if="product.category === 'combos' && product.descripcion" color="secondary" outline size="sm" icon="visibility" label="Ver" @click="openCombo(product)" />
                 <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" @click="addToCart(product)" />
               </div>
             </q-card-actions>
@@ -69,6 +70,32 @@
         No hay productos para esta categoría.
       </div>
     </section>
+
+    <!-- Modal para descripción de combo -->
+    <q-dialog v-model="showComboDialog">
+      <q-card style="max-width: 640px; width: 90vw">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">{{ selectedCombo?.name || 'Combo' }}</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+        <q-separator />
+        <q-card-section>
+          <div v-if="selectedCombo">
+            <q-img :src="selectedCombo.image" ratio="1" class="q-mb-md" />
+            <ul v-if="selectedCombo?.descripcion" class="q-pl-md q-my-sm">
+              <li v-for="(item, i) in splitDescripcion(selectedCombo.descripcion || '')" :key="i">
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </q-card-section>
+        <q-card-actions align="right">
+          <q-btn flat label="Cerrar" v-close-popup />
+          <q-btn v-if="selectedCombo" color="primary" unelevated label="Añadir al carrito" @click="addSelectedComboToCart()" />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -88,6 +115,7 @@ type Product = {
   image: string
   category: string
   estado:string
+  descripcion: string | null
 }
 
 const categories = ref<Category[]>([
@@ -132,6 +160,30 @@ onMounted(async () => {
 watch(() => route.query.cat, applyRouteCategory)
 const qty = reactive<Record<string, number>>({})
 
+// Estado para modal de combos
+const showComboDialog = ref(false)
+const selectedCombo = ref<Product | null>(null)
+
+function openCombo(product: Product) {
+  if (product.category === 'combos' && product.descripcion) {
+    selectedCombo.value = product
+    showComboDialog.value = true
+  }
+}
+function splitDescripcion(desc: string): string[] {
+  return desc
+    // separa por punto seguido de espacios y también por saltos de línea
+    .split(/\.|\n+/)
+    .map(s => s.trim())
+    .filter(Boolean)
+}
+function addSelectedComboToCart() {
+  if (selectedCombo.value) {
+    addToCart(selectedCombo.value)
+    showComboDialog.value = false
+  }
+}
+
 const filteredProducts = computed(() => {
   if (selectedCategory.value === 'all') return products.value
   return products.value.filter(p => p.category === selectedCategory.value)
@@ -141,8 +193,17 @@ function selectCategory(key: string) {
   selectedCategory.value = key
 }
 
-function formatPrice(value: number) {
-  return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'CUP' }).format(value)
+function formatAmount(value: number, currency: 'CUP' | 'USD') {
+  return new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: currency === 'USD' ? 2 : 0,
+  }).format(value)
+}
+
+function formatProductPrice(product: Product) {
+  const currency = product.category === 'combos' ? 'USD' : 'CUP'
+  return formatAmount(product.price, currency)
 }
 
 function addToCart(product: Product) {
@@ -178,8 +239,8 @@ function buyWhatsAppProduct(product: Product) {
   const quantity = Math.max(1, qty[product.id] || 1)
   const lines: string[] = []
   lines.push(`Hola, me interesa comprar este producto de MercadoTexas:`)
-  lines.push(`- ${product.name} x${quantity} — ${formatPrice(product.price)} c/u`)
-  lines.push(`Subtotal: ${formatPrice(product.price * quantity)}`)
+  lines.push(`- ${product.name} x${quantity} — ${formatProductPrice(product)} c/u`)
+  lines.push(`Subtotal: ${formatAmount(product.price * quantity, product.category === 'combos' ? 'USD' : 'CUP')}`)
   const text = encodeURIComponent(lines.join('\n'))
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`
   window.open(url, '_blank')

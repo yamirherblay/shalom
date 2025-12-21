@@ -83,7 +83,7 @@ const carouselHeight = computed(() => {
   // alturas aproximadas para móvil/tablet/desktop
   const w = window.innerHeight;
   if (w < 480) return '420px';
-  if (w < 1024) return '460px';
+  if (w < 1024) return '580px';
   return '500px';
 });
 

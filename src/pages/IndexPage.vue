@@ -6,7 +6,8 @@
       <!-- Marquee message at the top of hero -->
       <div class="marquee-bar">
         <div class="marquee-track ">
-          Aceptamos Moneda nacional, Zelle y Transferencias!
+          <span>--Aceptamos Moneda nacional, Zelle y Transferencias- </span>
+          <q-btn dense >---GRAN RIFA PARA EL 24 de DICIEMBRE--- </q-btn>
         </div>
       </div>
       <div class="column items-center text-center">
@@ -40,7 +41,7 @@
                     :label="cat.label"
                     unelevated
                     rounded
-                    @click="$router.push(`/tienda?cat=${cat.key}`)"
+                    @click="goToCategory(cat.key)"
                     />
                 </div>
               </q-card-section>
@@ -56,6 +57,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import {useMeta} from 'quasar';
+import {useRouter} from 'vue-router';
+
 useMeta({
   title: 'Tienda online en Las Tunas | Mercado Variado Texas',
   meta: {
@@ -73,7 +76,7 @@ useMeta({
 })
 
 type Category = { key: string; label: string; image: string };
-
+const $router = useRouter();
 const categories = ref<Category[]>([
   { key: 'Aseo', label: 'Aseo', image: '/images/aseo.webp' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
@@ -85,7 +88,14 @@ const categories = ref<Category[]>([
   { key: 'Bebidas' , label: 'Bebidas', image: '/images/bebidas.webp' },
 
 ]);
-
+function goToCategory(category: string) {
+  if(category!=='combos'){
+    void $router.push(`/tienda?cat=${category}`)
+  }
+  else{
+    void $router.push('clothStore')
+  }
+}
 </script>
 
 <style scoped>
