@@ -38,7 +38,7 @@
             <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
               <q-badge color="red" text-color="white" label="En Oferta" />
             </div>
-              <div class="absolute-top-left q-pa-sm" v-if="product.category ==='Combos'">
+              <div class="absolute-top-left q-pa-sm" v-if="product.category ==='combos'">
                 <q-badge color="primary" text-color="white" label="Pagar via Zelle" />
               </div>
             </q-img>

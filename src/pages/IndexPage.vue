@@ -55,16 +55,30 @@
     <!-- Modal triggered from marquee button -->
     <q-dialog v-model="showMarqueeModal">
       <q-card style="max-width: 520px; width: 92vw">
-        <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">Información</div>
+        <q-card-section class="row items-center q-pb-none  bg-primary">
+          <div class="text-h6 text-weight-bold">Eventos y especiales</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
         </q-card-section>
         <q-card-section>
-          <h3 class="q-mt-none q-mb-sm">Eventos y especiales</h3>
+          <h3 class="q-mt-none q-mb-sm">Rifa 24 diciembre</h3>
           <p>
-            Muy pronto compartiremos aquí detalles sobre eventos, rifas y especiales. ¡Mantente atento!
+            Con Solo comprar en nuestra Tienda Fisica, ubicada en Calle 24 de febrero # 190,
+            Ud. tiene el derecho de participar en la Rifa Especial por 24 de diciembre.
+            Podra adquirir un numero y tendra la oportunidad de ganarse:
+
           </p>
+          <ul>
+            <li>
+              1 pomo de aceite.
+            </li>
+            <li>
+              1 Paquete de Pollo 10 lb.
+            </li>
+            <li>
+              4 cervezas Cristal.
+            </li>
+          </ul>
         </q-card-section>
         <q-card-actions align="right">
           <q-btn color="primary" label="Entendido" v-close-popup />
