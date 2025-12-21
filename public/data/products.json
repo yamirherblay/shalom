@@ -90,7 +90,6 @@
   { "id": "pastillas-caldo-de-pollo-y-tomate", "name": "Pastillas Caldo de pollo y tomate", "price": 40, "category": "Sazon", "image": "/images/productos/Pastillas Caldo de pollo y tomate.webp", "oferta": false, "estado": "Disponible" },
   { "id": "pechugapollo1kg", "name": "Pechuga Pollo 1kg", "price": 2800, "category": "Cárnicos", "image": "/images/productos/PechugaPollo1kg.webp", "oferta": false, "estado": "Disponible" },
   { "id": "perfume-blue-moon", "name": "perfume Blue Moon", "price": 2500, "category": "Perfumes", "image": "/images/productos/perfume Blue Moon.webp", "oferta": false, "estado": "Disponible" },
-  { "id": "perfume-blue-moon-2", "name": "Perfume Blue Moon", "price": 330, "category": "Perfumes", "image": "/images/productos/Perfume Blue Moon.webp", "oferta": false, "estado": "Disponible" },
   { "id": "picadillo-de-pollo-caja", "name": "Picadillo de pollo por lb", "price": 330, "category": "Cárnicos", "image": "/images/productos/Picadillo de pollo Caja.webp", "oferta": false, "estado": "Disponible" },
   { "id": "picadillo-pollo-400g", "name": "Picadillo Pollo 400g", "price": 650, "category": "Cárnicos", "image": "/images/productos/Picadillo Pollo 400g.webp", "oferta": false, "estado": "Disponible" },
   { "id": "pintura-blanca", "name": "pintura blanca", "price": 2500, "category": "Ferreteria", "image": "/images/productos/pintura blanca.webp", "oferta": false, "estado": "Disponible" },

@@ -28,14 +28,13 @@
               </div>
             </div>
 
-            <div class="row justify-between items-center q-gmt-md">
+            <div class="row justify-end items-center q-gmt-md">
               <div class="text-grey-8">
-                <q-icon name="call" class="q-mr-xs" /> +53 5 000 0000
+                <q-icon name="call" class="q-mr-xs" /> +5354512675
                 <span class="q-mx-sm">•</span>
-                <q-icon name="mail" class="q-mr-xs" /> soporte@mercadotexas.cu
+                <q-icon name="mail" class="q-mr-xs" /> mercadotexas@gmail.com
               </div>
               <div class="row q-gutter-sm">
-
                 <q-btn type="reset" flat color="primary" label="Limpiar" :disable="loading" />
                 <q-btn type="submit" color="primary" unelevated :loading="loading" label="Enviar" icon="send" />
               </div>
