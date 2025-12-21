@@ -6,8 +6,8 @@
       <!-- Marquee message at the top of hero -->
       <div class="marquee-bar">
         <div class="marquee-track ">
-          <span>--Aceptamos Moneda nacional, Zelle y Transferencias- </span>
-          <q-btn dense >---GRAN RIFA PARA EL 24 de DICIEMBRE--- </q-btn>
+          <span>--Aceptamos Moneda nacional, Zelle (Tasa Cambio Vigente) y Transferencias- </span>
+          <q-btn dense @click="showMarqueeModal = true">---GRAN RIFA PARA EL 24 de DICIEMBRE--- </q-btn>
         </div>
       </div>
       <div class="column items-center text-center">
@@ -51,6 +51,27 @@
       </div>
     </section>
 
+
+    <!-- Modal triggered from marquee button -->
+    <q-dialog v-model="showMarqueeModal">
+      <q-card style="max-width: 520px; width: 92vw">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">Información</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
+        </q-card-section>
+        <q-card-section>
+          <h3 class="q-mt-none q-mb-sm">Eventos y especiales</h3>
+          <p>
+            Muy pronto compartiremos aquí detalles sobre eventos, rifas y especiales. ¡Mantente atento!
+          </p>
+        </q-card-section>
+        <q-card-actions align="right">
+          <q-btn color="primary" label="Entendido" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
   </q-page>
 </template>
 
@@ -79,17 +100,20 @@ type Category = { key: string; label: string; image: string };
 const $router = useRouter();
 const categories = ref<Category[]>([
   { key: 'Aseo', label: 'Aseo', image: '/images/aseo.webp' },
+  { key: 'Ropa', label: 'Ropa', image: '/images/tiendaRopa.jpg' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
   { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
   { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
-  { key: 'belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
+  { key: 'Granos', label: 'Granos', image: '/images/granos.webp' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
   { key: 'Bebidas' , label: 'Bebidas', image: '/images/bebidas.webp' },
 
 ]);
+
+const showMarqueeModal = ref(false);
 function goToCategory(category: string) {
-  if(category!=='combos'){
+  if(category!=='Ropa'){
     void $router.push(`/tienda?cat=${category}`)
   }
   else{
@@ -160,9 +184,15 @@ function goToCategory(category: string) {
   padding-left: 100%;
   font-weight: 600;
   font-size: 1.125rem;
-  animation: marquee-scroll 12s linear infinite;
+  animation: marquee-scroll 15s linear infinite;
 }
-
+.marquee-track:hover {
+  white-space: nowrap;
+  display: inline-block;
+  padding-left: 100%;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
