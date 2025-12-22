@@ -20,31 +20,21 @@
           </q-chip>
         </div>
       </q-scroll-area>
+      <MarqueeBar
+        message="Vísitanos y encontrarás esto y MUCHO MÁS..."
+      />
     </section>
+
     <div>
-      <q-carousel
-        v-if="filteredOffers.length"
-        v-model="slide"
-        swipeable
-        animated
-        arrows
-        infinite
-        autoplay
-        control-color="primary"
-        class="bg-transparent"
-        :height="carouselHeight"
-      >
-        <q-carousel-slide
-          v-for="(offer, idx) in filteredOffers"
+      <div v-if="filteredOffers.length" class="row q-col-gutter-md">
+        <div
+          v-for="offer in filteredOffers"
           :key="offer.id"
-          :name="idx"
-          class="flex flex-center"
+          class="col-6 col-sm-4 col-md-3 col-lg-2 flex justify-center"
         >
-          <div class="q-pa-sm" style="width: 100%; max-width: 360px;">
-            <ClothesCard :item="offer" @view="viewItem" />
-          </div>
-        </q-carousel-slide>
-      </q-carousel>
+          <ClothesCard :item="offer" />
+        </div>
+      </div>
 
       <div v-else-if="offers.length" class="q-my-xl text-grey text-center">
         No hay productos para esta categoría.
@@ -61,6 +51,7 @@
 import { onMounted, ref, computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import ClothesCard from 'src/components/ClothesCard.vue';
+import MarqueeBar from 'src/components/MarqueeBar.vue';
 
 interface OfferItem {
   id: string;
@@ -76,16 +67,8 @@ interface OfferItem {
 type Cat = { key: string; label: string };
 
 const offers = ref<OfferItem[]>([]);
-const slide = ref(0);
 const selectedCategory = ref<string>('all');
 
-const carouselHeight = computed(() => {
-  // alturas aproximadas para móvil/tablet/desktop
-  const w = window.innerHeight;
-  if (w < 480) return '420px';
-  if (w < 1024) return '580px';
-  return '500px';
-});
 
 const route = useRoute();
 
@@ -134,11 +117,6 @@ function capitalize(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-function viewItem(item: OfferItem) {
-  // Placeholder: aquí podrías navegar a un detalle si existiera ruta
-  console.log('ver item', item.id);
-}
-
 onMounted(async () => {
   try {
     const res = await fetch('/data/clothes.json');
@@ -152,11 +130,6 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* Asegurar que el carrusel no cause scroll vertical innecesario */
-:deep(.q-carousel__slides-container) {
-  align-items: center; /* centra verticalmente la tarjeta */
-}
-
 .cat-scroll {
   height: 56px;
   padding: 6px 4px;
@@ -169,10 +142,37 @@ onMounted(async () => {
   position: sticky;
   top: 56px; /* altura del header de Quasar (aprox) */
   z-index: 10; /* sobre el contenido de la página */
-
 }
+
 .back-page {
   background: linear-gradient(#fdfdfd, #bd6cf4);
-
 }
+.marquee-bar {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: rgba(169, 168, 169, 0.92);
+  color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.marquee-track {
+  white-space: nowrap;
+  display: inline-block;
+  padding-left: 100%;
+  font-weight: 600;
+  font-size: 1.125rem;
+  animation: marquee-scroll 15s linear infinite;
+}
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
 </style>

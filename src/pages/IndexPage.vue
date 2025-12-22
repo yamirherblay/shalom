@@ -4,12 +4,13 @@
     <!-- Hero Section -->
     <section class="q-pa-xl text-white hero-section">
       <!-- Marquee message at the top of hero -->
-      <div class="marquee-bar">
-        <div class="marquee-track ">
-          <span>--Aceptamos Moneda nacional, Zelle (Tasa Cambio Vigente) y Transferencias- </span>
-          <q-btn dense @click="showMarqueeModal = true">---GRAN RIFA PARA EL 24 de DICIEMBRE--- </q-btn>
-        </div>
-      </div>
+      <MarqueeBar
+        absolute
+        :show-button="true"
+        message="Formas de Pago: Zelle (Tasa Cambio Vigente) Moneda Nacional y Transferencias- "
+        button-label="-GRAN RIFA PARA EL 24 de DICIEMBRE-"
+        @button-click="showMarqueeModal = true"
+      />
       <div class="column items-center text-center">
         <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra Tienda</div>
         <div class="text-subtitle1 q-mb-lg">Ofertas irresistibles y productos seleccionados para ti</div>
@@ -93,6 +94,7 @@
 import { ref } from 'vue';
 import {useMeta} from 'quasar';
 import {useRouter} from 'vue-router';
+import MarqueeBar from 'src/components/MarqueeBar.vue';
 
 useMeta({
   title: 'Tienda online en Las Tunas | Mercado Variado Texas',
@@ -116,6 +118,7 @@ const categories = ref<Category[]>([
   { key: 'Aseo', label: 'Aseo', image: '/images/aseo.webp' },
   { key: 'Ropa', label: 'Ropa', image: '/images/tiendaRopa.jpg' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
+  { key: 'Zelle', label: 'Zelle', image: '/images/zelle.png' },
   { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
   { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },

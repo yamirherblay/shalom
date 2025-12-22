@@ -1,10 +1,12 @@
 <template>
   <q-card class="clothes-card">
-    <q-img :src="item.image || '/images/placeholder.svg'" ratio="1" :alt="item.name">
+    <q-img :src="item.image || '/images/placeholder.svg'"
+           ratio="1" :alt="item.name"
+           >
       <div class="absolute-top-right badge-ofert q-pa-sm" v-if="item.oferta">
         <q-badge class="badge-ofert" label="Oferta" />
       </div>
-    </q-img>
+  </q-img>
 
     <q-card-section>
       <div class="text-subtitle1 ellipsis-2-lines">{{ item.name }}</div>
@@ -33,10 +35,24 @@
       />
     </q-card-actions>
   </q-card>
+
+<!--  &lt;!&ndash; Dialog de imagen ampliada &ndash;&gt;
+  <q-dialog v-model="showPreview">
+    <q-card flat class="no-shadow bg-transparent" style="box-shadow: none">
+      <div class="relative-position">
+        <q-btn icon="close" round dense flat class="absolute-top-right q-ma-sm" v-close-popup aria-label="Cerrar" />
+        <q-img
+          :src="item.image || '/images/placeholder.svg'"
+          :alt="item.name"
+          spinner-color="white"
+          style="max-width: 95vw; max-height: 90vh"
+        />
+      </div>
+    </q-card>
+  </q-dialog>-->
 </template>
 
 <script setup lang="ts">
-
 
 export interface ClothesItem {
   id: string;
@@ -49,6 +65,7 @@ export interface ClothesItem {
 }
 
 const props = defineProps<{ item: ClothesItem }>();
+
 
 function currency(n: number) {
   return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP', maximumFractionDigits: 0 }).format(n);
@@ -65,6 +82,7 @@ function buyWhatsAppItem() {
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
   window.open(url, '_blank');
 }
+
 </script>
 
 <style scoped>
@@ -92,5 +110,13 @@ function buyWhatsAppItem() {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Marca la imagen como zoomable */
+.clickable-img { cursor: zoom-in; }
+
+/* Asegura que la imagen dentro del diálogo quepa completa */
+:deep(img.fit-contain) {
+  object-fit: contain;
 }
 </style>

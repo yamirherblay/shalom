@@ -38,7 +38,7 @@
             <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
               <q-badge color="red" text-color="white" label="En Oferta" />
             </div>
-              <div class="absolute-top-left q-pa-sm" v-if="product.category ==='combos'">
+              <div class="absolute-top-left q-pa-sm" v-if="product.category ==='combos' || product.category ==='Zelle'">
                 <q-badge color="primary" text-color="white" label="Pagar via Zelle" />
               </div>
             </q-img>
@@ -124,6 +124,7 @@ type Product = {
 const categories = ref<Category[]>([
   { key: 'all', label: 'Todas' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
+  { key: 'Zelle', label:'Zelle',image:'/images/zelle.png' },
   { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
   { key:'Granos', label: 'Granos', image: '/images/granos.webp' },
@@ -168,7 +169,7 @@ const showComboDialog = ref(false)
 const selectedCombo = ref<Product | null>(null)
 
 function openCombo(product: Product) {
-  if (product.category === 'combos' && product.descripcion) {
+  if ((product.category === 'combos' || product.category === 'Zelle') && product.descripcion ) {
     selectedCombo.value = product
     showComboDialog.value = true
   }
@@ -205,7 +206,7 @@ function formatAmount(value: number, currency: 'CUP' | 'USD') {
 }
 
 function formatProductPrice(product: Product) {
-  const currency = product.category === 'combos' ? 'USD' : 'CUP'
+  const currency = product.category === 'combos' || product.category === 'Zelle'  ? 'USD' : 'CUP'
   return formatAmount(product.price, currency)
 }
 
