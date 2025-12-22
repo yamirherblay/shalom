@@ -1,6 +1,13 @@
 <template>
   <q-page padding class="q-gutter-md back-page ">
     <div class="column items-center q-gutter-xs text-center q-mb-md">
+      <q-img
+        src="images/Sabrinallogo.jpeg"
+        alt="Logo Sabrina"
+        ratio="1"
+        style="max-width: 150px; border-radius: 50%;"
+        fit="contain"
+      />
       <div class="text-h5 text-weight-bold">Sabrina's Fashion</div>
       <div class="text-subtitle2 text-grey-7">Ofertas de ropa, calzado y más</div>
     </div>

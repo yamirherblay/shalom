@@ -71,11 +71,18 @@ function currency(n: number) {
   return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP', maximumFractionDigits: 0 }).format(n);
 }
 
-const WHATSAPP_NUMBER = '5354512675';
+const WHATSAPP_NUMBER = '5358156505';
 function buyWhatsAppItem() {
   const quantity = 1;
   const lines: string[] = [];
   lines.push('Hola, me interesa comprar este producto de MercadoTexas:');
+  const imageUrl = props.item.image
+    ? new URL(props.item.image, window.location.origin).href
+    : new URL('/images/placeholder.svg', window.location.origin).href;
+
+  // Añadir el enlace de la imagen al texto
+  lines.push('Foto:');
+  lines.push(imageUrl);
   lines.push(`- ${props.item.name} x${quantity} — ${currency(props.item.price)} c/u`);
   lines.push(`Subtotal: ${currency(props.item.price * quantity)}`);
   const text = encodeURIComponent(lines.join('\n'));

@@ -116,7 +116,7 @@ type Category = { key: string; label: string; image: string };
 const $router = useRouter();
 const categories = ref<Category[]>([
   { key: 'Aseo', label: 'Aseo', image: '/images/aseo.webp' },
-  { key: 'Ropa', label: 'Ropa', image: '/images/tiendaRopa.jpg' },
+  { key: 'Ropa', label: 'Sabrina Fashion', image: '/images/Sabrinallogo.jpeg' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
   { key: 'Zelle', label: 'Zelle', image: '/images/zelle.png' },
   { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
