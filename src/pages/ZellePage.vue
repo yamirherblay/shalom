@@ -85,8 +85,8 @@ const WHATSAPP_NUMBER = '14328882324'
 
 // Estado de la calculadora
 const currencyOptions = [
-  { label: 'CUP (Moneda Nacional)', value: 'CUP' },
-  { label: 'USD (Zelle)', value: 'USD' },
+  { label: 'CUP', value: 'CUP' },
+  { label: 'USD', value: 'USD' },
 ] as const
 
 const selectedCurrency = ref<'CUP' | 'USD'>('CUP')
@@ -113,11 +113,13 @@ const result = computed<number>(() => {
 const resultCurrency = computed<'CUP' | 'USD'>(() => (selectedCurrency.value === 'CUP' ? 'CUP' : 'USD'))
 
 function formatAmount(value: number, currency: 'CUP' | 'USD') {
-  return new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
-    style: 'currency',
-    currency,
+  const formatted =  Intl.NumberFormat(
+    currency === 'USD' ? 'en-US' : 'es-ES', {
+    minimumFractionDigits: currency === 'USD' ? 2 : 0,
     maximumFractionDigits: currency === 'USD' ? 2 : 0,
+
   }).format(value || 0)
+  return `${formatted} ${currency}`
 }
 
 const formattedResult = computed(() => formatAmount(result.value, resultCurrency.value))
@@ -137,7 +139,7 @@ function requestByWhatsApp() {
   const lines: string[] = []
   lines.push('Solicitud de servicio de remesas (Zelle)')
   lines.push(`Moneda ingresada: ${selectedCurrency.value}`)
-  lines.push(`Monto ingresado: ${formatAmount(amount.value, selectedCurrency.value)}`)
+  lines.push(`Monto ingresado: ${formatAmount(amount.value, 'USD')}`)
   lines.push(`Tasa de cambio vigente: 1 USD = ${exchangeRate.value} CUP`)
   lines.push(`Porciento de entrega: ${deliveryPercent.value}%`)
   lines.push(`Monto a entregar: ${formattedResult.value}`)

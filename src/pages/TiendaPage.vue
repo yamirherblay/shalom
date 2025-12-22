@@ -118,6 +118,7 @@ type Product = {
   oferta: boolean
   image: string
   category: string
+  subcategory: string | null
   estado:string
   descripcion: string | null
 }
@@ -212,15 +213,15 @@ function selectCategory(key: string) {
 }
 
 function formatAmount(value: number, currency: 'CUP' | 'USD') {
-  return new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
-    style: 'currency',
-    currency,
+  const formatted = new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
+    minimumFractionDigits: currency === 'USD' ? 2 : 0,
     maximumFractionDigits: currency === 'USD' ? 2 : 0,
   }).format(value)
+  return `${formatted} ${currency}`
 }
 
 function formatProductPrice(product: Product) {
-  const currency = product.category === 'combos' || product.category === 'Zelle'  ? 'USD' : 'CUP'
+  const currency = product.category === 'combos' || product.subcategory === 'Zelle'  ? 'USD' : 'CUP'
   return formatAmount(product.price, currency)
 }
 
