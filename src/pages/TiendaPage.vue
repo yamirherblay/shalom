@@ -107,6 +107,7 @@ import { computed, reactive, ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCartStore } from 'src/stores/cart'
 import type { Product as StoreProduct } from 'src/stores/types'
+import { useMeta } from 'quasar';
 
 type Category = { key: string; label: string; image?: string }
 
@@ -121,15 +122,28 @@ type Product = {
   descripcion: string | null
 }
 
+useMeta({
+  title: 'Tienda online en Las Tunas | Mercado Variado Texas',
+  meta: {
+    description: { name: 'description', content: 'Compra cárnicos, confituras y productos del hogar, Ropa, Calzado, Combos en Las Tunas, Cuba. Entrega local rápida.' },
+    keywords: { name: 'keywords', content: 'tienda online Las Tunas, cárnicos Las Tunas, confituras en Las Tunas, productos del hogar en Las Tunas, combos en Las Tunas, Cuba, Ropa, Calzado' },
+    // Open Graph
+    ogTitle: { property: 'og:title', content: 'Tienda online en Las Tunas | Mercado Variado Texas' },
+    ogDescription: { property: 'og:description', content: 'Variedad de productos para el hogar, confituras , cárnicos.' },
+    ogImage: { property: 'og:image', content: '/images/og-home.jpg' },
+    ogUrl: { property: 'og:url', content: 'https://mercado-tex.vercel.app' }
+  },
+  link: {
+    canonical: { rel: 'canonical', href: 'https://mercado-tex.vercel.app' }
+  }
+})
 const categories = ref<Category[]>([
   { key: 'all', label: 'Todas' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
-  { key: 'Zelle', label:'Zelle',image:'/images/zelle.png' },
   { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
-  { key:'Granos', label: 'Granos', image: '/images/granos.webp' },
+  { key: 'Granos', label: 'Granos', image: '/images/granos.webp' },
   { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
-  { key: 'Belleza', label: 'Belleza', image: '/images/cosmeticos.png' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
   { key:'Bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
   { key:'Aseo' , label:'Aseo',image:'/images/aseo.webp' },

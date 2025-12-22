@@ -30,12 +30,16 @@
           <q-item-section>Inicio</q-item-section>
         </q-item>
         <q-item clickable v-ripple to="/clothStore">
-          <q-item-section avatar><q-icon name="store" /></q-item-section>
+          <q-item-section avatar><q-icon name="checkroom" /></q-item-section>
           <q-item-section>Sabrina's Fashion</q-item-section>
         </q-item>
         <q-item clickable v-ripple to="/tienda">
           <q-item-section avatar><q-icon name="store" /></q-item-section>
           <q-item-section>Mercado</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple to="/Zelle">
+          <q-item-section avatar><q-icon name="currency_exchange" /></q-item-section>
+          <q-item-section>Remesas via Zelle</q-item-section>
         </q-item>
         <q-item clickable v-ripple to="/about">
           <q-item-section avatar><q-icon name="info" /></q-item-section>

@@ -130,11 +130,11 @@ const categories = ref<Category[]>([
 
 const showMarqueeModal = ref(false);
 function goToCategory(category: string) {
-  if(category!=='Ropa'){
+  if(category!=='Ropa' && category !== 'Zelle'){
     void $router.push(`/tienda?cat=${category}`)
   }
-  else{
-    void $router.push('clothStore')
+  if(category==='Zelle'){
+    void $router.push('Zelle')
   }
 }
 </script>
@@ -180,43 +180,7 @@ function goToCategory(category: string) {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
-.marquee-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 44px;
-  background: rgba(169, 168, 169, 0.92);
-  color: #000;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  z-index: 2;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
 
-.marquee-track {
-  white-space: nowrap;
-  display: inline-block;
-  padding-left: 100%;
-  font-weight: 600;
-  font-size: 1.125rem;
-  animation: marquee-scroll 15s linear infinite;
-}
-.marquee-track:hover {
-  white-space: nowrap;
-  display: inline-block;
-  padding-left: 100%;
-  font-weight: 600;
-  font-size: 1.125rem;
-}
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; padding-left: 0; }
-}
 
 </style>
