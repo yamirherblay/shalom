@@ -141,7 +141,9 @@ function requestByWhatsApp() {
   lines.push(`Moneda ingresada: ${selectedCurrency.value}`)
   lines.push(`Monto ingresado: ${formatAmount(amount.value, 'USD')}`)
   lines.push(`Tasa de cambio vigente: 1 USD = ${exchangeRate.value} CUP`)
-  lines.push(`Porciento de entrega: ${deliveryPercent.value}%`)
+  if(selectedCurrency.value === 'USD') {
+    lines.push(`Porciento a depositar: ${deliveryPercent.value}%`)
+  }
   lines.push(`Monto a entregar: ${formattedResult.value}`)
   lines.push('¿Pueden asistirme con esta solicitud?')
   const text = encodeURIComponent(lines.join('\n'))
