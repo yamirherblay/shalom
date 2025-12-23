@@ -1,5 +1,20 @@
 <template>
   <q-page class="q-pa-md tienda-page">
+    <div>
+      <q-select
+        v-model="selectedCategory"
+        :options="categories"
+        option-value="key"
+        option-label="label"
+        emit-value
+        map-options
+        label="Filtre por Categoría"
+        dense
+        filled
+        @update:model-value="selectCategory"
+      />
+
+    </div>
     <!-- Categorías: barra horizontal con scroll fino y atractivo -->
     <section class="q-mb-md sticky-cats">
       <q-scroll-area class="cat-scroll rounded-borders" :horizontal="true" :thumb-style="thumbStyle" :bar-style="barStyle">
@@ -148,6 +163,7 @@ const categories = ref<Category[]>([
   { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
   { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
   { key:'Bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
+  { key: 'Agropecuarios', label: 'Del Agro', image:'/images/Productos-agricolas.jpg' },
   { key:'Aseo' , label:'Aseo',image:'/images/aseo.webp' },
   { key:'Sazon', label:'Sazon',image:'/images/sazon.webp' },
   {key: 'Enlatados', label:'Enlatados',image:'/images/enlatados.jpg' },
