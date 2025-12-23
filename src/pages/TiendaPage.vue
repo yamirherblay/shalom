@@ -53,7 +53,7 @@
             </q-card-section>
             <q-card-section class="q-pb-none">
               <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }}</div>
-              <div class="text-primary text-weight-bold">{{ formatProductPrice(product) }}</div>
+              <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'" >{{ formatProductPrice(product) }}</div>
             </q-card-section>
 
             <q-separator />
@@ -118,6 +118,7 @@ type Product = {
   oferta: boolean
   image: string
   category: string
+  currency: string
   subcategory: string | null
   estado:string
   descripcion: string | null
@@ -220,8 +221,16 @@ function formatAmount(value: number, currency: 'CUP' | 'USD') {
   return `${formatted} ${currency}`
 }
 
+function getProductCurrency(product: Product): 'CUP' | 'USD' {
+  // Determina la moneda según lo que se muestra en la card (sin tocar el JSON):
+  // - Combos o productos marcados para pagar via Zelle se muestran en USD
+  // - El resto en CUP
+  const isUsd = product.category === 'combos' || product.category === 'Zelle' || product.subcategory === 'Zelle'
+  return isUsd ? 'USD' : 'CUP'
+}
+
 function formatProductPrice(product: Product) {
-  const currency = product.category === 'combos' || product.subcategory === 'Zelle'  ? 'USD' : 'CUP'
+  const currency = getProductCurrency(product)
   return formatAmount(product.price, currency)
 }
 
@@ -235,7 +244,8 @@ function addToCart(product: Product) {
     image: product.image,
     categoryId: product.category,
   }
-  cart.add(mapped, q)
+  const currencyCode: 'CUP' | 'USD' = getProductCurrency(product)
+  cart.add(mapped, q, currencyCode)
 }
 
 const thumbStyle = {
@@ -259,7 +269,7 @@ function buyWhatsAppProduct(product: Product) {
   const lines: string[] = []
   lines.push(`Hola, me interesa comprar este producto de MercadoTexas:`)
   lines.push(`- ${product.name} x${quantity} — ${formatProductPrice(product)} c/u`)
-  lines.push(`Subtotal: ${formatAmount(product.price * quantity, product.category === 'combos' ? 'USD' : 'CUP')}`)
+  lines.push(`Subtotal: ${formatAmount(product.price * quantity, getProductCurrency(product))}`)
   const text = encodeURIComponent(lines.join('\n'))
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`
   window.open(url, '_blank')

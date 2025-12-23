@@ -7,7 +7,7 @@
       <MarqueeBar
         absolute
         :show-button="true"
-        message="Formas de Pago: Zelle (Tasa Cambio Vigente) Moneda Nacional y Transferencias- "
+        message="Formas de Pago: Zelle (Tasa Cambio Vigente) Moneda Nacional y Transferencias- Domicilio con costo adicional- "
         button-label="-GRAN RIFA PARA EL 24 de DICIEMBRE-"
         @button-click="showMarqueeModal = true"
       />
