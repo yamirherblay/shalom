@@ -73,7 +73,7 @@
          <h1>
           .._???_..
          </h1>
-            
+
           </div>
         </q-card-section>
         <q-card-actions align="right">

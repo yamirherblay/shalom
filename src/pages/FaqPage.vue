@@ -51,7 +51,7 @@
                 <q-card-section>
                   <p>
                     Sí, realizamos entregas locales en Las Tunas. Tras confirmar tu pedido, coordinamos el horario y el
-                    punto de entrega. Los tiempos pueden variar según la disponibilidad.
+                    punto de entrega. Los tiempos pueden variar según la disponibilidad y eso conlleva a un costo adicional.
                   </p>
                 </q-card-section>
               </q-card>
