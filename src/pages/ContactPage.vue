@@ -58,7 +58,7 @@
               </div>
               <div class="row q-gutter-sm">
                 <q-btn type="reset" flat color="primary" label="Limpiar" :disable="loading" />
-                <q-btn flat round dense icon="email" :href="mailtoLink" label="Enviar correo" />
+                <q-btn flat round dense icon="email" :href="mailtoLink" label="Enviar correo" target="_blank" rel="noopener" />
                 <q-btn
                   type="submit"
                   dense

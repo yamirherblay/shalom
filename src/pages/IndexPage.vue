@@ -57,7 +57,7 @@
     <q-dialog v-model="showMarqueeModal">
       <q-card style="max-width: 520px; width: 92vw">
         <q-card-section class="row items-center q-pb-none  bg-primary">
-          <div class="text-h6 text-weight-bold">Eventos y especiales</div>
+          <div class="text-h6 text-weight-bold text-white">Eventos y especiales</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
         </q-card-section>
