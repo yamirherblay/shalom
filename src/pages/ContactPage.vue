@@ -4,7 +4,8 @@
       <div class="text-h5 q-mb-sm">Contacto</div>
       <div class="text-body1 q-mb-lg">
         ¿Tienes alguna pregunta, sugerencia o necesitas ayuda con tu pedido? Escríbenos mediante el
-        formulario y te responderemos lo antes posible. También puedes llamarnos o escribir por WhatsApp.
+        formulario y te responderemos lo antes posible. También puedes llamarnos o escribir por
+        WhatsApp.
       </div>
 
       <q-card flat bordered>
@@ -12,10 +13,23 @@
           <q-form @submit.prevent="onSubmit" @reset.prevent="onReset" ref="formRef">
             <div class="row q-col-gutter-md">
               <div class="col-12 col-sm-6">
-                <q-input v-model="form.fullName" label="Nombre y apellidos" :rules="[req]" dense filled />
+                <q-input
+                  v-model="form.fullName"
+                  label="Nombre y apellidos"
+                  :rules="[req]"
+                  dense
+                  filled
+                />
               </div>
               <div class="col-12 col-sm-6">
-                <q-input v-model="form.email" type="email" label="Correo electrónico" :rules="[req, isEmail]" dense filled />
+                <q-input
+                  v-model="form.email"
+                  type="email"
+                  label="Correo electrónico"
+                  :rules="[req, isEmail]"
+                  dense
+                  filled
+                />
               </div>
               <div class="col-12 col-sm-6">
                 <q-input v-model="form.phone" type="tel" label="Teléfono" dense filled />
@@ -24,7 +38,15 @@
                 <q-input v-model="form.subject" label="Asunto" :rules="[req]" dense filled />
               </div>
               <div class="col-12">
-                <q-input v-model="form.message" type="textarea" autogrow label="Mensaje" :rules="[reqMin]" dense filled />
+                <q-input
+                  v-model="form.message"
+                  type="textarea"
+                  autogrow
+                  label="Mensaje"
+                  :rules="[reqMin]"
+                  dense
+                  filled
+                />
               </div>
             </div>
 
@@ -32,11 +54,17 @@
               <div class="text-grey-8">
                 <q-icon name="call" class="q-mr-xs" /> +5354512675
                 <span class="q-mx-sm">•</span>
-                <q-icon name="mail" class="q-mr-xs" /> mercadotexas@gmail.com
+                <q-icon name="mail" class="q-mr-xs" /> {{EMAIL}}
               </div>
               <div class="row q-gutter-sm">
                 <q-btn type="reset" flat color="primary" label="Limpiar" :disable="loading" />
-                <q-btn type="submit" color="primary" unelevated :loading="loading" label="Enviar" icon="send" />
+                <q-btn flat round dense icon="email" :href="mailtoLink" label="Enviar correo" />
+                <q-btn
+                  type="submit"
+                  dense
+                  :loading="loading"
+                  icon="fa-brands fa-whatsapp"
+                />
               </div>
             </div>
           </q-form>
@@ -47,14 +75,14 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { reactive, ref, computed } from 'vue';
 import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
 
 // Número de WhatsApp al que se enviará el mensaje (solo dígitos, formato internacional)
 const WHATSAPP_NUMBER = '5354512675';
-
+const EMAIL = 'mercadvariadotexas@gmail.com';
 const formRef = ref();
 const loading = ref(false);
 
@@ -66,7 +94,23 @@ const form = reactive({
   message: '',
 });
 
-function req(v: string) { return !!v || 'Requerido'; }
+// Enlace mailto dinámico construido a partir del formulario
+const mailtoLink = computed(() => {
+  const subject = form.subject?.trim() || 'Consulta desde el formulario de contacto';
+  const lines: string[] = [];
+  if (form.subject) lines.push(`Asunto: ${form.subject}`);
+  if (form.message) lines.push(`Mensaje: ${form.message}`);
+  const sender = [form.fullName || null, form.email || null, form.phone || null]
+    .filter(Boolean)
+    .join(' | ');
+  if (sender) lines.push(`Enviado por: ${sender}`);
+  const body = lines.join('\n');
+  return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+function req(v: string) {
+  return !!v || 'Requerido';
+}
 function isEmail(v: string) {
   if (!v) return 'Requerido';
   const ok = /.+@.+\..+/.test(v);
@@ -99,7 +143,10 @@ async function onSubmit() {
     $q.notify({ type: 'positive', message: 'Abriendo WhatsApp para enviar tu mensaje…' });
     onReset();
   } catch {
-    $q.notify({ type: 'negative', message: 'No se pudo preparar el envío por WhatsApp. Intenta nuevamente.' });
+    $q.notify({
+      type: 'negative',
+      message: 'No se pudo preparar el envío por WhatsApp. Intenta nuevamente.',
+    });
   } finally {
     loading.value = false;
   }
@@ -116,12 +163,11 @@ function onReset() {
 
 <style scoped>
 /* Ensure two-column layout on >= sm is handled by Quasar grid classes */
-.contact-page{
+.contact-page {
   max-width: 100%;
   padding: 0 16px;
-
 }
-.contact-page::before{
+.contact-page::before {
   position: absolute;
   width: 100%;
   height: 100%;

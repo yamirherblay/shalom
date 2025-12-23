@@ -40,7 +40,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   brand: 'Mercado Texas',
   phone: '+53 54512675',
-  email: 'mercadotexas@gmail.com',
+  email: 'mercadvariadotexas@gmail.com',
   whatsapp: '+5354512675'
 });
 
