@@ -63,6 +63,9 @@
         </q-card-section>
         <q-card-section>
           <h3 class="q-mt-none q-mb-sm">Rifa 24 diciembre</h3>
+          <q-img src="/images/comboRifa.jpeg"
+                 ratio="1"
+          />
           <p>
             Con Solo comprar en nuestra Tienda Fisica, ubicada en Calle 24 de febrero # 190,
             Ud. tiene el derecho de participar en la Rifa Especial por 24 de diciembre.
@@ -77,7 +80,13 @@
               1 Paquete de Pollo 10 lb.
             </li>
             <li>
-              4 cervezas Cristal.
+             12 cervezas Moyoc.
+            </li>
+            <li>
+              1 Paquete de Arroz.
+            </li>
+            <li>
+              5 Sazones varios.
             </li>
           </ul>
         </q-card-section>

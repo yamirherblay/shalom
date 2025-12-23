@@ -93,7 +93,7 @@
   { "id": "pechugapollo1kg", "name": "Pechuga Pollo 1kg", "price": 2800, "category": "Cárnicos", "image": "/images/productos/PechugaPollo1kg.webp", "oferta": false, "estado": "Disponible" },
   { "id": "perfume-blue-moon", "name": "perfume Blue Moon", "price": 2500, "category": "Perfumes", "image": "/images/productos/perfume Blue Moon.webp", "oferta": false, "estado": "Disponible" },
   { "id": "picadillo-de-pollo-caja", "name": "Picadillo de pollo por lb", "price": 330, "category": "Cárnicos", "image": "/images/productos/Picadillo de pollo Caja.webp", "oferta": false, "estado": "Disponible" },
-  { "id": "picadillo-pollo-400g", "name": "Picadillo Pollo 400g", "price": 650, "category": "Cárnicos", "image": "/images/productos/Picadillo Pollo 400g.webp", "oferta": false, "estado": "Disponible" },
+  { "id": "Jamon-pollo-400g", "name": "Jamón de Pollo 400g", "price": 600, "category": "Cárnicos", "image": "/images/productos/Picadillo Pollo 400g.webp", "oferta": false, "estado": "Disponible" },
   { "id": "pintura-blanca", "name": "pintura blanca", "price": 2500, "category": "Ferreteria", "image": "/images/productos/pintura blanca.webp", "oferta": false, "estado": "Disponible" },
   { "id": "pollo-cuartos-10lb", "name": "Pollo Cuartos 10lb", "price": 4100, "category": "Cárnicos", "image": "/images/productos/Pollo Cuartos 10lb.webp", "oferta": false, "estado": "Disponible" },
   { "id": "pollo-muslos-4-4lb", "name": "Pollo Muslos 4.4lb", "price": 2200, "category": "Cárnicos", "image": "/images/productos/Pollo Muslos 4.4lb.webp", "oferta": false, "estado": "Disponible" },

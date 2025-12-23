@@ -17,9 +17,7 @@
         </div>
       </div>
     </q-toolbar>
-
     <q-separator />
-
     <div class="q-px-md q-py-sm text-caption text-center text-white">
       © {{ year }} {{ brand }} — Todos los derechos reservados.
     </div>
