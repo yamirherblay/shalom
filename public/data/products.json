@@ -72,7 +72,6 @@
   { "id": "leche-entera-en-polvo", "name": "Leche Entera en polvo ", "price": 2800, "category": "Lacteos", "image": "/images/productos/Leche Entera en polvo .webp", "oferta": false, "estado": "Disponible" },
   { "id": "llavin-puerta1", "name": "llavin puerta", "price": 6500, "category": "Ferreteria", "image": "/images/productos/llavin puerta1.webp", "oferta": false, "estado": "Disponible" },
   { "id": "llavin-puerta-2", "name": "Llavin puerta", "price": 6500, "category": "Ferreteria", "image": "/images/productos/Llavin puerta 2.webp", "oferta": false, "estado": "Disponible" },
-  { "id": "loza-antiresbalante", "name": "Loza Antiresbalante ", "price": 8300, "category": "Ferreteria", "image": "/images/productos/Loza Antiresbalante .webp", "oferta": false, "estado": "Disponible" },
   { "id": "malta-perla-negra", "name": "Malta perla negra", "price": 300, "category": "Bebidas", "image": "/images/productos/malta perla negra.webp", "oferta": false, "estado": "Disponible" },
   { "id": "malta-unlager", "name": "Malta Unlager", "price": 280, "category": "Bebidas", "image": "/images/productos/Malta Unlager.webp", "oferta": false, "estado": "Disponible" },
   { "id": "manilla-de-puerta-1ud", "name": "Manillas de puerta 1ud", "price": 1000, "category": "Ferreteria", "image": "/images/productos/Manilla de puerta 1ud.webp", "oferta": false, "estado": "Disponible" },
