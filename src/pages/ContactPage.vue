@@ -22,19 +22,6 @@
                 />
               </div>
               <div class="col-12 col-sm-6">
-                <q-input
-                  v-model="form.email"
-                  type="email"
-                  label="Correo electrónico"
-                  :rules="[req, isEmail]"
-                  dense
-                  filled
-                />
-              </div>
-              <div class="col-12 col-sm-6">
-                <q-input v-model="form.phone" type="tel" label="Teléfono" dense filled />
-              </div>
-              <div class="col-12 col-sm-6">
                 <q-input v-model="form.subject" label="Asunto" :rules="[req]" dense filled />
               </div>
               <div class="col-12">
@@ -58,11 +45,12 @@
               </div>
               <div class="row q-gutter-sm">
                 <q-btn type="reset" flat color="primary" label="Limpiar" :disable="loading" />
-                <q-btn flat round dense icon="email" :href="mailtoLink" label="Enviar correo" target="_blank" rel="noopener" />
+                <q-btn flat round dense icon="email" :href="isFormValid ? mailtoLink : undefined" :disable="!isFormValid || loading" label="Enviar correo" target="_blank" rel="noopener" />
                 <q-btn
                   type="submit"
                   dense
                   :loading="loading"
+                  :disable="!isFormValid || loading"
                   icon="fa-brands fa-whatsapp"
                 />
               </div>
@@ -88,8 +76,6 @@ const loading = ref(false);
 
 const form = reactive({
   fullName: '',
-  email: '',
-  phone: '',
   subject: '',
   message: '',
 });
@@ -100,7 +86,7 @@ const mailtoLink = computed(() => {
   const lines: string[] = [];
   if (form.subject) lines.push(`Asunto: ${form.subject}`);
   if (form.message) lines.push(`Mensaje: ${form.message}`);
-  const sender = [form.fullName || null, form.email || null, form.phone || null]
+  const sender = [form.fullName || null,]
     .filter(Boolean)
     .join(' | ');
   if (sender) lines.push(`Enviado por: ${sender}`);
@@ -111,15 +97,18 @@ const mailtoLink = computed(() => {
 function req(v: string) {
   return !!v || 'Requerido';
 }
-function isEmail(v: string) {
-  if (!v) return 'Requerido';
-  const ok = /.+@.+\..+/.test(v);
-  return ok || 'Correo inválido';
-}
 function reqMin(v: string) {
   if (!v) return 'Requerido';
   return v.trim().length >= 10 || 'Mínimo 10 caracteres';
 }
+
+// Validez general del formulario para habilitar botones
+const isFormValid = computed(() => {
+  const nameOk = !!form.fullName?.trim();
+  const subjectOk = !!form.subject?.trim();
+  const messageOk = !!form.message && form.message.trim().length >= 10;
+  return nameOk && subjectOk && messageOk;
+});
 
 async function onSubmit() {
   const valid = await formRef.value?.validate?.();
@@ -131,7 +120,7 @@ async function onSubmit() {
     const lines: string[] = [];
     if (form.subject) lines.push(`Asunto: ${form.subject}`);
     if (form.message) lines.push(`Mensaje: ${form.message}`);
-    const sender = [form.fullName || null, form.email || null, form.phone || null]
+    const sender = [form.fullName || null]
       .filter(Boolean)
       .join(' | ');
     if (sender) lines.push(`Enviado por: ${sender}`);
@@ -154,8 +143,6 @@ async function onSubmit() {
 
 function onReset() {
   form.fullName = '';
-  form.email = '';
-  form.phone = '';
   form.subject = '';
   form.message = '';
 }
