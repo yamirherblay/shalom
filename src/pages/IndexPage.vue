@@ -71,14 +71,9 @@
           />
           <div class="text-h6 text-center text-weight-bold text-black">
          <h1>
-          ...86..
+          .._???_..
          </h1>
-            <h5>
-              FELICIDADES
-            </h5>
-          <h6>
-            PEPITO MAYEDO
-          </h6>
+            
           </div>
         </q-card-section>
         <q-card-actions align="right">
