@@ -62,6 +62,9 @@
             <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
               <q-badge color="red" text-color="white" label="En Oferta" />
             </div>
+              <div class="absolute-top-left q-pa-sm" v-if="product.new">
+                <q-badge color="red" text-color="white" label="NUEVO" />
+              </div>
               <div class="absolute-top-left q-pa-sm" v-if="product.category ==='combos' || product.category ==='Zelle'">
                 <q-badge color="primary" text-color="white" label="Pagar via Zelle" />
               </div>
@@ -143,6 +146,7 @@ type Product = {
   image: string
   category: string
   currency: string
+  new: boolean
   subcategory: string | null
   estado:string
   descripcion: string | null
