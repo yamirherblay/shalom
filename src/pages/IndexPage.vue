@@ -7,14 +7,17 @@
       <MarqueeBar
         absolute
         :show-button="true"
-        message="Formas de Pago: Zelle (Tasa Cambio Vigente) Moneda Nacional y Transferencias- Domicilio con costo adicional- "
-        button-label="-GRAN RIFA PARA EL 24 de DICIEMBRE-"
+        message="-GANADOR DE LA RIFA- -GANADOR DE LA RIFA-"
+        button-label="-DA click para saber-"
         @button-click="showMarqueeModal = true"
       />
       <div class="column items-center text-center">
         <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra Tienda</div>
         <div class="text-subtitle1 q-mb-lg">Ofertas irresistibles y productos seleccionados para ti</div>
-        <q-btn color="primary" size="lg" label="Ir al MERCADO" to="/tienda" unelevated bordered rounded class="q-mt-xl" />
+        <div class="row justify-center q-gutter-sm q-mt-xl">
+          <q-btn color="primary" size="lg" label="Ir al MERCADO" to="/tienda" unelevated bordered rounded />
+          <q-btn color="secondary" size="lg" label="Ofertas Mayoristas" to="/mayoristas" unelevated rounded icon="sell" />
+        </div>
       </div>
     </section>
 
@@ -62,33 +65,21 @@
           <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
         </q-card-section>
         <q-card-section>
-          <h3 class="q-mt-none q-mb-sm">Rifa 24 diciembre</h3>
+          <h3 class="q-mt-none q-mb-sm">GANADOR DE LA RIFA</h3>
           <q-img src="/images/comboRifa.jpeg"
                  ratio="1"
           />
-          <p>
-            Con Solo comprar en nuestra Tienda Fisica, ubicada en Calle 24 de febrero # 190,
-            Ud. tiene el derecho de participar en la Rifa Especial por 24 de diciembre.
-            Podra adquirir un numero y tendra la oportunidad de ganarse:
-
-          </p>
-          <ul>
-            <li>
-              1 pomo de aceite.
-            </li>
-            <li>
-              1 Paquete de Pollo 10 lb.
-            </li>
-            <li>
-             12 cervezas Moyoc.
-            </li>
-            <li>
-              1 Paquete de Arroz.
-            </li>
-            <li>
-              5 Sazones varios.
-            </li>
-          </ul>
+          <div class="text-h6 text-center text-weight-bold text-black">
+         <h1>
+          ...86..
+         </h1>
+            <h5>
+              FELICIDADES
+            </h5>
+          <h6>
+            PEPITO MAYEDO
+          </h6>
+          </div>
         </q-card-section>
         <q-card-actions align="right">
           <q-btn color="primary" label="Entendido" v-close-popup />

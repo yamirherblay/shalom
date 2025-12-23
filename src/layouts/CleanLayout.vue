@@ -10,6 +10,7 @@
         <div class="row items-center gt-sm q-gutter-x-xs">
           <q-btn flat dense label="" to="/" icon="home" class="gt-xs" />
           <q-btn flat dense label="Mercado" to="/tienda" icon="store" class="gt-xs" />
+          <q-btn flat dense label="Mayoristas" to="/mayoristas" icon="sell" class="gt-xs" />
           <q-btn flat dense label="Sabrina's Fashion" to="/clothStore" icon="checkroom" class="gt-xs" />
           <q-btn flat dense label="Quiénes somos" to="/about" icon="info" class="gt-xs" />
           <q-btn flat dense label="FAQ" to="/faq" icon="help_center" class="gt-xs" />
@@ -37,6 +38,10 @@
         <q-item clickable v-ripple to="/tienda">
           <q-item-section avatar><q-icon name="store" /></q-item-section>
           <q-item-section>Mercado</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple to="/mayoristas">
+          <q-item-section avatar><q-icon name="sell" /></q-item-section>
+          <q-item-section>Mayoristas</q-item-section>
         </q-item>
         <q-item clickable v-ripple to="/Zelle">
           <q-item-section avatar><q-icon name="currency_exchange" /></q-item-section>

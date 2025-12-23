@@ -20,6 +20,15 @@
       <q-scroll-area class="cat-scroll rounded-borders" :horizontal="true" :thumb-style="thumbStyle" :bar-style="barStyle">
         <div class="row no-wrap q-gutter-sm items-center">
           <q-chip
+            clickable
+            color="green"
+            text-color="white"
+            class="q-px-md q-py-xs text-weight-medium"
+            icon="sell"
+            label="Mayoristas"
+            @click="goMayoristas"
+          />
+          <q-chip
             v-for="cat in categories"
             :key="cat.key"
             clickable
@@ -119,7 +128,7 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref, watch, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useCartStore } from 'src/stores/cart'
 import type { Product as StoreProduct } from 'src/stores/types'
 import { useMeta } from 'quasar';
@@ -227,6 +236,11 @@ const filteredProducts = computed(() => {
 
 function selectCategory(key: string) {
   selectedCategory.value = key
+}
+
+const $router = useRouter()
+function goMayoristas() {
+  void $router.push('/mayoristas')
 }
 
 function formatAmount(value: number, currency: 'CUP' | 'USD') {
