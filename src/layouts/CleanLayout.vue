@@ -12,6 +12,7 @@
           <q-btn flat dense label="Mercado" to="/tienda" icon="store" class="gt-xs" />
           <q-btn flat dense label="Sabrina's Fashion" to="/clothStore" icon="checkroom" class="gt-xs" />
           <q-btn flat dense label="Quiénes somos" to="/about" icon="info" class="gt-xs" />
+          <q-btn flat dense label="FAQ" to="/faq" icon="help_center" class="gt-xs" />
           <q-btn flat dense label="Contacto" to="/contact" icon="contact_support" class="gt-xs"  />
         </div>
         <!-- Cart button -->
@@ -44,6 +45,10 @@
         <q-item clickable v-ripple to="/about">
           <q-item-section avatar><q-icon name="info" /></q-item-section>
           <q-item-section>Quiénes somos</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple to="/faq">
+          <q-item-section avatar><q-icon name="help_center" /></q-item-section>
+          <q-item-section>FAQ</q-item-section>
         </q-item>
         <q-item clickable v-ripple to="/contact">
           <q-item-section avatar><q-icon name="contact_support" /></q-item-section>
