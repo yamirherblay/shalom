@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-md">
+  <q-page class="q-pa-md back-faqbg">
     <div class="row q-col-gutter-md">
       <div class="col-12 col-md-10 col-lg-8 q-mx-auto">
         <q-card flat bordered class="q-pa-md">
@@ -109,5 +109,8 @@ useMeta({
 <style scoped>
 .rounded-borders {
   border-radius: 8px;
+}
+.back-faqbg {
+background: linear-gradient(#FFFFFF, #f6e3e3);
 }
 </style>

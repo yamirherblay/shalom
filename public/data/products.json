@@ -8,7 +8,7 @@
   { "id": "arroz-brazileiro-rainha", "name": "Arroz Brazileiro Rainha 1 kg", "price": 640, "category": "Granos", "image": "/images/productos/Arroz Brazileiro Rainha.webp", "new":true, "oferta": false, "estado": "Disponible" },
   { "id": "combo-1", "name": "Combo Cena Maestra", "price": 155, "category": "combos", "image": "/images/productos/combo1.jpg", "new":false, "oferta": false, "estado": "Disponible","descripcion": "Pollo Premium (10 lb). Arroz Rainha (5 paquetes de 1 kg).Frijol Negro (1 kg). Aceite (5 pomo de 900 ml). 1 Fill de Huevos. Cerveza Cristal Extra 2 Cajas. 1 Botella de Whiskey Premium. (Se lleva hasta su casa)." },
   { "id": "arroz-disempre-1-kg", "name": "Arroz Disempre 1 kg", "price": 620, "category": "Granos", "image": "/images/productos/Arroz Disempre 1 kg.webp", "new":false, "oferta": false, "estado": "Disponible" },
-  { "id": "azucar-cristal-sublime-1kg", "name": "Azucar Cristal Sublime 1kg", "price": 620, "category": "Granos", "image": "/images/productos/Azucar Cristal Sublime 1kg.webp", "new":false, "oferta": false, "estado": "Disponible" },
+  { "id": "azucar-cristal-sublime-1kg", "name": "Azucar Cristal Sublime 1kg", "price": 650, "category": "Granos", "image": "/images/productos/Azucar Cristal Sublime 1kg.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "grey-beteado-7500", "name": "Grey moteado para pisos", "price": 7500, "category": "Ferreteria", "image": "/images/productos/Grey beteado 7500.jpeg", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "grey-blanco", "name": "Grey Blanco para pisos", "price": 8300, "category": "Ferreteria", "image": "/images/productos/Grey Blanco 8300.jpeg", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "grey-marmolado", "name": "Grey Marmolado para pisos ", "price": 8300, "category": "Ferreteria", "image": "/images/productos/Grey marmolado 8300.jpeg", "new":false, "oferta": false, "estado": "Disponible" },
@@ -139,7 +139,7 @@
   { "id": "sazon-completo-1", "name": "Sazon completo 1", "price": 70, "category": "Sazon", "image": "/images/productos/comboZelle/Sazon completo 1.jpeg", "new":false, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." },
   { "id": "sazon-sabor-costilla-de-res", "name": "sazon sabor costilla de RES", "price": 70, "category": "Sazon", "image": "/images/productos/comboZelle/sazon sabor costilla de RES.jpeg", "new":false, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." },
   { "id": "sazon-sabor-tocino", "name": "Sazon Sabor Tocino", "price": 70, "category": "Sazon", "image": "/images/productos/comboZelle/Sazon Sabor Tocino.jpeg", "new":true, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." },
-  { "id": "huevo-15und", "name": "Huevo 15 und", "price": 1650, "category": "Cárnicos", "image": "/images/productos/Huevo 15 und 1600.jpeg", "new":false, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." },
-  { "id": "huevo-30und", "name": "Huevo 30 und", "price": 1650, "category": "Cárnicos", "image": "/images/productos/Huevo 30 und 3100.jpeg", "new":false, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." }
+  { "id": "huevo-15und", "name": "Huevo 15 und", "price": 1550, "category": "Cárnicos", "image": "/images/productos/Huevo 15 und 1600.jpeg", "new":false, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." },
+  { "id": "huevo-30und", "name": "Huevo 30 und", "price": 3100, "category": "Cárnicos", "image": "/images/productos/Huevo 30 und 3100.jpeg", "new":false, "oferta": false, "estado": "Disponible", "descripcion": "1 paquetes 10g." }
 
 ]
