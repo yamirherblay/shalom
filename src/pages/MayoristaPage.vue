@@ -2,7 +2,9 @@
   <q-page class="q-pa-md">
     <div class="q-mb-md text-center">
       <div class="text-h5 text-weight-bold text-primary">Ofertas Mayoristas</div>
-      <div class="text-subtitle2 text-grey-8">Productos para compras al por mayor — coordina por WhatsApp</div>
+      <div class="text-subtitle2 text-grey-8">
+        Productos para compras al por mayor — coordina por WhatsApp
+      </div>
     </div>
 
     <section>
@@ -14,10 +16,16 @@
         >
           <q-card flat bordered class="product-card column full-height">
             <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image">
-              <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
+              <div
+                class="absolute-top-right q-pa-sm"
+                v-if="product.oferta && product.estado !== 'Agotado'"
+              >
                 <q-badge color="red" text-color="white" label="En Oferta" />
               </div>
-              <div class="absolute-top-left q-pa-sm" v-if="product.category ==='combos' || product.category ==='Zelle'">
+              <div
+                class="absolute-top-left q-pa-sm"
+                v-if="product.category === 'combos' || product.category === 'Zelle'"
+              >
                 <q-badge color="primary" text-color="white" label="Pagar via Zelle" />
               </div>
             </q-img>
@@ -26,21 +34,42 @@
                 :label="product.estado"
                 dense
                 class="q-px-md q-py-xs fa-text-height"
-                :color="product.estado ==='Disponible'? 'blue' : 'red'"
-                :text-color="product.estado ==='Disponible' ? 'white' : 'grey'"
+                :color="product.estado === 'Disponible' ? 'blue' : 'red'"
+                :text-color="product.estado === 'Disponible' ? 'white' : 'grey'"
               />
             </q-card-section>
             <q-card-section class="q-pb-none">
-              <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }}</div>
-              <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'">{{ formatProductPrice(product) }}</div>
+              <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">
+                {{ product.name }}
+              </div>
+              <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'">
+                {{ formatProductPrice(product) }}
+              </div>
             </q-card-section>
 
             <q-separator />
 
             <q-card-actions align="between" class="q-pa-sm">
               <div class="row q-gutter-xs" v-if="product.estado == 'Disponible'">
-                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" label="Solicitar" aria-label="Solicitar por WhatsApp" title="Solicitar por WhatsApp" @click="requestB2B(product)" />
-                <q-btn v-if="product.category === 'combos' && product.descripcion" color="secondary" outline size="sm" icon="visibility" label="Ver" @click="openCombo(product)" />
+                <q-btn
+                  color="positive"
+                  unelevated
+                  size="sm"
+                  icon="fa-brands fa-whatsapp"
+                  label="Solicitar"
+                  aria-label="Solicitar por WhatsApp"
+                  title="Solicitar por WhatsApp"
+                  @click="requestB2B(product)"
+                />
+                <q-btn
+                  v-if="product.category === 'combos' && product.descripcion"
+                  color="secondary"
+                  outline
+                  size="sm"
+                  icon="visibility"
+                  label="Ver"
+                  @click="openCombo(product)"
+                />
                 <!-- Nota: Sin botón de añadir al carrito en página mayorista -->
               </div>
             </q-card-actions>
@@ -81,99 +110,112 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
-import { useMeta } from 'quasar'
+import { computed, onMounted, ref } from 'vue';
+import { useMeta } from 'quasar';
 
 type Product = {
-  id: string
-  name: string
-  price: number
-  oferta: boolean
-  image: string
-  category: string
-  currency?: string
-  subcategory?: string | null
-  estado: string
-  descripcion?: string | null
-}
+  id: string;
+  name: string;
+  price: number;
+  oferta: boolean;
+  image: string;
+  category: string;
+  currency?: string;
+  subcategory?: string | null;
+  estado: string;
+  descripcion?: string | null;
+};
 
 useMeta({
   title: 'Ofertas Mayoristas | Mercado Texas',
   meta: {
-    description: { name: 'description', content: 'Consulta productos con ofertas mayoristas y coordina compras B2B por WhatsApp.' },
+    description: {
+      name: 'description',
+      content: 'Consulta productos con ofertas mayoristas y coordina compras B2B por WhatsApp.',
+    },
     ogTitle: { property: 'og:title', content: 'Ofertas Mayoristas | Mercado Texas' },
-    ogDescription: { property: 'og:description', content: 'Lista de productos con opción de compra mayorista (B2B).' },
+    ogDescription: {
+      property: 'og:description',
+      content: 'Lista de productos con opción de compra mayorista (B2B).',
+    },
     ogImage: { property: 'og:image', content: '/images/og-home.jpg' },
-  }
-})
+  },
+});
 
-const products = ref<Product[]>([])
+const products = ref<Product[]>([]);
 
 onMounted(async () => {
   try {
-    const res = await fetch('/data/products.json')
-    const data: Product[] = await res.json()
-    products.value = data
+    const res = await fetch('/data/mayorista.json');
+    products.value = await res.json();
   } catch (e) {
-    console.error('Error cargando productos.json', e)
+    console.error('Error cargando productos.json', e);
   }
-})
+});
 
 const mayoristaProducts = computed(() =>
-  products.value.filter(p => (p.subcategory || '').toLowerCase() === 'mayorista')
-)
+  products.value.filter((p) => (p.subcategory || '').toLowerCase() === 'mayorista'),
+);
 
 function formatAmount(value: number, currency: 'CUP' | 'USD') {
   const formatted = new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
     minimumFractionDigits: currency === 'USD' ? 2 : 0,
     maximumFractionDigits: currency === 'USD' ? 2 : 0,
-  }).format(value)
-  return `${formatted} ${currency}`
+  }).format(value);
+  return `${formatted} ${currency}`;
 }
 
 function getProductCurrency(product: Product): 'CUP' | 'USD' {
-  const isUsd = product.category === 'combos' || product.category === 'Zelle' || (product.subcategory || '') === 'Zelle'
-  return isUsd ? 'USD' : 'CUP'
+  const isUsd =
+    product.category === 'combos' ||
+    product.category === 'Zelle' ||
+    (product.subcategory || '') === 'Zelle';
+  return isUsd ? 'USD' : 'CUP';
 }
 
 function formatProductPrice(product: Product) {
-  const currency = getProductCurrency(product)
-  return formatAmount(product.price, currency)
+  const currency = getProductCurrency(product);
+  return formatAmount(product.price, currency);
 }
 
-const WHATSAPP_NUMBER = '5354512675'
+const WHATSAPP_NUMBER = '5354512675';
 function requestB2B(product: Product) {
-  const lines: string[] = []
-  lines.push('Hola, me interesa una compra mayorista (B2B) con MercadoTexas:')
-  lines.push(`- Producto: ${product.name} — ${formatProductPrice(product)}`)
-  lines.push('¿Podemos coordinar cantidades, precios por volumen y entrega?')
-  const text = encodeURIComponent(lines.join('\n'))
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`
-  window.open(url, '_blank')
+  const lines: string[] = [];
+  lines.push('Hola, me interesa una compra mayorista (B2B) con MercadoTexas:');
+  lines.push(`- Producto: ${product.name} — ${formatProductPrice(product)}`);
+  lines.push('¿Podemos coordinar cantidades, precios por volumen y entrega?');
+  const text = encodeURIComponent(lines.join('\n'));
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  window.open(url, '_blank');
 }
 
 // Combo description modal helpers (reutilizados)
-const showComboDialog = ref(false)
-const selectedCombo = ref<Product | null>(null)
+const showComboDialog = ref(false);
+const selectedCombo = ref<Product | null>(null);
 
 function openCombo(product: Product) {
   if ((product.category === 'combos' || product.category === 'Zelle') && product.descripcion) {
-    selectedCombo.value = product
-    showComboDialog.value = true
+    selectedCombo.value = product;
+    showComboDialog.value = true;
   }
 }
 function splitDescripcion(desc: string): string[] {
-  return desc.split(/\.|\n+/).map(s => s.trim()).filter(Boolean)
+  return desc
+    .split(/\.|\n+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
 }
 </script>
 
 <style scoped>
 .product-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .product-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 .product-image {
   background-color: #fafafa;

@@ -1,0 +1,4 @@
+[
+  { "id": "harina-de-trigo-dona-flor", "name": "Harina de Trigo Dona Flor", "price": 550, "subcategory":"Mayorista","category": "Granos", "image": "/images/productos/Harina de Trigo Dona Flor.webp", "new":false, "oferta": false, "estado": "Disponible" },
+  { "id": "refresco-sabores-varios", "name": "Refresco Sabores Varios", "price": 30, "subcategory":"Mayorista", "category": "Confituras", "image": "/images/productos/Refresco Sabores Varios.webp", "new":false, "oferta": true, "estado": "Disponible" }
+]
