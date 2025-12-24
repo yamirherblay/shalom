@@ -1,120 +1,116 @@
 <template>
   <q-page class="column">
-
     <!-- Hero Section -->
     <section class="q-pa-xl text-white hero-section">
       <!-- Marquee message at the top of hero -->
       <MarqueeBar
         absolute
         :show-button="true"
-        message="--Formas de Pago: Zelle, Transferencias, Moneda Nacional.--"
-        button-label="-¡NUEVA PROMOCIÓN DE LANZAMIENTO!-"
+        message="--Formas de Pago: Zelle, Transferencias, Moneda Nacional.---¡NUEVA PROMOCIÓN DE LANZAMIENTO!-"
+        button-label="Da click y entérate!"
         @button-click="showMarqueeModal = true"
       />
       <div class="column items-center text-center">
         <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra Tienda</div>
-        <div class="text-subtitle1 q-mb-lg">Ofertas irresistibles y productos seleccionados para ti</div>
+        <div class="text-subtitle1 q-mb-lg">
+          Ofertas irresistibles y productos seleccionados para ti
+        </div>
         <div class="row justify-center q-gutter-sm q-mt-xl">
-          <q-btn color="primary" size="lg" label="Ir al MERCADO" to="/tienda" unelevated bordered rounded />
-          <q-btn color="secondary" size="lg" label="Ofertas Mayoristas" to="/mayoristas" unelevated rounded icon="sell" />
+          <q-btn
+            color="primary"
+            size="lg"
+            label="Ir al MERCADO"
+            to="/tienda"
+            unelevated
+            bordered
+            rounded
+          />
+          <q-btn
+            color="secondary"
+            size="lg"
+            label="Ofertas Mayoristas"
+            to="/mayoristas"
+            unelevated
+            rounded
+            icon="sell"
+          />
         </div>
       </div>
     </section>
 
     <!-- Qué ofrecemos (categorías) -->
-    <section class="q-pa-lg text-grey-light ">
+    <section class="q-pa-lg text-grey-light">
       <div class="text-h5 text-center q-mb-md">¿Qué ofrecemos?</div>
       <div class="q-gutter-md">
         <div class="row q-col-gutter-md items-center justify-evenly">
-            <q-card
-              v-for="cat in categories"
-              :key="cat.key"
-              flat
-              class="category-card cursor-pointer">
-              <q-card-section class="column items-center text-center ">
-                <q-img
-                  :src="cat.image"
-                  class="category-img"
-                  :ratio="1"
+          <q-card
+            v-for="cat in categories"
+            :key="cat.key"
+            flat
+            class="category-card cursor-pointer"
+          >
+            <q-card-section class="column items-center text-center">
+              <q-img :src="cat.image" class="category-img" :ratio="1" />
+              <div class="text-subtitle2 q-mt-sm">
+                <q-btn
+                  color="primary"
+                  class="q-mb-xs"
+                  size="sm"
+                  :label="cat.label"
+                  unelevated
+                  rounded
+                  @click="goToCategory(cat.key)"
                 />
-                <div class="text-subtitle2 q-mt-sm">
-                  <q-btn
-                    color="primary"
-                    class="q-mb-xs"
-                    size="sm"
-                    :label="cat.label"
-                    unelevated
-                    rounded
-                    @click="goToCategory(cat.key)"
-                    />
-                </div>
-              </q-card-section>
-            </q-card>
-
+              </div>
+            </q-card-section>
+          </q-card>
         </div>
       </div>
     </section>
 
-
     <!-- Modal triggered from marquee button -->
     <q-dialog v-model="showMarqueeModal">
-      <q-card style="max-width: 520px; width: 92vw">
-        <q-card-section class="row items-center q-pb-none  bg-primary">
-          <div class="text-h6 text-weight-bold text-white">Eventos especial</div>
-          <q-space />
-          <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
-        </q-card-section>
-        <q-card-section>
-          <h3 class="q-mt-none q-mb-sm">
-            ¡COMPRA Y GANA LO QUE COMPRAS!
-          </h3>
-          <h4 class="q-mt-none q-mb-sm">
-            Desde el jueves 25 de diciembre 8:30 AM.
-          </h4>
-          <div class="text-h6 text-center text-weight-bold text-black">
-         <h6>
-           Para celebrar el lanzamiento de nuestra página web, llega una promo que te va a encantar:
-           <ul>
-            <li> Toda persona que realice su compra a través de nuestra página web quedará automáticamente seleccionada para participar.</li>
-            <li>Al momento de comprar, deberá elegir un único número.</li>
-            <li>El valor total de la compra realizada durante la semana será devuelto al ganador o ganadora.</li>
-            <li>Solo las compras hechas por nuestra página web participan en la promoción.</li>
-           </ul>
-           <b>El ganador o ganadora será anunciado el viernes 1ro de enero.</b>
-         </h6>
-              <h4>Así de fácil: compras, participas y puedes recuperar todo lo que compraste.</h4>
-          </div>
-        </q-card-section>
-        <q-card-actions align="right">
-          <q-btn color="primary" label="Entendido" v-close-popup />
-        </q-card-actions>
-      </q-card>
+      <eventSpecial />
     </q-dialog>
-
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import {useMeta} from 'quasar';
-import {useRouter} from 'vue-router';
+import { useMeta } from 'quasar';
+import { useRouter } from 'vue-router';
 import MarqueeBar from 'src/components/MarqueeBar.vue';
+import EventSpecial from 'pages/EventSpecial.vue';
 
 useMeta({
   title: 'Tienda online en Las Tunas | Mercado Variado Texas',
   meta: {
-    description: { name: 'description', content: 'Compra cárnicos, confituras y productos del hogar en Las Tunas, Cuba. Entrega local rápida.' },
-    keywords: { name: 'keywords', content: 'tienda online Las Tunas, cárnicos Las Tunas, confituras en Las Tunas, productos del hogar en Las Tunas,combos en Las Tunas, Cuba' },
+    description: {
+      name: 'description',
+      content:
+        'Compra cárnicos, confituras y productos del hogar en Las Tunas, Cuba. Entrega local rápida.',
+    },
+    keywords: {
+      name: 'keywords',
+      content:
+        'tienda online Las Tunas, cárnicos Las Tunas, confituras en Las Tunas, productos del hogar en Las Tunas,combos en Las Tunas, Cuba',
+    },
     // Open Graph
-    ogTitle: { property: 'og:title', content: 'Tienda online en Las Tunas | Mercado Variado Texas' },
-    ogDescription: { property: 'og:description', content: 'Variedad de productos para el hogar, confituras , cárnicos.' },
+    ogTitle: {
+      property: 'og:title',
+      content: 'Tienda online en Las Tunas | Mercado Variado Texas',
+    },
+    ogDescription: {
+      property: 'og:description',
+      content: 'Variedad de productos para el hogar, confituras , cárnicos.',
+    },
     ogImage: { property: 'og:image', content: '/images/og-home.jpg' },
-    ogUrl: { property: 'og:url', content: 'https://mercado-tex.vercel.app' }
+    ogUrl: { property: 'og:url', content: 'https://mercado-tex.vercel.app' },
   },
   link: {
-    canonical: { rel: 'canonical', href: 'https://mercado-tex.vercel.app' }
-  }
-})
+    canonical: { rel: 'canonical', href: 'https://mercado-tex.vercel.app' },
+  },
+});
 
 type Category = { key: string; label: string; image: string };
 const $router = useRouter();
@@ -127,18 +123,17 @@ const categories = ref<Category[]>([
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
   { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
   { key: 'Granos', label: 'Granos', image: '/images/granos.webp' },
-  { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
-  { key: 'Bebidas' , label: 'Bebidas', image: '/images/bebidas.webp' },
-
+  { key: 'combos', label: 'Combos', image: '/images/cestaProductoBasicos.png' },
+  { key: 'Bebidas', label: 'Bebidas', image: '/images/bebidas.webp' },
 ]);
 
 const showMarqueeModal = ref(false);
 function goToCategory(category: string) {
-  if(category!=='Ropa' && category !== 'Zelle'){
-    void $router.push(`/tienda?cat=${category}`)
+  if (category !== 'Ropa' && category !== 'Zelle') {
+    void $router.push(`/tienda?cat=${category}`);
   }
-  if(category==='Zelle'){
-    void $router.push('Zelle')
+  if (category === 'Zelle') {
+    void $router.push('Zelle');
   }
 }
 </script>
@@ -156,7 +151,7 @@ function goToCategory(category: string) {
 }
 
 .hero-section::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background:
@@ -177,14 +172,13 @@ function goToCategory(category: string) {
   object-fit: cover;
 }
 .category-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
   justify-content: space-between;
 }
 .category-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
-
-
-
 </style>
