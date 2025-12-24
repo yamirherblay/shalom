@@ -30,7 +30,7 @@
   { "id": "cinta-tape-para-electricidad", "name": "Cinta Tape para electricidad", "price": 500, "category": "Ferreteria", "image": "/images/productos/Cinta Tape para electricidad.webp", "new":false, "oferta": false, "estado": "Disponible" },
    { "id": "detergente-hit-1-kg", "name": "Detergente HIT 1 kg", "price": 750, "category": "hogar", "image": "/images/productos/Detergente MIX 1 kg.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "detergente-stb-500g", "name": "detergente STB 500g", "price": 500, "category": "hogar", "image": "/images/productos/detergente STB 500g.webp", "new":false, "oferta": false, "estado": "Agotado" },
-  { "id": "espaguetis-pasta-rosso-500g", "name": "espaguetis pasta rosso 500g ", "price": 350, "category": "Pastas", "image": "/images/productos/espaguetis pasta rosso 500g .webp", "new":false, "oferta": false, "estado": "Disponible" },
+  { "id": "espaguetis-pasta-rosso-500g", "name": "espaguetis pasta rosso 500g ", "price": 330, "category": "Pastas", "image": "/images/productos/espaguetis pasta rosso 500g .webp", "new":false, "oferta": false, "estado": "Agotado" },
   { "id": "ferreteria-01", "name": "Tornillo con Tuerca 1 und", "price": 30, "category": "Ferreteria", "image": "/images/productos/Ferreteria 01.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "ferreteria-02", "name": "Tornillo con Tuerca 1 und", "price": 30, "category": "Ferreteria", "image": "/images/productos/Ferreteria 02.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "ferreteria-03", "name": "Tirafondos 1/4 pulg", "price": 30, "category": "Ferreteria", "image": "/images/productos/Ferreteria 03.webp", "new":true, "oferta": false, "estado": "Disponible" },
