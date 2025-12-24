@@ -71,10 +71,10 @@
           />
           <div class="text-h6 text-center text-weight-bold text-black">
          <h1>
-          "?"
+          "22"
          </h1>
             <h3>
-              ""
+              "María del Carmen"
             </h3>
           </div>
         </q-card-section>
