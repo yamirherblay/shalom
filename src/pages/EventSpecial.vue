@@ -33,7 +33,7 @@
     </q-card-actions>
   </q-card>
 </template>
-<script>
+<script setup lang="ts">
 export default {
   name: 'eventSpecial'
 };
