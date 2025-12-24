@@ -7,8 +7,8 @@
       <MarqueeBar
         absolute
         :show-button="true"
-        message="-GANADOR DE LA RIFA- -GANADOR DE LA RIFA-"
-        button-label="-DA click para saber-"
+        message="--Formas de Pago: Zelle, Transferencias, Moneda Nacional.--"
+        button-label="-¡NUEVA PROMOCIÓN DE LANZAMIENTO!-"
         @button-click="showMarqueeModal = true"
       />
       <div class="column items-center text-center">
@@ -65,17 +65,24 @@
           <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
         </q-card-section>
         <q-card-section>
-          <h3 class="q-mt-none q-mb-sm"></h3>
-          <q-img src="/images/Felicidades.jpg"
-                 ratio="2"
-          />
+          <h3 class="q-mt-none q-mb-sm">
+            ¡COMPRA Y GANA LO QUE COMPRAS!
+          </h3>
+          <h4 class="q-mt-none q-mb-sm">
+            Desde el jueves 25 de diciembre 8:30 AM.
+          </h4>
           <div class="text-h6 text-center text-weight-bold text-black">
-         <h1>
-          "22"
-         </h1>
-            <h3>
-              "María del Carmen"
-            </h3>
+         <h6>
+           Para celebrar el lanzamiento de nuestra página web, llega una promo que te va a encantar:
+           <ul>
+            <li> Toda persona que realice su compra a través de nuestra página web quedará automáticamente seleccionada para participar.</li>
+            <li>Al momento de comprar, deberá elegir un único número.</li>
+            <li>El valor total de la compra realizada durante la semana será devuelto al ganador o ganadora.</li>
+            <li>Solo las compras hechas por nuestra página web participan en la promoción.</li>
+           </ul>
+           <b>El ganador o ganadora será anunciado el viernes 1ro de enero.</b>
+         </h6>
+              <h4>Así de fácil: compras, participas y puedes recuperar todo lo que compraste.</h4>
           </div>
         </q-card-section>
         <q-card-actions align="right">
