@@ -24,7 +24,7 @@
   { "id": "cerveza-cristal-2", "name": "Cerveza Cristal", "price": 330, "category": "Bebidas", "image": "/images/productos/Cerveza Cristal.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "cerveza-moyoc-2", "name": "Cerveza MOYOC", "price": 240, "category": "Bebidas", "image": "/images/productos/Cerveza MOYOC.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "cerveza-windmill-2", "name": "Cerveza Windmill", "price": 250, "category": "Bebidas", "image": "/images/productos/Cerveza Windmill.webp", "new":false, "oferta": false, "estado": "Disponible" },
-  { "id": "champu-honey", "name": "champu honey ", "price": 2200, "category": "Aseo", "image": "/images/productos/champu honey .webp", "new":false, "oferta": false, "estado": "Disponible" },
+  { "id": "champu-honey", "name": "champu honey ", "price": 2700, "category": "Aseo", "image": "/images/productos/champu honey .webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "chups-chups-big-boom", "name": "Chups Chups Big BOOM 1 und", "price": 45, "category": "Confituras", "image": "/images/productos/Chups Chups Big BOOM.webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "chups-chups", "name": "Chups Chups 1 und ", "price": 45, "category": "Confituras", "image": "/images/productos/Chups Chups .webp", "new":false, "oferta": false, "estado": "Disponible" },
   { "id": "cinta-tape-para-electricidad", "name": "Cinta Tape para electricidad", "price": 500, "category": "Ferreteria", "image": "/images/productos/Cinta Tape para electricidad.webp", "new":false, "oferta": false, "estado": "Disponible" },
