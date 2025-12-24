@@ -6,7 +6,7 @@
         v-if="showButton && buttonLabel"
         dense
         flat
-        class="q-ml-sm"
+        class="q-ml-sm bg-grey-10 text-yellow"
         @click="$emit('button-click')"
       >{{ buttonLabel }}</q-btn>
     </div>

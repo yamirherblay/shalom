@@ -70,7 +70,9 @@
 
     <!-- Modal triggered from marquee button -->
     <q-dialog v-model="showMarqueeModal">
+
       <eventSpecial />
+
     </q-dialog>
   </q-page>
 </template>
@@ -183,5 +185,10 @@ function goToCategory(category: string) {
 .category-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+:deep(.dialog-card) {
+  border-radius: 16px;
+  background: black;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 </style>
