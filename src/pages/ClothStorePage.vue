@@ -28,7 +28,7 @@
         </div>
       </q-scroll-area>
       <MarqueeBar
-        message="Vísitanos y encontrarás esto y MUCHO MÁS..."
+        message="Visítanos y encontrarás esto y MUCHO MÁS..."
       />
     </section>
 

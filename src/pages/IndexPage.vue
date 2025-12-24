@@ -132,6 +132,9 @@ function goToCategory(category: string) {
   if (category !== 'Ropa' && category !== 'Zelle') {
     void $router.push(`/tienda?cat=${category}`);
   }
+  if (category === 'Ropa') {
+    void $router.push('clothStore');
+  }
   if (category === 'Zelle') {
     void $router.push('Zelle');
   }
