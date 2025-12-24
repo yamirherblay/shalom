@@ -60,20 +60,22 @@
     <q-dialog v-model="showMarqueeModal">
       <q-card style="max-width: 520px; width: 92vw">
         <q-card-section class="row items-center q-pb-none  bg-primary">
-          <div class="text-h6 text-weight-bold text-white">Eventos y especiales</div>
+          <div class="text-h6 text-weight-bold text-white">Eventos especial</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup aria-label="Cerrar" />
         </q-card-section>
         <q-card-section>
-          <h3 class="q-mt-none q-mb-sm">GANADOR DE LA RIFA</h3>
-          <q-img src="/images/comboRifa.jpeg"
-                 ratio="1"
+          <h3 class="q-mt-none q-mb-sm"></h3>
+          <q-img src="/images/Felicidades.jpg"
+                 ratio="2"
           />
           <div class="text-h6 text-center text-weight-bold text-black">
          <h1>
-          .._???_..
+          "75"
          </h1>
-
+            <h3>
+              Luis Mateo
+            </h3>
           </div>
         </q-card-section>
         <q-card-actions align="right">
