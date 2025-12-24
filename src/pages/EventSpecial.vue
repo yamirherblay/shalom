@@ -34,9 +34,9 @@
   </q-card>
 </template>
 <script setup lang="ts">
-export default {
-  name: 'eventSpecial'
-};
+defineOptions({
+  name: 'EventSpecial'
+})
 
 </script>
 <style scoped>
