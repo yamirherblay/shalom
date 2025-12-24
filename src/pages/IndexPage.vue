@@ -71,10 +71,10 @@
           />
           <div class="text-h6 text-center text-weight-bold text-black">
          <h1>
-          "75"
+          "?"
          </h1>
             <h3>
-              Luis Mateo
+              ""
             </h3>
           </div>
         </q-card-section>
