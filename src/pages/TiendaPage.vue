@@ -169,6 +169,7 @@ useMeta({
 })
 const categories = ref<Category[]>([
   { key: 'all', label: 'Todas' },
+  { key: 'Nuevo', label: 'Nuevo', image: '/images/new.jpg' },
   { key: 'hogar', label: 'Hogar', image: '/images/productosHogar.png' },
   { key: 'Ferreteria', label: 'Ferretería', image: '/images/ferreteria.png' },
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
@@ -233,9 +234,26 @@ function addSelectedComboToCart() {
   }
 }
 
+const searchQ = computed(() => ((route.query.q as string) || '').toLowerCase())
+
 const filteredProducts = computed(() => {
-  if (selectedCategory.value === 'all') return products.value
-  return products.value.filter(p => p.category === selectedCategory.value)
+  let base = products.value
+  if (selectedCategory.value !== 'all') {
+    if (selectedCategory.value === 'Nuevo') {
+      base = base.filter(p => p.new === true)
+    } else {
+      base = base.filter(p => p.category === selectedCategory.value)
+    }
+  }
+  const q = searchQ.value
+  if (!q) return base
+  return base.filter(p => {
+    const haystack = [p.name, p.descripcion, p.category]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase()
+    return haystack.includes(q)
+  })
 })
 
 function selectCategory(key: string) {
@@ -256,9 +274,6 @@ function formatAmount(value: number, currency: 'CUP' | 'USD') {
 }
 
 function getProductCurrency(product: Product): 'CUP' | 'USD' {
-  // Determina la moneda según lo que se muestra en la card (sin tocar el JSON):
-  // - Combos o productos marcados para pagar via Zelle se muestran en USD
-  // - El resto en CUP
   const isUsd = product.category === 'combos' || product.category === 'Zelle' || product.subcategory === 'Zelle'
   return isUsd ? 'USD' : 'CUP'
 }

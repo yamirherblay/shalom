@@ -106,10 +106,9 @@ function buyWhatsAppItem() {
   border: 1px solid rgba(139, 92, 246, 0.35); /* borde sutil */
 }
 .badge-ofert {
-  background: rgba(248, 248, 248, 0.18); /* morado traslúcido */
-  color: #5b2e86; /* texto morado oscuro para contraste */
+  background: rgba(131, 10, 212, 0.39); /* morado traslúcido */
+  color: #fffcfc; /* texto morado oscuro para contraste */
 }
-
 
 /* two-line clamp utility */
 .ellipsis-2-lines {
