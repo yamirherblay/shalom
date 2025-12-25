@@ -93,7 +93,7 @@ const selectedCurrency = ref<'CUP' | 'USD'>('CUP')
 const amount = ref<number>(0)
 
 // Configurables
-const exchangeRate = ref<number>(420) // 1 USD = X CUP
+const exchangeRate = ref<number>(400) // 1 USD = X CUP
 const deliveryPercent = ref<number>(5) // % extra para USD
 
 // Cálculo del resultado según reglas:
