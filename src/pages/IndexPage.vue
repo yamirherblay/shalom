@@ -6,7 +6,7 @@
       <MarqueeBar
         absolute
         :show-button="true"
-        message="--Formas de Pago: Zelle, Transferencias, Moneda Nacional.---¡NUEVA PROMOCIÓN DE LANZAMIENTO!-"
+        message="¡NUEVA PROMOCIÓN DE LANZAMIENTO!"
         button-label="Da click y entérate!"
         @button-click="showMarqueeModal = true"
       />

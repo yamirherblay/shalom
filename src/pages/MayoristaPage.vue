@@ -3,7 +3,7 @@
     <div class="q-mb-md text-center">
       <div class="text-h5 text-weight-bold text-primary">Ofertas Mayoristas</div>
       <div class="text-subtitle2 text-grey-8">
-        Productos para compras al por mayor — coordina por WhatsApp
+        Productos para compras al por mayor — coordinar por WhatsApp
       </div>
     </div>
 
