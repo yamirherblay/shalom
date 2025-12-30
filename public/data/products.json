@@ -305,7 +305,7 @@
     "image": "/images/productos/Cemento EuroJunta para derretidos piso.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "ceramica-para-piso-y-enchape",
@@ -807,7 +807,7 @@
     "image": "/images/productos/Juego de Bano.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "jugo-melocoton-santa-juice",
