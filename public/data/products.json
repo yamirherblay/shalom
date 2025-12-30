@@ -1,5 +1,31 @@
 [
   {
+    "id": "whisky-chancelier-750ml-1500",
+    "name": "Whiskey Chancelier 1L",
+    "price": 1500,
+    "category": "Bebidas",
+    "image": "/images/productos/Whisky Chancelier  750ml 1500.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "whisky-chancelier-200-ml-450",
+    "name": "Whiskey Chancelier 200ml ",
+    "price": 450,
+    "category": "Bebidas",
+    "image": "/images/productos/Whisky Chancelier 200 ml 450.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "pasta-codito-gonca-350",
     "name": "Pasta Codito Gonca",
     "price": 350,
