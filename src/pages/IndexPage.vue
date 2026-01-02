@@ -1,17 +1,20 @@
 <template>
   <q-page class="column">
     <!-- Hero Section -->
+
     <section class="q-pa-xl text-white hero-section">
       <!-- Marquee message at the top of hero -->
       <MarqueeBar
         absolute
-        :show-button="true"
-        message="¡NUEVA PROMOCIÓN DE LANZAMIENTO!"
+        :show-button="false"
+        message="Feliz 2026. Prosperidad y mucha salud.Bendiciones."
         button-label="Da click y entérate!"
         @button-click="showMarqueeModal = true"
       />
-      <div class="column items-center text-center">
-        <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra Tienda</div>
+
+
+      <div class="column items-center text-center q-mt-lg">
+        <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra tienda</div>
         <div class="text-subtitle1 q-mb-lg">
           Ofertas irresistibles y productos seleccionados para ti
         </div>
@@ -82,7 +85,6 @@ import { ref } from 'vue';
 import { useMeta } from 'quasar';
 import { useRouter } from 'vue-router';
 import MarqueeBar from 'src/components/MarqueeBar.vue';
-import EventSpecial from 'pages/EventSpecial.vue';
 
 useMeta({
   title: 'Tienda online en Las Tunas | Mercado Variado Texas',
@@ -141,6 +143,7 @@ function goToCategory(category: string) {
     void $router.push('Zelle');
   }
 }
+
 </script>
 
 <style scoped>
