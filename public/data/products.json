@@ -1,5 +1,70 @@
 [
   {
+    "id": "sardinas-san-avellino-420",
+    "name": "Sardinas San Avellino",
+    "price": 420,
+    "category": "Enlatados",
+    "image": "/images/productos/Sardinas San Avellino 420.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "pasta-dental-crhot-450",
+    "name": "Pasta Dental CrHot",
+    "price": 450,
+    "category": "hogar",
+    "image": "/images/productos/Pasta dental Crhot 450.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "refresco-ice-naranja-240",
+    "name": "Refresco Ice",
+    "price": 240,
+    "category": "Bebidas",
+    "image": "/images/productos/refresco ICE naranja 240.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "galleta-halos-de-chocolate-80",
+    "name": "Galleta Halos chocolate",
+    "price": 80,
+    "category": "Confituras",
+    "image": "/images/productos/Galleta Halos de chocolate 80.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "ajo-importado-55-x-und",
+    "name": "Ajo Importado",
+    "price": 55,
+    "category": "Agropecuarios",
+    "image": "/images/productos/Ajo importado 55 x und.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "whisky-chancelier-750ml-1500",
     "name": "Whiskey Chancelier 1L",
     "price": 1500,
@@ -182,7 +247,7 @@
     "price": 640,
     "category": "Granos",
     "image": "/images/productos/Arroz Brazileiro Rainha.webp",
-    "new": true,
+    "new": false,
     "oferta": false,
     "estado": "Disponible"
   },
@@ -927,7 +992,7 @@
     "image": "/images/productos/Malta Unlager.webp",
     "new": false,
     "oferta": false,
-    "estado": "Agotado"
+    "estado": "Disponible"
   },
   {
     "id": "manilla-de-puerta-1ud",
