@@ -1,5 +1,57 @@
 [
   {
+    "id": "sopa-de-carne-180",
+    "name": "Sopa de Carne ",
+    "price": 180,
+    "category": "hogar",
+    "image": "/images/productos/Sopa de carne 180.jpeg",
+    "new": false,
+    "oferta": false,
+    "estado": "Agotado",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "vinagre-vino-tinto-750",
+    "name": "Vinagre Gourmet de vino Tinto",
+    "price": 750,
+    "category": "hogar",
+    "image": "/images/productos/Vinagre Vino tinto 750.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "pasta-de-bocaditos-asotea-1800",
+    "name": "Pasta para bocaditos AZOTEA",
+    "price": 1800,
+    "category": "hogar",
+    "image": "/images/productos/Pasta de bocaditos ASOTEA 1800.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "agua-mineral-sultan-180",
+    "name": "Agua Mineral Sultan",
+    "price": 180,
+    "category": "Bebidas",
+    "image": "/images/productos/Agua mineral Sultan 180.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "sardinas-san-avellino-420",
     "name": "Sardinas San Avellino",
     "price": 420,
@@ -7,7 +59,7 @@
     "image": "/images/productos/Sardinas San Avellino 420.jpeg",
     "new": true,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "subcategory": "",
     "descuento": 0,
     "descripcion": ""
@@ -615,23 +667,13 @@
   },
   {
     "id": "sopa-instantanea",
-    "name": "Sopa de Carne",
-    "price": 180,
-    "category": "hogar",
-    "image": "/images/productos/Sopa de carne 180.jpeg",
-    "new": false,
-    "oferta": false,
-    "estado": "Disponible"
-  },
-  {
-    "id": "sopa-instantanea",
     "name": "Sopa de Gallina",
     "price": 180,
     "category": "hogar",
     "image": "/images/productos/Sopa de Gallina 180.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "frijol-negro-brazileiro",
@@ -1729,12 +1771,12 @@
   {
     "id": "huevo-30und",
     "name": "Huevo 30 und",
-    "price": 3100,
+    "price": 3300,
     "category": "Cárnicos",
     "image": "/images/productos/Huevo 30 und 3100.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Agotado",
+    "estado": "Disponible",
     "descripcion": ""
   },
   {

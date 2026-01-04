@@ -239,14 +239,17 @@ const searchQ = computed(() => ((route.query.q as string) || '').toLowerCase())
 const filteredProducts = computed(() => {
   let base = products.value
   if (selectedCategory.value !== 'all') {
-    if (selectedCategory.value === 'Nuevo') {
+    if (selectedCategory.value === 'Nuevo' ) {
       base = base.filter(p => p.new === true)
     } else {
-      base = base.filter(p => p.category === selectedCategory.value)
+      base = base.filter(p => p.category === selectedCategory.value && p.estado !== 'Agotado')
     }
   }
   const q = searchQ.value
-  if (!q) return base
+  if (!q){
+    base = base.filter(p=> p.estado !== 'Agotado');
+    return base;
+  }
   return base.filter(p => {
     const haystack = [p.name, p.descripcion, p.category]
       .filter(Boolean)
