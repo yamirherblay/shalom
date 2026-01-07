@@ -87,9 +87,9 @@
 
             <q-card-actions align="between" class="q-pa-sm">
               <div class="row q-gutter-xs" v-if="product.estado == 'Disponible'">
-                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" @click="buyWhatsAppProduct(product)" />
+                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" label="Solicitar este" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" @click="buyWhatsAppProduct(product)" />
                 <q-btn v-if="product.category === 'combos' && product.descripcion" color="secondary" outline size="sm" icon="visibility" label="Ver" @click="openCombo(product)" />
-                <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" @click="addToCart(product)" />
+                <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" aria-label="Adicionar a la cesta" title="Adicionar a la cesta" alt="Adicionar a la cesta" @click="addToCart(product)" />
               </div>
             </q-card-actions>
           </q-card>
@@ -135,6 +135,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useCartStore } from 'src/stores/cart'
 import type { Product as StoreProduct } from 'src/stores/types'
 import { useMeta } from 'quasar';
+import {useQuasar} from "quasar";
 
 type Category = { key: string; label: string; image?: string }
 
@@ -167,6 +168,7 @@ useMeta({
     canonical: { rel: 'canonical', href: 'https://mercado-tex.vercel.app' }
   }
 })
+const $q = useQuasar();
 const categories = ref<Category[]>([
   { key: 'all', label: 'Todas' },
   { key: 'Nuevo', label: 'Nuevo', image: '/images/new.jpg' },
@@ -298,6 +300,12 @@ function addToCart(product: Product) {
   }
   const currencyCode: 'CUP' | 'USD' = getProductCurrency(product)
   cart.add(mapped, q, currencyCode)
+  $q.notify({
+    type: 'info',
+    message: `Agregado al carrito: ${product.name}`,
+    timeout: 2000,
+    position: 'top',
+  })
 }
 
 const thumbStyle = {

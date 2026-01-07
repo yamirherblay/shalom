@@ -1776,7 +1776,7 @@
     "image": "/images/productos/Huevo 30 und 3100.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Agotado",
+    "estado": "Disponible",
     "descripcion": ""
   },
   {
@@ -1794,7 +1794,7 @@
     "id": "Harina-de-Trigo-25-kg-10500",
     "name": "Harina de Trigo 25 kg 10500",
     "price": 10500,
-    "category": "Hogar",
+    "category": "hogar",
     "image": "/images/productos/Harina de Trigo 25 kg 10500.jpeg",
     "new": true,
     "oferta": false,
