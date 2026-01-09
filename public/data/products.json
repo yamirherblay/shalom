@@ -1,5 +1,18 @@
 [
   {
+    "id": "leche-entera-3000",
+    "name": "Leche Entera ",
+    "price": 3000,
+    "category": "hogar",
+    "image": "/images/productos/Leche Entera 3000.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": "1 Kg"
+  },
+  {
     "id": "sazon-completo-700",
     "name": "Sazon Completo ",
     "price": 700,
@@ -1016,11 +1029,11 @@
     "id": "leche-entera-en-polvo",
     "name": "Leche Entera en polvo ",
     "price": 2800,
-    "category": "Lacteos",
+    "category": "hogar",
     "image": "/images/productos/Leche Entera en polvo .webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "llavin-puerta1",
