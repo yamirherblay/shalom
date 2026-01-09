@@ -973,7 +973,7 @@
     "image": "/images/productos/Jugo Melocoton Santa Juice.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "jugos-tuana-varios-sabores",
@@ -1384,7 +1384,7 @@
     "image": "/images/productos/Refresco Sabores Varios.webp",
     "new": false,
     "oferta": true,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "refresco-sabor-naranja",
@@ -1394,7 +1394,7 @@
     "image": "/images/productos/refresco sabor naranja.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "refrescos-limon-royal",
@@ -1404,7 +1404,7 @@
     "image": "/images/productos/Refrescos Limon Royal.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "refrescos-varios-fresa",
@@ -1414,7 +1414,7 @@
     "image": "/images/productos/Refrescos varios fresa.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "salchichas-10-unid",
