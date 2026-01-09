@@ -715,6 +715,16 @@
     "estado": "Agotado"
   },
   {
+    "id": "frijol-negro-frezco",
+    "name": "frijol negro Frezco",
+    "price": 950,
+    "category": "Granos",
+    "image": "/images/productos/Frijol negro Frezco 950.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible"
+  },
+  {
     "id": "frijol-negro-brazileiro",
     "name": "frijol negro brazileiro",
     "price": 950,
