@@ -1,5 +1,44 @@
 [
   {
+    "id": "picadillo-condimentado-600",
+    "name": "Picadillo condimentado ",
+    "price": 600,
+    "category": "Cárnicos",
+    "image": "/images/productos/Picadillo condimentado 600.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "huevo-la-unidad-110",
+    "name": "Huevo (1 und)",
+    "price": 110,
+    "category": "Cárnicos",
+    "image": "/images/productos/huevo la unidad 110 .jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "aceite-saude-780",
+    "name": "Aceite Saude",
+    "price": 780,
+    "category": "hogar",
+    "image": "/images/productos/Aceite Saude 780.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "leche-entera-3000",
     "name": "Leche Entera ",
     "price": 3000,
@@ -31,9 +70,9 @@
     "price": 970,
     "category": "hogar",
     "image": "/images/productos/Aceite Market 970 1L.webp",
-    "new": true,
+    "new": false,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "subcategory": "",
     "descuento": 0,
     "descripcion": ""
@@ -1323,7 +1362,7 @@
     "image": "/images/productos/Refresco coco pina Royal Juice.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "refresco-lata-varios-sabores",
