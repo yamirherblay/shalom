@@ -53,7 +53,7 @@
         </q-item>
         <q-item clickable v-ripple to="/faq">
           <q-item-section avatar><q-icon name="help_center" /></q-item-section>
-          <q-item-section>FAQ</q-item-section>
+          <q-item-section>Preguntas Frecuentes</q-item-section>
         </q-item>
         <q-item clickable v-ripple to="/contact">
           <q-item-section avatar><q-icon name="contact_support" /></q-item-section>
