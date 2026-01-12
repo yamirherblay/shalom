@@ -1,5 +1,31 @@
 [
   {
+    "id": "Azucar-Canoro-650",
+    "name": "Azúcar Canoro 1KG",
+    "price": 650,
+    "category": "Granos",
+    "image": "/images/productos/Azucar Canoro 1kg 650.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "refresco-varios-sabores-LUA",
+    "name": "Refresco LUA Sabores (Naranja, Mandarina, Maracuya, Limon, Fresa y Piña)",
+    "price": 45,
+    "category": "Confituras",
+    "image": "/images/productos/Refrescos Varios Sabores LUA 45.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "picadillo-condimentado-600",
     "name": "Picadillo condimentado ",
     "price": 600,
