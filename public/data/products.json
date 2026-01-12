@@ -1,5 +1,44 @@
 [
   {
+    "id": "combo-familiar-7400",
+    "name": "Combo Familiar",
+    "price": 7400,
+    "category": "Cárnicos",
+    "image": "/images/productos/Combo familiar 7400.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": "Paquete de pollo y 1 Fill de huevo"
+  },
+  {
+    "id": "malta-guajira-250",
+    "name": "Malta Guajira",
+    "price": 250,
+    "category": "Bebidas",
+    "image": "/images/productos/Malta Guajira 250.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "cerveza-parranda-220",
+    "name": "Cerveza Parranda",
+    "price": 220,
+    "category": "Bebidas",
+    "image": "/images/productos/Cerveza Parranda 220.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "Azucar-Canoro-650",
     "name": "Azúcar Canoro 1KG",
     "price": 650,
