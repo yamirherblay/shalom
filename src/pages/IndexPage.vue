@@ -74,7 +74,6 @@
     <!-- Modal triggered from marquee button -->
     <q-dialog v-model="showMarqueeModal">
 
-      <eventSpecial />
 
     </q-dialog>
   </q-page>

@@ -1,5 +1,44 @@
 [
   {
+    "id": "aceite-laloba-900ml-980",
+    "name": "Aceite la Loba 900ml",
+    "price": 980,
+    "category": "hogar",
+    "image": "/images/productos/Aceite LaLoba 900ml 980.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "pastillas-de-pollo-30-und",
+    "name": "Pastillas de pollo (unidad)",
+    "price": 30,
+    "category": "Sazon",
+    "image": "/images/productos/pastillas de pollo 30 und.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "pastillas-de-pollos-240-caja",
+    "name": "Pastillas de pollo (caja)",
+    "price": 240,
+    "category": "Sazon",
+    "image": "/images/productos/Pastillas de pollos 240 caja.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "combo-familiar-7400",
     "name": "Combo Familiar",
     "price": 7400,
