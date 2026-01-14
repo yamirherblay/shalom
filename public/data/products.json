@@ -1,5 +1,31 @@
 [
   {
+    "id": "desodorante-keewell-azul",
+    "name": "Desodorante Keewell Jasmin",
+    "price": 450,
+    "category": "Aseo",
+    "image": "/images/productos/Desodorante Keewell azul.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "desodorante-keewell-rosa",
+    "name": "Desodorante Keewell Rosa",
+    "price": 450,
+    "category": "Aseo",
+    "image": "/images/productos/Desodorante Keewell Rosa.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "aceite-laloba-900ml-980",
     "name": "Aceite la Loba 900ml",
     "price": 980,
@@ -1658,7 +1684,7 @@
     "image": "/images/productos/comboZelle/Ajo produccion nacional.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "descripcion": "10 unidades."
   },
   {
