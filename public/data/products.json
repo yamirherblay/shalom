@@ -1,5 +1,57 @@
 [
   {
+    "id": "chupa-chup-pin-pop-45-und",
+    "name": "Chupa Chups PinPop",
+    "price": 45,
+    "category": "Confituras",
+    "image": "/images/productos/Chupa Chup Pin Pop 45 und .webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "galletas-crokantinas-1100",
+    "name": "Galletas Crokantinas",
+    "price": 1100,
+    "category": "Confituras",
+    "image": "/images/productos/Galletas Crokantinas 1100.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "galletas-salricas-600",
+    "name": "Galletas Salricas",
+    "price": 600,
+    "category": "Confituras",
+    "image": "/images/productos/Galletas Salricas 600.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
+    "id": "sazon-completo-delicius-650",
+    "name": "Sazon Completo Delish",
+    "price": 600,
+    "category": "Sazon",
+    "image": "/images/productos/Sazon Completo Delicius 650.webp",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "desodorante-keewell-azul",
     "name": "Desodorante Keewell Jasmin",
     "price": 450,
@@ -991,7 +1043,7 @@
     "image": "/images/productos/Galletas Goozetas Sabores Varios.webp",
     "new": false,
     "oferta": false,
-    "estado": "Agotado"
+    "estado": "Disponible"
   },
   {
     "id": "galletas-jimjam-fresa",
@@ -1052,7 +1104,7 @@
     "image": "/images/productos/Higado de pollo.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "intimas-suenos-10-unid",
@@ -1162,7 +1214,7 @@
     "image": "/images/productos/Jugo La Estancia Sabor Mediterraneo 215.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "jugos-laestanciaMelocoton",
@@ -1172,7 +1224,7 @@
     "image": "/images/productos/Jugo La Estancia Sabor Melocoton 215.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "lampara-led-14-watts",
@@ -1412,7 +1464,7 @@
     "image": "/images/productos/Picadillo de pollo Caja.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "Jamon-pollo-400g",
@@ -1422,7 +1474,7 @@
     "image": "/images/productos/Picadillo Pollo 400g.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "pintura-blanca",
