@@ -1,5 +1,18 @@
 [
   {
+    "id": "sazon-frezco-45",
+    "name": "Sazón Frezko Seasoning",
+    "price": 45,
+    "category": "Sazon",
+    "image": "/images/productos/Sazon Frezco 45.jpeg",
+    "new": true,
+    "oferta": true,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "chupa-chup-pin-pop-45-und",
     "name": "Chupa Chups PinPop",
     "price": 45,
