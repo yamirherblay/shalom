@@ -1,5 +1,18 @@
 [
   {
+    "id": "salchicha-1-kg-1500",
+    "name": "Salchichas de 1kg",
+    "price": 1500,
+    "category": "Cárnicos",
+    "image": "/images/productos/Salchicha 1 Kg 1500.jpeg",
+    "new": true,
+    "oferta": false,
+    "estado": "Disponible",
+    "subcategory": "",
+    "descuento": 0,
+    "descripcion": ""
+  },
+  {
     "id": "detergente-nt-500g-500",
     "name": "Detergente NT 500g",
     "price": 500,
@@ -1602,7 +1615,7 @@
     "image": "/images/productos/Refresco Ciego Montero 1.5L sabor Mate 680.jpeg",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "refresco-ciego-montero-1-5l-sabor-limon",
