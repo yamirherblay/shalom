@@ -1,10 +1,12 @@
 <template>
-  <q-layout view="lHh Lpr lFf" :class="{ 'clear-layout': isClothStore }">
+  <q-layout view="lHh Lpr lff" :class="{ 'clear-layout': isClothStore }">
     <q-header class="bg-primary" elevated color="white">
       <q-toolbar>
         <q-toolbar-title class="row items-center q-mr-md">
           <q-btn flat class="lt-md" @click="leftDrawerOpen = !leftDrawerOpen" round dense icon="menu" />
-          <span>Mercado Texas</span>
+          <div v-if="!showSearch">
+          <span >Mercado Texas</span>
+          </div>
         </q-toolbar-title>
         <!-- Desktop navigation (hidden on small screens) -->
         <div class="row items-center gt-sm q-gutter-x-xs">
@@ -16,10 +18,39 @@
           <q-btn flat dense label="FAQ" to="/faq" icon="help_center" class="gt-xs" />
           <q-btn flat dense label="Contacto" to="/contact" icon="contact_support" class="gt-xs"  />
         </div>
-        <!-- Cart button -->
-        <q-btn flat round dense icon="shopping_cart" @click="showCart = true">
-          <q-badge color="red" text-color="white" floating v-if="cart.count">{{ cart.count }}</q-badge>
-        </q-btn>
+
+        <!-- Actions: Search + Cart -->
+        <div class="row items-center no-wrap q-gutter-sm">
+          <!-- Toggle search -->
+          <div v-show="!showSearch" class="row items-center no-wrap">
+          <q-btn flat round dense icon="search" @click="toggleSearch" aria-label="Buscar" />
+          </div>
+          <!-- Slide-in input to avoid layout deformation -->
+          <q-slide-transition>
+            <div v-show="showSearch" class="row items-center no-wrap">
+              <q-input
+                v-model="searchTerm"
+                dense
+                outlined
+                color="white"
+                input-class="text-white"
+                class="q-ml-xs search-input"
+                placeholder="Buscar productos..."
+                @keyup.enter="submitSearch"
+              >
+                <template #append>
+                  <q-btn round dense flat icon="close" @click="clearSearch" :aria-label="'Cerrar'" />
+                  <q-btn round dense flat icon="search" @click="submitSearch" :aria-label="'Buscar'" />
+                </template>
+              </q-input>
+            </div>
+          </q-slide-transition>
+
+          <!-- Cart button -->
+          <q-btn flat round dense icon="shopping_cart" @click="showCart = true">
+            <q-badge color="red" text-color="white" floating v-if="cart.count">{{ cart.count }}</q-badge>
+          </q-btn>
+        </div>
 
       </q-toolbar>
     </q-header>
@@ -82,7 +113,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useCartStore } from 'src/stores/cart';
 import CartModal from 'src/components/CartModal.vue';
 import FooterBar from 'src/components/FooterBar.vue';
@@ -91,6 +122,23 @@ const leftDrawerOpen = ref(false);
 const showCart = ref(false);
 const cart = useCartStore();
 
+// Search state
+const showSearch = ref(false)
+const searchTerm = ref('')
+const router = useRouter()
+
+function toggleSearch() {
+  showSearch.value = !showSearch.value
+}
+function submitSearch() {
+  const q = searchTerm.value.trim()
+  void router.push({ path: '/tienda', query: q ? { q } : {} })
+}
+function clearSearch() {
+  searchTerm.value = ''
+  showSearch.value = false
+}
+
 const route = useRoute();
 const isClothStore = computed(() => route.name === 'clothStore' || route.path === '/clothStore');
 </script>
@@ -98,5 +146,11 @@ const isClothStore = computed(() => route.name === 'clothStore' || route.path ==
 
 .clear-layout {
   background: rgba(176, 146, 243, 0.83);
+}
+
+.search-input {
+  min-width: 180px;
+  width: 26vw;
+  max-width: 360px;
 }
 </style>
