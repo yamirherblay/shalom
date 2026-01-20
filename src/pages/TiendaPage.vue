@@ -79,7 +79,7 @@
               />
             </q-card-section>
             <q-card-section class="q-pb-none">
-              <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }}</div>
+              <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }} {{ product.oferta === true ? product.descripcion : ''}}</div>
               <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'" >{{ formatProductPrice(product) }}</div>
             </q-card-section>
 

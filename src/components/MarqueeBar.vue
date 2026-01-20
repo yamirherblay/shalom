@@ -1,14 +1,16 @@
 <template>
   <div class="marquee-bar" :class="{ absolute }">
-    <div class="marquee-track">
-      <span>{{ message }}</span>
+    <div class="marquee-content column items-center q-gutter-xs">
       <q-btn
         v-if="showButton && buttonLabel"
         dense
         flat
-        class="q-ml-sm bg-grey-10 text-yellow"
+        class="bg-grey-10 text-yellow"
         @click="$emit('button-click')"
       >{{ buttonLabel }}</q-btn>
+      <div class="marquee-track">
+        <span>{{ message }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -33,12 +35,13 @@ defineEmits<{
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
   background: rgba(169, 168, 169, 0.92);
   color: #000;
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
   z-index: 2;
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
