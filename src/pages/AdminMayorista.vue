@@ -135,6 +135,7 @@ import { onMounted, ref, computed } from 'vue'
 import type { QTableColumn } from 'quasar'
 import ProductForm from 'components/ProductForm.vue'
 import AdminHelp from 'components/AdminHelp.vue'
+import { useAdminChangesStore } from 'stores/adminChanges';
 
 interface MayoristaItem {
   id: string
@@ -151,6 +152,7 @@ interface MayoristaItem {
 }
 
 const items = ref<MayoristaItem[]>([])
+const changes = useAdminChangesStore()
 const filter = ref('')
 const addDialog = ref(false)
 const editDialog = ref(false)
@@ -233,10 +235,11 @@ async function saveMayoristaJson() {
 function saveNew(model: MayoristaItem) {
   const idx = items.value.findIndex(p => p.id === model.id)
   if (idx !== -1) {
-    alert('Ya existe un elemento con ese ID')
+    alert('Ya existe un elemento con ese Identificador...Cambielo')
     return
   }
   items.value = [model, ...items.value]
+  changes.addAdded({id:model.id , name:model.name})
   addDialog.value = false
 }
 
@@ -244,6 +247,7 @@ function saveEdit(model: MayoristaItem) {
   const idx = items.value.findIndex(p => p.id === originalEditId.value)
   if (idx === -1) return
   items.value[idx] = { ...model }
+  changes.addUpdated({id:model.id , name:model.name})
   editDialog.value = false
 }
 

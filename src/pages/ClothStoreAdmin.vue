@@ -128,6 +128,7 @@ import { onMounted, ref, computed } from 'vue';
 import type { QTableColumn } from 'quasar';
 import ClothesForm from 'components/ClothesForm.vue';
 import AdminHelp from 'components/AdminHelp.vue';
+import {useAdminChangesStore} from 'stores/adminChanges';
 
 interface ClothesItem {
   id: string;
@@ -141,6 +142,7 @@ interface ClothesItem {
 }
 
 const items = ref<ClothesItem[]>([]);
+const changes = useAdminChangesStore();
 const filter = ref('');
 const addDialog = ref(false);
 const editDialog = ref(false);
@@ -226,8 +228,10 @@ function saveNew(item: ClothesItem) {
   if (exists) {
     const idx = items.value.findIndex(p => p.id === item.id);
     items.value[idx] = { ...item };
+    changes.addAdded({ id: item.id, name: item.name });
   } else {
     items.value.unshift({ ...item });
+    changes.addAdded({ id: item.id, name: item.name });
   }
   addDialog.value = false;
 }
@@ -237,6 +241,7 @@ function saveEdit(item: ClothesItem) {
   const idx = items.value.findIndex(p => p.id === key);
   if (idx !== -1) {
     items.value[idx] = { ...item };
+    changes.addUpdated({ id: item.id, name: item.name });
   }
   originalEditId.value = null;
   editDialog.value = false;

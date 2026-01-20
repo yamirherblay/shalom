@@ -140,6 +140,7 @@ import { onMounted, ref, computed } from 'vue';
 import type { QTableColumn } from 'quasar';
 import ProductForm from 'components/ProductForm.vue';
 import AdminHelp from 'components/AdminHelp.vue';
+import { useAdminChangesStore } from 'src/stores/adminChanges';
 
 interface Product {
   id: string;
@@ -157,6 +158,7 @@ interface Product {
 
 const products = ref<Product[]>([]);
 const filter = ref('');
+const changesStore = useAdminChangesStore();
 const addDialog = ref(false);
 const editDialog = ref(false);
 const helpDialog = ref(false);
@@ -247,8 +249,10 @@ function saveNew(product: Product) {
     // si existe, reemplazamos
     const idx = products.value.findIndex(p => p.id === product.id);
     products.value[idx] = { ...product };
+    changesStore.addUpdated({ id: product.id, name: product.name })
   } else {
     products.value.unshift({ ...product });
+    changesStore.addAdded({ id: product.id, name: product.name })
   }
   addDialog.value = false;
 }
@@ -259,6 +263,7 @@ function saveEdit(product: Product) {
   const idx = products.value.findIndex(p => p.id === key);
   if (idx !== -1) {
     products.value[idx] = { ...product };
+    changesStore.addUpdated({ id: product.id, name: product.name })
   }
   originalEditId.value = null;
   editDialog.value = false;
@@ -276,7 +281,8 @@ onMounted(async () => {
       const data = await res.json();
       // products.json is an array of products
       products.value = Array.isArray(data) ? data : [];
-
+      // Resetear el registro de cambios al entrar, para contar solo cambios posteriores
+      changesStore.clear()
     }
   } catch (e) {
     console.warn('No se pudieron cargar products.json', e);

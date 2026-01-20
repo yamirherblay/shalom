@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lff">
     <q-header elevated>
       <q-toolbar>
-        <q-toolbar-title>Acceso</q-toolbar-title>
+        <q-toolbar-title>Acceso a Mercado Variado Texas</q-toolbar-title>
       </q-toolbar>
     </q-header>
     <q-page-container>

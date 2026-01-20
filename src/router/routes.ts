@@ -14,11 +14,21 @@ const routes: RouteRecordRaw[] = [
       { path: 'zelle', name: 'Zelle', component: () => import('pages/ZellePage.vue') },
       { path: 'mayoristas', name: 'mayoristas', component: () => import('pages/MayoristaPage.vue') },
       // Ruta de login de admin accesible públicamente
-      { path: 'admin/login', name: 'admin-login', component: () => import('pages/LoginPage.vue'), meta: { public: true } },
+      //{ path: 'admin/login', name: 'admin-login', component: () => import('pages/LoginPage.vue'), meta: { public: true } },
     ],
   },
   {
-    path: '/admin',
+    path:'/login',
+    component: () => import('layouts/AuthLayout.vue'),
+    children: [
+      {
+        path: '', name: 'login', component: () => import('pages/LoginPage.vue')
+      }
+    ],
+
+  },
+  {
+    path: '/mvtexas/admin',
     component: () => import('layouts/AdminLayout.vue'),
     meta: { requiresAuth: true },
     children: [
