@@ -1,5 +1,5 @@
 <template>
-  <div class="marquee-bar" :class="{ absolute }">
+  <div v-if="showMarquee" class="marquee-bar" :class="{ absolute }">
     <div class="marquee-content column items-center q-gutter-xs">
       <q-btn
         v-if="showButton && buttonLabel"
@@ -22,6 +22,7 @@ defineProps<{
   showButton?: boolean
   buttonLabel?: string
   absolute?: boolean
+  showMarquee?: boolean
 }>();
 
 defineEmits<{

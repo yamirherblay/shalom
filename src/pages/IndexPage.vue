@@ -5,6 +5,7 @@
     <section class="q-pa-xl text-white hero-section">
       <!-- Marquee message at the top of hero -->
       <MarqueeBar
+        :show-marquee="false"
         absolute
         :show-button="false"
         message="Feliz 2026. Prosperidad y mucha salud.Bendiciones."
