@@ -1,6 +1,40 @@
 <template>
   <q-page padding>
-    <div class="row q-col-gutter-md">
+    <div class="row q-col-gutter-md items-lg-stretch">
+
+      <!-- Estadísticas -->
+      <div class="row q-col-gutter-lg q-mt-md q-mb-lg col-12 ">
+        <q-card bordered class="col-12 col-sm-6 col-md-4 stat-card bg-info text-white shadow-2 rounded-borders q-pa-md">
+          <q-card-section class="row items-center">
+            <q-icon name="inventory_2" size="32px" class="q-mr-md" />
+            <div>
+              <div class="text-subtitle2">Total de productos</div>
+              <div class="text-h5 text-weight-bold">{{ totalProducts }}</div>
+            </div>
+          </q-card-section>
+        </q-card>
+
+        <q-card bordered class="col-12 col-sm-6 col-md-4 stat-card bg-positive text-white shadow-2 rounded-borders q-pa-md">
+          <q-card-section class="row items-center">
+            <q-icon name="check_circle" size="32px" class="q-mr-md" />
+            <div>
+              <div class="text-subtitle2">Disponibles</div>
+              <div class="text-h5 text-weight-bold">{{ availableCount }}</div>
+            </div>
+          </q-card-section>
+        </q-card>
+
+        <q-card bordered class="col-12 col-sm-6 col-md-4 stat-card bg-orange-7 text-white shadow-2 rounded-borders q-pa-md">
+          <q-card-section class="row items-center no-wrap">
+            <q-icon name="local_offer" size="32px" class="q-mr-md" />
+            <div>
+              <div class="text-subtitle2">En oferta</div>
+              <div class="text-h5 text-weight-bold">{{ offerCount }}</div>
+            </div>
+          </q-card-section>
+        </q-card>
+      </div>
+
       <!-- Productos -->
       <div class="col-12">
         <div class="text-h5">Productos</div>
@@ -10,7 +44,7 @@
             <div class="col-auto row q-gutter-sm">
               <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" />
               <q-btn color="secondary" icon="save" label="Guardar el JSON" no-caps @click="saveProductsJson" />
-              <q-btn color="secondary" icon="check" label="Ya son viejos! "  @click="allProductArentNew" />
+              <q-btn color="secondary" icon="check" label="Resetear novedad "  @click="allProductArentNew" />
               <q-btn color="grey-8" icon="help_outline" label="Ayuda" no-caps @click="helpDialog = true" />
             </div>
             <div class="col-12 col-sm-4">
@@ -82,6 +116,7 @@
               <div><strong>Nombre:</strong> {{ viewProduct?.name }}</div>
               <div><strong>Precio:</strong> {{ currency(viewProduct?.price) }}</div>
               <div><strong>Categoría:</strong> {{ viewProduct?.category }}</div>
+              <div><strong>Novedad:</strong> {{ viewProduct?.new ? "Nuevo" : "" }}</div>
             </div>
           </div>
         </q-card-section>
@@ -184,6 +219,7 @@ const filteredProducts = computed(() => {
     p.id.toLowerCase().includes(f) ||
     p.category.toLowerCase().includes(f) ||
     p.estado?.toLowerCase().includes(f)
+
   );
 });
 
@@ -256,6 +292,9 @@ function saveNew(product: Product) {
   }
   addDialog.value = false;
 }
+const totalProducts = computed(() => products.value.length);
+const availableCount = computed(() => products.value.filter(p => p.estado === 'Disponible').length);
+const offerCount = computed(() => products.value.filter(p => p.oferta === true).length);
 
 function saveEdit(product: Product) {
   // Usar el ID original de la fila para encontrar el índice, por si el usuario cambió el ID en edición
@@ -292,4 +331,8 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+stat-card {
+  min-height: 120px;
+  padding: 1rem;
+}
 </style>
