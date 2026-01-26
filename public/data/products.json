@@ -72,7 +72,7 @@
     "image": "/images/productos/Aceeite de Soja 1000.jpeg",
     "new": true,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "subcategory": "",
     "descuento": 0,
     "descripcion": ""
@@ -111,7 +111,7 @@
     "image": "/images/productos/Galletas Crokantinas 1100.webp",
     "new": true,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "subcategory": "",
     "descuento": 0,
     "descripcion": ""
@@ -176,7 +176,7 @@
     "image": "/images/productos/Aceite LaLoba 900ml 980.jpeg",
     "new": true,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "subcategory": "",
     "descuento": 0,
     "descripcion": ""
@@ -306,7 +306,7 @@
     "image": "/images/productos/Aceite Saude 780.jpeg",
     "new": true,
     "oferta": false,
-    "estado": "Disponible",
+    "estado": "Agotado",
     "subcategory": "",
     "descuento": 0,
     "descripcion": ""
@@ -652,7 +652,7 @@
     "image": "/images/productos/Arroz Brazileiro Rainha.webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "combo-1",
@@ -854,7 +854,7 @@
     "image": "/images/productos/champu honey .webp",
     "new": false,
     "oferta": false,
-    "estado": "Disponible"
+    "estado": "Agotado"
   },
   {
     "id": "chups-chups-big-boom",

@@ -203,7 +203,7 @@ onMounted(async () => {
   try {
     const res = await fetch('/data/products.json')
     const data: Product[] = await res.json()
-    products.value = data
+    products.value = data.filter(p => p.estado !== 'Agotado')
     data.forEach(p => (qty[p.id] = 1))
   } catch (e) {
     console.error('Error cargando productos.json', e)
@@ -262,7 +262,10 @@ const filteredProducts = computed(() => {
 })
 
 function selectCategory(key: string) {
-  selectedCategory.value = key
+  // Actualiza la URL para reflejar la categoría elegida y eliminar un posible término de búsqueda previo
+  const newQuery: Record<string, string> = { ...(route.query as Record<string, string>), cat: key }
+  delete newQuery.q
+  void $router.replace({ path: '/tienda', query: newQuery })
 }
 
 const $router = useRouter()

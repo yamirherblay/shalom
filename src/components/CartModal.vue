@@ -26,7 +26,7 @@
             </q-item-section>
             <q-item-section side top>
               <div class="text-weight-bold">{{ currency(it.product.price * it.quantity, cart.getCurrency(it.product.id)) }}</div>
-              <q-btn flat dense icon="delete" color="negative" @click="cart.remove(it.product.id)"/>
+              <q-btn flat dense icon="delete" color="negative" @click="removeItemFromCart(it.product.id,it.product.name)"/>
             </q-item-section>
           </q-item>
         </q-list>
@@ -60,10 +60,10 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useCartStore } from 'src/stores/cart';
-
+import { useQuasar } from 'quasar';
 
 const cart = useCartStore();
-
+const $q = useQuasar();
 const props = defineProps<{ modelValue: boolean }>();
 const emit = defineEmits<{ (e: 'update:modelValue', v: boolean): void }>();
 type CurrencyCode = 'CUP' | 'USD';
@@ -79,9 +79,24 @@ watch(() => cart.items, (items) => {
 }, { deep: true, immediate: true });
 
 function inc(id: string) { const q = (buffer.value[id] || 1) + 1; buffer.value[id] = q; cart.setQuantity(id, q); }
-function dec(id: string) { const q = Math.max(1, (buffer.value[id] || 1) - 1); buffer.value[id] = q; cart.setQuantity(id, q); }
-function apply(id: string) { const q = Math.max(1, buffer.value[id] || 1); cart.setQuantity(id, q); }
+function dec(id: string) {
+  const q = Math.max(1, (buffer.value[id] || 1) - 1);
+  buffer.value[id] = q;
+  cart.setQuantity(id, q);
 
+}
+
+function apply(id: string) { const q = Math.max(1, buffer.value[id] || 1); cart.setQuantity(id, q); }
+function removeItemFromCart(id: string, name:string = '')
+{
+  cart.remove(id)
+  $q.notify({
+    type: 'warning',
+    message: `Eliminado del carrito: ${name}`,
+    timeout: 2000,
+    position: 'top',
+  })
+}
 const WHATSAPP_NUMBER = '5354512675';
 function buyWhatsApp() {
   if (!cart.items.length) return;

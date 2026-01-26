@@ -137,6 +137,13 @@ function submitSearch() {
 function clearSearch() {
   searchTerm.value = ''
   showSearch.value = false
+
+  // Si estamos en /tienda, eliminar el parámetro de búsqueda `q` y mantener el resto
+  if (route.name === 'tienda' || route.path === '/tienda') {
+    const { ...rest } = route.query as Record<string, string>
+
+    void router.replace({ path: '/tienda', query: rest })
+  }
 }
 
 const route = useRoute();
