@@ -1580,12 +1580,12 @@
   {
     "id": "pollo-cuartos-10lb",
     "name": "Pollo Cuartos 10lb",
-    "price": 4100,
+    "price": 4200,
     "category": "Cárnicos",
     "image": "/images/productos/Pollo Cuartos 10lb.webp",
     "new": false,
     "oferta": false,
-    "estado": "Agotado"
+    "estado": "Disponible"
   },
   {
     "id": "pollo-muslos-4-4lb",
