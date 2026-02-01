@@ -1,19 +1,24 @@
 <template>
-  <q-page padding class="q-gutter-md back-page ">
+  <q-page padding class="q-gutter-md back-page">
     <div class="column items-center q-gutter-xs text-center q-mb-md">
       <q-img
         src="images/Sabrinallogo.jpeg"
         alt="Logo Sabrina"
         ratio="1"
-        style="max-width: 150px; border-radius: 50%;"
+        style="max-width: 150px; border-radius: 50%"
         fit="contain"
       />
       <div class="text-h5 text-weight-bold">Sabrina's Fashion</div>
       <div class="text-subtitle2 text-grey-7">Ofertas de ropa, calzado y más</div>
     </div>
-    <section class="q-mb-md  sticky-cats" >
-      <q-scroll-area class="cat-scroll  rounded-borders" :horizontal="true" :thumb-style="thumbStyle" :bar-style="barStyle">
-        <div class="row no-wrap q-gutter-sm items-center ">
+    <section class="q-mb-md sticky-cats">
+      <q-scroll-area
+        class="cat-scroll rounded-borders"
+        :horizontal="true"
+        :thumb-style="thumbStyle"
+        :bar-style="barStyle"
+      >
+        <div class="row no-wrap q-gutter-sm items-center">
           <q-chip
             v-for="cat in categories"
             :key="cat.key"
@@ -27,9 +32,7 @@
           </q-chip>
         </div>
       </q-scroll-area>
-      <MarqueeBar
-        message="Visítanos y encontrarás esto y MUCHO MÁS..."
-      />
+      <MarqueeBar message="Visítanos y encontrarás esto y MUCHO MÁS..." />
     </section>
 
     <div>
@@ -44,13 +47,16 @@
       </div>
 
       <div v-else-if="offers.length" class="q-my-xl text-grey text-center">
-        No hay productos para esta categoría.
+        {{
+          searchQuery.trim()
+            ? 'No se encontraron productos para tu búsqueda.'
+            : 'No hay productos para esta categoría.'
+        }}
       </div>
       <div v-else class="row justify-center q-my-xl">
         <q-spinner color="primary" size="2em" />
       </div>
     </div>
-
   </q-page>
 </template>
 
@@ -75,20 +81,39 @@ type Cat = { key: string; label: string };
 
 const offers = ref<OfferItem[]>([]);
 const selectedCategory = ref<string>('all');
-
+const searchQuery = ref<string>('');
 
 const route = useRoute();
 
 const categories = computed<Cat[]>(() => {
   const set = new Set<string>();
-  offers.value.forEach(o => { if (o.category) set.add(o.category); });
+  offers.value.forEach((o) => {
+    if (o.category) set.add(o.category);
+  });
   const arr = Array.from(set);
-  return [{ key: 'all', label: 'Todas' }, ...arr.map(c => ({ key: c, label: capitalize(c) }))];
+  return [{ key: 'all', label: 'Todas' }, ...arr.map((c) => ({ key: c, label: capitalize(c) }))];
 });
 
 const filteredOffers = computed(() => {
-  if (selectedCategory.value === 'all') return offers.value;
-  return offers.value.filter(o => o.category === selectedCategory.value);
+  let filtered = offers.value;
+
+  // Filtrar por categoría
+  if (selectedCategory.value !== 'all') {
+    filtered = filtered.filter((o) => o.category === selectedCategory.value);
+  }
+
+  // Filtrar por término de búsqueda
+  if (searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase().trim();
+    filtered = filtered.filter(
+      (o) =>
+        o.name?.toLowerCase().includes(query) ||
+        o.shortDescription?.toLowerCase().includes(query) ||
+        o.category?.toLowerCase().includes(query),
+    );
+  }
+
+  return filtered;
 });
 
 function selectCategory(key: string) {
@@ -97,11 +122,16 @@ function selectCategory(key: string) {
 
 function applyRouteCategory() {
   const q = (route.query.cat as string | undefined) || 'all';
-  const validKeys = new Set(categories.value.map(c => c.key));
+  const validKeys = new Set(categories.value.map((c) => c.key));
   selectedCategory.value = validKeys.has(q) ? q : 'all';
 }
 
+function applyRouteSearch() {
+  searchQuery.value = (route.query.q as string | undefined) || '';
+}
+
 watch(() => route.query.cat, applyRouteCategory);
+watch(() => route.query.q, applyRouteSearch);
 
 const thumbStyle = {
   right: '2px',
@@ -128,8 +158,9 @@ onMounted(async () => {
   try {
     const res = await fetch('/data/clothes.json');
     offers.value = await res.json();
-    // aplicar categoría desde la ruta si existe
+    // aplicar categoría y búsqueda desde la ruta si existe
     applyRouteCategory();
+    applyRouteSearch();
   } catch (e) {
     console.error('Error cargando clothes.json', e);
   }
@@ -141,7 +172,7 @@ onMounted(async () => {
   height: 56px;
   padding: 6px 4px;
   background: #f5f5f5;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
 }
 
@@ -166,7 +197,7 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   z-index: 2;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .marquee-track {
@@ -178,8 +209,11 @@ onMounted(async () => {
   animation: marquee-scroll 15s linear infinite;
 }
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
-
 </style>

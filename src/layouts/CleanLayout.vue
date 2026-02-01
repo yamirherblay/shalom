@@ -3,9 +3,16 @@
     <q-header class="bg-primary" elevated color="white">
       <q-toolbar>
         <q-toolbar-title class="row items-center q-mr-md">
-          <q-btn flat class="lt-md" @click="leftDrawerOpen = !leftDrawerOpen" round dense icon="menu" />
+          <q-btn
+            flat
+            class="lt-md"
+            @click="leftDrawerOpen = !leftDrawerOpen"
+            round
+            dense
+            icon="menu"
+          />
           <div v-if="!showSearch">
-          <span >Mercado Texas</span>
+            <span>Mercado Texas</span>
           </div>
         </q-toolbar-title>
         <!-- Desktop navigation (hidden on small screens) -->
@@ -13,17 +20,24 @@
           <q-btn flat dense label="" to="/" icon="home" class="gt-xs" />
           <q-btn flat dense label="Mercado" to="/tienda" icon="store" class="gt-xs" />
           <q-btn flat dense label="Mayoristas" to="/mayoristas" icon="sell" class="gt-xs" />
-          <q-btn flat dense label="Sabrina's Fashion" to="/clothStore" icon="checkroom" class="gt-xs" />
+          <q-btn
+            flat
+            dense
+            label="Sabrina's Fashion"
+            to="/clothStore"
+            icon="checkroom"
+            class="gt-xs"
+          />
           <q-btn flat dense label="Quiénes somos" to="/about" icon="info" class="gt-xs" />
           <q-btn flat dense label="FAQ" to="/faq" icon="help_center" class="gt-xs" />
-          <q-btn flat dense label="Contacto" to="/contact" icon="contact_support" class="gt-xs"  />
+          <q-btn flat dense label="Contacto" to="/contact" icon="contact_support" class="gt-xs" />
         </div>
 
         <!-- Actions: Search + Cart -->
         <div class="row items-center no-wrap q-gutter-sm">
           <!-- Toggle search -->
           <div v-show="!showSearch" class="row items-center no-wrap">
-          <q-btn flat round dense icon="search" @click="toggleSearch" aria-label="Buscar" />
+            <q-btn flat round dense icon="search" @click="toggleSearch" aria-label="Buscar" />
           </div>
           <!-- Slide-in input to avoid layout deformation -->
           <q-slide-transition>
@@ -39,8 +53,24 @@
                 @keyup.enter="submitSearch"
               >
                 <template #append>
-                  <q-btn round dense flat icon="close" @click="clearSearch" :aria-label="'Cerrar'" />
-                  <q-btn round dense flat icon="search" @click="submitSearch" :aria-label="'Buscar'" />
+                  <q-btn
+                    round
+                    dense
+                    flat
+                    color="white"
+                    icon="close"
+                    @click="clearSearch"
+                    :aria-label="'Cerrar'"
+                  />
+                  <q-btn
+                    round
+                    dense
+                    flat
+                    color="white"
+                    icon="search"
+                    @click="submitSearch"
+                    :aria-label="'Buscar'"
+                  />
                 </template>
               </q-input>
             </div>
@@ -48,15 +78,24 @@
 
           <!-- Cart button -->
           <q-btn flat round dense icon="shopping_cart" @click="showCart = true">
-            <q-badge color="red" text-color="white" floating v-if="cart.count">{{ cart.count }}</q-badge>
+            <q-badge color="red" text-color="white" floating v-if="cart.count">{{
+              cart.count
+            }}</q-badge>
           </q-btn>
         </div>
-
       </q-toolbar>
     </q-header>
 
     <!-- Mobile drawer menu (opens via edge swipe) - present across the whole system -->
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay behavior="mobile" bordered swipeable class="lt-md">
+    <q-drawer
+      v-model="leftDrawerOpen"
+      side="left"
+      overlay
+      behavior="mobile"
+      bordered
+      swipeable
+      class="lt-md"
+    >
       <q-list padding>
         <q-item clickable v-ripple to="/">
           <q-item-section avatar><q-icon name="home" /></q-item-section>
@@ -92,7 +131,7 @@
         </q-item>
         <q-separator />
         <q-item class="text-center justify-center">
-          <q-item-section >
+          <q-item-section>
             <q-img src="/images/logo.png" alt="MercadoTexas" />
           </q-item-section>
         </q-item>
@@ -123,26 +162,36 @@ const showCart = ref(false);
 const cart = useCartStore();
 
 // Search state
-const showSearch = ref(false)
-const searchTerm = ref('')
-const router = useRouter()
+const showSearch = ref(false);
+const searchTerm = ref('');
+const router = useRouter();
 
 function toggleSearch() {
-  showSearch.value = !showSearch.value
+  showSearch.value = !showSearch.value;
 }
 function submitSearch() {
-  const q = searchTerm.value.trim()
-  void router.push({ path: '/tienda', query: q ? { q } : {} })
+  const q = searchTerm.value.trim();
+  // Si estamos en clothStore, buscar en clothes.json y mantenerse en clothStore
+  if (isClothStore.value) {
+    void router.push({ path: '/clothStore', query: q ? { q } : {} });
+  } else {
+    void router.push({ path: '/tienda', query: q ? { q } : {} });
+  }
 }
 function clearSearch() {
-  searchTerm.value = ''
-  showSearch.value = false
+  searchTerm.value = '';
+  showSearch.value = false;
 
-  // Si estamos en /tienda, eliminar el parámetro de búsqueda `q` y mantener el resto
-  if (route.name === 'tienda' || route.path === '/tienda') {
-    const { ...rest } = route.query as Record<string, string>
-
-    void router.replace({ path: '/tienda', query: rest })
+  // Eliminar el parámetro de búsqueda `q` y mantener el resto según la ruta actual
+  if (
+    route.name === 'tienda' ||
+    route.path === '/tienda' ||
+    route.name === 'clothStore' ||
+    route.path === '/clothStore'
+  ) {
+    const { ...rest } = route.query as Record<string, string>;
+    const currentPath = isClothStore.value ? '/clothStore' : '/tienda';
+    void router.replace({ path: currentPath, query: rest });
   }
 }
 
@@ -150,7 +199,6 @@ const route = useRoute();
 const isClothStore = computed(() => route.name === 'clothStore' || route.path === '/clothStore');
 </script>
 <style lang="scss" scoped>
-
 .clear-layout {
   background: rgba(176, 146, 243, 0.83);
 }
@@ -158,6 +206,6 @@ const isClothStore = computed(() => route.name === 'clothStore' || route.path ==
 .search-input {
   min-width: 180px;
   width: 26vw;
-  max-width: 360px;
+  max-width: 320  px;
 }
 </style>
