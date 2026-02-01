@@ -62,7 +62,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, computed, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import ClothesCard from 'src/components/ClothesCard.vue';
 import MarqueeBar from 'src/components/MarqueeBar.vue';
 
@@ -84,6 +84,7 @@ const selectedCategory = ref<string>('all');
 const searchQuery = ref<string>('');
 
 const route = useRoute();
+const router = useRouter();
 
 const categories = computed<Cat[]>(() => {
   const set = new Set<string>();
@@ -115,9 +116,14 @@ const filteredOffers = computed(() => {
 
   return filtered;
 });
-
 function selectCategory(key: string) {
   selectedCategory.value = key;
+  searchQuery.value = ''; // Limpiar búsqueda
+  // Actualizar URL para remover el parámetro q
+  void router.push({ 
+    path: '/clothStore', 
+    query: { cat: key !== 'all' ? key : undefined } 
+  });
 }
 
 function applyRouteCategory() {
