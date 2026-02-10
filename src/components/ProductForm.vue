@@ -150,7 +150,7 @@ function onFileSelected(val: File | File[] | null) {
     ;(localProduct).id = slug
   }
   // Ajustar URL de imagen a una ruta pública esperada
-  ;(localProduct).image = `/images/productos/${filename}`
+  ;(localProduct).image = `/images/productos/2026/${filename}`
 }
 
 onMounted(async () => {
