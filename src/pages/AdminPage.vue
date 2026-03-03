@@ -206,7 +206,7 @@ const helpDialog = ref(false);
 const newProduct = ref<Product>({ id: '', name: '', price: 0, category: '', image: '', new: false, oferta: false, estado: 'Disponible', subcategory: '', descuento: 0, descripcion: '' });
 const editProduct = ref<Product>({ id: '', name: '', price: 0, category: '', image: '', new: false, oferta: false, estado: 'Disponible', subcategory: '', descuento: 0, descripcion: '' });
 const originalEditId = ref<string | null>(null);
-const negocio_id= "3895fc0b-c323-4e8e-b586-ce8c0f65fd60"
+const negocio_id= import.meta.env.VITE_NEGOCIO_ID;
 
 const columns =<QTableColumn[]> [
   { name: 'image', label: 'Imagen', field: 'image', align: 'left' },
