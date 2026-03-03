@@ -1,6 +1,8 @@
 [
   {
-    "id": "vasos-plasticos-28-und-700",
+    "id": "dfd1da05-4a02-4485-97bd-ef18dcce7422",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60",
+    "departament":"",
     "name": "Vasos Plasticos",
     "price": 700,
     "category": "Ferreteria",
@@ -13,8 +15,8 @@
     "descripcion": ""
   },
   {
-    "id": "tenedores-plasticos-720",
-    "name": "Tenedores Plasticos",
+    "id": "16271727-6120-4947-8a07-eb0a9dec4ca2",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Tenedores Plasticos",
     "price": 720,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Tenedores plasticos 720.jpeg",
@@ -26,8 +28,8 @@
     "descripcion": ""
   },
   {
-    "id": "te-naranja-30",
-    "name": "Té de Naranja (Negro)",
+    "id": "dfa6c65e-88b2-4d91-8bd4-107d768cd0bf",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Té de Naranja (Negro)",
     "price": 30,
     "category": "hogar",
     "image": "/images/productos/2026/Te naranja 30.jpeg",
@@ -39,8 +41,8 @@
     "descripcion": ""
   },
   {
-    "id": "te-de-limon-30",
-    "name": "Té de Limón",
+    "id": "418c7251-91bb-497a-b5df-0df9e7b4e18b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Té de Limón",
     "price": 30,
     "category": "hogar",
     "image": "/images/productos/2026/Te de limon 30.jpeg",
@@ -52,8 +54,8 @@
     "descripcion": ""
   },
   {
-    "id": "sprinkles-doradas-750",
-    "name": "Sprinkle Doradas ",
+    "id": "56056d77-84ec-4e05-962e-a1deda632954",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sprinkle Doradas ",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/2026/Sprinkles doradas 750.jpeg",
@@ -65,8 +67,8 @@
     "descripcion": ""
   },
   {
-    "id": "sprinkles-colores-varios-750",
-    "name": "Sprinkle Rainbow",
+    "id": "aca21bdd-0868-43c7-bdbe-378f395f4de6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sprinkle Rainbow",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/2026/Sprinkles colores varios 750.jpeg",
@@ -78,8 +80,8 @@
     "descripcion": ""
   },
   {
-    "id": "sprinkle-moradas-750",
-    "name": "Sprinkle Moradas",
+    "id": "e86001ad-2721-4de5-aa47-e8ca5ddb5420",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sprinkle Moradas",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/2026/Sprinkle moradas 750.jpeg",
@@ -91,8 +93,8 @@
     "descripcion": ""
   },
   {
-    "id": "sprinkle-azules-750",
-    "name": "Sprinkle Azules",
+    "id": "f5b6a17b-2896-4d52-8698-57c81a6bafc3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sprinkle Azules",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/2026/Sprinkle azules 750.jpeg",
@@ -104,8 +106,8 @@
     "descripcion": ""
   },
   {
-    "id": "sprinkle-arcoiris-750",
-    "name": "Sprinkle Arcoiris",
+    "id": "26d3a343-7400-4fdf-a243-0291ca428b47",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sprinkle Arcoiris",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/2026/Sprinkle Arcoiris 750.jpeg",
@@ -117,8 +119,8 @@
     "descripcion": ""
   },
   {
-    "id": "servilletas-580",
-    "name": "Servilletas de papel",
+    "id": "770b0f00-4d41-4c6e-8869-f17f17623e21",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Servilletas de papel",
     "price": 580,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Servilletas 580.jpeg",
@@ -130,8 +132,8 @@
     "descripcion": ""
   },
   {
-    "id": "platos-de-foami-para-fiestas-1500",
-    "name": "Platos Foami para Fiestas ",
+    "id": "b31394dd-0ced-4b8f-8e2e-b4067cdaab51",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Platos Foami para Fiestas ",
     "price": 1500,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Platos de Foami para fiestas 1500.jpeg",
@@ -143,8 +145,8 @@
     "descripcion": ""
   },
   {
-    "id": "platos-cuadrados-foami-1500-para-fiestas",
-    "name": "Platos Foami Cuadrados ",
+    "id": "a28cd70c-09c2-4509-8f8a-0a2498fc0d30",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Platos Foami Cuadrados ",
     "price": 1500,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Platos Cuadrados Foami 1500 para fiestas.jpeg",
@@ -156,8 +158,8 @@
     "descripcion": ""
   },
   {
-    "id": "papel-aluminio-530",
-    "name": "Papel Aluminio ",
+    "id": "68715d25-21c1-4911-8717-d6e70d2b7cb0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Papel Aluminio ",
     "price": 530,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Papel Aluminio 530.jpeg",
@@ -169,8 +171,8 @@
     "descripcion": ""
   },
   {
-    "id": "mantel-para-cumples-600",
-    "name": "Mantel para Cumpleaños",
+    "id": "41101f40-ffe0-4cbe-a360-6b3657cb7c12",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Mantel para Cumpleaños",
     "price": 600,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Mantel para cumples 600.jpeg",
@@ -182,8 +184,8 @@
     "descripcion": ""
   },
   {
-    "id": "juegos-cubiertos-plasticos-720",
-    "name": "Juego de Cubiertos plásticos",
+    "id": "ee5437a4-f14f-4775-a869-f9b43e6b56c3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Juego de Cubiertos plásticos",
     "price": 720,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Juegos Cubiertos plasticos 720.jpeg",
@@ -195,8 +197,8 @@
     "descripcion": ""
   },
   {
-    "id": "guantes-trabajo-engomado-1500",
-    "name": "Guantes Engomados",
+    "id": "3bce3a0d-2597-4cf9-903b-a86a68393871",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Guantes Engomados",
     "price": 1500,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Guantes trabajo engomado 1500.jpeg",
@@ -208,8 +210,8 @@
     "descripcion": ""
   },
   {
-    "id": "guantes-de-trabajo-2000",
-    "name": "Guantes Antiresbalantes ",
+    "id": "9f5e63b7-83cf-4fc6-a861-144ca4789eec",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Guantes Antiresbalantes ",
     "price": 2000,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Guantes de Trabajo 2000.jpeg",
@@ -221,8 +223,8 @@
     "descripcion": ""
   },
   {
-    "id": "guantes-de-trabajo-1000",
-    "name": "Guantes Trabajo Resistentes",
+    "id": "1dce1c4a-0d73-4fde-969b-9413526b8361",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Guantes Trabajo Resistentes",
     "price": 1000,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Guantes de trabajo 1000.jpeg",
@@ -234,8 +236,8 @@
     "descripcion": ""
   },
   {
-    "id": "globos-25-und-850",
-    "name": "Globos 25 und",
+    "id": "eedd697a-4087-47b7-80b4-3680179d93f2",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Globos 25 und",
     "price": 850,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Globos 25 und 850.png",
@@ -247,8 +249,8 @@
     "descripcion": ""
   },
   {
-    "id": "globos-20-und-700",
-    "name": "Globos 20 und",
+    "id": "6d28b4ca-b3c9-4253-ade1-b5b8579a8c62",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Globos 20 und",
     "price": 700,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Globos 20 und 700.png",
@@ -260,8 +262,8 @@
     "descripcion": ""
   },
   {
-    "id": "globos-10-und-350",
-    "name": "Globos 10 und ",
+    "id": "64927498-2c49-46e1-afe9-ca64572e3914",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Globos 10 und ",
     "price": 350,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Globos 10 und 350.png",
@@ -273,8 +275,8 @@
     "descripcion": ""
   },
   {
-    "id": "cucharas-plasticas-720",
-    "name": "Cucharas Plásticas",
+    "id": "2a386f21-f838-4577-a5a1-9a0f9c6b0a10",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cucharas Plásticas",
     "price": 720,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Cucharas plasticas 720.jpeg",
@@ -286,8 +288,8 @@
     "descripcion": ""
   },
   {
-    "id": "cafe-costelo-3100",
-    "name": "Café Costelo",
+    "id": "d3f69238-e6ba-4029-924e-8f8bfc2c6b74",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Café Costelo",
     "price": 3100,
     "category": "Granos",
     "image": "/images/productos/2026/Cafe Costelo 3100.jpeg",
@@ -299,8 +301,8 @@
     "descripcion": ""
   },
   {
-    "id": "absorventes-800",
-    "name": "Absorventes 80 und",
+    "id": "8746b704-f736-4e39-ab4d-76d7c0aeff8f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Absorventes 80 und",
     "price": 800,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Absorventes 800.jpeg",
@@ -312,8 +314,8 @@
     "descripcion": ""
   },
   {
-    "id": "absorventes-80-und-800",
-    "name": "Absorvente 80 und",
+    "id": "6467f711-d3e4-4692-bedd-6495d3141ed6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Absorvente 80 und",
     "price": 800,
     "category": "Ferreteria",
     "image": "/images/productos/2026/Absorventes 80 und 800.jpeg",
@@ -325,8 +327,8 @@
     "descripcion": ""
   },
   {
-    "id": "arroz-tanamo-650",
-    "name": "Arroz Blanco Tánamo",
+    "id": "70d193e5-f857-49ec-96ca-63d227c034dd",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Arroz Blanco Tánamo",
     "price": 650,
     "category": "Granos",
     "image": "/images/productos/Arroz Tanamo 650.jpeg",
@@ -338,8 +340,8 @@
     "descripcion": ""
   },
   {
-    "id": "carne-de-res-enlatada-750",
-    "name": "Carne de Res Enlatada",
+    "id": "66ee564e-2947-47dd-a01a-34fb59e6a583",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Carne de Res Enlatada",
     "price": 750,
     "category": "Enlatados",
     "image": "/images/productos/CArne de Res enlatada 750.jpeg",
@@ -351,8 +353,8 @@
     "descripcion": ""
   },
   {
-    "id": "comino-en-grano-100",
-    "name": "Comino en Grano",
+    "id": "e5005ae4-ba0a-41ce-a903-0b44f7f21f65",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en Grano",
     "price": 100,
     "category": "Sazon",
     "image": "/images/productos/Comino en grano 100.jpeg",
@@ -364,8 +366,8 @@
     "descripcion": ""
   },
   {
-    "id": "leche-enpolvo-porto-bello-950",
-    "name": "Leche en polvo Porto Bello 400g",
+    "id": "c72ebe50-3b2d-4796-924f-3bfb6525a596",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Leche en polvo Porto Bello 400g",
     "price": 950,
     "category": "hogar",
     "image": "/images/productos/Leche Enpolvo Porto Bello 950.jpeg",
@@ -377,8 +379,8 @@
     "descripcion": ""
   },
   {
-    "id": "salchicha-1-kg-1500",
-    "name": "Salchichas de 1kg",
+    "id": "cd8345d6-fb3b-4e3d-b112-2914b87b7e24",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Salchichas de 1kg",
     "price": 1500,
     "category": "Cárnicos",
     "image": "/images/productos/Salchicha 1 Kg 1500.jpeg",
@@ -390,8 +392,8 @@
     "descripcion": ""
   },
   {
-    "id": "detergente-nt-500g-500",
-    "name": "Detergente NT 500g",
+    "id": "278efda0-f5e9-4c00-8ccc-2c9509758cdc",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Detergente NT 500g",
     "price": 500,
     "category": "hogar",
     "image": "/images/productos/Detergente NT 500g 500.jpeg",
@@ -403,8 +405,8 @@
     "descripcion": ""
   },
   {
-    "id": "jugo-arwa-sabor-naranja-1100",
-    "name": "Jugo Arwa sabor naranja",
+    "id": "c8282c0e-23c4-4fcc-8170-0d55df37bbbe",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jugo Arwa sabor naranja",
     "price": 1100,
     "category": "Bebidas",
     "image": "/images/productos/Jugo Arwa Sabor Naranja 1100.jpeg",
@@ -416,8 +418,8 @@
     "descripcion": ""
   },
   {
-    "id": "jugo-cjn-sabor-naranja-1000",
-    "name": "Jugo  Cngr sabor Naranja",
+    "id": "1701c929-96e6-48a9-b034-01c78ef59871",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jugo  Cngr sabor Naranja",
     "price": 1000,
     "category": "Bebidas",
     "image": "/images/productos/Jugo Cjn sabor Naranja 1000.jpeg",
@@ -429,8 +431,8 @@
     "descripcion": ""
   },
   {
-    "id": "arroz-importado-white-rice-650",
-    "name": "Arroz White Rice",
+    "id": "7d267e20-ff85-42b3-837e-0b08aa6a12db",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Arroz White Rice",
     "price": 650,
     "category": "Granos",
     "image": "/images/productos/Arroz Importado White Rice 650.jpeg",
@@ -442,8 +444,8 @@
     "descripcion": ""
   },
   {
-    "id": "aceeite-de-soja-1000",
-    "name": "Aceite de Soja Sublime",
+    "id": "f0273c1e-744f-4fb2-9d14-69c418d8e4dc",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Aceite de Soja Sublime",
     "price": 1000,
     "category": "hogar",
     "image": "/images/productos/Aceeite de Soja 1000.jpeg",
@@ -455,8 +457,8 @@
     "descripcion": ""
   },
   {
-    "id": "sazon-frezco-45",
-    "name": "Sazón Frezko Seasoning",
+    "id": "3e83b903-e191-48f4-80ca-0ccda8625f66",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazón Frezko Seasoning",
     "price": 45,
     "category": "Sazon",
     "image": "/images/productos/Sazon Frezco 45.jpeg",
@@ -468,8 +470,8 @@
     "descripcion": ""
   },
   {
-    "id": "chupa-chup-pin-pop-45-und",
-    "name": "Chupa Chups PinPop",
+    "id": "1dc185da-2199-4b31-a424-9e38379d2138",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Chupa Chups PinPop",
     "price": 45,
     "category": "Confituras",
     "image": "/images/productos/Chupa Chup Pin Pop 45 und .webp",
@@ -481,8 +483,8 @@
     "descripcion": ""
   },
   {
-    "id": "galletas-crokantinas-1100",
-    "name": "Galletas Crokantinas",
+    "id": "9081d161-c961-40c0-8228-6206558f933d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas Crokantinas",
     "price": 1100,
     "category": "Confituras",
     "image": "/images/productos/Galletas Crokantinas 1100.webp",
@@ -494,8 +496,8 @@
     "descripcion": ""
   },
   {
-    "id": "galletas-salricas-600",
-    "name": "Galletas Salricas",
+    "id": "711ee81d-e385-40c6-853a-c3db0e6f2c45",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas Salricas",
     "price": 600,
     "category": "Confituras",
     "image": "/images/productos/Galletas Salricas 600.webp",
@@ -507,8 +509,8 @@
     "descripcion": ""
   },
   {
-    "id": "sazon-completo-delicius-650",
-    "name": "Sazon Completo Delish",
+    "id": "83affae3-b099-406a-b811-05f6978134e6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon Completo Delish",
     "price": 600,
     "category": "Sazon",
     "image": "/images/productos/Sazon Completo Delicius 650.webp",
@@ -520,8 +522,8 @@
     "descripcion": ""
   },
   {
-    "id": "desodorante-keewell-azul",
-    "name": "Desodorante Keewell Jasmin",
+    "id": "f8557bfd-3532-4441-b0fc-62ee0c3b5932",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Desodorante Keewell Jasmin",
     "price": 450,
     "category": "Aseo",
     "image": "/images/productos/Desodorante Keewell azul.jpeg",
@@ -533,8 +535,8 @@
     "descripcion": ""
   },
   {
-    "id": "desodorante-keewell-rosa",
-    "name": "Desodorante Keewell Rosa",
+    "id": "5cccf69e-9a6d-4209-8297-19942c829650",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Desodorante Keewell Rosa",
     "price": 450,
     "category": "Aseo",
     "image": "/images/productos/Desodorante Keewell Rosa.jpeg",
@@ -546,8 +548,8 @@
     "descripcion": ""
   },
   {
-    "id": "aceite-laloba-900ml-980",
-    "name": "Aceite la Loba 900ml",
+    "id": "199215d9-d6e2-43a7-b655-a47911d31208",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Aceite la Loba 900ml",
     "price": 980,
     "category": "hogar",
     "image": "/images/productos/Aceite LaLoba 900ml 980.jpeg",
@@ -559,8 +561,8 @@
     "descripcion": ""
   },
   {
-    "id": "pastillas-de-pollo-30-und",
-    "name": "Pastillas de pollo (unidad)",
+    "id": "71aeeacd-b1c0-45b3-a55d-56832d5dcd93",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pastillas de pollo (unidad)",
     "price": 30,
     "category": "Sazon",
     "image": "/images/productos/pastillas de pollo 30 und.webp",
@@ -572,8 +574,8 @@
     "descripcion": ""
   },
   {
-    "id": "pastillas-de-pollos-240-caja",
-    "name": "Pastillas de pollo (caja)",
+    "id": "be7fbd35-e710-4eee-b6df-63677b3efd5b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pastillas de pollo (caja)",
     "price": 240,
     "category": "Sazon",
     "image": "/images/productos/Pastillas de pollos 240 caja.webp",
@@ -585,8 +587,8 @@
     "descripcion": ""
   },
   {
-    "id": "combo-familiar-7400",
-    "name": "Combo Familiar",
+    "id": "f36df403-d402-43c4-8a72-5581ef4eeb1c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Combo Familiar",
     "price": 7400,
     "category": "Cárnicos",
     "image": "/images/productos/Combo familiar 7400.jpeg",
@@ -598,8 +600,8 @@
     "descripcion": "Paquete de pollo y 1 Fill de huevo"
   },
   {
-    "id": "malta-guajira-250",
-    "name": "Malta Guajira",
+    "id": "aae1b934-e0fb-4f35-8710-1747f3ff949c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Malta Guajira",
     "price": 250,
     "category": "Bebidas",
     "image": "/images/productos/Malta Guajira 250.jpeg",
@@ -611,8 +613,8 @@
     "descripcion": ""
   },
   {
-    "id": "cerveza-parranda-220",
-    "name": "Cerveza Parranda",
+    "id": "51def178-a59a-4c33-88ba-a2aa5f2cae0a",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cerveza Parranda",
     "price": 220,
     "category": "Bebidas",
     "image": "/images/productos/Cerveza Parranda 220.jpeg",
@@ -624,8 +626,8 @@
     "descripcion": ""
   },
   {
-    "id": "Azucar-Canoro-650",
-    "name": "Azúcar Canoro 1KG",
+    "id": "6607e00a-62e5-4583-b0db-e80cb7d6ae9a",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Azúcar Canoro 1KG",
     "price": 650,
     "category": "Granos",
     "image": "/images/productos/Azucar Canoro 1kg 650.jpeg",
@@ -637,8 +639,8 @@
     "descripcion": ""
   },
   {
-    "id": "refresco-varios-sabores-LUA",
-    "name": "Refresco LUA Sabores (Naranja, Mandarina, Maracuya, Limon, Fresa y Piña)",
+    "id": "6be7c523-39cc-4530-bfb7-e991c55c5b38",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco LUA Sabores (Naranja, Mandarina, Maracuya, Limon, Fresa y Piña)",
     "price": 45,
     "category": "Confituras",
     "image": "/images/productos/Refrescos Varios Sabores LUA 45.jpeg",
@@ -650,8 +652,8 @@
     "descripcion": ""
   },
   {
-    "id": "picadillo-condimentado-600",
-    "name": "Picadillo condimentado ",
+    "id": "f990e9b0-d4fc-46bd-8adb-9ec5576bf072",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Picadillo condimentado ",
     "price": 600,
     "category": "Cárnicos",
     "image": "/images/productos/Picadillo condimentado 600.jpeg",
@@ -663,8 +665,8 @@
     "descripcion": ""
   },
   {
-    "id": "huevo-la-unidad-110",
-    "name": "Huevo (1 und)",
+    "id": "83f41f24-0216-4f4d-8675-405f31c2ac0d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Huevo (1 und)",
     "price": 110,
     "category": "Cárnicos",
     "image": "/images/productos/huevo la unidad 110 .jpeg",
@@ -676,8 +678,8 @@
     "descripcion": ""
   },
   {
-    "id": "aceite-saude-980",
-    "name": "Aceite Saude",
+    "id": "796dab52-42c7-494f-b15e-06f9f8bbe6a6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Aceite Saude",
     "price": 980,
     "category": "hogar",
     "image": "/images/productos/Aceite Saude 780.jpeg",
@@ -689,8 +691,8 @@
     "descripcion": ""
   },
   {
-    "id": "leche-entera-3000",
-    "name": "Leche Entera ",
+    "id": "a4ca27b7-e7c0-4f88-8eeb-27e15155480e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Leche Entera ",
     "price": 3000,
     "category": "hogar",
     "image": "/images/productos/Leche Entera 3000.jpeg",
@@ -702,8 +704,8 @@
     "descripcion": "1 Kg"
   },
   {
-    "id": "sazon-completo-700",
-    "name": "Sazon Completo ",
+    "id": "7298e801-f6f0-4170-ae9c-ceba94ea03b5",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon Completo ",
     "price": 700,
     "category": "Sazon",
     "image": "/images/productos/Sazon completo 700.webp",
@@ -715,8 +717,8 @@
     "descripcion": "Todo en Uno."
   },
   {
-    "id": "aceite-market-970-1l",
-    "name": "Aceite 1L Market",
+    "id": "cfb8fcae-488c-4cdb-957f-498fd0f0235d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Aceite 1L Market",
     "price": 970,
     "category": "hogar",
     "image": "/images/productos/Aceite Market 970 1L.webp",
@@ -728,8 +730,8 @@
     "descripcion": ""
   },
   {
-    "id": "sopa-de-carne-180",
-    "name": "Sopa de Carne ",
+    "id": "67886bfd-adf0-4487-9b81-795c19d81eda",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sopa de Carne ",
     "price": 180,
     "category": "hogar",
     "image": "/images/productos/Sopa de carne 180.jpeg",
@@ -741,8 +743,8 @@
     "descripcion": ""
   },
   {
-    "id": "vinagre-vino-tinto-750",
-    "name": "Vinagre Gourmet de vino Tinto",
+    "id": "dcb7eaed-701d-4f95-96cb-b02b05029654",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Vinagre Gourmet de vino Tinto",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/Vinagre Vino tinto 750.webp",
@@ -754,8 +756,8 @@
     "descripcion": ""
   },
   {
-    "id": "pasta-de-bocaditos-asotea-1800",
-    "name": "Pasta para bocaditos AZOTEA",
+    "id": "598f6ba2-7d38-4aed-8ae6-304ff82468d3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta para bocaditos AZOTEA",
     "price": 1800,
     "category": "hogar",
     "image": "/images/productos/Pasta de bocaditos ASOTEA 1800.webp",
@@ -767,8 +769,8 @@
     "descripcion": ""
   },
   {
-    "id": "agua-mineral-sultan-180",
-    "name": "Agua Mineral Sultan",
+    "id": "dd0a23aa-aa89-4835-a81c-a6adea28272b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Agua Mineral Sultan",
     "price": 180,
     "category": "Bebidas",
     "image": "/images/productos/Agua mineral Sultan 180.webp",
@@ -780,8 +782,8 @@
     "descripcion": ""
   },
   {
-    "id": "sardinas-san-avellino-420",
-    "name": "Sardinas San Avellino",
+    "id": "7cce5dc9-4f2e-47ae-8b62-31314e8615c5",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sardinas San Avellino",
     "price": 420,
     "category": "Enlatados",
     "image": "/images/productos/Sardinas San Avellino 420.jpeg",
@@ -793,8 +795,8 @@
     "descripcion": ""
   },
   {
-    "id": "pasta-dental-crhot-450",
-    "name": "Pasta Dental CrHot",
+    "id": "a545333c-3007-4263-b5ef-b9748fc5920c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta Dental CrHot",
     "price": 450,
     "category": "hogar",
     "image": "/images/productos/Pasta dental Crhot 450.jpeg",
@@ -806,8 +808,8 @@
     "descripcion": ""
   },
   {
-    "id": "refresco-ice-naranja-240",
-    "name": "Refresco Ice",
+    "id": "eabca675-e434-42ab-9d0c-8137ade40b67",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Ice",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/refresco ICE naranja 240.jpeg",
@@ -819,8 +821,8 @@
     "descripcion": ""
   },
   {
-    "id": "galleta-halos-de-chocolate-80",
-    "name": "Galleta Halos chocolate",
+    "id": "bfbaf2af-b97f-42c0-8b21-13930c3e08eb",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta Halos chocolate",
     "price": 80,
     "category": "Confituras",
     "image": "/images/productos/Galleta Halos de chocolate 80.jpeg",
@@ -832,8 +834,8 @@
     "descripcion": ""
   },
   {
-    "id": "ajo-importado-55-x-und",
-    "name": "Ajo Importado",
+    "id": "16b5127f-151d-440f-8f16-18a857e6fb44",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Ajo Importado",
     "price": 55,
     "category": "Agropecuarios",
     "image": "/images/productos/Ajo importado 55 x und.jpeg",
@@ -845,8 +847,8 @@
     "descripcion": "+5 cabezas de ajo precio a  52 CUP"
   },
   {
-    "id": "whisky-chancelier-750ml-1500",
-    "name": "Whiskey Chancelier 1L",
+    "id": "aa2d85f1-88ea-475d-8102-064ca997d270",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Whiskey Chancelier 1L",
     "price": 1500,
     "category": "Bebidas",
     "image": "/images/productos/Whisky Chancelier  750ml 1500.webp",
@@ -858,8 +860,8 @@
     "descripcion": ""
   },
   {
-    "id": "whisky-chancelier-200-ml-450",
-    "name": "Whiskey Chancelier 200ml ",
+    "id": "78d8c299-fa4f-469e-b2cc-870a2579b491",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Whiskey Chancelier 200ml ",
     "price": 450,
     "category": "Bebidas",
     "image": "/images/productos/Whisky Chancelier 200 ml 450.webp",
@@ -871,8 +873,8 @@
     "descripcion": ""
   },
   {
-    "id": "pasta-codito-gonca-350",
-    "name": "Pasta Codito Gonca",
+    "id": "2750a831-c029-45cb-9142-29cdcd555a93",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta Codito Gonca",
     "price": 350,
     "category": "hogar",
     "image": "/images/productos/Pasta codito Gonca 350.webp",
@@ -884,8 +886,8 @@
     "descripcion": ""
   },
   {
-    "id": "galleta-lamore-150",
-    "name": "Galleta L'amore",
+    "id": "debfdf87-bdb4-413e-bfe0-8df2e41839a4",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta L'amore",
     "price": 150,
     "category": "Confituras",
     "image": "/images/productos/Galleta Lamore 150.webp",
@@ -897,8 +899,8 @@
     "descripcion": ""
   },
   {
-    "id": "galleta-chest-130",
-    "name": "Galleta CHEST",
+    "id": "41a4f27a-9cdf-4886-bf9b-ca704ac4cf18",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta CHEST",
     "price": 130,
     "category": "Confituras",
     "image": "/images/productos/Galleta CHEST 130.webp",
@@ -910,8 +912,8 @@
     "descripcion": ""
   },
   {
-    "id": "papa-importada-5lb-2250",
-    "name": "Bolsa de papa importada de 5lb",
+    "id": "9ea1e032-6a51-4aa6-9631-dea9794c1450",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Bolsa de papa importada de 5lb",
     "price": 2250,
     "category": "Agropecuarios",
     "image": "/images/productos/Papa importada 5lb 2250.webp",
@@ -923,8 +925,8 @@
     "descripcion": "Compras más de 2lb a 420 CUP"
   },
   {
-    "id": "galleta-biskiato-coco-con-chocolate-150",
-    "name": "Galleta Biskiato Sabor chocolate con coco",
+    "id": "7651f966-b454-4225-8616-2ade8d5b4c6b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta Biskiato Sabor chocolate con coco",
     "price": 150,
     "category": "Confituras",
     "image": "/images/productos/Galleta Biskiato Coco con Chocolate 150.webp",
@@ -936,8 +938,8 @@
     "descripcion": ""
   },
   {
-    "id": "jabon-de-lavar-verde-280",
-    "name": "Jabon Turco de lavar verde",
+    "id": "52eff5d0-ab91-4d96-82b9-e1599138507b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jabon Turco de lavar verde",
     "price": 280,
     "category": "Aseo",
     "image": "/images/productos/Jabon de lavar Verde 280.webp",
@@ -949,8 +951,8 @@
     "descripcion": ""
   },
   {
-    "id": "jabon-de-lavar-280-rojo",
-    "name": "Jabon Turco de Lavar rojo",
+    "id": "9b06193d-5b5c-4042-ad7b-8aec70dee1e1",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jabon Turco de Lavar rojo",
     "price": 280,
     "category": "Aseo",
     "image": "/images/productos/Jabon de lavar 280 Rojo.webp",
@@ -962,8 +964,8 @@
     "descripcion": ""
   },
   {
-    "id": "aceite-laloba-900ml",
-    "name": "aceite laloba 900ml",
+    "id": "6b5455bd-32f4-4419-a684-94acea31df42",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "aceite laloba 900ml",
     "price": 950,
     "category": "hogar",
     "image": "/images/productos/aceite laloba 900ml.webp",
@@ -972,8 +974,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "adorno-floral-1",
-    "name": "Adorno para Refrigerador",
+    "id": "7a842a56-83d7-4fe6-a5bd-33f8d804626f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Adorno para Refrigerador",
     "price": 250,
     "category": "hogar",
     "image": "/images/productos/Adorno para refrigerador.jpeg",
@@ -982,8 +984,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "adorno-para-refrigerador1",
-    "name": "Adorno Floral",
+    "id": "bbcdd51c-028d-4e6d-8b81-6799aebc2faa",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Adorno Floral",
     "price": 2500,
     "category": "hogar",
     "image": "/images/productos/Adorno Floral 1.webp",
@@ -992,8 +994,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "Bucaro-con-flores-250",
-    "name": "Búcaro con Tulipán Rojo",
+    "id": "3d2c0a3f-31ea-4b69-8f4f-440bd34004c4",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Búcaro con Tulipán Rojo",
     "price": 250,
     "category": "hogar",
     "image": "/images/productos/Bucaro con flores 250.jpeg",
@@ -1002,8 +1004,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "adorno-floral-girasol",
-    "name": "Adorno Floral Girasol",
+    "id": "9054f4c8-a5ca-4ad2-9af4-d1d2446eaa93",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Adorno Floral Girasol",
     "price": 1500,
     "category": "hogar",
     "image": "/images/productos/Adorno Floral Girasol.webp",
@@ -1012,8 +1014,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "agua-natural-ciego-montero-500-ml",
-    "name": "Agua Natural Ciego Montero 500 ml",
+    "id": "04424eab-8e41-4926-a784-10535e562500",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Agua Natural Ciego Montero 500 ml",
     "price": 150,
     "category": "Bebidas",
     "image": "/images/productos/Agua Natural Ciego Montero 500 ml.webp",
@@ -1022,8 +1024,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "arroz-brazileiro-rainha",
-    "name": "Arroz Brazileiro Rainha 1 kg",
+    "id": "a742a49a-84e2-4bde-b766-c70decdab473",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Arroz Brazileiro Rainha 1 kg",
     "price": 670,
     "category": "Granos",
     "image": "/images/productos/Arroz Brazileiro Rainha.webp",
@@ -1032,8 +1034,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "combo-1",
-    "name": "Combo Cena Maestra",
+    "id": "39863f95-84fb-406c-bd79-f029109981ed",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Combo Cena Maestra",
     "price": 155,
     "category": "combos",
     "image": "/images/productos/combo1.jpg",
@@ -1043,8 +1045,8 @@
     "descripcion": "Pollo Premium (10 lb). Arroz Rainha (5 paquetes de 1 kg).Frijol Negro (1 kg). Aceite (5 pomo de 900 ml). 1 Fill de Huevos. Cerveza Cristal Extra 2 Cajas. 1 Botella de Whiskey Premium. (Se lleva hasta su casa)."
   },
   {
-    "id": "arroz-disempre-1-kg",
-    "name": "Arroz Disempre 1 kg",
+    "id": "0704f666-e826-4a20-acd8-ee853a4c4062",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Arroz Disempre 1 kg",
     "price": 620,
     "category": "Granos",
     "image": "/images/productos/Arroz Disempre 1 kg.webp",
@@ -1053,8 +1055,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "azucar-cristal-sublime-1kg",
-    "name": "Azucar Cristal Sublime 1kg",
+    "id": "aad77db4-c9ad-41bd-8f38-65d51e8df3eb",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Azucar Cristal Sublime 1kg",
     "price": 650,
     "category": "Granos",
     "image": "/images/productos/Azucar Cristal Sublime 1kg.webp",
@@ -1063,8 +1065,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "grey-beteado-7500",
-    "name": "Grey moteado para pisos",
+    "id": "aa0ed136-0e78-4634-a232-cc77aaa81a2c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Grey moteado para pisos",
     "price": 7500,
     "category": "Ferreteria",
     "image": "/images/productos/Grey beteado 7500.jpeg",
@@ -1073,8 +1075,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "grey-blanco",
-    "name": "Grey Blanco para pisos",
+    "id": "4c678686-8853-4d1e-9b8d-d3ce6c35c06e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Grey Blanco para pisos",
     "price": 8300,
     "category": "Ferreteria",
     "image": "/images/productos/Grey Blanco 8300.jpeg",
@@ -1083,8 +1085,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "grey-marmolado",
-    "name": "Grey Marmolado para pisos ",
+    "id": "1d4a1035-c935-49d0-8c46-911bb1014df0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Grey Marmolado para pisos ",
     "price": 8300,
     "category": "Ferreteria",
     "image": "/images/productos/Grey marmolado 8300.jpeg",
@@ -1093,8 +1095,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "grey-marron-claro1",
-    "name": "Grey Marron claro para pisos",
+    "id": "d3d503ac-1068-42be-a39d-caa3d40dc32d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Grey Marron claro para pisos",
     "price": 8300,
     "category": "Ferreteria",
     "image": "/images/productos/Grey para piso marron claro 8300.jpeg",
@@ -1103,8 +1105,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "Cenefa-con-dibujo",
-    "name": "Cenefa ",
+    "id": "7a7fd20f-deca-4699-b618-159f4997c1f0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cenefa ",
     "price": 1600,
     "category": "Ferreteria",
     "image": "/images/productos/Cenefa 1600.jpeg",
@@ -1113,8 +1115,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "cafe-lallave",
-    "name": "Cafe Lallave",
+    "id": "905108a9-2a27-421b-a767-741549d72450",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cafe Lallave",
     "price": 2800,
     "category": "Granos",
     "image": "/images/productos/Cafe lallave.webp",
@@ -1123,8 +1125,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "caramelos-le-squisit-de-leche",
-    "name": "Caramelos le squisit de leche",
+    "id": "3fa4b9a3-0090-43d4-8d70-7b636a2e08a6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Caramelos le squisit de leche",
     "price": 20,
     "category": "Confituras",
     "image": "/images/productos/Caramelos le squisit de leche.webp",
@@ -1133,8 +1135,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "carne-de-cerdo-deshuesada",
-    "name": "Carne de Cerdo deshuesada 11 lb",
+    "id": "9746b7a9-83e5-4c63-821a-11abdd1065b4",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Carne de Cerdo deshuesada 11 lb",
     "price": 12650,
     "category": "Cárnicos",
     "image": "/images/productos/Carne de Cerdo deshuesada.webp",
@@ -1143,8 +1145,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "cemento-eurojunta-para-derretidos-piso",
-    "name": "Cemento EuroJunta para derretidos piso",
+    "id": "8e205d89-6a2c-40c6-8d48-c0bf5e89b706",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cemento EuroJunta para derretidos piso",
     "price": 7000,
     "category": "Ferreteria",
     "image": "/images/productos/Cemento EuroJunta para derretidos piso.webp",
@@ -1153,8 +1155,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "ceramica-para-piso-y-enchape",
-    "name": "Céramica para piso y enchape",
+    "id": "99adbbb6-d018-4b71-82e3-0fc73fdb3267",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Céramica para piso y enchape",
     "price": 8300,
     "category": "Ferreteria",
     "image": "/images/productos/Ceramica para piso y enchape.webp",
@@ -1163,8 +1165,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "cerveza-cristal-extra1",
-    "name": "Cerveza Cristal Extra1",
+    "id": "13efde89-3425-4931-9bd4-f777eae961e6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cerveza Cristal Extra1",
     "price": 300,
     "category": "Bebidas",
     "image": "/images/productos/Cerveza Cristal Extra1.webp",
@@ -1173,8 +1175,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "mayonesaCastello950",
-    "name": "Mayonesa Castelo",
+    "id": "cf519c2c-36a5-430b-9f41-a526ddcb96cd",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Mayonesa Castelo",
     "price": 950,
     "category": "hogar",
     "image": "/images/productos/mayonesaCastello 950.jpeg",
@@ -1184,8 +1186,8 @@
     "descuento": 5
   },
   {
-    "id": "cerveza-cristal-2",
-    "name": "Cerveza Cristal",
+    "id": "e24980e2-95d8-4a90-81fe-88b89fa0a7f9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cerveza Cristal",
     "price": 330,
     "category": "Bebidas",
     "image": "/images/productos/Cerveza Cristal.webp",
@@ -1194,8 +1196,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "cerveza-moyoc-2",
-    "name": "Cerveza MOYOC",
+    "id": "ae060375-f2ce-416b-9b34-187224f84c74",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cerveza MOYOC",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/Cerveza MOYOC.webp",
@@ -1204,8 +1206,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "cerveza-windmill-2",
-    "name": "Cerveza Windmill",
+    "id": "0a066163-2993-4c77-a242-a20822a46d25",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cerveza Windmill",
     "price": 250,
     "category": "Bebidas",
     "image": "/images/productos/Cerveza Windmill.webp",
@@ -1214,8 +1216,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "cerveza-bucanero",
-    "name": "Cerveza Bucanero",
+    "id": "efcce152-cea5-4ae7-a67a-d10c46815247",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cerveza Bucanero",
     "price": 350,
     "category": "Bebidas",
     "image": "/images/productos/Cerveza bucanero 350.jpeg",
@@ -1224,8 +1226,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "champu-honey",
-    "name": "champu honey ",
+    "id": "89e74719-f585-4ef6-b188-cdc9d1a0e16f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "champu honey ",
     "price": 2700,
     "category": "Aseo",
     "image": "/images/productos/champu honey .webp",
@@ -1234,8 +1236,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "chups-chups-big-boom",
-    "name": "Chups Chups Big BOOM 1 und",
+    "id": "1174e63c-ef55-4240-98f3-7cb6ec22b1e9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Chups Chups Big BOOM 1 und",
     "price": 45,
     "category": "Confituras",
     "image": "/images/productos/Chups Chups Big BOOM.webp",
@@ -1244,8 +1246,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "chups-chups",
-    "name": "Chups Chups 1 und ",
+    "id": "ef917828-8eab-4170-820a-ef32401220c8",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Chups Chups 1 und ",
     "price": 45,
     "category": "Confituras",
     "image": "/images/productos/Chups Chups .webp",
@@ -1254,8 +1256,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "cinta-tape-para-electricidad",
-    "name": "Cinta Tape para electricidad",
+    "id": "78d5b4fc-f30b-4d14-b7fb-0913192c9a47",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cinta Tape para electricidad",
     "price": 500,
     "category": "Ferreteria",
     "image": "/images/productos/Cinta Tape para electricidad.webp",
@@ -1264,8 +1266,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "detergente-hit-1-kg",
-    "name": "Detergente HIT 1 kg",
+    "id": "a98b6faf-4d59-40a4-9859-4b1eda058a8f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Detergente HIT 1 kg",
     "price": 750,
     "category": "hogar",
     "image": "/images/productos/Detergente MIX 1 kg.webp",
@@ -1274,8 +1276,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "detergente-brio",
-    "name": "Detergente Brio 500g ",
+    "id": "c9098ed5-ea0c-443d-9627-c0e7b2d276be",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Detergente Brio 500g ",
     "price": 500,
     "category": "hogar",
     "image": "/images/productos/Detergente Brio 500g 500.jpeg",
@@ -1284,8 +1286,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "detergente-stb-500g",
-    "name": "detergente STB 500g",
+    "id": "1bcc1e04-95ef-4f84-a177-b062d5a7c4c9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "detergente STB 500g",
     "price": 500,
     "category": "hogar",
     "image": "/images/productos/detergente STB 500g.webp",
@@ -1294,8 +1296,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "espaguetis-pasta-rosso-500g",
-    "name": "espaguetis pasta rosso 500g ",
+    "id": "dc2f6880-e0c1-4c4d-a1da-93dbc452df35",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "espaguetis pasta rosso 500g ",
     "price": 330,
     "category": "Pastas",
     "image": "/images/productos/espaguetis pasta rosso 500g .webp",
@@ -1304,8 +1306,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "ferreteria-01",
-    "name": "Tornillo con Tuerca 1 und",
+    "id": "3beb23b8-de05-4f80-b323-4d53609eab59",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Tornillo con Tuerca 1 und",
     "price": 30,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 01.webp",
@@ -1314,8 +1316,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-02",
-    "name": "Tornillo con Tuerca 1 und",
+    "id": "f85ec3da-fdd3-4f06-9fda-4910dc6581bd",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Tornillo con Tuerca 1 und",
     "price": 30,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 02.webp",
@@ -1324,8 +1326,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-03",
-    "name": "Tirafondos 1/4 pulg",
+    "id": "17fdac74-1684-41c6-bf8e-9b2d50f200b9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Tirafondos 1/4 pulg",
     "price": 30,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 03.webp",
@@ -1334,8 +1336,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-04",
-    "name": "Tirafondos 5/8 pulg",
+    "id": "9c1c33cf-63b7-4d4e-9d3f-50884da2ac67",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Tirafondos 5/8 pulg",
     "price": 30,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 04.webp",
@@ -1344,8 +1346,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-05",
-    "name": "Grapas Coaxiales ",
+    "id": "b0518cf8-7dda-42eb-9d27-fb09cb1f2ca9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Grapas Coaxiales ",
     "price": 15,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 05.webp",
@@ -1354,8 +1356,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-06",
-    "name": "Clip de anclajes para Drywall ",
+    "id": "222326d0-2d2f-40ba-8d1b-0785d4548b56",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Clip de anclajes para Drywall ",
     "price": 70,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 06.webp",
@@ -1364,8 +1366,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-07",
-    "name": "Disco de Corte Dewalt Pro 4 1/2 pulg",
+    "id": "fedef121-9947-45ac-a222-5969dc54f86e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Disco de Corte Dewalt Pro 4 1/2 pulg",
     "price": 750,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 07.webp",
@@ -1374,8 +1376,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "ferreteria-08",
-    "name": "Disco de Corte Marca King 4 1/2 pulg",
+    "id": "4d99ec7b-f6d3-4ddf-b6af-b8d3f9213da0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Disco de Corte Marca King 4 1/2 pulg",
     "price": 800,
     "category": "Ferreteria",
     "image": "/images/productos/Ferreteria 08.webp",
@@ -1384,8 +1386,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "frazada-de-piso",
-    "name": "Frazada de Piso",
+    "id": "e6eba677-a5a7-4981-b9be-c6f4cdb2cc44",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Frazada de Piso",
     "price": 300,
     "category": "hogar",
     "image": "/images/productos/Frazada de Piso.png",
@@ -1394,8 +1396,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "sopa-instantanea",
-    "name": "Sopa de Gallina",
+    "id": "390e2bcb-91cd-442f-b591-1933d27a8fbb",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sopa de Gallina",
     "price": 180,
     "category": "hogar",
     "image": "/images/productos/Sopa de Gallina 180.jpeg",
@@ -1404,8 +1406,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "frijol-negro-frezco",
-    "name": "frijol negro Frezco",
+    "id": "80abec30-4f73-4d65-9fe1-4d24a16a2e50",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "frijol negro Frezco",
     "price": 950,
     "category": "Granos",
     "image": "/images/productos/Frijol negro Frezco 950.jpeg",
@@ -1414,8 +1416,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "frijol-negro-brazileiro",
-    "name": "frijol negro brazileiro",
+    "id": "2fa618ed-c400-475d-afb7-1f11b0715afa",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "frijol negro brazileiro",
     "price": 950,
     "category": "Granos",
     "image": "/images/productos/frijol negro brazileiro.webp",
@@ -1424,8 +1426,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "frijol-negro-decarli",
-    "name": "Frijol Negro Decarli",
+    "id": "6bcec858-5bcf-448b-8ab6-6c05e0252aaf",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Frijol Negro Decarli",
     "price": 950,
     "category": "Granos",
     "image": "/images/productos/Frijol Negro Decarli.webp",
@@ -1434,8 +1436,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "frijol-negro-sublime",
-    "name": "Frijol Negro Sublime",
+    "id": "7345fd76-9012-41bb-a96f-2859844b465b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Frijol Negro Sublime",
     "price": 950,
     "category": "Granos",
     "image": "/images/productos/Frijol Negro Sublime.webp",
@@ -1444,8 +1446,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galleta-chocolate-tiger",
-    "name": "Galleta chocolate Tiger",
+    "id": "2f771c88-7257-40c6-a900-bd66ebdadb6b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta chocolate Tiger",
     "price": 250,
     "category": "Confituras",
     "image": "/images/productos/Galleta chocolate Tiger.webp",
@@ -1454,8 +1456,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galleta-chocolate-tiger-fresa",
-    "name": "Galleta Tiger Fresa",
+    "id": "ee81ea39-6cf5-4634-8835-8a8be7682837",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta Tiger Fresa",
     "price": 250,
     "category": "Confituras",
     "image": "/images/productos/Galleta Tiger fresa 250.jpeg",
@@ -1464,8 +1466,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galleta-maria1",
-    "name": "Galleta Marias",
+    "id": "9fa1a9df-55a6-4345-8ccc-3cba56b80b6b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta Marias",
     "price": 250,
     "category": "Confituras",
     "image": "/images/productos/Galleta Maria1.webp",
@@ -1474,8 +1476,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galleta-renata-chocolate",
-    "name": "Galleta Renata Chocolate",
+    "id": "6ec06d4c-32e4-4db7-8eb1-d376f324364b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galleta Renata Chocolate",
     "price": 250,
     "category": "Confituras",
     "image": "/images/productos/Galleta Renata Chocolate.webp",
@@ -1484,8 +1486,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "galletas-de-halos-chocolate-y-fresa",
-    "name": "Galletas de Halos chocolate y Fresa",
+    "id": "14fac933-bf43-4533-b521-962487b5f128",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas de Halos chocolate y Fresa",
     "price": 80,
     "category": "Confituras",
     "image": "/images/productos/Galletas de Halos chocolate y Fresa.webp",
@@ -1494,8 +1496,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galletas-delchitas",
-    "name": "Galletas Delchitas",
+    "id": "600d207e-1a51-4775-8455-59bfaaa899cc",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas Delchitas",
     "price": 45,
     "category": "Confituras",
     "image": "/images/productos/Galletas Delchitas.webp",
@@ -1504,8 +1506,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galletas-goozetas-sabores-varios",
-    "name": "Galletas Goozetas Sabores Varios",
+    "id": "56b319c5-5d32-4cb2-893f-a8544128a7a0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas Goozetas Sabores Varios",
     "price": 80,
     "category": "Confituras",
     "image": "/images/productos/Galletas Goozetas Sabores Varios.webp",
@@ -1514,8 +1516,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galletas-jimjam-fresa",
-    "name": "Galletas JimJam Fresa",
+    "id": "8468d286-ad80-4090-aff1-ba93b6b7c4b1",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas JimJam Fresa",
     "price": 250,
     "category": "Confituras",
     "image": "/images/productos/Galletas JimJam Fresa.webp",
@@ -1524,8 +1526,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galletas-minie-varios-sabores",
-    "name": "Galletas Minie Varios sabores",
+    "id": "3298ee51-9eb9-4898-8ca2-e34a46fd88fe",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas Minie Varios sabores",
     "price": 90,
     "category": "Confituras",
     "image": "/images/productos/Galletas Minie Varios sabores.webp",
@@ -1534,8 +1536,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "galletas-sorbeto-lorenas",
-    "name": "Galletas Sorbeto Lorenas",
+    "id": "103e638e-30b1-438e-8536-f868e822ad38",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Galletas Sorbeto Lorenas",
     "price": 150,
     "category": "Confituras",
     "image": "/images/productos/Galletas Sorbeto Lorenas.webp",
@@ -1544,8 +1546,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "gel-de-bano-nina",
-    "name": "Gel de bano Nina",
+    "id": "f6f91468-5bdd-4d42-ab4d-905ffc086a54",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Gel de bano Nina",
     "price": 1200,
     "category": "Aseo",
     "image": "/images/productos/Gel de bano Nina.webp",
@@ -1554,8 +1556,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "harina-de-trigo-dona-flor",
-    "name": "Harina de Trigo Dona Flor",
+    "id": "ecf9744c-5b2a-48a1-b26f-70ae5770c324",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Harina de Trigo Dona Flor",
     "price": 600,
     "subcategory": "Mayorista",
     "category": "Granos",
@@ -1565,8 +1567,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "higado-de-pollo",
-    "name": "Higado de pollo",
+    "id": "31067063-28e2-4389-bf06-5703c674ece0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Higado de pollo",
     "price": 800,
     "category": "Cárnicos",
     "image": "/images/productos/Higado de pollo.webp",
@@ -1575,8 +1577,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "intimas-suenos-10-unid",
-    "name": "Intimas Suenos 10 unid",
+    "id": "e3b48f3d-c5ba-4edd-8224-09dac94f073c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Intimas Suenos 10 unid",
     "price": 450,
     "category": "Aseo",
     "image": "/images/productos/Intimas Suenos 10 unid.webp",
@@ -1585,8 +1587,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "jabon-aura-medicinal",
-    "name": "Jabon Aura medicinal",
+    "id": "6b62052b-6d04-4541-a21f-9e4a91890496",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jabon Aura medicinal",
     "price": 180,
     "category": "Aseo",
     "image": "/images/productos/Jabon Aura medicinal.webp",
@@ -1595,8 +1597,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "jabon-florona-naranja",
-    "name": "jabon Florona naranja",
+    "id": "feeaf6c9-4177-4aae-9048-fffdb0c6be06",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "jabon Florona naranja",
     "price": 150,
     "category": "Aseo",
     "image": "/images/productos/jabon Florona naranja.webp",
@@ -1605,8 +1607,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "jabon-florona",
-    "name": "jabon Florona",
+    "id": "acd0deac-bbdf-431c-8a2b-1a4e0deea64e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "jabon Florona",
     "price": 150,
     "category": "Aseo",
     "image": "/images/productos/jabon Florona.webp",
@@ -1615,8 +1617,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "jabon-natural-1",
-    "name": "Jabon Natural S&C",
+    "id": "81ad3a31-eb80-462c-a346-2b13d7d6c9d3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jabon Natural S&C",
     "price": 200,
     "category": "Aseo",
     "image": "/images/productos/Jabon Natural 1.png",
@@ -1625,8 +1627,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "jabon-reebay",
-    "name": "Jabon Reebay",
+    "id": "68863ff3-e1ab-4923-ad85-4d9e546e0b1c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jabon Reebay",
     "price": 280,
     "category": "Aseo",
     "image": "/images/productos/Jabon Reebay.webp",
@@ -1635,8 +1637,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "jamoncillo-de-pollo",
-    "name": "Jamoncillo de pollo",
+    "id": "1f77a161-a8e2-434b-b226-23d12b2a489f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jamoncillo de pollo",
     "price": 200,
     "category": "Cárnicos",
     "image": "/images/productos/Jamoncillo de pollo.webp",
@@ -1645,8 +1647,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "juego-de-bano",
-    "name": "Juego de Baño",
+    "id": "3f27f306-b205-4269-a367-80bca762da51",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Juego de Baño",
     "price": 80000,
     "category": "Ferreteria",
     "image": "/images/productos/Juego de Bano.webp",
@@ -1655,8 +1657,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "jugo-melocoton-santa-juice",
-    "name": "Jugo Melocoton Santa Juice",
+    "id": "37b3c90d-5b8b-487b-a0a2-2712cfa6f70d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jugo Melocoton Santa Juice",
     "price": 180,
     "category": "Bebidas",
     "image": "/images/productos/Jugo Melocoton Santa Juice.webp",
@@ -1665,8 +1667,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "jugos-tuana-varios-sabores",
-    "name": "Jugos Tuana varios Sabores",
+    "id": "e2844ad4-eedc-4088-9fce-6f73fe094696",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jugos Tuana varios Sabores",
     "price": 180,
     "category": "Bebidas",
     "image": "/images/productos/Jugos Tuana varios Sabores.webp",
@@ -1675,8 +1677,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "jugos-laestancia-215",
-    "name": "Jugos La Estancia Sabor Mediterraneo",
+    "id": "90d0619b-052e-41db-8141-015ca0144fe6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jugos La Estancia Sabor Mediterraneo",
     "price": 215,
     "category": "Bebidas",
     "image": "/images/productos/Jugo La Estancia Sabor Mediterraneo 215.jpeg",
@@ -1685,8 +1687,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "jugos-laestanciaMelocoton",
-    "name": "Jugos La Estancia Sabor Melocotón",
+    "id": "1111204d-b299-4eab-b6a8-478104d26463",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jugos La Estancia Sabor Melocotón",
     "price": 215,
     "category": "Bebidas",
     "image": "/images/productos/Jugo La Estancia Sabor Melocoton 215.jpeg",
@@ -1695,8 +1697,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "lampara-led-14-watts",
-    "name": "lampara led 14 watts",
+    "id": "8eeb7e58-544a-4a3c-999b-63b8199c2a37",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "lampara led 14 watts",
     "price": 2000,
     "category": "Ferreteria",
     "image": "/images/productos/lampara led 14 watts.webp",
@@ -1705,8 +1707,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "laurel-jpeg",
-    "name": "Paquete con hojas de Laurel",
+    "id": "883954a9-f4ba-44ad-942d-54e5a373ba0e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Paquete con hojas de Laurel",
     "price": 50,
     "category": "Sazon",
     "image": "/images/productos/Laurel.jpeg.webp",
@@ -1715,8 +1717,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "leche-condensada-fresko",
-    "name": "Leche Condensada Fresko",
+    "id": "b26462e5-76ec-4929-ba54-c9c505805570",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Leche Condensada Fresko",
     "price": 500,
     "category": "Enlatados",
     "image": "/images/productos/Leche Condensada Fresko.webp",
@@ -1725,8 +1727,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "leche-entera-en-polvo",
-    "name": "Leche Entera en polvo ",
+    "id": "6d358ec9-e0a9-4b8b-a0d9-c6c71a7ef53e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Leche Entera en polvo ",
     "price": 2800,
     "category": "hogar",
     "image": "/images/productos/Leche Entera en polvo .webp",
@@ -1735,8 +1737,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "llavin-puerta1",
-    "name": "llavin puerta",
+    "id": "3c695d66-5712-43e8-bbdd-c2b7a4286c9d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "llavin puerta",
     "price": 6500,
     "category": "Ferreteria",
     "image": "/images/productos/llavin puerta1.webp",
@@ -1745,8 +1747,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "llavin-puerta-2",
-    "name": "Llavin puerta",
+    "id": "c086b8d4-1b74-448b-9615-395ef2eb4d3e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Llavin puerta",
     "price": 6500,
     "category": "Ferreteria",
     "image": "/images/productos/Llavin puerta 2.webp",
@@ -1755,8 +1757,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "malta-perla-negra",
-    "name": "Malta perla negra",
+    "id": "3603a980-91dd-4316-81f5-c11fcda497a0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Malta perla negra",
     "price": 280,
     "category": "Bebidas",
     "image": "/images/productos/malta perla negra.webp",
@@ -1765,8 +1767,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "malta-unlager",
-    "name": "Malta Unlager",
+    "id": "6a02e06b-be44-4bd0-94a2-c8c61f6b66a7",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Malta Unlager",
     "price": 280,
     "category": "Bebidas",
     "image": "/images/productos/Malta Unlager.webp",
@@ -1775,8 +1777,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "manilla-de-puerta-1ud",
-    "name": "Manillas de puerta 1ud",
+    "id": "5cf40982-0e07-405e-88d9-904aecf1b426",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Manillas de puerta 1ud",
     "price": 1000,
     "category": "Ferreteria",
     "image": "/images/productos/Manilla de puerta 1ud.webp",
@@ -1785,8 +1787,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "maquina-de-afeitar-paquete-dorco",
-    "name": "Maquina de Afeitar Paquete DORCO 1 und",
+    "id": "18bc101c-cc6f-49d6-82d0-b6f610fc2870",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Maquina de Afeitar Paquete DORCO 1 und",
     "price": 100,
     "category": "Aseo",
     "image": "/images/productos/Maquina de Afeitar Paquete DORCO.webp",
@@ -1795,8 +1797,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "papel-higienico",
-    "name": "Papel Higienico",
+    "id": "1a857b71-863b-4407-8f7b-46c62fc37551",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Papel Higienico",
     "price": 180,
     "category": "Aseo",
     "image": "/images/productos/Papel Higienico.png",
@@ -1805,8 +1807,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "papel-higienico-2",
-    "name": "Papel Higienico paquete 4 und",
+    "id": "f4319f16-df77-4a0e-a7d1-5ec405925ea6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Papel Higienico paquete 4 und",
     "price": 720,
     "category": "Aseo",
     "image": "/images/productos/Papel Higienico.webp",
@@ -1815,8 +1817,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "pasta-codigo-doga",
-    "name": "pasta codigo Doga",
+    "id": "5b23c94a-87c9-4519-aa7d-27016a9edee8",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "pasta codigo Doga",
     "price": 320,
     "category": "Pastas",
     "image": "/images/productos/pasta codigo Doga.webp",
@@ -1825,8 +1827,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "pasta-codito-bodelli",
-    "name": "Pasta codito Bodelli 350g",
+    "id": "d9121661-4968-4a62-9c23-3973f414be3e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta codito Bodelli 350g",
     "price": 280,
     "category": "Pastas",
     "image": "/images/productos/Pasta codito Bodelli.webp",
@@ -1835,8 +1837,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "pasta-de-tomate-400g",
-    "name": "Pasta de tomate 400g",
+    "id": "8aee7f05-db1e-433e-af57-495a5dadbf9d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta de tomate 400g",
     "price": 450,
     "category": "Enlatados",
     "image": "/images/productos/pasta de tomate 400g.webp",
@@ -1845,8 +1847,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pasta-de-tomate",
-    "name": "Pasta de Tomate",
+    "id": "df9370c9-b1ce-4138-8ab2-8e0f604c5586",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta de Tomate",
     "price": 250,
     "category": "Enlatados",
     "image": "/images/productos/Pasta de Tomate.webp",
@@ -1855,8 +1857,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "pasta-espaguetis-rosso",
-    "name": "Pasta espaguetis Rosso",
+    "id": "682c54a3-db20-4559-95e4-cec8db78153e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta espaguetis Rosso",
     "price": 330,
     "category": "Pastas",
     "image": "/images/productos/Pasta espaguetis Rosso.webp",
@@ -1865,8 +1867,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "pasta-spaguettis-elesa",
-    "name": "Pasta Spaguettis Elesa",
+    "id": "ad74be0e-f7f1-4e18-af5b-5b77397f70bf",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pasta Spaguettis Elesa",
     "price": 330,
     "category": "Pastas",
     "image": "/images/productos/Pasta Spaguettis Elesa.webp",
@@ -1875,8 +1877,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pastilla-de-pollo-gustaterra",
-    "name": "Pastilla de pollo Gustaterra 1 und",
+    "id": "ab0396b9-ad90-4683-b1a8-28a1e7d790bf",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pastilla de pollo Gustaterra 1 und",
     "price": 40,
     "category": "Sazon",
     "image": "/images/productos/Pastilla de pollo Gustaterra.webp",
@@ -1885,8 +1887,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pastilla-de-pollo-y-tomate",
-    "name": "Pastilla de pollo y tomate 1 und",
+    "id": "d59de193-ad51-4e9d-a68e-85bb02818093",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pastilla de pollo y tomate 1 und",
     "price": 40,
     "category": "Sazon",
     "image": "/images/productos/Pastilla de pollo y tomate.webp",
@@ -1895,8 +1897,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pastillas-caldo-de-pollo-y-tomate",
-    "name": "Pastillas Caldo de pollo y tomate",
+    "id": "c9605167-fb4d-4d3a-a08d-922027f5867c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pastillas Caldo de pollo y tomate",
     "price": 40,
     "category": "Sazon",
     "image": "/images/productos/Pastillas Caldo de pollo y tomate.webp",
@@ -1905,8 +1907,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pechugapollo1kg",
-    "name": "Pechuga Pollo 1kg",
+    "id": "c9ec03df-45de-43cf-a7db-da794fdc91f3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pechuga Pollo 1kg",
     "price": 2800,
     "category": "Cárnicos",
     "image": "/images/productos/PechugaPollo1kg.webp",
@@ -1915,8 +1917,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "perfume-blue-moon",
-    "name": "perfume Blue Moon",
+    "id": "0072d789-ba51-41cf-bf75-f88bc72e82dd",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "perfume Blue Moon",
     "price": 2500,
     "category": "Perfumes",
     "image": "/images/productos/perfume Blue Moon.webp",
@@ -1925,8 +1927,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "picadillo-de-pollo-caja",
-    "name": "Picadillo de pollo por lb",
+    "id": "16f05704-f565-4fb8-8949-4f1d80c872e0",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Picadillo de pollo por lb",
     "price": 330,
     "category": "Cárnicos",
     "image": "/images/productos/Picadillo de pollo Caja.webp",
@@ -1935,8 +1937,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "Jamon-pollo-400g",
-    "name": "Jamón de Pollo 400g",
+    "id": "12a20df4-4923-4858-a187-ee053bc7a50d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Jamón de Pollo 400g",
     "price": 600,
     "category": "Cárnicos",
     "image": "/images/productos/Picadillo Pollo 400g.webp",
@@ -1945,8 +1947,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "pintura-blanca",
-    "name": "pintura blanca",
+    "id": "25f06296-b6b6-440a-9aa8-0fdcf80712c7",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "pintura blanca",
     "price": 2500,
     "category": "Ferreteria",
     "image": "/images/productos/pintura blanca.webp",
@@ -1955,8 +1957,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pollo-cuartos-10lb",
-    "name": "Pollo Cuartos 10lb",
+    "id": "fa26e3f3-e113-4fbb-b8aa-90c676e97a26",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pollo Cuartos 10lb",
     "price": 4600,
     "category": "Cárnicos",
     "image": "/images/productos/Pollo Cuartos 10lb.webp",
@@ -1965,8 +1967,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pollo-muslos-4-4lb",
-    "name": "Pollo Muslos 4.4lb",
+    "id": "f1308142-e394-4fca-b74c-8bf52df3aaa4",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pollo Muslos 4.4lb",
     "price": 2200,
     "category": "Cárnicos",
     "image": "/images/productos/Pollo Muslos 4.4lb.webp",
@@ -1975,8 +1977,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "pollo-quartos10lb",
-    "name": "Pollo Quartos 10 Lb",
+    "id": "25231cf6-d8b3-4621-b252-660d6f9c7134",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pollo Quartos 10 Lb",
     "price": 4100,
     "category": "Cárnicos",
     "image": "/images/productos/Pollo_Quartos10Lb.webp",
@@ -1985,8 +1987,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "refresco-ciego-montero-1-5l-sabor-mate",
-    "name": "Refresco Ciego Montero 1.5L Sabor Mate",
+    "id": "ad28d92c-8192-4665-a37a-f86a6f32d42f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Ciego Montero 1.5L Sabor Mate",
     "price": 680,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Ciego Montero 1.5L sabor Mate 680.jpeg",
@@ -1995,8 +1997,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "refresco-ciego-montero-1-5l-sabor-limon",
-    "name": "Refresco Ciego Montero 1.5L Sabor Limón",
+    "id": "8bf87c03-7036-40d8-9de1-b5870a7cdd84",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Ciego Montero 1.5L Sabor Limón",
     "price": 680,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Ciego Montero 1.5L sabor Limon 680.jpeg",
@@ -2005,8 +2007,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "refresco-coco-pina-royal-juice",
-    "name": "Refresco coco piña Royal Juice",
+    "id": "12d5a896-b389-46f6-a3df-a798acb4e5d2",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco coco piña Royal Juice",
     "price": 30,
     "category": "Confituras",
     "image": "/images/productos/Refresco coco pina Royal Juice.webp",
@@ -2015,8 +2017,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "refresco-lata-varios-sabores",
-    "name": "Refresco Lata Varios Sabores (Solo Naranja)",
+    "id": "ea936cc6-2da0-4143-8484-c2bb1a1d37e9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Lata Varios Sabores (Solo Naranja)",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Lata Varios Sabores.webp",
@@ -2025,8 +2027,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "refresco-lata-Yelo-Cola",
-    "name": "Refresco Lata Yelo sabor Cola",
+    "id": "47e35a37-add4-4670-8907-dd6c9c05aa63",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Lata Yelo sabor Cola",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Lata Yelo sabor Cola 240.jpeg",
@@ -2035,8 +2037,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "refresco-lata-Yelo-Limon",
-    "name": "Refresco Lata Yelo sabor Limon",
+    "id": "17ebab18-a875-4338-9fd2-af03c9da9997",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Lata Yelo sabor Limon",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Lata Yelo sabor Limon 240.jpeg",
@@ -2045,8 +2047,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "refresco-lata-Yelo-Naranja",
-    "name": "Refresco Lata Yelo sabor Naranja",
+    "id": "372a9b33-3c26-485c-a4d1-09cd59c7ec76",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Lata Yelo sabor Naranja",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Lata Yelo sabor Pina 240.jpeg",
@@ -2055,8 +2057,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "refresco-lata-Yelo-Pina",
-    "name": "Refresco Lata Yelo sabor Piña",
+    "id": "358bc628-f41b-4881-bf4a-1c76d990dff6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Lata Yelo sabor Piña",
     "price": 240,
     "category": "Bebidas",
     "image": "/images/productos/Refresco Lata Yelo sabor Naranja 240.jpeg",
@@ -2065,8 +2067,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "refresco-sabores-varios",
-    "name": "Refresco Sabores Varios",
+    "id": "43a4a453-9d7d-454a-ba97-b136442e2310",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refresco Sabores Varios",
     "price": 30,
     "subcategory": "Mayorista",
     "category": "Confituras",
@@ -2076,8 +2078,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "refresco-sabor-naranja",
-    "name": "refresco sabor naranja",
+    "id": "7e120a0b-f906-4eb0-b8f9-811bc48c978e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "refresco sabor naranja",
     "price": 30,
     "category": "Confituras",
     "image": "/images/productos/refresco sabor naranja.webp",
@@ -2086,8 +2088,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "refrescos-limon-royal",
-    "name": "Refrescos Limon Royal",
+    "id": "2bc64e70-55e2-4df8-b726-25bcaf105883",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refrescos Limon Royal",
     "price": 30,
     "category": "Confituras",
     "image": "/images/productos/Refrescos Limon Royal.webp",
@@ -2096,8 +2098,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "refrescos-varios-fresa",
-    "name": "Refrescos varios fresa",
+    "id": "350520d7-d627-4eab-85ae-947c881d6436",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Refrescos varios fresa",
     "price": 30,
     "category": "Confituras",
     "image": "/images/productos/Refrescos varios fresa.webp",
@@ -2106,8 +2108,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "salchichas-10-unid",
-    "name": "Salchichas 10 unid",
+    "id": "e961b106-35fd-4def-9c0b-cb0bc622f664",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Salchichas 10 unid",
     "price": 400,
     "category": "Cárnicos",
     "image": "/images/productos/Salchichas 10 unid.webp",
@@ -2116,8 +2118,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "sal-fina-gourmet",
-    "name": "Sal Fina Gourmet ",
+    "id": "5f08b5bd-1762-4ae4-82ce-fb57e63865c6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sal Fina Gourmet ",
     "price": 650,
     "category": "Granos",
     "image": "/images/productos/Sal Fina Gourmet .webp",
@@ -2126,8 +2128,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "shampu-nina",
-    "name": "Shampu Nina",
+    "id": "4b8a62a8-c6f8-4468-9b22-57d63e6da40a",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Shampu Nina",
     "price": 1000,
     "category": "Aseo",
     "image": "/images/productos/Shampu Nina.webp",
@@ -2136,8 +2138,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "Champagne-Rose-La-Boronne",
-    "name": "Champagne Rose La Boronne",
+    "id": "7a3e15f1-fcc7-48b7-8df7-c213787896e5",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Champagne Rose La Boronne",
     "price": 2000,
     "category": "Bebidas",
     "image": "/images/productos/Sidra.webp",
@@ -2146,8 +2148,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "spaggettis-doga",
-    "name": "Spaggettis Doga",
+    "id": "ec65fabc-d552-41c0-a7d6-dadf159a3aa2",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Spaggettis Doga",
     "price": 330,
     "category": "Pastas",
     "image": "/images/productos/Spaggettis Doga.webp",
@@ -2156,8 +2158,8 @@
     "estado": "Agotado"
   },
   {
-    "id": "toallas-humedas-100-pc",
-    "name": "toallas humedas 100 pza",
+    "id": "1809e6f8-5e55-43a5-b42f-b3cb91095677",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "toallas humedas 100 pza",
     "price": 750,
     "category": "Aseo",
     "image": "/images/productos/toallas humedas 100 pc.webp",
@@ -2166,8 +2168,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "tornillos-tirafondos",
-    "name": "Tornillos Tirafondos 1 und",
+    "id": "7903c6d4-07d2-48d5-b751-4c3397f27dc7",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Tornillos Tirafondos 1 und",
     "price": 30,
     "category": "Ferreteria",
     "image": "/images/productos/Tornillos Tirafondos.webp",
@@ -2176,8 +2178,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "whiskey-reserva7",
-    "name": "Whiskey Reserva7",
+    "id": "c598c81d-8cab-4800-806c-8a243ba1c7a6",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Whiskey Reserva7",
     "price": 2000,
     "category": "Bebidas",
     "image": "/images/productos/Whiskey Reserva7.webp",
@@ -2186,8 +2188,8 @@
     "estado": "Disponible"
   },
   {
-    "id": "aji-habanero-arroz-con-pollo",
-    "name": "Aji Habanero (Arroz con Pollo)",
+    "id": "beadc9bf-a496-4685-8a75-7d2d5dbe9c23",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Aji Habanero (Arroz con Pollo)",
     "price": 450,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Aji-Habanero-(Arroz-con-Pollo).png",
@@ -2197,8 +2199,8 @@
     "descripcion": "1 libra Aji. Sabor Autentico!"
   },
   {
-    "id": "ajo-produccion-nacional",
-    "name": "Ajo produccion nacional",
+    "id": "f26f4dc3-fa11-4fe7-a0c1-62436cea3f3c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Ajo produccion nacional",
     "price": 95,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Ajo produccion nacional.jpeg",
@@ -2208,8 +2210,8 @@
     "descripcion": "10 unidades."
   },
   {
-    "id": "cebolla-en-polvo",
-    "name": "Cebolla en polvo",
+    "id": "076f9edd-ba79-4b0a-85c9-07cba53e1e07",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Cebolla en polvo",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Cebolla en polvo.jpeg",
@@ -2219,8 +2221,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "combo-1-zelle",
-    "name": "Combo 1",
+    "id": "84b4c3a4-3f6a-4aa9-8238-a45043766a9b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Combo 1",
     "price": 23,
     "category": "combos",
     "image": "/images/productos/comboZelle/Combo 1.jpeg",
@@ -2230,8 +2232,8 @@
     "descripcion": "1 paquete de 10 lbs de pollo. 1 fill de huevo"
   },
   {
-    "id": "combo-3-alegrias",
-    "name": "Combo 3 Alegrias",
+    "id": "b8148d8b-dd78-4858-8e5e-d1d5c0037a2f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Combo 3 Alegrias",
     "price": 21,
     "category": "combos",
     "image": "/images/productos/comboZelle/Combo 3 Alegrias.jpeg",
@@ -2241,8 +2243,8 @@
     "descripcion": "1 paquete de café La Llave. 2 lb de picadillo de pollo. 1 fill de huevo."
   },
   {
-    "id": "combo-soy-cubano1",
-    "name": "Combo Soy cubano",
+    "id": "bf296657-536b-4c83-bbdc-1e791e9d3d36",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Combo Soy cubano",
     "price": 16.5,
     "category": "combos",
     "image": "/images/productos/comboZelle/Combo Soy Cubano.jpeg",
@@ -2252,8 +2254,8 @@
     "descripcion": "1 paquete de café La Llave. 1 Paquete de leche en polvo (según disponibilidad.)"
   },
   {
-    "id": "combo-duo-fortaleza",
-    "name": "Combo Duo Fortaleza",
+    "id": "d6d0c858-50e0-41c9-b9a5-7910054852c3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Combo Duo Fortaleza",
     "price": 13,
     "category": "combos",
     "image": "/images/productos/comboZelle/Combo Duo Fortaleza.jpeg",
@@ -2263,8 +2265,8 @@
     "descripcion": "1 fill de huevos. Paquete de 10 lbs de pollo. "
   },
   {
-    "id": "comino-con-pimienta",
-    "name": "Comino con pimienta",
+    "id": "5b6d5196-f1ee-42c9-b616-f7412c901b20",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino con pimienta",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Comino con pimienta.jpeg",
@@ -2274,8 +2276,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "comino-en-polvo",
-    "name": "Comino en polvo",
+    "id": "83f2b938-2b28-4b6b-9440-7aa2c678727a",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en polvo",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Comino en polvo.jpeg",
@@ -2285,8 +2287,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "comino70",
-    "name": "Comino en polvo",
+    "id": "94ea13f2-6ab6-43e0-9136-72db989ada1e",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en polvo",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comino 70.jpeg",
@@ -2296,8 +2298,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "comino100",
-    "name": "Comino en polvo",
+    "id": "e0e1b7dc-f94f-4d4a-9b5f-2e921a0ecf7a",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en polvo",
     "price": 100,
     "category": "Sazon",
     "image": "/images/productos/comino 100.jpeg",
@@ -2307,8 +2309,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "comino250",
-    "name": "Comino en polvo",
+    "id": "d997f242-f88a-4836-99b6-064f65855b46",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en polvo",
     "price": 250,
     "category": "Sazon",
     "image": "/images/productos/comino 250.jpeg",
@@ -2318,8 +2320,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "comino350",
-    "name": "Comino en polvo",
+    "id": "da315392-9227-4515-ab05-c28a38bc4b4f",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en polvo",
     "price": 350,
     "category": "Sazon",
     "image": "/images/productos/comino 350.jpeg",
@@ -2329,8 +2331,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "comino450",
-    "name": "Comino en polvo",
+    "id": "4172628f-92a3-4f94-8452-7e6c4f24a583",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Comino en polvo",
     "price": 450,
     "category": "Sazon",
     "image": "/images/productos/comino 450.jpeg",
@@ -2340,8 +2342,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "pernil-de-cerdo-15-lb",
-    "name": "Pernil de cerdo 15 lb ",
+    "id": "214fcb69-7328-426b-a618-92132942e167",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pernil de cerdo 15 lb ",
     "price": 45,
     "subcategory": "Zelle",
     "category": "Cárnicos",
@@ -2352,8 +2354,8 @@
     "descripcion": "1 pernil de cerdo de 15 lb."
   },
   {
-    "id": "pernil-de-cerdo-20-lb",
-    "name": "Pernil de cerdo 20 lb ",
+    "id": "abb5a89e-30c4-4fca-85f5-c8d1821c5afd",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Pernil de cerdo 20 lb ",
     "price": 60,
     "subcategory": "Zelle",
     "category": "Cárnicos",
@@ -2364,8 +2366,8 @@
     "descripcion": "1 pernil de cerdo de 20 lb."
   },
   {
-    "id": "platano-burro-2-manos",
-    "name": "Plátano burro 1 mano",
+    "id": "f5f9ae2f-45c6-4d7d-862a-afd38b6ea020",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Plátano burro 1 mano",
     "price": 250,
     "category": "Agropecuarios",
     "image": "/images/productos/comboZelle/Platano burro 2 manos.jpeg",
@@ -2375,8 +2377,8 @@
     "descripcion": "2 manos de Plátano Burros."
   },
   {
-    "id": "platanos-20-unid",
-    "name": "Platanos 1 und",
+    "id": "e01e8335-488c-4fcf-8ab6-150d32490be8",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Platanos 1 und",
     "price": 50,
     "category": "Agropecuarios",
     "image": "/images/productos/comboZelle/Platanos 20 unid.jpeg",
@@ -2386,8 +2388,8 @@
     "descripcion": "Descripción temporal para edición."
   },
   {
-    "id": "cebolla-importada",
-    "name": "Bolsa de 2 lb de cebolla importada 530xlb",
+    "id": "25961989-cc3a-4f07-929f-5d8b88611e50",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Bolsa de 2 lb de cebolla importada 530xlb",
     "price": 1060,
     "category": "Agropecuarios",
     "image": "/images/productos/Bolsa de 2lb de Cebolla Importada 530 lb.jpeg",
@@ -2397,8 +2399,8 @@
     "descripcion": "Más de 2lb a 1000"
   },
   {
-    "id": "Aji-Pimiento-550",
-    "name": "Aji Pimiento 550 lb ",
+    "id": "b13a8f26-a78a-4246-b026-30e72ab8c763",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Aji Pimiento 550 lb ",
     "price": 550,
     "category": "Agropecuarios",
     "image": "/images/productos/Aji Pimiento 550 lb.jpeg",
@@ -2408,8 +2410,8 @@
     "descripcion": "Descripción temporal para edición."
   },
   {
-    "id": "sazonador-completo",
-    "name": "Sazona completo",
+    "id": "887f13ed-51be-431c-8c5d-bb47b777db95",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazona completo",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Sazona completo.jpeg",
@@ -2419,8 +2421,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "sazon-Goya",
-    "name": "Sazon Goya",
+    "id": "8ff05d91-3107-4764-b62e-185bd537ab2d",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon Goya",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/sazon Goya 70.jpeg",
@@ -2430,8 +2432,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "sazon-ranchero",
-    "name": "Sazon Ranchero",
+    "id": "f7552faa-70e6-41ce-aef7-cb0425d6d8f9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon Ranchero",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/sazon ranchero 70.jpeg",
@@ -2441,8 +2443,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "sazonador-ablanda-carnes",
-    "name": "Sazonador Ablanda carnes",
+    "id": "6eab26b6-c913-4098-b676-5f36228c4432",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazonador Ablanda carnes",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Sazonador Ablanda carnes.jpeg",
@@ -2452,8 +2454,8 @@
     "descripcion": "1 paquete 10g."
   },
   {
-    "id": "sazon-aji-amarillo",
-    "name": "Sazon Aji amarillo",
+    "id": "6dc16f74-f9e1-4b44-8977-6bd1a55289f3",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon Aji amarillo",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Sazon Aji amarillo.jpeg",
@@ -2463,8 +2465,8 @@
     "descripcion": "1 paquetes 10g."
   },
   {
-    "id": "sazon-completo-1",
-    "name": "Sazon completo 1",
+    "id": "fd81949a-1966-49b0-820e-be2a95ac0097",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon completo 1",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Sazon completo 1.jpeg",
@@ -2474,8 +2476,8 @@
     "descripcion": "1 paquetes 10g."
   },
   {
-    "id": "sazon-sabor-costilla-de-res",
-    "name": "sazon sabor costilla de RES",
+    "id": "72f9b693-515d-4009-b0cc-c8185fa8c784",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "sazon sabor costilla de RES",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/sazon sabor costilla de RES.jpeg",
@@ -2485,8 +2487,8 @@
     "descripcion": "1 paquetes 10g."
   },
   {
-    "id": "sazon-sabor-tocino",
-    "name": "Sazon Sabor Tocino",
+    "id": "870a4a9f-c344-484a-9d79-6b164e5baf6b",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Sazon Sabor Tocino",
     "price": 70,
     "category": "Sazon",
     "image": "/images/productos/comboZelle/Sazon Sabor Tocino.jpeg",
@@ -2496,8 +2498,8 @@
     "descripcion": "1 paquetes 10g."
   },
   {
-    "id": "huevo-15und",
-    "name": "Huevo 15 und",
+    "id": "880145c6-ecc4-45eb-9e79-f45868e8dcde",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Huevo 15 und",
     "price": 1650,
     "category": "Cárnicos",
     "image": "/images/productos/Huevo 15 und 1600.jpeg",
@@ -2507,8 +2509,8 @@
     "descripcion": "1 paquetes 10g."
   },
   {
-    "id": "huevo-30und",
-    "name": "Huevo 30 und",
+    "id": "ff4b702f-bb5d-44d8-ba04-d502b7a14ba9",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Huevo 30 und",
     "price": 3300,
     "category": "Cárnicos",
     "image": "/images/productos/Huevo 30 und 3100.jpeg",
@@ -2518,7 +2520,9 @@
     "descripcion": ""
   },
   {
-    "id": "Gelatinas-Sabores-varios-480",
+    "id": "e3b577c6-816d-4fa1-8c08-1cb366a4a07c",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60",
+    "departament":"",
     "name": "Gelatinas Sabores varios (Fresa,Frutos Secos,Mandarina)",
     "price": 480,
     "category": "Confituras",
@@ -2529,8 +2533,8 @@
     "descripcion": "1 paquetes 10g."
   },
   {
-    "id": "Harina-de-Trigo-25-kg-10500",
-    "name": "Harina de Trigo 25 kg 10500",
+    "id": "17189a70-1a74-4d8c-8287-4d7e9fe24246",
+    "negocio_id": "3895fc0b-c323-4e8e-b586-ce8c0f65fd60", "departament":"","name": "Harina de Trigo 25 kg 10500",
     "price": 10500,
     "category": "hogar",
     "image": "/images/productos/Harina de Trigo 25 kg 10500.jpeg",

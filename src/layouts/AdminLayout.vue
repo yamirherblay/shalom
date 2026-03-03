@@ -5,6 +5,18 @@
         <q-btn flat dense round icon="menu" @click="left = !left" />
         <q-toolbar-title>Admin</q-toolbar-title>
         <AdminChangeNotifications />
+        <q-btn flat dense round>
+          <q-icon name="person" />
+          <q-menu>
+            <q-item>
+              <q-item-section class="text-caption">{{ auth.user?.email }}</q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup @click="logout">
+              <q-item-section avatar><q-icon name="logout" /></q-item-section>
+              <q-item-section>Cerrar sesión</q-item-section>
+            </q-item>
+          </q-menu>
+        </q-btn>
         <q-btn flat dense round icon="store" @click="$router.push({ name: 'home' })" />
       </q-toolbar>
     </q-header>
@@ -43,7 +55,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import AdminChangeNotifications from 'layouts/AdminChangeNotifications.vue';
+import { useAuthStore } from 'src/stores/auth';
 
 const left = ref(false);
+const router = useRouter();
+const auth = useAuthStore();
+
+async function logout() {
+  await auth.logout();
+  void router.push({ name: 'home' });
+}
 </script>

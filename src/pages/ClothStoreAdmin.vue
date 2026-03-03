@@ -10,6 +10,7 @@
             <div class="col-auto row q-gutter-sm">
               <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" />
               <q-btn color="secondary" icon="save" label="Guardar en JSON" no-caps @click="saveClothesJson" />
+              <q-btn color="secondary" icon="check" label="Resetear novedad "  @click="allProductArentNew" />
               <q-btn color="grey-8" icon="help_outline" label="Ayuda" no-caps @click="helpDialog = true" />
             </div>
             <div class="col-12 col-sm-4">
@@ -69,7 +70,7 @@
               <div><strong>Nombre:</strong> {{ viewItem?.name }}</div>
               <div><strong>Precio:</strong> {{ currency(viewItem?.price) }}</div>
               <div><strong>Categoría:</strong> {{ viewItem?.category }}</div>
-              <div v-if="viewItem?.shortDescription"><strong>Descripción:</strong> {{ viewItem?.shortDescription }}</div>
+              <div v-if="viewItem?.descripcion"><strong>Descripción:</strong> {{ viewItem?.descripcion }}</div>
             </div>
           </div>
         </q-card-section>
@@ -138,7 +139,7 @@ interface ClothesItem {
   image: string;
   oferta?: boolean;
   estado?: string;
-  shortDescription?: string;
+  descripcion?: string;
 }
 
 const items = ref<ClothesItem[]>([]);
@@ -147,8 +148,8 @@ const filter = ref('');
 const addDialog = ref(false);
 const editDialog = ref(false);
 const helpDialog = ref(false);
-const newItem = ref<ClothesItem>({ id: '', name: '', price: 0, category: '', image: '', oferta: false, estado: 'Disponible', shortDescription: '' });
-const editItem = ref<ClothesItem>({ id: '', name: '', price: 0, category: '', image: '', oferta: false, estado: 'Disponible', shortDescription: '' });
+const newItem = ref<ClothesItem>({ id: '', name: '', price: 0, category: '', image: '', oferta: false, estado: 'Disponible', descripcion: '' });
+const editItem = ref<ClothesItem>({ id: '', name: '', price: 0, category: '', image: '', oferta: false, estado: 'Disponible', descripcion: '' });
 const originalEditId = ref<string | null>(null);
 
 const columns = <QTableColumn[]>[
@@ -177,9 +178,11 @@ function openView(row: ClothesItem) {
   viewItem.value = { ...row };
   viewDialog.value = true;
 }
-
+function allProductArentNew(){
+  items.value = items.value.map((product: ClothesItem) => ({ ...product, id: crypto.randomUUID() }));
+}
 function openAdd() {
-  newItem.value = { id: '', name: '', price: 0, category: '', image: '', oferta: false, estado: 'Disponible', shortDescription: '' };
+  newItem.value = { id: '', name: '', price: 0, category: '', image: '', oferta: false, estado: 'Disponible', descripcion: '' };
   addDialog.value = true;
 }
 

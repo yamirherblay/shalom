@@ -1,7 +1,13 @@
-declare namespace NodeJS {
-  interface ProcessEnv {
-    NODE_ENV: string;
-    VUE_ROUTER_MODE: 'hash' | 'history' | 'abstract' | undefined;
-    VUE_ROUTER_BASE: string | undefined;
-  }
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+  readonly VITE_SUPABASE_URL: string;
+  readonly VITE_SUPABASE_ANON_KEY: string;
+  readonly VITE_NEGOCIO_ID: string;
+  readonly VITE_USER: string;
+  readonly VITE_PASS: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

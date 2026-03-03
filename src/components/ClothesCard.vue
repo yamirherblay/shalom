@@ -10,8 +10,8 @@
 
     <q-card-section>
       <div class="text-subtitle1 ellipsis-2-lines">{{ item.name }}</div>
-      <div v-if="item.shortDescription" class="text-caption text-grey-7 ellipsis-2-lines">
-        {{ item.shortDescription }}
+      <div v-if="item.descripcion" class="text-caption text-grey-7 ellipsis-2-lines">
+        {{ item.descripcion }}
       </div>
       <div class="row items-center q-mt-sm justify-between">
         <div class="text-h6">{{ currency(item.price) }}</div>
@@ -61,7 +61,7 @@ export interface ClothesItem {
   image?: string;
   oferta?: boolean;
   estado?: string;
-  shortDescription?: string;
+  descripcion?: string;
 }
 
 const props = defineProps<{ item: ClothesItem }>();

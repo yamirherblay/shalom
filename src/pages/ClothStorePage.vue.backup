@@ -62,17 +62,16 @@
 
 <script setup lang="ts">
 import { onMounted, ref, computed, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import ClothesCard from 'src/components/ClothesCard.vue';
 import MarqueeBar from 'src/components/MarqueeBar.vue';
-import { supabase } from 'boot/supabase';
 
 interface OfferItem {
   id: string;
   name: string;
   price: number;
   image?: string;
-  descripcion?: string;
+  shortDescription?: string;
   oferta?: boolean;
   estado?: string;
   category?: string;
@@ -85,8 +84,7 @@ const selectedCategory = ref<string>('all');
 const searchQuery = ref<string>('');
 
 const route = useRoute();
-const router = useRouter();
-const negocio_id = import.meta.env.VITE_NEGOCIO_ID;
+
 const categories = computed<Cat[]>(() => {
   const set = new Set<string>();
   offers.value.forEach((o) => {
@@ -110,20 +108,16 @@ const filteredOffers = computed(() => {
     filtered = filtered.filter(
       (o) =>
         o.name?.toLowerCase().includes(query) ||
-        o.descripcion?.toLowerCase().includes(query) ||
+        o.shortDescription?.toLowerCase().includes(query) ||
         o.category?.toLowerCase().includes(query),
     );
   }
 
   return filtered;
 });
+
 function selectCategory(key: string) {
   selectedCategory.value = key;
-  searchQuery.value = '';
-  void router.push({
-    path: '/clothStore',
-    query: { cat: key !== 'all' ? key : undefined }
-  });
 }
 
 function applyRouteCategory() {
@@ -161,21 +155,16 @@ function capitalize(s: string) {
 }
 
 onMounted(async () => {
-  applyRouteCategory()
   try {
-    const dataFromSupabase = await supabase
-      .from('products')
-      .select('*')
-      .eq('negocio_id', negocio_id)
-      .eq('departament', 'clothstore')
-      .order('new', { ascending: false })
-    ;
-    offers.value = dataFromSupabase.data?.filter(p => p.estado !== 'Agotado')
-
+    const res = await fetch('/data/clothes.json');
+    offers.value = await res.json();
+    // aplicar categoría y búsqueda desde la ruta si existe
+    applyRouteCategory();
+    applyRouteSearch();
   } catch (e) {
-    console.error('Error cargando productos', e)
+    console.error('Error cargando clothes.json', e);
   }
-})
+});
 </script>
 
 <style scoped>

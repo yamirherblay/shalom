@@ -1,1052 +1,1157 @@
 [
   {
-    "id": "blusa-alto-standing",
+    "id": "bcfbb65a-41e9-4372-87c3-ca2a466f889f",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Blusa alto standing",
     "price": 8400,
     "image": "/images/clothes/Blusa Alto standing.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Corte elegante y tela suave para un look distinguido."
+    "descripcion": "Corte elegante y tela suave para un look distinguido."
   },
   {
-    "id": "blusa-de-hilo-blanca",
+    "id": "a6d0d75e-fb64-4ac3-883a-829562221eb1",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Blusa de hilo blanca",
     "price": 5600,
     "image": "/images/clothes/Blusa de hilo blanca.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Ligera y fresca, ideal para días soleados."
+    "descripcion": "Ligera y fresca, ideal para días soleados."
   },
   {
-    "id": "camisa-beisbolera-2",
+    "id": "ac5c4148-8fa7-49cd-861b-7607b44fe10a",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Camisa beisbolera (modelo 2)",
     "price": 6900,
     "image": "/images/clothes/Camisa Beisbolera 2.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Estilo deportivo con acabado premium."
+    "descripcion": "Estilo deportivo con acabado premium."
   },
   {
-    "id": "camisa-beisbolera-1",
+    "id": "0c67ceef-fc4b-49b0-b1a3-b52ca0596ff8",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Camisa beisbolera",
     "price": 6500,
     "image": "/images/clothes/Camisa Beisbolera.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Cómoda y versátil para uso diario."
+    "descripcion": "Cómoda y versátil para uso diario."
   },
   {
-    "id": "camisa-hombre-verano",
+    "id": "3c3502a8-5973-4418-a824-8cadc52493ef",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Camisa de hombre para verano",
     "price": 5200,
     "image": "/images/clothes/Camisa de hombre para Verano.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Tejido transpirable para el calor tropical."
+    "descripcion": "Tejido transpirable para el calor tropical."
   },
   {
-    "id": "camisas-largas",
+    "id": "91ebd0c8-1555-4265-9f9f-448f9cab4470",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Camisas largas",
     "price": 6100,
     "image": "/images/clothes/camisas largas.jpg",
     "oferta": false,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Mangas largas con ajuste cómodo y moderno."
+    "descripcion": "Mangas largas con ajuste cómodo y moderno."
   },
   {
-    "id": "camisa-veraniega",
+    "id": "5e591ddb-6a35-4849-98f7-2cbcb14c1a2c",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Camisa veraniega",
     "price": 5300,
     "image": "/images/clothes/Camisa Veraniega.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Colores vivos para resaltar tu estilo."
+    "descripcion": "Colores vivos para resaltar tu estilo."
   },
   {
-    "id": "chaqueta-mezclilla-1",
+    "id": "2a6f8b09-eee7-4dd6-b993-1d320ed2a7cd",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Chaqueta de mezclilla (1)",
     "price": 9200,
     "image": "/images/clothes/Chaqueta de mezclilla 1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Denim resistente con corte clásico."
+    "descripcion": "Denim resistente con corte clásico."
   },
   {
-    "id": "chaqueta-mezclilla",
+    "id": "689ced5e-0fd5-4f32-a7cf-8743451c67e5",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Chaqueta de mezclilla",
     "price": 8950,
     "image": "/images/clothes/Chaqueta de Mezclilla.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Ideal para completar tu outfit casual."
+    "descripcion": "Ideal para completar tu outfit casual."
   },
   {
-    "id": "vestido-ocasion-01",
+    "id": "07cef260-1162-4558-9e66-b48471e9d8e0",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Vestido de ocasión",
     "price": 7600,
     "image": "/images/clothes/dress1.jpg",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Elegante y cómodo para eventos especiales."
+    "descripcion": "Elegante y cómodo para eventos especiales."
   },
   {
-    "id": "vestido-verano-001",
+    "id": "f7d31ae8-e33d-4eb7-b006-875e0b3384cc",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Vestido de verano",
     "price": 5900,
     "image": "/images/clothes/dress2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Fresco y ligero, perfecto para días soleados."
+    "descripcion": "Fresco y ligero, perfecto para días soleados."
   },
   {
-    "id": "fleteras-colores",
+    "id": "d06f876d-6524-4f89-9b1e-a8ee061d4b8b",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Fleteras varios colores",
     "price": 3500,
     "image": "/images/clothes/Fleteras varios colores.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Colores divertidos para combinar con tu look."
+    "descripcion": "Colores divertidos para combinar con tu look."
   },
   {
-    "id": "juego-playa-estampado",
+    "id": "ab1a7852-2e00-467d-950f-53ddbdc0ac56",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Juego estampado de playa",
     "price": 6800,
     "image": "/images/clothes/Juego estampado de playa.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Conjunto ideal para la brisa marina."
+    "descripcion": "Conjunto ideal para la brisa marina."
   },
   {
-    "id": "juego-top-saya-corta",
+    "id": "8c7eee24-cbd4-4129-8540-827ea1b744c5",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Juego top y saya corta",
     "price": 6200,
     "image": "/images/clothes/Juego Top y saya corta.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Estilo juvenil y cómodo para salir."
+    "descripcion": "Estilo juvenil y cómodo para salir."
   },
   {
-    "id": "juego-saya-y-blusa",
+    "id": "5afd2c46-6883-40f7-9902-1558a80fef6c",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Juego saya y blusa",
     "price": 6400,
     "image": "/images/clothes/Juego Zaya y blusa.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Conjunto femenino de gran estilo."
+    "descripcion": "Conjunto femenino de gran estilo."
   },
   {
-    "id": "overoll-joven",
+    "id": "72941e11-4e87-468f-a719-a22bcdff7088",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Overol de joven",
     "price": 8100,
     "image": "/images/clothes/Overoll de joven.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Moderno y práctico para diario."
+    "descripcion": "Moderno y práctico para diario."
   },
   {
-    "id": "pantalon-bebitos",
+    "id": "06046c24-bb46-431c-9f35-6bd13a6ea248",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pantalón de bebitos",
     "price": 3700,
     "image": "/images/clothes/Pantalon de bebitos.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "bebé",
-    "shortDescription": "Suave y cómodo para los más pequeños."
+    "descripcion": "Suave y cómodo para los más pequeños."
   },
   {
-    "id": "pantalon-mezclilla-1",
+    "id": "a2a5350a-b32d-428c-bdc4-d454f0facfc0",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pantalón de mezclilla (1)",
     "price": 7200,
     "image": "/images/clothes/Pantalon de mezclilla 1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Denim resistente con ajuste clásico."
+    "descripcion": "Denim resistente con ajuste clásico."
   },
   {
-    "id": "pantalon-puno-unix",
+    "id": "ecf9ffb2-8375-46e8-8c48-75f91a61ac44",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pantalón de puño unisex",
     "price": 6100,
     "image": "/images/clothes/Pantalon de puno unix.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "unisex",
-    "shortDescription": "Comodidad y estilo para cualquier ocasión."
+    "descripcion": "Comodidad y estilo para cualquier ocasión."
   },
   {
-    "id": "pants-woman",
+    "id": "8c4a81ae-9d08-4d9e-9969-6b244bc37d67",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pantalón para mujer",
     "price": 6600,
     "image": "/images/clothes/pants woman.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Corte favorecedor y tela suave."
+    "descripcion": "Corte favorecedor y tela suave."
   },
   {
-    "id": "pesquero-juvenil",
+    "id": "fe2ace36-982a-40f1-96be-d96c4b2a945e",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pesquero juvenil",
     "price": 5800,
     "image": "/images/clothes/Pesquero Juvenil.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Fresco y casual para el día a día."
+    "descripcion": "Fresco y casual para el día a día."
   },
   {
-    "id": "pitusa-faja-ancha",
+    "id": "be292921-16e5-45cb-9b41-86dbd8f31de9",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pitusa faja ancha",
     "price": 5400,
     "image": "/images/clothes/PItusa Faja ancha.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Ajuste cómodo con estilo moderno."
+    "descripcion": "Ajuste cómodo con estilo moderno."
   },
   {
-    "id": "pullover-bebito",
+    "id": "a1b011d7-d4e3-4a4a-b5d0-b92d53f98cfc",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver bebito",
     "price": 3900,
     "image": "/images/clothes/Pullover bebito .webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "bebé",
-    "shortDescription": "Abriga sin perder suavidad."
+    "descripcion": "Abriga sin perder suavidad."
   },
   {
-    "id": "pullover-cuello",
+    "id": "b691054d-0b60-4673-ab49-e05e24ed3117",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver de cuello",
     "price": 6300,
     "image": "/images/clothes/Pullover de cuello1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Cuello alto para noches frescas."
+    "descripcion": "Cuello alto para noches frescas."
   },
   {
-    "id": "pullover-juvenil-1",
+    "id": "659711d8-4353-45dc-a8c9-2ec686ef4a38",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver juvenil (1)",
     "price": 5200,
     "image": "/images/clothes/Pullover Juvenil1.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Estampado moderno y cómodo."
+    "descripcion": "Estampado moderno y cómodo."
   },
   {
-    "id": "pullover-juvenil-2a",
+    "id": "8bcba378-12a5-47e4-bbb7-6c7cd402f979",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver juvenil (2)",
     "price": 5100,
     "image": "/images/clothes/Pullover Juvenil 2.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Suave al tacto, ideal para diario."
+    "descripcion": "Suave al tacto, ideal para diario."
   },
   {
-    "id": "pullover-juvenil-2b",
+    "id": "cad4090f-8b04-47a5-8ff1-ec887d14a7a3",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver juvenil (2b)",
     "price": 5050,
     "image": "/images/clothes/Pullover Juvenil2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Cálido y ligero, fácil de combinar."
+    "descripcion": "Cálido y ligero, fácil de combinar."
   },
   {
-    "id": "pullover-juvenil-5",
+    "id": "e7536c48-de52-4efa-8682-bf7bd045be5b",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver juvenil (5)",
     "price": 5300,
     "image": "/images/clothes/Pullover juvenil 5.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Colores vibrantes para tu día."
+    "descripcion": "Colores vibrantes para tu día."
   },
   {
-    "id": "pullovers-juvenil-21",
+    "id": "a7e46914-05e2-4e6e-a640-eeff399a01f9",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulóver juvenil (21)",
     "price": 5450,
     "image": "/images/clothes/Pullovers Juvenil 21.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "juvenil",
-    "shortDescription": "Ajuste clásico de gran comodidad."
+    "descripcion": "Ajuste clásico de gran comodidad."
   },
   {
-    "id": "saya-mezclilla",
+    "id": "627cb296-0c05-4929-861d-8c1906c8048c",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Saya de mezclilla",
     "price": 6000,
     "image": "/images/clothes/Saya Mezclilla.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Denim suave con estilo femenino."
+    "descripcion": "Denim suave con estilo femenino."
   },
   {
-    "id": "short-azul-felpa",
+    "id": "fbe9b639-faf6-46cc-a981-f6bfaa720e66",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short azul felpa",
     "price": 4600,
     "image": "/images/clothes/short Azul Felpa.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Suave y cómodo para entrenar o descansar."
+    "descripcion": "Suave y cómodo para entrenar o descansar."
   },
   {
-    "id": "short-corto-mezclilla-1",
+    "id": "a8c45f4f-4a76-45fe-ae0e-7b998364ee32",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short corto mezclilla (1)",
     "price": 4800,
     "image": "/images/clothes/Short corto mezclilla 1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Corte moderno en denim fresco."
+    "descripcion": "Corte moderno en denim fresco."
   },
   {
-    "id": "short-corto-mezclilla-3",
+    "id": "2915d868-0780-46ba-8dbe-9e4cb355cc59",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short corto mezclilla (3)",
     "price": 4950,
     "image": "/images/clothes/Short Corto mezclilla 3.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Perfecto para días calurosos."
+    "descripcion": "Perfecto para días calurosos."
   },
   {
-    "id": "short-corto-mezclilla",
+    "id": "7cc1fea5-6ae7-4d4a-9db8-61a9b05f5588",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short corto mezclilla",
     "price": 4700,
     "image": "/images/clothes/Short corto mezclilla .webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Denim suave con buen ajuste."
+    "descripcion": "Denim suave con buen ajuste."
   },
   {
-    "id": "short-hombre-mezclilla",
+    "id": "135f562e-8161-42e7-91bf-03ee953750a4",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short de hombre mezclilla",
     "price": 5200,
     "image": "/images/clothes/Short de hombre mezclilla.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Resistente y cómodo para el día a día."
+    "descripcion": "Resistente y cómodo para el día a día."
   },
   {
-    "id": "short-felpa-gorda",
+    "id": "eaf03262-722f-4a6a-b1cf-af0a201153aa",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short felpa gorda",
     "price": 4550,
     "image": "/images/clothes/short Felpa gorda.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Abrigo ligero con gran suavidad."
+    "descripcion": "Abrigo ligero con gran suavidad."
   },
   {
-    "id": "short-mezclilla-4",
+    "id": "ffb6641b-0797-4130-a522-68d6fecd4525",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short mezclilla (4)",
     "price": 4850,
     "image": "/images/clothes/Short Mezclilla 4.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Clásico y fácil de combinar."
+    "descripcion": "Clásico y fácil de combinar."
   },
   {
-    "id": "short-mezclilla-5",
+    "id": "8a2743b7-8f82-4cfd-bd04-774d333fb7b1",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short mezclilla (5)",
     "price": 4900,
     "image": "/images/clothes/Short mezclilla 5.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Denim con toque moderno."
+    "descripcion": "Denim con toque moderno."
   },
   {
-    "id": "short-mezclilla-6",
+    "id": "e0b4eac1-838b-4807-a738-cf0e9ec5a72b",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short mezclilla (6)",
     "price": 5000,
     "image": "/images/clothes/Short Mezclilla 6.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Corte cómodo para uso diario."
+    "descripcion": "Corte cómodo para uso diario."
   },
   {
-    "id": "short-mezclilla-hombre",
+    "id": "896c7a96-dc3d-4ad2-ae80-1486fe375b02",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Short mezclilla hombre",
     "price": 5350,
     "image": "/images/clothes/short mezclilla Hombre.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Denim robusto y durable."
+    "descripcion": "Denim robusto y durable."
   },
   {
-    "id": "sweater-blanco",
+    "id": "184c8af3-c05c-4aca-a2aa-a7e15f989255",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sweater blanco",
     "price": 6100,
     "image": "/images/clothes/Sweater blanco.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "unisex",
-    "shortDescription": "Básico infaltable, suave y combinable."
+    "descripcion": "Básico infaltable, suave y combinable."
   },
   {
-    "id": "sweater-blanco-rojo",
+    "id": "f97099f1-e277-411d-ab17-d38bcb67670a",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sweater blanco y rojo",
     "price": 6050,
     "image": "/images/clothes/Sweater Blanco y Rojo.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "unisex",
-    "shortDescription": "Contraste de color con gran estilo."
+    "descripcion": "Contraste de color con gran estilo."
   },
   {
-    "id": "sweater-gris",
+    "id": "c978a8e0-aa15-49ca-bf04-4c897fe256e3",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sweater gris",
     "price": 5900,
     "image": "/images/clothes/sweater grey.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "hombre",
-    "shortDescription": "Abrigo ligero para media estación."
+    "descripcion": "Abrigo ligero para media estación."
   },
   {
-    "id": "vestido-corto-azul",
+    "id": "66dfe049-e301-4faa-b370-8a6ec6134169",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Vestido corto azul",
     "price": 7400,
     "image": "/images/clothes/Vestido Corto Azul.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Color vibrante con caída perfecta."
+    "descripcion": "Color vibrante con caída perfecta."
   },
   {
-    "id": "vestido-de-ocasion-1",
+    "id": "80877268-86e4-4a41-8540-8c8b8812b820",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Vestido de ocasión (1)",
     "price": 7950,
     "image": "/images/clothes/Vestido de ocacion 1.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Elegancia para momentos especiales."
+    "descripcion": "Elegancia para momentos especiales."
   },
   {
-    "id": "vestido-nocturno-casual",
+    "id": "bda13e8d-8d04-41ef-8bf6-208b200d7e6d",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Vestido nocturno casual",
     "price": 8200,
     "image": "/images/clothes/Vestido nocturno casual.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Ideal para salidas nocturnas con estilo."
+    "descripcion": "Ideal para salidas nocturnas con estilo."
   },
   {
-    "id": "vestido-ocasion-especial",
+    "id": "89785ff7-5c30-4c7f-a5dd-8c5d0f891fe9",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Vestido ocasión especial",
     "price": 9100,
     "image": "/images/clothes/Vestido Ocasion Especial.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "mujer",
-    "shortDescription": "Diseño sofisticado y femenino."
+    "descripcion": "Diseño sofisticado y femenino."
   },
   {
-    "id": "aceite-para-bano",
+    "id": "27efbac7-72be-4d2e-a6e3-8f59d7094f9c",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "NORDIC scent booster",
     "price": 2000,
     "image": "/images/clothes/Beauty/Aceite para baño.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "capsulas-faciales",
+    "id": "f3b50264-121e-40d4-910b-fd728b9327a2",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Cápsulas Faciales 60 und",
     "price": 2000,
     "image": "/images/clothes/Beauty/Capsulas Faciales.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "capsulas-faciales1",
+    "id": "24fe0fa3-3547-4347-ab63-6f91cabeb6ea",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Cápsulas Faciales 1 und",
     "price": 40,
     "image": "/images/clothes/Beauty/Capsulas Faciales.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "brillantina-solida",
+    "id": "5ed74422-c9cd-44ad-976c-32a61a3f1118",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Brillantina sólida 85g",
     "price": 1500,
     "image": "/images/clothes/Beauty/Crema capilar .webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "crema-facial-2",
+    "id": "6fa8a5e5-12b3-4f5c-bf81-3e1b4f4bd1be",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Crema facial",
     "price": 2500,
     "image": "/images/clothes/Beauty/Crema facial 2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "crema-para-el-pelo",
+    "id": "a43f4e34-545c-4cad-b8ab-f84fa1e8f259",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Crema para cabello",
     "price": 1900,
     "image": "/images/clothes/Beauty/Crema para el pelo.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "crema-para-la-piel",
+    "id": "d6411ec6-ec61-48d1-8a0d-e782a6c02397",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Crema para la Piel",
     "price": 1200,
     "image": "/images/clothes/Beauty/Crema para la Piel.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "crema-para-ojos",
+    "id": "a4fc55e7-f7ac-4303-823d-b88754a419cd",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Crema para ojos",
     "price": 1100,
     "image": "/images/clothes/Beauty/Crema para ojos.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "crema-solar",
+    "id": "d97b0bc8-41ed-4874-b817-6d0b3120b335",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Crema Solar",
     "price": 1700,
     "image": "/images/clothes/Beauty/Crema Solar.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Protección solar y cuidado personal."
+    "descripcion": "Protección solar y cuidado personal."
   },
   {
-    "id": "marcadores",
+    "id": "ec733de1-b2b1-4311-8b9a-e9821b910a60",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Contornos ",
     "price": 1100,
     "image": "/images/clothes/Beauty/Marcadores.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Accesorios de belleza y cuidado."
+    "descripcion": "Accesorios de belleza y cuidado."
   },
   {
-    "id": "mascarillas-faciales",
+    "id": "8e00b6f8-067b-4187-b1ec-5681db1a7037",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Mascarillas Faciales",
     "price": 1200,
     "image": "/images/clothes/Beauty/Mascarillas Faciales.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado facial hidratante."
+    "descripcion": "Cuidado facial hidratante."
   },
   {
-    "id": "parches-para-ojeras",
+    "id": "c5130353-c003-4720-b39b-cbcf1d06ff30",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Parches para Ojeras 1 und",
     "price": 180,
     "image": "/images/clothes/Beauty/Parches para Ojeras.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Hidratación y cuidado."
+    "descripcion": "Hidratación y cuidado."
   },
   {
-    "id": "serum-facial-1-1400",
+    "id": "7cf0b082-03df-4d48-a799-fd4047d9399f",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Serum Facial ",
     "price": 1400,
     "image": "/images/clothes/Beauty/Serum Facial (1)1400.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado facial nutritivo."
+    "descripcion": "Cuidado facial nutritivo."
   },
   {
-    "id": "serum-facial-1400",
+    "id": "8beda5e6-c45d-4ea6-b212-528a0e67c5d1",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Serum Facial ",
     "price": 1400,
     "image": "/images/clothes/Beauty/Serum Facial 1400.jpeg",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado facial nutritivo."
+    "descripcion": "Cuidado facial nutritivo."
   },
   {
-    "id": "serum-facial-3-1400",
+    "id": "0756ac9c-2c68-479c-9391-f969c1b268f5",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Serum Facial (3) 1400",
     "price": 1400,
     "image": "/images/clothes/Beauty/Serum Facial (3) 1400.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado facial nutritivo."
+    "descripcion": "Cuidado facial nutritivo."
   },
   {
-    "id": "serum-facial-vitamina-c",
+    "id": "fd0aa081-1360-43cd-a35a-b573ad943f51",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Serum Facial con Vitamina C",
     "price": 1400,
     "image": "/images/clothes/Beauty/Serum Facial con Vitamina C.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado facial con antioxidantes."
+    "descripcion": "Cuidado facial con antioxidantes."
   },
   {
-    "id": "serum-facil-1400",
+    "id": "95aa8df7-9522-4623-8f0b-c3c8d085678f",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Serum Facil 1400",
     "price": 1400,
     "image": "/images/clothes/Beauty/Serum Facil 1400.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado facial nutritivo."
+    "descripcion": "Cuidado facial nutritivo."
   },
   {
-    "id": "serum-para-los-ojos",
+    "id": "ae8fb9be-b22c-4f1a-8c4b-4d0eb4cf3e06",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Serum para los ojos",
     "price": 1400,
     "image": "/images/clothes/Beauty/Serum para los ojos.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Hidratación y cuidado."
+    "descripcion": "Hidratación y cuidado."
   },
   {
-    "id": "labiales-550",
+    "id": "f215e304-f23b-489f-9c8a-0df241e512c9",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Labiales",
     "price": 550,
     "image": "/images/clothes/Beauty/Labiales 550.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "labiales-clasicos-550",
+    "id": "05a47798-7bdc-4324-9992-f8678bdd96fe",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Labiales clásicos",
     "price": 550,
     "image": "/images/clothes/Beauty/Labiales clasicos 550.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Cuidado personal y belleza."
+    "descripcion": "Cuidado personal y belleza."
   },
   {
-    "id": "lenceria-calentitos-silicona-500",
+    "id": "19665b6d-eefe-4e3e-84ba-8e9e304b8e47",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Lencería Calentitos Silicona",
     "price": 1500,
     "image": "/images/clothes/Beauty/Lenceria Calentitos Silicona 500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Lenceria",
-    "shortDescription": "Despertar de pasiones."
+    "descripcion": "Despertar de pasiones."
   },
   {
-    "id": "lenceria-exotica-4000",
+    "id": "74da491f-77d5-4baf-a9ab-08766794cefa",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Lencería Exótica",
     "price": 4000,
     "image": "/images/clothes/Beauty/Lenceria Exotica 4000.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Lenceria",
-    "shortDescription": "Despertar de pasiones."
+    "descripcion": "Despertar de pasiones."
   },
   {
-    "id": "lenceria-love-450",
+    "id": "8e717c1b-e92d-494a-bd76-396520fe84c4",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Lencería Love",
     "price": 450,
     "image": "/images/clothes/Beauty/Lenceria Love 450.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Lenceria",
-    "shortDescription": "Despertar de pasiones."
+    "descripcion": "Despertar de pasiones."
   },
   {
-    "id": "lenceria-tangas-450",
+    "id": "caefd8d2-92c9-4bdf-b717-718042abf7bc",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Lencería Tangas",
     "price": 450,
     "image": "/images/clothes/Beauty/Lenceria Tangas 450.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Lenceria",
-    "shortDescription": "Despertar de pasiones."
+    "descripcion": "Despertar de pasiones."
   },
   {
-    "id": "lentes-3500",
+    "id": "13e90d21-d418-470d-a1a9-aca47e058490",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Lentes",
     "price": 3500,
     "image": "/images/clothes/Beauty/Lentes 3500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Siempre Fashion."
+    "descripcion": "Siempre Fashion."
   },
   {
-    "id": "lentes-gucci-6500",
+    "id": "52ca70a8-e960-4295-b19b-c53a91cd0915",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Lentes Gucci",
     "price": 6500,
     "image": "/images/clothes/Beauty/Lentes Gucci 6500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Un look a la moda"
+    "descripcion": "Un look a la moda"
   },
   {
-    "id": "Pulsa-artesanal-120",
+    "id": "0b79b74a-0e95-4300-9d59-5dd1e8d32f95",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulsa artesanal de bolitas",
     "price": 400,
     "image": "/images/clothes/Beauty/Pulsa artesanal de bolitas 400.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Accesorios",
-    "shortDescription": "Accesorios personales."
+    "descripcion": "Accesorios personales."
   },
   {
-    "id": "Pulsa-artesanal-400",
+    "id": "c160a459-a833-45d4-a9e7-be9d941ec743",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulsas Artesanales negra (la pareja)",
     "price": 400,
     "image": "/images/clothes/Beauty/Pulsa artesanal de bolitas negras 400.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Accesorios",
-    "shortDescription": "Accesorios personales."
+    "descripcion": "Accesorios personales."
   },
   {
-    "id": "Pulsa-artesanal-500",
+    "id": "839fefe6-4c6b-48e9-95b6-87fa4f3ac732",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pulsa Artesanal de colores",
     "price": 500,
     "image": "/images/clothes/Beauty/Pulsa artesanal 500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Accesorios",
-    "shortDescription": "Accesorios personales."
+    "descripcion": "Accesorios personales."
   },
   {
-    "id": "panos-de-cocina-250",
+    "id": "b11232ab-ebec-4a97-9316-7e76cbccd2fe",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Paños de Cocina",
     "price": 250,
     "image": "/images/clothes/Beauty/Paños de Cocina 250.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Accesorios del hogar."
+    "descripcion": "Accesorios del hogar."
   },
   {
-    "id": "perfume-wild-country-6500",
+    "id": "f485974c-74b8-48af-8a47-f060b2ded96d",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Perfume Wild Country",
     "price": 6500,
     "image": "/images/clothes/Beauty/Perfume Wild Country 6500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Perfumes",
-    "shortDescription": "Fragancias y cuidado personal."
+    "descripcion": "Fragancias y cuidado personal."
   },
   {
-    "id": "perfume-delight-2500",
+    "id": "81bb837d-0b19-4825-840f-64dd5409fe2d",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Perfume Delight",
     "price": 2500,
     "image": "/images/clothes/Beauty/Perfume Delight 2500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Perfumes",
-    "shortDescription": "Fragancias y cuidado personal."
+    "descripcion": "Fragancias y cuidado personal."
   },
   {
-    "id": "perfume-ycz-4000",
+    "id": "5bd886d7-6f83-4dc6-acb0-acb9c45afa40",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Perfume YCZ",
     "price": 4000,
     "image": "/images/clothes/Beauty/Perfume YCZ 4000.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "Perfumes",
-    "shortDescription": "Fragancias y cuidado personal."
+    "descripcion": "Fragancias y cuidado personal."
   },
   {
-    "id": "pinceles-de-maquillaje-1500",
+    "id": "f4878718-f4da-4202-bab8-6ee12520785b",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Pinceles de maquillaje",
     "price": 1500,
     "image": "/images/clothes/Beauty/Pinceles de maquillaje 1500.jpeg",
     "oferta": false,
     "estado": "Disponible",
     "category": "belleza",
-    "shortDescription": "Accesorios de maquillaje."
+    "descripcion": "Accesorios de maquillaje."
   },
   {
-    "id": "amiri-zapatillas-2",
+    "id": "3b72e787-2fbd-42d2-9582-75a244e4ad57",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "AMIRI Zapatillas",
     "price": 12000,
     "image": "/images/clothes/Shoes/AMRI Zapatillas 2.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Calzado cómodo y con estilo."
+    "descripcion": "Calzado cómodo y con estilo."
   },
   {
-    "id": "botines-mujer",
+    "id": "14c34fac-5849-4834-981b-882e414f2320",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Botines mujer",
     "price": 13000,
     "image": "/images/clothes/Shoes/Botines mujer.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Calzado cómodo y con estilo."
+    "descripcion": "Calzado cómodo y con estilo."
   },
   {
-    "id": "chancletas-de-hombre-1",
+    "id": "d0fbd00e-d503-4425-8e13-8ea049d5a600",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Chancletas de Hombre",
     "price": 3000,
     "image": "/images/clothes/Shoes/Chancletas de Hombre 1.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Calzado cómodo y con estilo."
+    "descripcion": "Calzado cómodo y con estilo."
   },
   {
-    "id": "chancletas-de-hombre-2",
+    "id": "534f3bb5-6ca0-4053-a843-f2586eb17fc9",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Chancletas de hombre",
     "price": 3000,
     "image": "/images/clothes/Shoes/Chancletas de hombre 2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Calzado cómodo y con estilo."
+    "descripcion": "Calzado cómodo y con estilo."
   },
   {
-    "id": "chancletas-prada",
+    "id": "de503cec-418e-4f0b-a2d2-9fc977f26404",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Chancletas PRADA",
     "price": 10000,
     "image": "/images/clothes/Shoes/Chancletas PRADA.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Calzado cómodo y con estilo."
+    "descripcion": "Calzado cómodo y con estilo."
   },
   {
-    "id": "converse-1",
+    "id": "ac3085e7-f5f3-46cf-86f1-9f000a6a2a59",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Converses",
     "price": 16000,
     "image": "/images/clothes/Shoes/Converse 1.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Clásicos y versátiles."
+    "descripcion": "Clásicos y versátiles."
   },
   {
-    "id": "dior-tennis",
+    "id": "5f4afdb4-73a7-4f04-9686-d17e9e5180ae",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Dior Tennis",
     "price": 20000,
     "image": "/images/clothes/Shoes/Dior Tennis.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Calzado premium y elegante."
+    "descripcion": "Calzado premium y elegante."
   },
   {
-    "id": "nikes-retro-1",
+    "id": "a0daa50d-d220-4929-b06e-dfdb981d8961",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Nikes Retro ",
     "price": 16000,
     "image": "/images/clothes/Shoes/Nikes Retro 1.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Estilo retro con comodidad."
+    "descripcion": "Estilo retro con comodidad."
   },
   {
-    "id": "sandalias-de-mujer-2",
+    "id": "db6669da-3570-42dc-afea-143060fcf7a9",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sandalias de mujer ",
     "price": 6000,
     "image": "/images/clothes/Shoes/Sandalias de mujer 2.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Ligereza y confort para el verano."
+    "descripcion": "Ligereza y confort para el verano."
   },
   {
-    "id": "sandalias-gucci-2",
+    "id": "06349bfa-330b-4eef-af51-b6e85a0ad209",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sandalias Gucci",
     "price": 15500,
     "image": "/images/clothes/Shoes/Sandalias Gucci 2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Diseño de lujo y confort."
+    "descripcion": "Diseño de lujo y confort."
   },
   {
-    "id": "sandalias-gucci",
+    "id": "bab31644-948d-425e-a15a-3145d2f3a137",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sandalias Gucci",
     "price": 15500,
     "image": "/images/clothes/Shoes/Sandalias Gucci .webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Diseño de lujo y confort."
+    "descripcion": "Diseño de lujo y confort."
   },
   {
-    "id": "sandalias-mujer-2",
+    "id": "89581af3-63f7-4de6-b103-eb7aaa570947",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sandalias Mujer",
     "price": 6000,
     "image": "/images/clothes/Shoes/Sandalias Mujer 2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Ligereza y confort para el verano."
+    "descripcion": "Ligereza y confort para el verano."
   },
   {
-    "id": "sandalias-para-hombres",
+    "id": "2ade2502-7a8f-4adb-9762-b915b317f93e",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sandalias para Hombres",
     "price": 5000,
     "image": "/images/clothes/Shoes/Sandalias para Hombres.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Comodidad diaria."
+    "descripcion": "Comodidad diaria."
   },
   {
-    "id": "sandalias-prada-2",
+    "id": "081619b9-808c-4601-953c-9531fc681dfd",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Sandalias PRADA ",
     "price": 7000,
     "image": "/images/clothes/Shoes/Sandalias PRADA 2.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Diseño de lujo y confort."
+    "descripcion": "Diseño de lujo y confort."
   },
   {
-    "id": "tenis-juveniles",
+    "id": "eb20760e-5f91-4d14-8c1c-f3eaa914f22e",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Tenis Juveniles",
     "price": 15000,
     "image": "/images/clothes/Shoes/Tenis Juveniles.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Estilo juvenil y cómodo."
+    "descripcion": "Estilo juvenil y cómodo."
   },
   {
-    "id": "tenis-tozcanos-converse-style",
+    "id": "6b0e34cd-9c79-4144-9504-f30aa5751936",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Tenis Tozcanos Converse Style",
     "price": 18000,
     "image": "/images/clothes/Shoes/Tenis Tozcanos Converse Style.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Inspirados en clásicos."
+    "descripcion": "Inspirados en clásicos."
   },
   {
-    "id": "zandalias-black-for-woman",
+    "id": "ed2f798e-6cb0-4e00-a794-4d4524469f56",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zandalias ALO Black For Woman",
     "price": 6000,
     "image": "/images/clothes/Shoes/Zandalias Black For Woman.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Elegantes y versátiles."
+    "descripcion": "Elegantes y versátiles."
   },
   {
-    "id": "zandalias-mujer-cg",
+    "id": "54d154b3-a0a7-4438-bc89-89e6a85a75eb",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zandalias mujer CG",
     "price": 15500,
     "image": "/images/clothes/Shoes/Zandalias mujer CG.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Ligereza y confort para el verano."
+    "descripcion": "Ligereza y confort para el verano."
   },
   {
-    "id": "zapatillas-adidas",
+    "id": "486d7b67-ffab-4f05-b669-8a92190ca08b",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zapatillas Adidas",
     "price": 15630,
     "image": "/images/clothes/Shoes/Zapatillas Adidas .webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Rendimiento y estilo."
+    "descripcion": "Rendimiento y estilo."
   },
   {
-    "id": "zapatillas-amri",
+    "id": "ca568575-c49b-4119-a400-d9fcbf7f4dfd",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zapatillas Juveniles AMIRI",
     "price": 11000,
     "image": "/images/clothes/Shoes/Zapatillas AMRI.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Estilo moderno."
+    "descripcion": "Estilo moderno."
   },
   {
-    "id": "zapatillas-champion",
+    "id": "404efc50-aa18-4510-ae29-bd514b4fe07f",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zapatillas Champion",
     "price": 13220,
     "image": "/images/clothes/Shoes/Zapatillas Champion.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Rendimiento y estilo."
+    "descripcion": "Rendimiento y estilo."
   },
   {
-    "id": "zapatillas-juveniles",
+    "id": "fb1a2479-b4e6-4259-b243-6d904ae6c60f",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zapatillas Juveniles",
     "price": 10500,
     "image": "/images/clothes/Shoes/Zapatillas Juveniles.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Estilo juvenil y cómodo."
+    "descripcion": "Estilo juvenil y cómodo."
   },
   {
-    "id": "zapatillas-nikes-clasicos",
+    "id": "247b3e9b-3e21-4f96-b9be-784993ac92f0",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zapatillas Nikes Clasicos",
     "price": 16000,
     "image": "/images/clothes/Shoes/Zapatillas Nikes Clasicos.webp",
     "oferta": true,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Clásicos y versátiles."
+    "descripcion": "Clásicos y versátiles."
   },
   {
-    "id": "zapatillas-puma-juveniles",
+    "id": "7b43b7ac-1309-4b57-a7e7-0f29159643ae",
+   "negocio_id":"3895fc0b-c323-4e8e-b586-ce8c0f65fd60","departament": "clothstore",
     "name": "Zapatillas Puma Juveniles",
     "price": 18000,
     "image": "/images/clothes/Shoes/Zapatillas Puma Juveniles.webp",
     "oferta": false,
     "estado": "Disponible",
     "category": "calzado",
-    "shortDescription": "Rendimiento y estilo."
+    "descripcion": "Rendimiento y estilo."
   }
 ]

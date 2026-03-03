@@ -133,9 +133,10 @@
 import { computed, reactive, ref, watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useCartStore } from 'src/stores/cart'
-import type { Product as StoreProduct } from 'src/stores/types'
+import type { Product as StoreProduct } from 'src/stores/types';
 import { useMeta } from 'quasar';
 import {useQuasar} from "quasar";
+import { supabase } from 'boot/supabase';
 
 type Category = { key: string; label: string; image?: string }
 
@@ -190,7 +191,7 @@ const products = ref<Product[]>([])
 const route = useRoute()
 
 const selectedCategory = ref<string>('all')
-
+const negocio_id = "3895fc0b-c323-4e8e-b586-ce8c0f65fd60"
 const categoryKeys = computed(() => categories.value.map(c => c.key))
 
 function applyRouteCategory() {
@@ -201,12 +202,16 @@ function applyRouteCategory() {
 onMounted(async () => {
   applyRouteCategory()
   try {
-    const res = await fetch('/data/products.json')
-    const data: Product[] = await res.json()
-    products.value = data.filter(p => p.estado !== 'Agotado')
-    data.forEach(p => (qty[p.id] = 1))
+    const dataFromSupabase = await supabase
+      .from('products')
+      .select('*')
+      .eq('negocio_id', negocio_id)
+      .order('new', { ascending: false })
+    ;
+    products.value = dataFromSupabase.data?.filter(p => p.estado !== 'Agotado')
+
   } catch (e) {
-    console.error('Error cargando productos.json', e)
+    console.error('Error cargando productos', e)
   }
 })
 watch(() => route.query.cat, applyRouteCategory)

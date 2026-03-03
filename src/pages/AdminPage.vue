@@ -133,7 +133,12 @@
         </q-card-section>
         <q-separator />
         <q-card-section>
-          <ProductForm v-model="newProduct" mode="add" @save="saveNew" @cancel="addDialog=false" />
+          <ProductForm
+            v-model="newProduct"
+            :negocioId="negocio_id"
+            mode="add"
+            @save="saveNew"
+            @cancel="addDialog=false" />
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -176,6 +181,7 @@ import type { QTableColumn } from 'quasar';
 import ProductForm from 'components/ProductForm.vue';
 import AdminHelp from 'components/AdminHelp.vue';
 import { useAdminChangesStore } from 'src/stores/adminChanges';
+import { supabase } from 'boot/supabase';
 
 interface Product {
   id: string;
@@ -200,6 +206,7 @@ const helpDialog = ref(false);
 const newProduct = ref<Product>({ id: '', name: '', price: 0, category: '', image: '', new: false, oferta: false, estado: 'Disponible', subcategory: '', descuento: 0, descripcion: '' });
 const editProduct = ref<Product>({ id: '', name: '', price: 0, category: '', image: '', new: false, oferta: false, estado: 'Disponible', subcategory: '', descuento: 0, descripcion: '' });
 const originalEditId = ref<string | null>(null);
+const negocio_id= "3895fc0b-c323-4e8e-b586-ce8c0f65fd60"
 
 const columns =<QTableColumn[]> [
   { name: 'image', label: 'Imagen', field: 'image', align: 'left' },
@@ -236,7 +243,7 @@ function openAdd() {
   addDialog.value = true;
 }
 function allProductArentNew(){
-return products.value.map((product: Product) => {product.new=false});
+ // products.value = products.value.map((product: Product) => ({ ...product, id: crypto.randomUUID() }));
 }
 function openEdit(row: Product) {
   editProduct.value = { ...row };
@@ -315,11 +322,17 @@ function currency(val?: number) {
 
 onMounted(async () => {
   try {
-    const res = await fetch('/data/products.json');
-    if (res.ok) {
-      const data = await res.json();
+    //const res = await fetch('/data/products.json');
+    const { data, error } = await supabase.from("products")
+      .select("*")
+      .eq('negocio_id', negocio_id)
+      .order('created_at', { ascending: false });
+      console.log(data, error);
+    if (data) {
+      //const data = await res.json();
       // products.json is an array of products
       products.value = Array.isArray(data) ? data : [];
+
       // Resetear el registro de cambios al entrar, para contar solo cambios posteriores
       changesStore.clear()
     }

@@ -54,7 +54,7 @@
         <q-toggle v-model="localItem.oferta" label="En oferta" />
       </div>
       <div class="col-12">
-        <q-input v-model="localItem.shortDescription" type="textarea" label="Descripción corta" dense outlined autogrow />
+        <q-input v-model="localItem.descripcion" type="textarea" label="Descripción corta" dense outlined autogrow />
       </div>
     </div>
     <div class="row justify-end q-gutter-sm q-mt-md">
@@ -69,13 +69,14 @@ import { reactive, watch, ref, onMounted, onBeforeUnmount } from 'vue'
 
 export interface ClothesFormModel {
   id: string
+  departament?: string
   name: string
   price: number
   image: string
   oferta?: boolean
   estado?: string
   category: string
-  shortDescription?: string
+  descripcion?: string
 }
 
 const props = defineProps<{
@@ -134,7 +135,9 @@ function onFileSelected(val: File | File[] | null) {
   const slug = slugifyBase(filename)
   // Ajustar ID a partir del nombre del archivo
   if (slug) {
-    ;(localItem).id = slug
+    localItem.id = crypto.randomUUID();
+    localItem.departament = 'clothstore';
+    console.log('id',localItem.id)
   }
   // Ajustar URL de imagen a una ruta pública esperada
   ;(localItem).image = `/images/clothes/${filename}`
