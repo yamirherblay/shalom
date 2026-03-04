@@ -1,3 +1,4 @@
+<!--
 <template>
   <q-page padding>
     <div class="row q-col-gutter-md">
@@ -58,7 +59,7 @@
       </div>
     </div>
 
-    <!-- Ver Dialog -->
+    &lt;!&ndash; Ver Dialog &ndash;&gt;
     <q-dialog v-model="viewDialog">
       <q-card style="max-width: 500px; width: 100%">
         <q-card-section class="row items-center q-col-gutter-sm">
@@ -83,7 +84,7 @@
       </q-card>
     </q-dialog>
 
-    <!-- Add Dialog -->
+    &lt;!&ndash; Add Dialog &ndash;&gt;
     <q-dialog v-model="addDialog">
       <q-card style="max-width: 700px; width: 100%">
         <q-card-section class="row items-center">
@@ -98,7 +99,7 @@
       </q-card>
     </q-dialog>
 
-    <!-- Edit Dialog -->
+    &lt;!&ndash; Edit Dialog &ndash;&gt;
     <q-dialog v-model="editDialog">
       <q-card style="max-width: 700px; width: 100%">
         <q-card-section class="row items-center">
@@ -108,12 +109,12 @@
         </q-card-section>
         <q-separator />
         <q-card-section>
-          <ProductForm v-model="editItem" mode="edit" @save="saveEdit" @cancel="editDialog=false" />
+&lt;!&ndash;          <ProductForm v-model="editItem" mode="edit" @save="saveEdit" @cancel="editDialog=false" />&ndash;&gt;
         </q-card-section>
       </q-card>
     </q-dialog>
 
-    <!-- Help Dialog -->
+    &lt;!&ndash; Help Dialog &ndash;&gt;
     <q-dialog v-model="helpDialog">
       <q-card style="max-width: 640px; width: 100%">
         <q-card-section class="row items-center">
@@ -270,3 +271,4 @@ function currency(v?: number) {
 
 <style scoped>
 </style>
+-->
