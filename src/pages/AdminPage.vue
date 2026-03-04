@@ -87,6 +87,17 @@
                   />
                 </q-td>
 
+              </template><template #body-cell-oferta="props">
+                <q-td :props="props">
+                  <q-badge
+                    :label="props.row.oferta ? 'Oferta' : ''"
+                    :color="props.row.oferta ? 'orange' : 'white'"
+                    :text-color="props.row.oferta === 'true' ? 'white' : 'grey1'"
+                    dense
+                    class="fa-text-height"
+                  />
+                </q-td>
+
               </template>
             </q-table>
           </q-card-section>
@@ -218,6 +229,7 @@ const columns =<QTableColumn[]> [
   { name: 'price', label: 'Precio', field: 'price', align: 'right', sortable: true, format: (v: number) => currency(v) },
   { name: 'category', label: 'Categoría', field: 'category', align: 'left', sortable: true },
   { name: 'disponibilidad', label: 'Disponibilidad', field: 'estado', align: 'left', sortable: true },
+  { name: 'oferta', label: 'Oferta', field: 'oferta', align: 'left', sortable: true },
   { name: 'actions', label: 'Acciones', field: 'actions', align: 'right' },
 ];
 
@@ -228,9 +240,7 @@ const filteredProducts = computed(() => {
     p.name.toLowerCase().includes(f) ||
     p.id.toLowerCase().includes(f) ||
     p.category.toLowerCase().includes(f) ||
-    p.estado?.toLowerCase().includes(f)
-
-  );
+    p.estado?.toLowerCase().includes(f));
 });
 
 const viewDialog = ref(false);
@@ -325,18 +335,16 @@ function currency(val?: number) {
 
 onMounted(async () => {
   try {
-    //const res = await fetch('/data/products.json');
+
     const { data, error } = await supabase.from("products")
       .select("*")
       .eq('negocio_id', negocio_id)
       .order('created_at', { ascending: false });
       console.log(data, error);
     if (data) {
-      //const data = await res.json();
-      // products.json is an array of products
+
       products.value = Array.isArray(data) ? data : [];
 
-      // Resetear el registro de cambios al entrar, para contar solo cambios posteriores
       changesStore.clear()
     }
   } catch (e) {

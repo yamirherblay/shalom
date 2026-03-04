@@ -31,10 +31,23 @@
         />
       </div>
       <div class="col-12">
-        <q-input v-model="localItem.name" label="Nombre" dense outlined />
+        <q-input
+          v-model="localItem.name"
+          label="Nombre"
+          dense
+          outlined
+          :rules="[(val) => !!val?.trim() || 'El nombre es obligatorio']"
+        />
       </div>
       <div class="col-6">
-        <q-input v-model.number="localItem.price" type="number" label="Precio" dense outlined />
+        <q-input
+          v-model.number="localItem.price"
+          type="number"
+          label="Precio"
+          dense
+          outlined
+          :rules="[(val) => val > 0 || 'El precio debe ser mayor a 0']"
+        />
       </div>
       <div class="col-6">
         <q-select
@@ -48,8 +61,16 @@
           map-options
           use-input
           new-value-mode="add"
+          :rules="[(val) => !!val || 'La categoría es obligatoria']"
         />
-        <q-input v-else v-model="localItem.category" label="Categoría" dense outlined />
+        <q-input
+          v-else
+          v-model="localItem.category"
+          label="Categoría"
+          dense
+          outlined
+          :rules="[(val) => !!val?.trim() || 'La categoría es obligatoria']"
+        />
       </div>
       <div class="col-12">
         <q-select
@@ -81,13 +102,19 @@
     </div>
     <div class="row justify-end q-gutter-sm q-mt-md">
       <q-btn flat color="grey-7" no-caps label="Cancelar" @click="onCancel" />
-      <q-btn color="primary" no-caps :label="mode === 'add' ? 'Crear' : 'Guardar'" type="submit" />
+      <q-btn
+        color="primary"
+        no-caps
+        :label="mode === 'add' ? 'Crear' : 'Guardar'"
+        type="submit"
+        :disable="!isFormValid"
+      />
     </div>
   </q-form>
 </template>
 
 <script setup lang="ts">
-import { reactive, watch, ref, onMounted, onBeforeUnmount } from 'vue';
+import { reactive, watch, ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useQuasar } from 'quasar';
 
 const MAX_FILE_SIZE = 400 * 1024; // 400KB en bytes
@@ -144,6 +171,15 @@ const categoryOptions = ref<{ label: string; value: string }[]>([]);
 // Manejo de archivo de imagen seleccionado
 const fileProxy = ref<File | File[] | null>(null);
 const previewUrl = ref<string>('');
+
+const isFormValid = computed(() => {
+  const hasImage = !!(fileProxy.value || localItem.image);
+  const hasName = !!localItem.name?.trim();
+  const hasPrice = localItem.price > 0;
+  const hasCategory = !!localItem.category?.trim();
+
+  return hasImage && hasName && hasPrice && hasCategory;
+});
 
 function slugifyBase(name: string) {
   const base = name.replace(/\.[^/.]+$/, '');
