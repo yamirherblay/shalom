@@ -25,7 +25,7 @@
         address="Calle 24 de febrero No.190 , entre Calle Cucalambé y Calle Martí"
         city="Las Tunas, Cuba"
         phone="+53 54512675"
-        email="mercadotexas@gmail.com"
+        email="mercadvariadotexas@gmail.com"
         hours="Lun a Sáb: 8:00 - 19:00 · Dom: 10:00 - 16:00"
         :map-image="'/images/Mapa.png'"
       />

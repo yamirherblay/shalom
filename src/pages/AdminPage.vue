@@ -43,8 +43,6 @@
 
             <div class="col-auto row q-gutter-sm">
               <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" />
-              <q-btn color="secondary" icon="save" label="Guardar el JSON" no-caps @click="saveProductsJson" />
-              <q-btn color="secondary" icon="check" label="Resetear novedad "  @click="allProductArentNew" />
               <q-btn color="grey-8" icon="help_outline" label="Ayuda" no-caps @click="helpDialog = true" />
             </div>
             <div class="col-12 col-sm-4">
@@ -67,9 +65,9 @@
             >
               <template #body-cell-actions="props">
                 <q-td :props="props">
-                  <q-btn size="sm" color="primary" flat icon="visibility" label="Ver" class="q-mr-sm"
+                  <q-btn size="sm" color="secundary" flat icon="visibility" label="Ver" class="q-mr-sm"
                          @click="openView(props.row)" />
-                  <q-btn size="sm" color="secondary" flat icon="edit" label="Editar"
+                  <q-btn size="sm" color="blue" flat icon="edit" label="Editar"
                          @click="openEdit(props.row)" />
                 </q-td>
               </template>
@@ -83,7 +81,7 @@
                   <q-badge
                     :label="props.row.estado"
                     :color="props.row.estado === 'Disponible' ? 'green' : 'red-7'"
-                    :text-color="props.row.estado === 'Disponible' ? 'white' : 'grey'"
+                    :text-color="props.row.estado === 'Disponible' ? 'white' : 'grey1'"
                     dense
                     class="fa-text-height"
                   />
@@ -124,7 +122,7 @@
     </q-dialog>
 
     <!-- Add Dialog -->
-    <q-dialog v-model="addDialog">
+    <q-dialog v-model="addDialog" persistent>
       <q-card style="max-width: 700px; width: 100%">
         <q-card-section class="row items-center">
           <div class="text-h6 col">Nuevo producto</div>
@@ -144,7 +142,7 @@
     </q-dialog>
 
     <!-- Edit Dialog -->
-    <q-dialog v-model="editDialog">
+    <q-dialog v-model="editDialog" persistent>
       <q-card style="max-width: 700px; width: 100%">
         <q-card-section class="row items-center">
           <div class="text-h6 col">Editar producto</div>
@@ -153,7 +151,13 @@
         </q-card-section>
         <q-separator />
         <q-card-section>
-          <ProductForm v-model="editProduct" mode="edit" @save="saveEdit" @cancel="editDialog=false" />
+          <ProductForm
+            v-model="editProduct"
+            :negocio-id="negocio_id"
+            mode="edit"
+            @save="saveEdit"
+            @cancel="editDialog=false"
+          />
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -210,7 +214,6 @@ const negocio_id= import.meta.env.VITE_NEGOCIO_ID;
 
 const columns =<QTableColumn[]> [
   { name: 'image', label: 'Imagen', field: 'image', align: 'left' },
-  { name: 'id', label: 'ID', field: 'id', align: 'left', sortable: true },
   { name: 'name', label: 'Nombre', field: 'name', align: 'left', sortable: true },
   { name: 'price', label: 'Precio', field: 'price', align: 'right', sortable: true, format: (v: number) => currency(v) },
   { name: 'category', label: 'Categoría', field: 'category', align: 'left', sortable: true },
@@ -242,16 +245,16 @@ function openAdd() {
   newProduct.value = { id: '', name: '', price: 0, category: '', image: '', new: false, oferta: false, estado: 'Disponible', subcategory: '', descuento: 0, descripcion: '' };
   addDialog.value = true;
 }
-function allProductArentNew(){
+/*function allProductArentNew(){
  // products.value = products.value.map((product: Product) => ({ ...product, id: crypto.randomUUID() }));
-}
+}*/
 function openEdit(row: Product) {
   editProduct.value = { ...row };
   originalEditId.value = row.id;
   editDialog.value = true;
 }
 
-async function saveProductsJson() {
+/*async function saveProductsJson() {
   try {
     const json = JSON.stringify(products.value, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -283,7 +286,7 @@ async function saveProductsJson() {
   } catch (e:unknown) {
     console.warn('No se pudo guardar el JSON', e);
   }
-}
+}*/
 
 function saveNew(product: Product) {
   // evitar duplicados por id

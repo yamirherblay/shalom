@@ -206,6 +206,6 @@ const isClothStore = computed(() => route.name === 'clothStore' || route.path ==
 .search-input {
   min-width: 180px;
   width: 26vw;
-  max-width: 320  px;
+  max-width: 320px;
 }
 </style>

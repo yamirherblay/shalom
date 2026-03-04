@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <div v-else-if="offers.length" class="q-my-xl text-grey text-center">
+      <div v-else-if="offers?.length" class="q-my-xl text-grey text-center">
         {{
           searchQuery.trim()
             ? 'No se encontraron productos para tu búsqueda.'
@@ -80,16 +80,18 @@ interface OfferItem {
 
 type Cat = { key: string; label: string };
 
-const offers = ref<OfferItem[]>([]);
+const offers = ref<OfferItem[] | null | undefined>([]);
 const selectedCategory = ref<string>('all');
 const searchQuery = ref<string>('');
 
 const route = useRoute();
 const router = useRouter();
 const negocio_id = import.meta.env.VITE_NEGOCIO_ID;
+
 const categories = computed<Cat[]>(() => {
   const set = new Set<string>();
-  offers.value.forEach((o) => {
+  const offersData = offers.value ?? [];
+  offersData.forEach((o) => {
     if (o.category) set.add(o.category);
   });
   const arr = Array.from(set);
@@ -97,7 +99,7 @@ const categories = computed<Cat[]>(() => {
 });
 
 const filteredOffers = computed(() => {
-  let filtered = offers.value;
+  let filtered = offers.value ?? [];
 
   // Filtrar por categoría
   if (selectedCategory.value !== 'all') {

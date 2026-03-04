@@ -4,6 +4,13 @@
       <q-toolbar>
         <q-btn flat dense round icon="menu" @click="left = !left" />
         <q-toolbar-title>Admin</q-toolbar-title>
+        <q-btn
+          flat
+          dense
+          round
+          :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+          @click="toggleTheme"
+        />
         <AdminChangeNotifications />
         <q-btn flat dense round>
           <q-icon name="person" />
@@ -30,7 +37,11 @@
 
         <q-item clickable v-ripple @click="$router.push({ name: 'tienda' })">
           <q-item-section avatar><q-icon name="store" /></q-item-section>
-          <q-item-section>Mercado</q-item-section>
+          <q-item-section>Tienda</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple @click="$router.push({ name: 'clothStore' })">
+          <q-item-section avatar><q-icon name="store" /></q-item-section>
+          <q-item-section>Sabrina Fashion</q-item-section>
         </q-item>
 
         <q-item class="text-center justify-center">
@@ -50,12 +61,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useQuasar } from 'quasar';
 import AdminChangeNotifications from 'layouts/AdminChangeNotifications.vue';
 import { useAuthStore } from 'src/stores/auth';
 
 const left = ref(false);
 const router = useRouter();
 const auth = useAuthStore();
+const $q = useQuasar();
+
+function toggleTheme() {
+  $q.dark.toggle();
+}
 
 async function logout() {
   await auth.logout();

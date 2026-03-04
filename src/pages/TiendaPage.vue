@@ -87,7 +87,7 @@
 
             <q-card-actions align="between" class="q-pa-sm">
               <div class="row q-gutter-xs" v-if="product.estado == 'Disponible'">
-                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" label="Solicitar este" aria-label="Comprar por WhatsApp" title="Comprar por WhatsApp" alt="Comprar por WhatsApp" @click="buyWhatsAppProduct(product)" />
+                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" label="Solicitar" aria-label="Solicitar por WhatsApp" title="Solicitar por WhatsApp" alt="Solicitar por WhatsApp" @click="buyWhatsAppProduct(product)" />
                 <q-btn v-if="product.category === 'combos' && product.descripcion" color="secondary" outline size="sm" icon="visibility" label="Ver" @click="openCombo(product)" />
                 <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" aria-label="Adicionar a la cesta" title="Adicionar a la cesta" alt="Adicionar a la cesta" @click="addToCart(product)" />
               </div>
@@ -143,6 +143,8 @@ type Category = { key: string; label: string; image?: string }
 type Product = {
   id: string
   name: string
+  departament:string
+  negocio_id:string
   price: number
   oferta: boolean
   image: string
@@ -186,7 +188,7 @@ const categories = ref<Category[]>([
   {key: 'Enlatados', label:'Enlatados',image:'/images/enlatados.jpg' },
 ])
 
-const products = ref<Product[]>([])
+const products = ref<Product[] | null | undefined> ([])
 
 const route = useRoute()
 
@@ -208,7 +210,7 @@ onMounted(async () => {
       .eq('negocio_id', negocio_id)
       .order('new', { ascending: false })
     ;
-    products.value = dataFromSupabase.data?.filter(p => p.estado !== 'Agotado')
+    products.value = dataFromSupabase.data?.filter(p => p.estado !== 'Agotado' && p.departament!=='clothstore')
 
   } catch (e) {
     console.error('Error cargando productos', e)
@@ -244,10 +246,10 @@ function addSelectedComboToCart() {
 const searchQ = computed(() => ((route.query.q as string) || '').toLowerCase())
 
 const filteredProducts = computed(() => {
-  let base = products.value
+  let base = products.value ?? []
   if (selectedCategory.value !== 'all') {
     if (selectedCategory.value === 'Nuevo' ) {
-      base = base.filter(p => p.new === true)
+      base = base.filter(p => p.new === true && p.departament !== 'clothestore')
     } else {
       base = base.filter(p => p.category === selectedCategory.value && p.estado !== 'Agotado')
     }

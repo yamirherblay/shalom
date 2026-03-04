@@ -88,7 +88,7 @@
       </div>
     </div>
     <div class="row justify-end q-gutter-sm q-mt-md">
-      <q-btn flat color="grey-7" no-caps label="Cancelar" @click="onCancel" />
+      <q-btn flat color="grey-9" class="bg-grey-4" no-caps label="Cancelar" @click="onCancel" />
       <q-btn color="primary" no-caps :label="mode === 'add' ? 'Crear' : 'Guardar'" type="submit" />
     </div>
   </q-form>
@@ -98,6 +98,8 @@
 import { reactive, watch, ref, onMounted, onBeforeUnmount } from 'vue';
 import { supabase } from 'boot/supabase';
 import { useQuasar } from 'quasar';
+
+const MAX_FILE_SIZE = 400 * 1024; // 400KB en bytes
 
 export interface ProductFormModel {
   id: string;
@@ -127,7 +129,7 @@ const emit = defineEmits<{
 
 const localProduct = reactive<ProductFormModel>({ ...props.modelValue });
 const $q = useQuasar();
-const negocio_id = "3895fc0b-c323-4e8e-b586-ce8c0f65fd60";
+
 watch(
   () => props.modelValue,
   (v) => {
@@ -148,10 +150,9 @@ const estadoOptions = [
   { label: 'Agotado', value: 'Agotado' },
 ];
 
-// Opciones de categorías obtenidas del archivo local products.json
+
 const categoryOptions = ref<{ label: string; value: string }[]>([]);
 
-// Manejo de archivo de imagen seleccionado
 const fileProxy = ref<File | File[] | null>(null);
 const previewUrl = ref<string>('');
 
@@ -171,6 +172,19 @@ async function onFileSelected(val: File | File[] | null) {
   if (!f) {
     if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
     previewUrl.value = '';
+    return;
+  }
+  if (f.size > MAX_FILE_SIZE) {
+    const sizeKB = Math.round(f.size / 1024);
+    $q.notify({
+      message: `La imagen que intenta subir tiene (${sizeKB}KB) no puede superar 400KB`,
+      color: 'negative',
+      icon: 'error',
+      position: 'top',
+    });
+    if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
+    previewUrl.value = '';
+    fileProxy.value = null;
     return;
   }
   if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
@@ -212,7 +226,7 @@ onMounted(async () => {
     const dataFromSupabase = await supabase
       .from('products')
       .select('*')
-      .eq('negocio_id', negocio_id)
+      .eq('negocio_id', props.negocioId)
       .order('created_at', { ascending: false });
     if (dataFromSupabase) {
       const data = dataFromSupabase.data;
