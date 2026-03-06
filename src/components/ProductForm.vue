@@ -11,7 +11,6 @@
           clearable
           label="Seleccionar imagen"
           @update:model-value="onFileSelected"
-          :rules="[(val) => !!val || 'La imagen es obligatoria']"
         >
           <template #prepend>
             <q-icon name="image" />
