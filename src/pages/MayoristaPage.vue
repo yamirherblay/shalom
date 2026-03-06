@@ -14,7 +14,7 @@
           :key="product.id"
           class="col-6 col-sm-4 col-md-3 col-lg-2"
         >
-          <q-card flat bordered class="product-card column full-height">
+          <q-card flat class="product-card column full-height">
             <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image">
               <div
                 class="absolute-top-right q-pa-sm"
@@ -48,7 +48,6 @@
               <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'">
                 {{ formatProductPrice(product) }}
               </div>
-
             </q-card-section>
 
             <q-separator />
@@ -116,15 +115,18 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import { useMeta } from 'quasar';
+import { supabase } from 'boot/supabase';
 
 type Product = {
   id: string;
   name: string;
+  departament: string;
   price: number;
   oferta: boolean;
   image: string;
   category: string;
   currency?: string;
+  descuento: number;
   subcategory?: string | null;
   estado: string;
   descripcion?: string | null;
@@ -137,7 +139,7 @@ useMeta({
       name: 'description',
       content: 'Consulta productos con ofertas mayoristas y coordina compras B2B por WhatsApp.',
     },
-    ogTitle: { property: 'og:title', content: 'Ofertas Mayoristas | Mercado Texas' },
+    ogTitle: { property: 'og:title', content: 'Ofertas Mayoristas | Mercado Variado Texas' },
     ogDescription: {
       property: 'og:description',
       content: 'Lista de productos con opción de compra mayorista (B2B).',
@@ -147,18 +149,28 @@ useMeta({
 });
 
 const products = ref<Product[]>([]);
+const negocio_id = '3895fc0b-c323-4e8e-b586-ce8c0f65fd60';
 
 onMounted(async () => {
   try {
-    const res = await fetch('/data/mayorista.json');
-    products.value = await res.json();
+    const res = await supabase
+      .from('products')
+      .select('*')
+      .eq('negocio_id', negocio_id)
+      .eq('subcategory', 'Mayorista')
+      .eq('estado', 'Disponible')
+      .order('new', { ascending: false });
+    products.value = res.data || [];
   } catch (e) {
-    console.error('Error cargando productos.json', e);
+    console.error('Error cargando productos de Supabase', e);
   }
 });
 
 const mayoristaProducts = computed(() =>
-  products.value.filter((p) => (p.subcategory || '').toLowerCase() === 'mayorista'),
+  products.value.filter(
+    (p) =>
+      p.estado !== 'Agotado' && p.departament !== 'clothstore' && p.subcategory === 'Mayorista',
+  ),
 );
 
 function formatAmount(value: number, currency: 'CUP' | 'USD') {
@@ -179,7 +191,7 @@ function getProductCurrency(product: Product): 'CUP' | 'USD' {
 
 function formatProductPrice(product: Product) {
   const currency = getProductCurrency(product);
-  return formatAmount(product.price, currency);
+  return formatAmount(product.descuento, currency);
 }
 
 const WHATSAPP_NUMBER = '5354512675';
@@ -213,16 +225,20 @@ function splitDescripcion(desc: string): string[] {
 
 <style scoped>
 .product-card {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .product-image {
   background-color: #fafafa;
+  border-radius: 12px 12px 0 0;
 }
 .ellipsis-2-lines {
   display: -webkit-box;

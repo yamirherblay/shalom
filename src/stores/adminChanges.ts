@@ -1,38 +1,53 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
-export type ChangeType = 'add' | 'update' | 'delete'
+export type ChangeType = 'add' | 'update' | 'delete';
 
 export interface ChangeItem {
-  id?: string
-  type: ChangeType
-  productName: string
-  at: number
+  id?: string;
+  type: ChangeType;
+  productName: string;
+  at: number;
 }
 
 interface AdminChangesState {
-  items: ChangeItem[]
+  items: ChangeItem[];
 }
 
 export const useAdminChangesStore = defineStore('adminChanges', {
   state: (): AdminChangesState => ({
-    items: []
+    items: [],
   }),
   getters: {
     count: (state): number => state.items.length,
-    list: (state): ChangeItem[] => state.items
+    list: (state): ChangeItem[] => state.items,
   },
   actions: {
     addAdded(payload: { id: string; name: string }) {
-      this.items.unshift({ id: payload.id, type: 'add', productName: payload.name, at: Date.now() })
+      this.items.unshift({
+        id: payload.id,
+        type: 'add',
+        productName: payload.name,
+        at: Date.now(),
+      });
     },
     addUpdated(payload: { id: string; name: string }) {
-      this.items.unshift({ id: payload.id, type: 'update', productName: payload.name, at: Date.now() })
+      this.items.unshift({
+        id: payload.id,
+        type: 'update',
+        productName: payload.name,
+        at: Date.now(),
+      });
     },
     addDeleted(payload: { id: string; name: string }) {
-      this.items.unshift({ id: payload.id, type: 'delete', productName: payload.name, at: Date.now() })
+      this.items.unshift({
+        id: payload.id,
+        type: 'delete',
+        productName: payload.name,
+        at: Date.now(),
+      });
     },
     clear() {
-      this.items = []
-    }
-  }
-})
+      this.items = [];
+    },
+  },
+});
