@@ -11,6 +11,7 @@
           clearable
           label="Seleccionar imagen"
           @update:model-value="onFileSelected"
+          :rules="[(val) => !!val || 'La imagen es obligatoria']"
         >
           <template #prepend>
             <q-icon name="image" />
@@ -48,12 +49,11 @@
           v-model="localProduct.category"
           :options="categoryOptions"
           label="Categoría"
+          clearable
           dense
           outlined
           emit-value
           map-options
-          use-input
-          new-value-mode="add"
           :rules="[(val) => !!val || 'La categoría es obligatoria']"
         />
         <q-input
@@ -67,7 +67,17 @@
         />
       </div>
       <div class="col-6">
-        <q-input v-model="localProduct.subcategory" label="Subcategoría" dense outlined />
+        <q-select
+          v-model="localProduct.subcategory"
+          :options="subcategoryOptions"
+          label="Subcategoria"
+          clearable
+          required
+          dense
+          outlined
+          emit-value
+          map-options
+        />
       </div>
       <div class="col-6">
         <q-select
@@ -90,11 +100,11 @@
       <div class="col-6">
         <q-toggle v-model="localProduct.oferta" label="En oferta" />
       </div>
-      <div class="col-6" v-if="localProduct.oferta">
+      <div class="col-6" v-if="localProduct.oferta || localProduct.subcategory === 'Mayorista'">
         <q-input
           v-model.number="localProduct.descuento"
           type="number"
-          label="Descuento (%)"
+          label="Precio de la Oferta o Mayorista"
           dense
           outlined
         />
@@ -140,7 +150,7 @@ export interface ProductFormModel {
   oferta?: boolean;
   estado?: string;
   subcategory?: string;
-  descuento?: number;
+  descuento: number;
   descripcion?: string;
 }
 
@@ -178,6 +188,10 @@ const estadoOptions = [
   { label: 'Disponible', value: 'Disponible' },
   { label: 'Agotado', value: 'Agotado' },
 ];
+const subcategoryOptions = ref([
+  { label: 'Mayorista', value: 'Mayorista' },
+  { label: 'Zelle', value: 'Zelle' },
+]);
 
 const categoryOptions = ref<{ label: string; value: string }[]>([]);
 
@@ -302,6 +316,7 @@ async function onSubmit() {
       category: localProduct.category,
       subcategory: localProduct.subcategory || null,
       image: localProduct.image,
+      descuento: localProduct.descuento || 0,
       new: localProduct.new || false,
       oferta: localProduct.oferta || false,
       estado: localProduct.estado || 'Disponible',
