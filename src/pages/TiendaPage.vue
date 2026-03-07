@@ -13,11 +13,15 @@
         filled
         @update:model-value="selectCategory"
       />
-
     </div>
     <!-- Categorías: barra horizontal con scroll fino y atractivo -->
     <section class="q-mb-md sticky-cats">
-      <q-scroll-area class="cat-scroll rounded-borders" :horizontal="true" :thumb-style="thumbStyle" :bar-style="barStyle">
+      <q-scroll-area
+        class="cat-scroll rounded-borders"
+        :horizontal="true"
+        :thumb-style="thumbStyle"
+        :bar-style="barStyle"
+      >
         <div class="row no-wrap q-gutter-sm items-center">
           <q-chip
             clickable
@@ -54,18 +58,21 @@
           :key="product.id"
           class="col-6 col-sm-4 col-md-3 col-lg-2"
         >
-          <q-card
-                  flat
-                  bordered
-                  class="product-card column full-height">
+          <q-card flat bordered class="product-card column full-height">
             <q-img :src="product.image" :ratio="1" spinner-color="primary" class="product-image">
-            <div class="absolute-top-right q-pa-sm" v-if="product.oferta && (product.estado!=='Agotado')">
-              <q-badge color="red" text-color="white" label="En Oferta" />
-            </div>
+              <div
+                class="absolute-top-right q-pa-sm"
+                v-if="product.oferta && product.estado !== 'Agotado'"
+              >
+                <q-badge color="red" text-color="white" label="En Oferta" />
+              </div>
               <div class="absolute-top-left q-pa-sm" v-if="product.new">
                 <q-badge color="red" text-color="white" label="NUEVO" />
               </div>
-              <div class="absolute-top-left q-pa-sm" v-if="product.category ==='combos' || product.category ==='Zelle'">
+              <div
+                class="absolute-top-left q-pa-sm"
+                v-if="product.category === 'combos' || product.category === 'Zelle'"
+              >
                 <q-badge color="primary" text-color="white" label="Pagar via Zelle" />
               </div>
             </q-img>
@@ -74,22 +81,55 @@
                 :label="product.estado"
                 dense
                 class="q-px-md q-py-xs fa-text-height"
-                :color="product.estado ==='Disponible'? 'blue' : 'red'"
-                :text-color="product.estado ==='Disponible' ? 'white' : 'grey'"
+                :color="product.estado === 'Disponible' ? 'blue' : 'red'"
+                :text-color="product.estado === 'Disponible' ? 'white' : 'grey'"
               />
             </q-card-section>
             <q-card-section class="q-pb-none">
-              <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">{{ product.name }} {{ product.oferta === true ? product.descripcion : ''}}</div>
-              <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'" >{{ formatProductPrice(product) }}</div>
+              <div class="text-subtitle2 ellipsis-2-lines" :title="product.name">
+                {{ product.name }} {{ product.oferta === true ? product.descripcion : '' }}
+              </div>
+              <div class="text-primary text-weight-bold" v-if="product.estado !== 'Agotado'">
+                {{ formatProductPrice(product) }}
+              </div>
             </q-card-section>
 
             <q-separator />
 
             <q-card-actions align="between" class="q-pa-sm">
               <div class="row q-gutter-xs" v-if="product.estado == 'Disponible'">
-                <q-btn color="positive" unelevated size="sm" icon="fa-brands fa-whatsapp" label="Solicitar" aria-label="Solicitar por WhatsApp" title="Solicitar por WhatsApp" alt="Solicitar por WhatsApp" @click="buyWhatsAppProduct(product)" />
-                <q-btn v-if="product.category === 'combos' && product.descripcion" color="secondary" outline size="sm" icon="visibility" label="Ver" @click="openCombo(product)" />
-                <q-btn color="primary" class="justify-end" unelevated size="sm" icon="shopping_cart" label="Añadir" aria-label="Adicionar a la cesta" title="Adicionar a la cesta" alt="Adicionar a la cesta" @click="addToCart(product)" />
+                <q-btn
+                  color="positive"
+                  unelevated
+                  size="sm"
+                  icon="fa-brands fa-whatsapp"
+                  label="Solicitar"
+                  aria-label="Solicitar por WhatsApp"
+                  title="Solicitar por WhatsApp"
+                  alt="Solicitar por WhatsApp"
+                  @click="buyWhatsAppProduct(product)"
+                />
+                <q-btn
+                  v-if="product.category === 'combos' && product.descripcion"
+                  color="secondary"
+                  outline
+                  size="sm"
+                  icon="visibility"
+                  label="Ver"
+                  @click="openCombo(product)"
+                />
+                <q-btn
+                  color="primary"
+                  class="justify-end"
+                  unelevated
+                  size="sm"
+                  icon="shopping_cart"
+                  label="Añadir"
+                  aria-label="Adicionar a la cesta"
+                  title="Adicionar a la cesta"
+                  alt="Adicionar a la cesta"
+                  @click="addToCart(product)"
+                />
               </div>
             </q-card-actions>
           </q-card>
@@ -122,7 +162,13 @@
         </q-card-section>
         <q-card-actions align="right">
           <q-btn flat label="Cerrar" v-close-popup />
-          <q-btn v-if="selectedCombo" color="primary" unelevated label="Añadir al carrito" @click="addSelectedComboToCart()" />
+          <q-btn
+            v-if="selectedCombo"
+            color="primary"
+            unelevated
+            label="Añadir al carrito"
+            @click="addSelectedComboToCart()"
+          />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -130,47 +176,61 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, watch, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useCartStore } from 'src/stores/cart'
+import { computed, reactive, ref, watch, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useCartStore } from 'src/stores/cart';
 import type { Product as StoreProduct } from 'src/stores/types';
 import { useMeta } from 'quasar';
-import {useQuasar} from "quasar";
+import { useQuasar } from 'quasar';
 import { supabase } from 'boot/supabase';
 
-type Category = { key: string; label: string; image?: string }
+type Category = { key: string; label: string; image?: string };
 
 type Product = {
-  id: string
-  name: string
-  departament:string
-  negocio_id:string
-  price: number
-  oferta: boolean
-  image: string
-  category: string
-  currency: string
-  new: boolean
-  subcategory: string | null
-  estado:string
-  descripcion: string | null
-}
+  id: string;
+  name: string;
+  departament: string;
+  negocio_id: string;
+  price: number;
+  oferta: boolean;
+  image: string;
+  category: string;
+  currency: string;
+  new: boolean;
+  subcategory: string | null;
+  estado: string;
+  descripcion: string | null;
+};
 
 useMeta({
   title: 'Tienda online en Las Tunas | Mercado Variado Texas',
   meta: {
-    description: { name: 'description', content: 'Compra cárnicos, confituras y productos del hogar, Ropa, Calzado, Combos en Las Tunas, Cuba. Entrega local rápida.' },
-    keywords: { name: 'keywords', content: 'tienda online Las Tunas, cárnicos Las Tunas, confituras en Las Tunas, productos del hogar en Las Tunas, combos en Las Tunas, Cuba, Ropa, Calzado' },
+    description: {
+      name: 'description',
+      content:
+        'Compra cárnicos, confituras y productos del hogar, Ropa, Calzado, Combos en Las Tunas, Cuba. Entrega local rápida.',
+    },
+    keywords: {
+      name: 'keywords',
+      content:
+        'tienda online Las Tunas, cárnicos Las Tunas, confituras en Las Tunas, productos del hogar en Las Tunas, combos en Las Tunas, Cuba, Ropa, Calzado',
+    },
     // Open Graph
-    ogTitle: { property: 'og:title', content: 'Tienda online en Las Tunas | Mercado Variado Texas' },
-    ogDescription: { property: 'og:description', content: 'Variedad de productos para el hogar, confituras , cárnicos.' },
+    ogTitle: {
+      property: 'og:title',
+      content: 'Tienda online en Las Tunas | Mercado Variado Texas',
+    },
+    ogDescription: {
+      property: 'og:description',
+      content: 'Variedad de productos para el hogar, confituras , cárnicos.',
+    },
     ogImage: { property: 'og:image', content: '/images/og-home.jpg' },
-    ogUrl: { property: 'og:url', content: 'https://mercado-tex.vercel.app' }
+    ogUrl: { property: 'og:url', content: 'https://mercado-tex.vercel.app' },
   },
   link: {
-    canonical: { rel: 'canonical', href: 'https://mercado-tex.vercel.app' }
-  }
-})
+    canonical: { rel: 'canonical', href: 'https://mercado-tex.vercel.app' },
+  },
+});
 const $q = useQuasar();
 const categories = ref<Category[]>([
   { key: 'all', label: 'Todas' },
@@ -180,142 +240,145 @@ const categories = ref<Category[]>([
   { key: 'Cárnicos', label: 'Cárnicos', image: '/images/carnicos.webp' },
   { key: 'Granos', label: 'Granos', image: '/images/granos.webp' },
   { key: 'Confituras', label: 'Confituras', image: '/images/confituras.webp' },
-  { key: 'combos', label:'Combos',image:'/images/cestaProductoBasicos.png'},
-  { key:'Bebidas', label:'Bebidas', image:'/images/bebidas.webp' },
-  { key: 'Agropecuarios', label: 'Del Agro', image:'/images/Productos-agricolas.jpg' },
-  { key:'Aseo' , label:'Aseo',image:'/images/aseo.webp' },
-  { key:'Sazon', label:'Sazon',image:'/images/sazon.webp' },
-  {key: 'Enlatados', label:'Enlatados',image:'/images/enlatados.jpg' },
-])
+  { key: 'Manualidades', label: 'Manualidades', image: '/images/manualidades.webp' },
+  { key: 'combos', label: 'Combos', image: '/images/cestaProductoBasicos.png' },
+  { key: 'Bebidas', label: 'Bebidas', image: '/images/bebidas.webp' },
+  { key: 'Agropecuarios', label: 'Del Agro', image: '/images/Productos-agricolas.jpg' },
+  { key: 'Aseo', label: 'Aseo', image: '/images/aseo.webp' },
+  { key: 'Sazon', label: 'Sazon', image: '/images/sazon.webp' },
+  { key: 'Enlatados', label: 'Enlatados', image: '/images/enlatados.jpg' },
+]);
 
-const products = ref<Product[] | null | undefined> ([])
+const products = ref<Product[] | null | undefined>([]);
 
-const route = useRoute()
+const route = useRoute();
 
-const selectedCategory = ref<string>('all')
-const negocio_id = "3895fc0b-c323-4e8e-b586-ce8c0f65fd60"
-const categoryKeys = computed(() => categories.value.map(c => c.key))
+const selectedCategory = ref<string>('all');
+const negocio_id = '3895fc0b-c323-4e8e-b586-ce8c0f65fd60';
+const categoryKeys = computed(() => categories.value.map((c) => c.key));
 
 function applyRouteCategory() {
-  const q = (route.query.cat as string | undefined) || 'all'
-  selectedCategory.value = (q === 'all' || categoryKeys.value.includes(q)) ? q : 'all'
+  const q = (route.query.cat as string | undefined) || 'all';
+  selectedCategory.value = q === 'all' || categoryKeys.value.includes(q) ? q : 'all';
 }
 
 onMounted(async () => {
-  applyRouteCategory()
+  applyRouteCategory();
   try {
     const dataFromSupabase = await supabase
       .from('products')
       .select('*')
       .eq('negocio_id', negocio_id)
-      .order('new', { ascending: false })
-    ;
-    products.value = dataFromSupabase.data?.filter(p => p.estado !== 'Agotado' && p.departament!=='clothstore')
-
+      .order('new', { ascending: false });
+    products.value = dataFromSupabase.data?.filter(
+      (p) => p.estado !== 'Agotado' && p.departament !== 'clothstore',
+    );
   } catch (e) {
-    console.error('Error cargando productos', e)
+    console.error('Error cargando productos', e);
   }
-})
-watch(() => route.query.cat, applyRouteCategory)
-const qty = reactive<Record<string, number>>({})
+});
+watch(() => route.query.cat, applyRouteCategory);
+const qty = reactive<Record<string, number>>({});
 
 // Estado para modal de combos
-const showComboDialog = ref(false)
-const selectedCombo = ref<Product | null>(null)
+const showComboDialog = ref(false);
+const selectedCombo = ref<Product | null>(null);
 
 function openCombo(product: Product) {
-  if ((product.category === 'combos' || product.category === 'Zelle') && product.descripcion ) {
-    selectedCombo.value = product
-    showComboDialog.value = true
+  if ((product.category === 'combos' || product.category === 'Zelle') && product.descripcion) {
+    selectedCombo.value = product;
+    showComboDialog.value = true;
   }
 }
 function splitDescripcion(desc: string): string[] {
-  return desc
-    // separa por punto seguido de espacios y también por saltos de línea
-    .split(/\.|\n+/)
-    .map(s => s.trim())
-    .filter(Boolean)
+  return (
+    desc
+      // separa por punto seguido de espacios y también por saltos de línea
+      .split(/\.|\n+/)
+      .map((s) => s.trim())
+      .filter(Boolean)
+  );
 }
 function addSelectedComboToCart() {
   if (selectedCombo.value) {
-    addToCart(selectedCombo.value)
-    showComboDialog.value = false
+    addToCart(selectedCombo.value);
+    showComboDialog.value = false;
   }
 }
 
-const searchQ = computed(() => ((route.query.q as string) || '').toLowerCase())
+const searchQ = computed(() => ((route.query.q as string) || '').toLowerCase());
 
 const filteredProducts = computed(() => {
-  let base = products.value ?? []
+  let base = products.value ?? [];
   if (selectedCategory.value !== 'all') {
-    if (selectedCategory.value === 'Nuevo' ) {
-      base = base.filter(p => p.new === true && p.departament !== 'clothestore')
+    if (selectedCategory.value === 'Nuevo') {
+      base = base.filter((p) => p.new === true && p.departament !== 'clothestore');
     } else {
-      base = base.filter(p => p.category === selectedCategory.value && p.estado !== 'Agotado')
+      base = base.filter((p) => p.category === selectedCategory.value && p.estado !== 'Agotado');
     }
   }
-  const q = searchQ.value
-  if (!q){
-    base = base.filter(p=> p.estado !== 'Agotado');
+  const q = searchQ.value;
+  if (!q) {
+    base = base.filter((p) => p.estado !== 'Agotado');
     return base;
   }
-  return base.filter(p => {
-    const haystack = [p.name, p.descripcion, p.category]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase()
-    return haystack.includes(q)
-  })
-})
+  return base.filter((p) => {
+    const haystack = [p.name, p.descripcion, p.category].filter(Boolean).join(' ').toLowerCase();
+    return haystack.includes(q);
+  });
+});
 
 function selectCategory(key: string) {
   // Actualiza la URL para reflejar la categoría elegida y eliminar un posible término de búsqueda previo
-  const newQuery: Record<string, string> = { ...(route.query as Record<string, string>), cat: key }
-  delete newQuery.q
-  void $router.replace({ path: '/tienda', query: newQuery })
+  const newQuery: Record<string, string> = { ...(route.query as Record<string, string>), cat: key };
+  delete newQuery.q;
+  void $router.replace({ path: '/tienda', query: newQuery });
 }
 
-const $router = useRouter()
+const $router = useRouter();
 function goMayoristas() {
-  void $router.push('/mayoristas')
+  void $router.push('/mayoristas');
 }
 
 function formatAmount(value: number, currency: 'CUP' | 'USD') {
   const formatted = new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
     minimumFractionDigits: currency === 'USD' ? 2 : 0,
     maximumFractionDigits: currency === 'USD' ? 2 : 0,
-  }).format(value)
-  return `${formatted} ${currency}`
+  }).format(value);
+  return `${formatted} ${currency}`;
 }
 
 function getProductCurrency(product: Product): 'CUP' | 'USD' {
-  const isUsd = product.category === 'combos' || product.category === 'Zelle' || product.subcategory === 'Zelle'
-  return isUsd ? 'USD' : 'CUP'
+  const isUsd =
+    product.category === 'combos' ||
+    product.category === 'Zelle' ||
+    product.subcategory === 'Zelle';
+  return isUsd ? 'USD' : 'CUP';
 }
 
 function formatProductPrice(product: Product) {
-  const currency = getProductCurrency(product)
-  return formatAmount(product.price, currency)
+  const currency = getProductCurrency(product);
+  return formatAmount(product.price, currency);
 }
 
 function addToCart(product: Product) {
-  const cart = useCartStore()
-  const q = Math.max(1, qty[product.id] || 1)
+  const cart = useCartStore();
+  const q = Math.max(1, qty[product.id] || 1);
   const mapped: StoreProduct = {
     id: product.id,
     name: product.name,
     price: product.price,
     image: product.image,
     categoryId: product.category,
-  }
-  const currencyCode: 'CUP' | 'USD' = getProductCurrency(product)
-  cart.add(mapped, q, currencyCode)
+  };
+  const currencyCode: 'CUP' | 'USD' = getProductCurrency(product);
+  cart.add(mapped, q, currencyCode);
   $q.notify({
     type: 'info',
     message: `Agregado al carrito: ${product.name}`,
     timeout: 2000,
     position: 'top',
-  })
+  });
 }
 
 const thumbStyle = {
@@ -324,7 +387,7 @@ const thumbStyle = {
   backgroundColor: 'rgba(0,0,0,0.25)',
   width: '4px',
   height: '4px',
-}
+};
 
 const barStyle = {
   right: '2px',
@@ -332,17 +395,17 @@ const barStyle = {
   backgroundColor: 'rgba(0,0,0,0.08)',
   width: '4px',
   height: '4px',
-}
-const WHATSAPP_NUMBER = '5354512675'
+};
+const WHATSAPP_NUMBER = '5354512675';
 function buyWhatsAppProduct(product: Product) {
-  const quantity = Math.max(1, qty[product.id] || 1)
-  const lines: string[] = []
-  lines.push(`Hola, me interesa comprar este producto de MercadoTexas:`)
-  lines.push(`- ${product.name} x${quantity} — ${formatProductPrice(product)} c/u`)
-  lines.push(`Subtotal: ${formatAmount(product.price * quantity, getProductCurrency(product))}`)
-  const text = encodeURIComponent(lines.join('\n'))
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`
-  window.open(url, '_blank')
+  const quantity = Math.max(1, qty[product.id] || 1);
+  const lines: string[] = [];
+  lines.push(`Hola, me interesa comprar este producto de MercadoTexas:`);
+  lines.push(`- ${product.name} x${quantity} — ${formatProductPrice(product)} c/u`);
+  lines.push(`Subtotal: ${formatAmount(product.price * quantity, getProductCurrency(product))}`);
+  const text = encodeURIComponent(lines.join('\n'));
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+  window.open(url, '_blank');
 }
 </script>
 
@@ -355,16 +418,18 @@ function buyWhatsAppProduct(product: Product) {
   height: 56px;
   padding: 6px 4px;
   background: #f5f5f5;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
 }
 
 .product-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .product-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .product-image {
@@ -380,7 +445,7 @@ function buyWhatsAppProduct(product: Product) {
   height: 6px;
 }
 .cat-scroll::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0, 0, 0, 0.25);
   border-radius: 4px;
 }
 .cat-scroll::-webkit-scrollbar-track {
@@ -390,7 +455,7 @@ function buyWhatsAppProduct(product: Product) {
 /* soporte Firefox */
 .cat-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.25) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
 
 /* Dos líneas con ellipsis para nombres largos */
@@ -405,6 +470,4 @@ function buyWhatsAppProduct(product: Product) {
   top: 56px; /* altura del header de Quasar (aprox) */
   z-index: 10; /* sobre el contenido de la página */
 }
-
-
 </style>
