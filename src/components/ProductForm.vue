@@ -24,6 +24,15 @@
         <q-input v-model="localProduct.id" label="ID" dense outlined :disable="mode === 'edit'" />
       </div>
       <div class="col-12">
+        <q-checkbox
+          v-model="isForSabrinaFashion"
+          dense
+          label="Pertenece a Sabrina Fashion?"
+          outlined
+          :disable="mode === 'edit'"
+        />
+      </div>
+      <div class="col-12">
         <q-input
           v-model="localProduct.name"
           label="Nombre"
@@ -164,10 +173,12 @@ const emit = defineEmits<{
   (e: 'save', value: ProductFormModel): void;
   (e: 'cancel'): void;
 }>();
-
-const localProduct = reactive<ProductFormModel>({ ...props.modelValue });
+const isForSabrinaFashion = ref(false);
+const localProduct = reactive<ProductFormModel>(
+  { ...props.modelValue,
+  });
 const $q = useQuasar();
-
+const DEPARTAMENT = 'clothstore';
 watch(
   () => props.modelValue,
   (v) => {
@@ -310,6 +321,7 @@ async function onSubmit() {
     const productData = {
       id: localProduct.id,
       negocio_id: props.negocioId,
+      departament: isForSabrinaFashion.value ? DEPARTAMENT : null,
       name: localProduct.name,
       price: localProduct.price,
       category: localProduct.category,
