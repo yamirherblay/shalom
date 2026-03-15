@@ -124,7 +124,7 @@ function selectCategory(key: string) {
   searchQuery.value = '';
   void router.push({
     path: '/clothStore',
-    query: { cat: key !== 'all' ? key : undefined }
+    query: { cat: key !== 'all' ? key : undefined },
   });
 }
 
@@ -163,21 +163,19 @@ function capitalize(s: string) {
 }
 
 onMounted(async () => {
-  applyRouteCategory()
+  applyRouteCategory();
   try {
     const dataFromSupabase = await supabase
       .from('products')
       .select('*')
       .eq('negocio_id', negocio_id)
       .eq('departament', 'clothstore')
-      .order('new', { ascending: false })
-    ;
-    offers.value = dataFromSupabase.data?.filter(p => p.estado !== 'Agotado')
-
+      .order('new', { ascending: false });
+    offers.value = dataFromSupabase.data?.filter((p) => p.estado !== 'Agotado');
   } catch (e) {
-    console.error('Error cargando productos', e)
+    console.error('Error cargando productos', e);
   }
-})
+});
 </script>
 
 <style scoped>

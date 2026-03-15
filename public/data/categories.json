@@ -1,5 +1,4 @@
 [
-
   {
     "id": "food",
     "name": "Alimentos",
@@ -15,5 +14,4 @@
     "name": "Hogar",
     "image": "/images/placeholder.svg"
   }
-
 ]

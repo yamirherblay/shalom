@@ -48,6 +48,13 @@
         <q-card>
           <q-card-section class="row items-center q-col-gutter-sm justify-end">
             <div class="col-auto row q-gutter-sm">
+              <q-btn
+                color="primary"
+                icon="add"
+                label="Remesas"
+                no-caps
+                @click="openRemesasDialog"
+              />
               <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" />
               <q-btn
                 color="grey-8"
@@ -211,6 +218,37 @@
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
         <q-separator />
+        <q-card-section class="row items-center">
+          <div class="text-h6 col-4">Valores Actuales</div>
+          <q-space />
+          <q-input :model-value="oldCupRate" class="col-sm col-6 q-pa-lg" label="Tasa CUP" filled prefix="$" readonly />
+          <q-input :model-value="oldUsdRate" class="col-sm col-6" label="Tasa USD" filled prefix="%" readonly />
+        </q-card-section>
+        <q-separator />
+        <q-card-section>
+          <div class="q-gutter-md">
+            <q-input
+              v-model.number="zelleInfo.rate_cup"
+              type="number"
+              label="Tasa CUP"
+              filled
+              prefix="$"
+              :rules="[(val) => val > 0 || 'Debe ser mayor a 0']"
+            />
+            <q-input
+              v-model.number="zelleInfo.rate_usd"
+              type="number"
+              label="Tasa USD"
+              filled
+              prefix="%"
+              :rules="[(val) => val > 0 || 'Debe ser mayor a 0']"
+            />
+          </div>
+          <div class="q-mt-md row justify-end q-gutter-sm">
+            <q-btn color="grey" class="text-primary" label="Cancelar" @click="zelleDialog = false" />
+            <q-btn color="primary" label="Guardar" @click="saveZelleInfo" />
+          </div>
+        </q-card-section>
       </q-card>
     </q-dialog>
 
@@ -238,6 +276,7 @@ import ProductForm from 'components/ProductForm.vue';
 import AdminHelp from 'components/AdminHelp.vue';
 import { useAdminChangesStore } from 'src/stores/adminChanges';
 import { supabase } from 'boot/supabase';
+import type { RemesasService } from 'stores/types';
 
 interface Product {
   id: string;
@@ -260,6 +299,8 @@ const addDialog = ref(false);
 const zelleDialog = ref(false);
 const editDialog = ref(false);
 const helpDialog = ref(false);
+const oldCupRate = ref(0);
+const oldUsdRate = ref(0);
 const newProduct = ref<Product>({
   id: '',
   name: '',
@@ -287,6 +328,15 @@ const editProduct = ref<Product>({
   descuento: 0,
   descripcion: '',
 });
+const zelleInfo = ref<RemesasService>(
+  {
+    id: '',
+    negocio_id: '',
+    rate_cup: 0,
+    rate_usd: 0,
+  }
+);
+
 const originalEditId = ref<string | null>(null);
 const columns = <QTableColumn[]>[
   { name: 'image', label: 'Imagen', field: 'image', align: 'left' },
@@ -300,7 +350,13 @@ const columns = <QTableColumn[]>[
     format: (v: number) => currency(v),
   },
   { name: 'category', label: 'Categoría', field: 'category', align: 'left', sortable: true },
-  { name: 'subcategory', label: 'Subcategoria', field: 'subcategory', align: 'left', sortable: true },
+  {
+    name: 'subcategory',
+    label: 'Subcategoria',
+    field: 'subcategory',
+    align: 'left',
+    sortable: true,
+  },
   {
     name: 'disponibilidad',
     label: 'Disponibilidad',
@@ -335,7 +391,25 @@ function openView(row: Product) {
   viewProduct.value = { ...row };
   viewDialog.value = true;
 }
-
+async function  openRemesasDialog() {
+  zelleDialog.value = true;
+  try {
+    const { data, error } = await supabase
+      .from('remesasServices')
+      .select('*')
+      .eq('negocio_id', negocio_id);
+    if (data) {
+      zelleInfo.value = data[0];
+      oldCupRate.value = data[0].rate_cup;
+      oldUsdRate.value = data [0].rate_usd;
+      console.log("dataZelle", data[0]);
+    }
+      if (error) throw error;
+  }
+    catch (e) {
+      console.error('Error cargando info de remesas:', e);
+    }
+}
 function openAdd() {
   newProduct.value = {
     id: '',
@@ -360,40 +434,6 @@ function openEdit(row: Product) {
   originalEditId.value = row.id;
   editDialog.value = true;
 }
-
-/*async function saveProductsJson() {
-  try {
-    const json = JSON.stringify(products.value, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
-
-    const supportsFS = typeof window !== 'undefined' && typeof (window).showSaveFilePicker === 'function';
-    if (supportsFS) {
-      const handle = await (window).showSaveFilePicker({
-        suggestedName: 'products.json',
-        types: [
-          {
-            description: 'Archivo JSON',
-            accept: { 'application/json': ['.json'] }
-          }
-        ]
-      });
-      const writable = await handle.createWritable();
-      await writable.write(blob);
-      await writable.close();
-    } else {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'products.json';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    }
-  } catch (e:unknown) {
-    console.warn('No se pudo guardar el JSON', e);
-  }
-}*/
 
 function saveNew(product: Product) {
   // evitar duplicados por id
@@ -436,19 +476,42 @@ function currency(val?: number) {
   }).format(val);
 }
 
+async function saveZelleInfo() {
+  try {
+
+    const { data, error } = await supabase
+      .from('remesasServices')
+      .update({
+        rate_cup: zelleInfo.value.rate_cup,
+        rate_usd: zelleInfo.value.rate_usd,
+      })
+      .eq('id', zelleInfo.value.id)
+      .eq('negocio_id', negocio_id);
+  if(data)
+  {
+    console.log('info de remesas actualizada');
+    zelleDialog.value = false;
+  }
+    if (error) throw error;
+
+    zelleDialog.value = false;
+  } catch (e) {
+    console.error('Error guardando info de remesas:', e);
+  }
+}
+
 onMounted(async () => {
   try {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('products')
       .select('*')
       .eq('negocio_id', negocio_id)
       .order('created_at', { ascending: false });
-    console.log(data, error);
     if (data) {
       products.value = Array.isArray(data) ? data : [];
-
       changesStore.clear();
     }
+
   } catch (e) {
     console.warn('No se pudieron cargar products.json', e);
   }

@@ -261,7 +261,14 @@ async function onFileSelected(val: File | File[] | null) {
     const filePath = `mercadovtexas/${Date.now()}-${filename}`;
     const { data, error } = await supabase.storage.from('products').upload(filePath, f);
     console.log('Imagen subida:', data);
-    if (error) throw error;
+    if (error) {
+      $q.notify({
+        message: `La imagen no se pudo subir: ${error.message}`,
+        color: 'negative',
+        icon: 'error',
+        position: 'top',
+      });
+    }
 
     // Obtener URL pública
     const { data: urlData } = supabase.storage.from('products').getPublicUrl(filePath);

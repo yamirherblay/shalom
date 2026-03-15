@@ -7,11 +7,13 @@ Tienda online construida con Quasar + Vue 3 + TypeScript para listar productos p
 - Tarjetas de producto con precio formateado y enlace a WhatsApp (mensaje prellenado con enlace a la imagen).
 
 ## Requisitos
+
 - Node.js 18+
 - Yarn o NPM
 - Quasar CLI (se usa a través de los scripts o `quasar` global)
 
 ## Instalación
+
 ```bash
 yarn
 # o
@@ -19,6 +21,7 @@ npm install
 ```
 
 ## Desarrollo
+
 ```bash
 # usando Quasar local
 quasar dev
@@ -29,6 +32,7 @@ npm run dev
 ```
 
 ## Linter y Formato
+
 ```bash
 yarn lint
 # o
@@ -40,12 +44,15 @@ npm run format
 ```
 
 ## Build de producción
+
 ```bash
 quasar build
 ```
+
 El contenido de `public/` se sirve tal cual en producción.
 
 ## Estructura relevante
+
 ```
 mercadoTex/
 ├─ public/
@@ -68,7 +75,9 @@ mercadoTex/
 ```
 
 ## Datos de productos (public/data/clothes.json)
+
 El frontend consume `GET /data/clothes.json`. Es un arreglo JSON de objetos con las siguientes propiedades:
+
 - id (string, requerido): identificador único/slug (sin espacios, minúsculas, guiones).
 - name (string, requerido): nombre mostrado en la tarjeta.
 - price (number, requerido): precio en CUP.
@@ -79,6 +88,7 @@ El frontend consume `GET /data/clothes.json`. Es un arreglo JSON de objetos con 
 - category (string, recomendado): clave de categoría para el filtrado.
 
 Ejemplo:
+
 ```json
 {
   "id": "lentes-gucci-6500",
@@ -91,31 +101,37 @@ Ejemplo:
   "shortDescription": "Un look a la moda"
 }
 ```
+
 Notas:
+
 - Mantén JSON válido (sin comas colgantes, comillas dobles, etc.).
 - Las rutas son sensibles a mayúsculas/minúsculas según el hosting.
 
 ## Cómo agregar o actualizar productos
-1) Copia la imagen a `public/images/clothes/<Subcarpeta opcional>/`.
+
+1. Copia la imagen a `public/images/clothes/<Subcarpeta opcional>/`.
    - Ej.: `public/images/clothes/Beauty/Mascarillas Faciales 1200.jpeg`.
-2) Edita `public/data/clothes.json` y añade/actualiza un objeto con:
+2. Edita `public/data/clothes.json` y añade/actualiza un objeto con:
    - id: slug único (recomendado: nombre + precio si va en el archivo).
    - name: nombre visible.
    - price: número en CUP.
    - image: ruta pública que empiece por `/images/...` apuntando al archivo en `public/images/...`.
    - category: clave simple coherente (ej.: "belleza", "Lenceria", "calzado").
    - oferta, estado, shortDescription: opcionales.
-3) Guarda y prueba en desarrollo. Para ver en producción, vuelve a desplegar.
+3. Guarda y prueba en desarrollo. Para ver en producción, vuelve a desplegar.
 
 Sugerencia cuando el precio está en el nombre del archivo (p. ej. "Lentes Gucci 6500.jpeg"):
+
 - Usa ese número para `price` y añádelo al `id` (ej. `lentes-gucci-6500`). Esto es manual (no automático).
 
 ## Filtros por categoría (ClothStorePage)
+
 - La página de Ropa/Beauty construye las categorías a partir de `category` en el JSON y muestra chips.
 - Siempre hay un chip "Todas".
 - Se soporta navegación por query string: `?cat=<clave>` (ej.: `/clothStore?cat=belleza`).
 
 ## Categorías en la Home (IndexPage)
+
 - El grid de categorías se define en `IndexPage.vue` en el array `categories`.
 - Al hacer click:
   - Si `key === 'Ropa'` navega a `/clothStore`.
@@ -123,16 +139,20 @@ Sugerencia cuando el precio está en el nombre del archivo (p. ej. "Lentes Gucci
 - Para cambiar imágenes/etiquetas, edita ese arreglo.
 
 ## Barra de Marquesina reutilizable (src/components/MarqueeBar.vue)
+
 Props:
+
 - message: string (requerido)
 - showButton?: boolean
 - buttonLabel?: string
 - absolute?: boolean (para posicionamiento absoluto como en el hero de Home)
 
 Eventos:
+
 - button-click: emitido al pulsar el botón.
 
 Ejemplos:
+
 ```vue
 <!-- En IndexPage (posición absoluta + botón que abre modal) -->
 <MarqueeBar
@@ -148,6 +168,7 @@ Ejemplos:
 ```
 
 ## WhatsApp: cómo se genera el mensaje
+
 - `ClothesCard.vue` arma un texto con:
   - saludo y datos del producto
   - URL ABSOLUTA de la imagen para intentar vista previa en WhatsApp
@@ -156,19 +177,23 @@ Ejemplos:
 - Importante: desde la web no se pueden adjuntar imágenes automáticamente; solo texto y enlaces. Para adjuntos reales se requiere WhatsApp Business API (backend).
 
 ## Imágenes y rutas
+
 - Logo en `ClothStorePage.vue`: `src="images/Sabrinallogo.jpeg"` (ruta relativa para funcionar también en subrutas).
 - En el JSON, normalmente se usan rutas con prefijo `/images/...` porque `public/` se sirve desde la raíz del host.
 
 ## Buenas prácticas
+
 - Mantén IDs estables y únicos.
 - Sé consistente con las categorías (misma clave, mismo casing) para no fragmentar filtros.
 - Optimiza imágenes (preferir `.webp` cuando sea posible) y evita nombres problemáticos.
 
 ## Solución de problemas
+
 - “No se ven imágenes”: verifica ruta, existencia y mayúsculas/minúsculas. Prueba abrir la URL directa.
 - “No aparecen nuevos productos”: valida el JSON, limpia caché del navegador y asegura redeploy en producción.
 - “No filtra por categoría”: revisa que `category` en los objetos coincida exactamente con las claves esperadas.
 - “WhatsApp sin vista previa de imagen”: depende de WhatsApp; asegúrate de enviar URL absoluta pública.
 
 ## Licencia
+
 Uso interno de Mercado Variado Texas LLC.

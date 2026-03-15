@@ -13,7 +13,6 @@
         @button-click="showMarqueeModal = true"
       />
 
-
       <div class="column items-center text-center q-mt-lg">
         <div class="text-h3 text-weight-bold q-mb-sm">Descubre lo mejor en nuestra tienda</div>
         <div class="text-subtitle1 q-mb-lg">
@@ -73,10 +72,7 @@
     </section>
 
     <!-- Modal triggered from marquee button -->
-    <q-dialog v-model="showMarqueeModal">
-
-
-    </q-dialog>
+    <q-dialog v-model="showMarqueeModal"> </q-dialog>
   </q-page>
 </template>
 
@@ -143,7 +139,6 @@ function goToCategory(category: string) {
     void $router.push('Zelle');
   }
 }
-
 </script>
 
 <style scoped>

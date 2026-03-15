@@ -41,11 +41,21 @@
               <div class="text-grey-8">
                 <q-icon name="call" class="q-mr-xs" /> +5354512675
                 <span class="q-mx-sm">•</span>
-                <q-icon name="mail" class="q-mr-xs" /> {{EMAIL}}
+                <q-icon name="mail" class="q-mr-xs" /> {{ EMAIL }}
               </div>
               <div class="row q-gutter-sm">
                 <q-btn type="reset" flat color="primary" label="Limpiar" :disable="loading" />
-                <q-btn flat round dense icon="email" :href="isFormValid ? mailtoLink : undefined" :disable="!isFormValid || loading" label="Enviar correo" target="_blank" rel="noopener" />
+                <q-btn
+                  flat
+                  round
+                  dense
+                  icon="email"
+                  :href="isFormValid ? mailtoLink : undefined"
+                  :disable="!isFormValid || loading"
+                  label="Enviar correo"
+                  target="_blank"
+                  rel="noopener"
+                />
                 <q-btn
                   type="submit"
                   dense
@@ -86,9 +96,7 @@ const mailtoLink = computed(() => {
   const lines: string[] = [];
   if (form.subject) lines.push(`Asunto: ${form.subject}`);
   if (form.message) lines.push(`Mensaje: ${form.message}`);
-  const sender = [form.fullName || null,]
-    .filter(Boolean)
-    .join(' | ');
+  const sender = [form.fullName || null].filter(Boolean).join(' | ');
   if (sender) lines.push(`Enviado por: ${sender}`);
   const body = lines.join('\n');
   return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -120,9 +128,7 @@ async function onSubmit() {
     const lines: string[] = [];
     if (form.subject) lines.push(`Asunto: ${form.subject}`);
     if (form.message) lines.push(`Mensaje: ${form.message}`);
-    const sender = [form.fullName || null]
-      .filter(Boolean)
-      .join(' | ');
+    const sender = [form.fullName || null].filter(Boolean).join(' | ');
     if (sender) lines.push(`Enviado por: ${sender}`);
     const text = encodeURIComponent(lines.join('\n'));
 

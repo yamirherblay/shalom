@@ -1,12 +1,10 @@
 <template>
   <q-card class="clothes-card">
-    <q-img :src="item.image || '/images/placeholder.svg'"
-           ratio="1" :alt="item.name"
-           >
+    <q-img :src="item.image || '/images/placeholder.svg'" ratio="1" :alt="item.name">
       <div class="absolute-top-right badge-ofert q-pa-sm" v-if="item.oferta">
         <q-badge class="badge-ofert" label="Oferta" />
       </div>
-  </q-img>
+    </q-img>
 
     <q-card-section>
       <div class="text-subtitle1 ellipsis-2-lines">{{ item.name }}</div>
@@ -15,7 +13,7 @@
       </div>
       <div class="row items-center q-mt-sm justify-between">
         <div class="text-h6">{{ currency(item.price) }}</div>
-        <q-badge class="badge-purple " :label="item.estado || '—'" />
+        <q-badge class="badge-purple" :label="item.estado || '—'" />
       </div>
     </q-card-section>
 
@@ -36,7 +34,7 @@
     </q-card-actions>
   </q-card>
 
-<!--  &lt;!&ndash; Dialog de imagen ampliada &ndash;&gt;
+  <!--  &lt;!&ndash; Dialog de imagen ampliada &ndash;&gt;
   <q-dialog v-model="showPreview">
     <q-card flat class="no-shadow bg-transparent" style="box-shadow: none">
       <div class="relative-position">
@@ -53,7 +51,6 @@
 </template>
 
 <script setup lang="ts">
-
 export interface ClothesItem {
   id: string;
   name: string;
@@ -66,9 +63,12 @@ export interface ClothesItem {
 
 const props = defineProps<{ item: ClothesItem }>();
 
-
 function currency(n: number) {
-  return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP', maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat('es-CU', {
+    style: 'currency',
+    currency: 'CUP',
+    maximumFractionDigits: 0,
+  }).format(n);
 }
 
 const WHATSAPP_NUMBER = '5358156505';
@@ -89,7 +89,6 @@ function buyWhatsAppItem() {
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
   window.open(url, '_blank');
 }
-
 </script>
 
 <style scoped>
@@ -119,7 +118,9 @@ function buyWhatsAppItem() {
 }
 
 /* Marca la imagen como zoomable */
-.clickable-img { cursor: zoom-in; }
+.clickable-img {
+  cursor: zoom-in;
+}
 
 /* Asegura que la imagen dentro del diálogo quepa completa */
 :deep(img.fit-contain) {

@@ -10,19 +10,14 @@
       height="320px"
       class="rounded-borders"
     >
-      <q-carousel-slide
-        v-for="(item, idx) in props.slides"
-        :key="idx"
-        :name="idx"
-      >
+      <q-carousel-slide v-for="(item, idx) in props.slides" :key="idx" :name="idx">
         <div class="full-height row no-wrap items-center">
-          <q-img
-            :src="item.src"
-            :alt="item.alt || `imagen-${idx+1}`"
-            class="col"
-          >
+          <q-img :src="item.src" :alt="item.alt || `imagen-${idx + 1}`" class="col">
             <template #error>
-              <div class="column items-center justify-center bg-grey-3 text-grey-7" style="height:100%">
+              <div
+                class="column items-center justify-center bg-grey-3 text-grey-7"
+                style="height: 100%"
+              >
                 <q-icon name="image_not_supported" size="48px" class="q-mb-sm" />
                 <div>Imagen no disponible</div>
               </div>

@@ -15,7 +15,12 @@ export interface Product {
   // internal marker to differentiate base vs custom (optional)
   _base?: boolean;
 }
-
+export interface RemesasService {
+  id?: string;
+  negocio_id?: string;
+  rate_cup?: number;
+  rate_usd?: number;
+}
 export interface CartItem {
   product: Product;
   quantity: number;

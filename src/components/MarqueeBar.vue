@@ -7,7 +7,8 @@
         flat
         class="bg-grey-10 text-yellow"
         @click="$emit('button-click')"
-      >{{ buttonLabel }}</q-btn>
+        >{{ buttonLabel }}</q-btn
+      >
       <div class="marquee-track">
         <span>{{ message }}</span>
       </div>
@@ -16,17 +17,16 @@
 </template>
 
 <script setup lang="ts">
-
 defineProps<{
-  message: string
-  showButton?: boolean
-  buttonLabel?: string
-  absolute?: boolean
-  showMarquee?: boolean
+  message: string;
+  showButton?: boolean;
+  buttonLabel?: string;
+  absolute?: boolean;
+  showMarquee?: boolean;
 }>();
 
 defineEmits<{
-  (e: 'button-click'): void
+  (e: 'button-click'): void;
 }>();
 </script>
 
@@ -44,9 +44,11 @@ defineEmits<{
   justify-content: center;
   padding: 4px 8px;
   z-index: 2;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-.marquee-bar.absolute { position: absolute; }
+.marquee-bar.absolute {
+  position: absolute;
+}
 
 .marquee-track {
   white-space: nowrap;
@@ -58,11 +60,18 @@ defineEmits<{
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; padding-left: 0; }
+  .marquee-track {
+    animation: none;
+    padding-left: 0;
+  }
 }
 </style>

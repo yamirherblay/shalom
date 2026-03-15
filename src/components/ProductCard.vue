@@ -3,7 +3,9 @@
     <q-img :src="product.image || '/images/placeholder.svg'" :alt="product.name" ratio="4/3" />
     <q-card-section>
       <div class="text-subtitle1">{{ product.name }}</div>
-      <div v-if="product.description" class="text-caption text-grey-7">{{ product.description }}</div>
+      <div v-if="product.description" class="text-caption text-grey-7">
+        {{ product.description }}
+      </div>
       <div class="text-h6 q-mt-sm">{{ currency(product.price) }}</div>
     </q-card-section>
     <q-card-actions align="between">
@@ -20,10 +22,17 @@ import type { Product } from 'src/stores/types';
 const props = defineProps<{ product: Product }>();
 const cart = useCartStore();
 
-function addToCart() { cart.add(props.product, 1); }
-function currency(n: number) { return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP' }).format(n); }
+function addToCart() {
+  cart.add(props.product, 1);
+}
+function currency(n: number) {
+  return new Intl.NumberFormat('es-CU', { style: 'currency', currency: 'CUP' }).format(n);
+}
 </script>
 
 <style scoped>
-.my-card { max-width: 320px; width: 100%; }
+.my-card {
+  max-width: 320px;
+  width: 100%;
+}
 </style>
