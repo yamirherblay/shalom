@@ -3,26 +3,12 @@ import type { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/CleanLayout.vue'),
+    component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', name: 'home', component: () => import('pages/IndexPage.vue') },
-      { path: 'tienda', name: 'tienda', component: () => import('pages/TiendaPage.vue') },
-      { path: 'about', name: 'about', component: () => import('pages/AboutPage.vue') },
-      { path: 'contact', name: 'contact', component: () => import('pages/ContactPage.vue') },
-      { path: 'faq', name: 'faq', component: () => import('pages/FaqPage.vue') },
-      {
-        path: 'clothStore',
-        name: 'clothStore',
-        component: () => import('pages/ClothStorePage.vue'),
-      },
-      { path: 'zelle', name: 'Zelle', component: () => import('pages/ZellePage.vue') },
-      {
-        path: 'mayoristas',
-        name: 'mayoristas',
-        component: () => import('pages/MayoristaPage.vue'),
-      },
-      // Ruta de login de admin accesible públicamente
-      //{ path: 'admin/login', name: 'admin-login', component: () => import('pages/LoginPage.vue'), meta: { public: true } },
+      { path: 'catalogo', name: 'catalogo', component: () => import('pages/CatalogPage.vue') },
+      { path: 'contacto', name: 'contacto', component: () => import('pages/ContactPage.vue') },
+      { path: 'acerca', name: 'acerca', component: () => import('pages/AboutPage.vue') },
     ],
   },
   {

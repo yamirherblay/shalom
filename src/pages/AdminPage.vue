@@ -1,7 +1,6 @@
 <template>
   <q-page padding>
     <div class="row q-col-gutter-md items-lg-stretch">
-      <!-- Estadísticas -->
       <div class="row q-col-gutter-lg q-mt-md q-mb-lg col-12 justify-around">
         <q-card
           bordered
@@ -28,6 +27,7 @@
             </div>
           </q-card-section>
         </q-card>
+
         <q-card
           bordered
           class="col-12 col-sm-6 col-md-4 stat-card bg-orange-7 text-white shadow-2 rounded-borders q-pa-md"
@@ -42,36 +42,15 @@
         </q-card>
       </div>
 
-      <!-- Productos -->
       <div class="col-12">
         <div class="text-h5">Productos</div>
         <q-card>
           <q-card-section class="row items-center q-col-gutter-sm justify-end">
             <div class="col-auto row q-gutter-sm">
-              <q-btn
-                color="primary"
-                icon="add"
-                label="Remesas"
-                no-caps
-                @click="openRemesasDialog"
-              />
               <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" />
-              <q-btn
-                color="grey-8"
-                icon="help_outline"
-                label="Ayuda"
-                no-caps
-                @click="helpDialog = true"
-              />
             </div>
             <div class="col-12 col-sm-4">
-              <q-input
-                dense
-                outlined
-                v-model="filter"
-                placeholder="Filtrar producto por nombre, id o categoría"
-                clearable
-              >
+              <q-input dense outlined v-model="filter" placeholder="Filtrar productos..." clearable>
                 <template #prepend>
                   <q-icon name="search" />
                 </template>
@@ -93,7 +72,7 @@
                 <q-td :props="props">
                   <q-btn
                     size="sm"
-                    color="secundary"
+                    color="primary"
                     flat
                     icon="visibility"
                     label="Ver"
@@ -102,7 +81,7 @@
                   />
                   <q-btn
                     size="sm"
-                    color="blue"
+                    color="secondary"
                     flat
                     icon="edit"
                     label="Editar"
@@ -122,17 +101,15 @@
                     :color="props.row.estado === 'Disponible' ? 'green' : 'red-7'"
                     :text-color="props.row.estado === 'Disponible' ? 'white' : 'grey1'"
                     dense
-                    class="fa-text-height"
                   />
-                </q-td> </template
-              ><template #body-cell-oferta="props">
+                </q-td>
+              </template>
+              <template #body-cell-oferta="props">
                 <q-td :props="props">
                   <q-badge
                     :label="props.row.oferta ? 'Oferta' : ''"
                     :color="props.row.oferta ? 'orange' : 'white'"
-                    :text-color="props.row.oferta === 'true' ? 'white' : 'grey1'"
                     dense
-                    class="fa-text-height"
                   />
                 </q-td>
               </template>
@@ -142,7 +119,6 @@
       </div>
     </div>
 
-    <!-- Ver Producto Dialog -->
     <q-dialog v-model="viewDialog">
       <q-card style="max-width: 500px; width: 100%">
         <q-card-section class="row items-center q-col-gutter-sm">
@@ -159,16 +135,18 @@
             <div class="col-8">
               <div><strong>ID:</strong> {{ viewProduct?.id }}</div>
               <div><strong>Nombre:</strong> {{ viewProduct?.name }}</div>
-              <div><strong>Precio:</strong> {{ currency(viewProduct?.price) }}</div>
+              <div>
+                <strong>Precio:</strong>
+                {{ formatPrice(viewProduct?.price, viewProduct?.currency) }}
+              </div>
               <div><strong>Categoría:</strong> {{ viewProduct?.category }}</div>
-              <div><strong>Novedad:</strong> {{ viewProduct?.new ? 'Nuevo' : '' }}</div>
+              <div><strong>Estado:</strong> {{ viewProduct?.estado }}</div>
             </div>
           </div>
         </q-card-section>
       </q-card>
     </q-dialog>
 
-    <!-- Add Dialog -->
     <q-dialog v-model="addDialog" persistent>
       <q-card style="max-width: 700px; width: 100%">
         <q-card-section class="row items-center">
@@ -180,7 +158,7 @@
         <q-card-section>
           <ProductForm
             v-model="newProduct"
-            :negocioId="negocio_id"
+            :negocio-id="negocioId"
             mode="add"
             @save="saveNew"
             @cancel="addDialog = false"
@@ -189,7 +167,6 @@
       </q-card>
     </q-dialog>
 
-    <!-- Edit Dialog -->
     <q-dialog v-model="editDialog" persistent>
       <q-card style="max-width: 700px; width: 100%">
         <q-card-section class="row items-center">
@@ -201,68 +178,11 @@
         <q-card-section>
           <ProductForm
             v-model="editProduct"
-            :negocio-id="negocio_id"
+            :negocio-id="negocioId"
             mode="edit"
             @save="saveEdit"
             @cancel="editDialog = false"
           />
-        </q-card-section>
-      </q-card>
-    </q-dialog>
-    <!-- Edit Dialog -->
-    <q-dialog v-model="zelleDialog" persistent>
-      <q-card style="max-width: 700px; width: 100%">
-        <q-card-section class="row items-center">
-          <div class="text-h6 col">Editar Informacion de Remesas</div>
-          <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
-        </q-card-section>
-        <q-separator />
-        <q-card-section class="row items-center">
-          <div class="text-h6 col-4">Valores Actuales</div>
-          <q-space />
-          <q-input :model-value="oldCupRate" class="col-sm col-6 q-pa-lg" label="Tasa CUP" filled prefix="$" readonly />
-          <q-input :model-value="oldUsdRate" class="col-sm col-6" label="Tasa USD" filled prefix="%" readonly />
-        </q-card-section>
-        <q-separator />
-        <q-card-section>
-          <div class="q-gutter-md">
-            <q-input
-              v-model.number="zelleInfo.rate_cup"
-              type="number"
-              label="Tasa CUP"
-              filled
-              prefix="$"
-              :rules="[(val) => val > 0 || 'Debe ser mayor a 0']"
-            />
-            <q-input
-              v-model.number="zelleInfo.rate_usd"
-              type="number"
-              label="Tasa USD"
-              filled
-              prefix="%"
-              :rules="[(val) => val > 0 || 'Debe ser mayor a 0']"
-            />
-          </div>
-          <div class="q-mt-md row justify-end q-gutter-sm">
-            <q-btn color="grey" class="text-primary" label="Cancelar" @click="zelleDialog = false" />
-            <q-btn color="primary" label="Guardar" @click="saveZelleInfo" />
-          </div>
-        </q-card-section>
-      </q-card>
-    </q-dialog>
-
-    <!-- Help Dialog -->
-    <q-dialog v-model="helpDialog">
-      <q-card style="max-width: 640px; width: 100%">
-        <q-card-section class="row items-center">
-          <div class="text-h6 col">Ayuda</div>
-          <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
-        </q-card-section>
-        <q-separator />
-        <q-card-section>
-          <AdminHelp />
         </q-card-section>
       </q-card>
     </q-dialog>
@@ -272,35 +192,19 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue';
 import type { QTableColumn } from 'quasar';
-import ProductForm from 'components/ProductForm.vue';
-import AdminHelp from 'components/AdminHelp.vue';
+import ProductForm from 'src/components/ProductForm.vue';
 import { useAdminChangesStore } from 'src/stores/adminChanges';
 import { supabase } from 'boot/supabase';
-import type { RemesasService } from 'stores/types';
-
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-  new?: boolean;
-  oferta?: boolean;
-  estado?: string;
-  subcategory?: string;
-  descuento: number;
-  descripcion?: string;
-}
+import { getBusinessId } from 'src/config/business';
+import type { Product } from 'src/stores/types';
 
 const products = ref<Product[]>([]);
 const filter = ref('');
 const changesStore = useAdminChangesStore();
 const addDialog = ref(false);
-const zelleDialog = ref(false);
 const editDialog = ref(false);
-const helpDialog = ref(false);
-const oldCupRate = ref(0);
-const oldUsdRate = ref(0);
+const negocioId = getBusinessId();
+
 const newProduct = ref<Product>({
   id: '',
   name: '',
@@ -313,6 +217,8 @@ const newProduct = ref<Product>({
   subcategory: '',
   descuento: 0,
   descripcion: '',
+  currency: 'CUP',
+  negocio_id: negocioId,
 });
 
 const editProduct = ref<Product>({
@@ -327,17 +233,12 @@ const editProduct = ref<Product>({
   subcategory: '',
   descuento: 0,
   descripcion: '',
+  currency: 'CUP',
+  negocio_id: negocioId,
 });
-const zelleInfo = ref<RemesasService>(
-  {
-    id: '',
-    negocio_id: '',
-    rate_cup: 0,
-    rate_usd: 0,
-  }
-);
 
 const originalEditId = ref<string | null>(null);
+
 const columns = <QTableColumn[]>[
   { name: 'image', label: 'Imagen', field: 'image', align: 'left' },
   { name: 'name', label: 'Nombre', field: 'name', align: 'left', sortable: true },
@@ -347,40 +248,28 @@ const columns = <QTableColumn[]>[
     field: 'price',
     align: 'right',
     sortable: true,
-    format: (v: number) => currency(v),
+    format: (v: number, row: Product) => formatPrice(v, row?.currency),
   },
   { name: 'category', label: 'Categoría', field: 'category', align: 'left', sortable: true },
   {
     name: 'subcategory',
-    label: 'Subcategoria',
+    label: 'Subcategoría',
     field: 'subcategory',
     align: 'left',
-    sortable: true,
   },
-  {
-    name: 'disponibilidad',
-    label: 'Disponibilidad',
-    field: 'estado',
-    align: 'left',
-    sortable: true,
-  },
-  { name: 'oferta', label: 'Oferta', field: 'oferta', align: 'left', sortable: true },
-
+  { name: 'disponibilidad', label: 'Estado', field: 'estado', align: 'left' },
+  { name: 'oferta', label: 'Oferta', field: 'oferta', align: 'left' },
   { name: 'actions', label: 'Acciones', field: 'actions', align: 'right' },
 ];
-
-const negocio_id = import.meta.env.VITE_NEGOCIO_ID;
 
 const filteredProducts = computed(() => {
   const f = filter.value.trim().toLowerCase();
   if (!f) return products.value;
   return products.value.filter(
     (p) =>
-      p.name.toLowerCase().includes(f) ||
-      p.id.toLowerCase().includes(f) ||
-      p.category.toLowerCase().includes(f) ||
-      p.estado?.toLowerCase().includes(f) ||
-      p.subcategory?.toLowerCase().includes(f),
+      p.name?.toLowerCase().includes(f) ||
+      p.id?.toLowerCase().includes(f) ||
+      p.category?.toLowerCase().includes(f),
   );
 });
 
@@ -391,25 +280,7 @@ function openView(row: Product) {
   viewProduct.value = { ...row };
   viewDialog.value = true;
 }
-async function  openRemesasDialog() {
-  zelleDialog.value = true;
-  try {
-    const { data, error } = await supabase
-      .from('remesasServices')
-      .select('*')
-      .eq('negocio_id', negocio_id);
-    if (data) {
-      zelleInfo.value = data[0];
-      oldCupRate.value = data[0].rate_cup;
-      oldUsdRate.value = data [0].rate_usd;
-      console.log("dataZelle", data[0]);
-    }
-      if (error) throw error;
-  }
-    catch (e) {
-      console.error('Error cargando info de remesas:', e);
-    }
-}
+
 function openAdd() {
   newProduct.value = {
     id: '',
@@ -423,12 +294,12 @@ function openAdd() {
     subcategory: '',
     descuento: 0,
     descripcion: '',
+    currency: 'CUP',
+    negocio_id: negocioId,
   };
   addDialog.value = true;
 }
-/*function allProductArentNew(){
- // products.value = products.value.map((product: Product) => ({ ...product, id: crypto.randomUUID() }));
-}*/
+
 function openEdit(row: Product) {
   editProduct.value = { ...row };
   originalEditId.value = row.id;
@@ -436,10 +307,8 @@ function openEdit(row: Product) {
 }
 
 function saveNew(product: Product) {
-  // evitar duplicados por id
   const exists = products.value.find((p) => p.id === product.id);
   if (exists) {
-    // si existe, reemplazamos
     const idx = products.value.findIndex((p) => p.id === product.id);
     products.value[idx] = { ...product };
     changesStore.addUpdated({ id: product.id, name: product.name });
@@ -449,6 +318,7 @@ function saveNew(product: Product) {
   }
   addDialog.value = false;
 }
+
 const totalProducts = computed(() => products.value.length);
 const availableCount = computed(
   () => products.value.filter((p) => p.estado === 'Disponible').length,
@@ -456,7 +326,6 @@ const availableCount = computed(
 const offerCount = computed(() => products.value.filter((p) => p.oferta === true).length);
 
 function saveEdit(product: Product) {
-  // Usar el ID original de la fila para encontrar el índice, por si el usuario cambió el ID en edición
   const key = originalEditId.value ?? product.id;
   const idx = products.value.findIndex((p) => p.id === key);
   if (idx !== -1) {
@@ -467,37 +336,14 @@ function saveEdit(product: Product) {
   editDialog.value = false;
 }
 
-function currency(val?: number) {
+function formatPrice(val?: number, currency?: string) {
   if (val == null) return '';
-  return new Intl.NumberFormat('es-ES', {
+  const curr = currency || 'CUP';
+  return new Intl.NumberFormat(curr === 'USD' ? 'en-US' : 'es-ES', {
     style: 'currency',
-    currency: 'CUP',
-    maximumFractionDigits: 2,
+    currency: curr,
+    maximumFractionDigits: curr === 'USD' ? 2 : 0,
   }).format(val);
-}
-
-async function saveZelleInfo() {
-  try {
-
-    const { data, error } = await supabase
-      .from('remesasServices')
-      .update({
-        rate_cup: zelleInfo.value.rate_cup,
-        rate_usd: zelleInfo.value.rate_usd,
-      })
-      .eq('id', zelleInfo.value.id)
-      .eq('negocio_id', negocio_id);
-  if(data)
-  {
-    console.log('info de remesas actualizada');
-    zelleDialog.value = false;
-  }
-    if (error) throw error;
-
-    zelleDialog.value = false;
-  } catch (e) {
-    console.error('Error guardando info de remesas:', e);
-  }
 }
 
 onMounted(async () => {
@@ -505,15 +351,14 @@ onMounted(async () => {
     const { data } = await supabase
       .from('products')
       .select('*')
-      .eq('negocio_id', negocio_id)
+      .eq('negocio_id', negocioId)
       .order('created_at', { ascending: false });
     if (data) {
       products.value = Array.isArray(data) ? data : [];
       changesStore.clear();
     }
-
   } catch (e) {
-    console.warn('No se pudieron cargar products.json', e);
+    console.error('Error cargando productos:', e);
   }
 });
 </script>

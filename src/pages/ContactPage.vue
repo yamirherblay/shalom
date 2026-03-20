@@ -1,71 +1,53 @@
 <template>
-  <q-page class="q-pa-lg contact-page">
-    <div class="q-mx-auto" style="max-width: 980px">
-      <div class="text-h5 q-mb-sm">Contacto</div>
-      <div class="text-body1 q-mb-lg">
-        ¿Tienes alguna pregunta, sugerencia o necesitas ayuda con tu pedido? Escríbenos mediante el
-        formulario y te responderemos lo antes posible. También puedes llamarnos o escribir por
-        WhatsApp.
-      </div>
+  <q-page padding>
+    <div class="text-h4 text-center q-mb-lg">{{ branding.name }}</div>
 
-      <q-card flat bordered>
+    <div class="row q-col-gutter-lg justify-center">
+      <q-card class="col-12 col-md-6" flat bordered>
         <q-card-section>
-          <q-form @submit.prevent="onSubmit" @reset.prevent="onReset" ref="formRef">
-            <div class="row q-col-gutter-md">
-              <div class="col-12 col-sm-6">
-                <q-input
-                  v-model="form.fullName"
-                  label="Nombre y apellidos"
-                  :rules="[req]"
-                  dense
-                  filled
-                />
-              </div>
-              <div class="col-12 col-sm-6">
-                <q-input v-model="form.subject" label="Asunto" :rules="[req]" dense filled />
-              </div>
-              <div class="col-12">
-                <q-input
-                  v-model="form.message"
-                  type="textarea"
-                  autogrow
-                  label="Mensaje"
-                  :rules="[reqMin]"
-                  dense
-                  filled
-                />
-              </div>
-            </div>
+          <div class="text-h6 q-mb-md">Contáctanos</div>
 
-            <div class="row justify-end items-center q-gmt-md">
-              <div class="text-grey-8">
-                <q-icon name="call" class="q-mr-xs" /> +5354512675
-                <span class="q-mx-sm">•</span>
-                <q-icon name="mail" class="q-mr-xs" /> {{ EMAIL }}
-              </div>
-              <div class="row q-gutter-sm">
-                <q-btn type="reset" flat color="primary" label="Limpiar" :disable="loading" />
-                <q-btn
-                  flat
-                  round
-                  dense
-                  icon="email"
-                  :href="isFormValid ? mailtoLink : undefined"
-                  :disable="!isFormValid || loading"
-                  label="Enviar correo"
-                  target="_blank"
-                  rel="noopener"
-                />
-                <q-btn
-                  type="submit"
-                  dense
-                  :loading="loading"
-                  :disable="!isFormValid || loading"
-                  icon="fa-brands fa-whatsapp"
-                />
-              </div>
-            </div>
-          </q-form>
+          <q-list>
+            <q-item v-if="branding.contact.email">
+              <q-item-section avatar>
+                <q-icon name="email" color="primary" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Email</q-item-label>
+                <q-item-label caption>{{ branding.contact.email }}</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item v-if="branding.contact.phone">
+              <q-item-section avatar>
+                <q-icon name="phone" color="primary" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Teléfono</q-item-label>
+                <q-item-label caption>{{ branding.contact.phone }}</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item v-if="branding.contact.address">
+              <q-item-section avatar>
+                <q-icon name="location_on" color="primary" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Dirección</q-item-label>
+                <q-item-label caption>{{ branding.contact.address }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+
+          <q-btn
+            color="positive"
+            icon="fa-brands fa-whatsapp"
+            label="Escribir por WhatsApp"
+            class="q-mt-lg full-width"
+            unelevated
+            size="lg"
+            @click="sendContactMessage"
+          />
         </q-card-section>
       </q-card>
     </div>
@@ -73,101 +55,16 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, computed } from 'vue';
-import { useQuasar } from 'quasar';
+import { branding } from 'src/config/branding';
+import { useWhatsApp } from 'src/composables/useWhatsApp';
+import { useMeta } from 'quasar';
 
-const $q = useQuasar();
-
-// Número de WhatsApp al que se enviará el mensaje (solo dígitos, formato internacional)
-const WHATSAPP_NUMBER = '5354512675';
-const EMAIL = 'mercadvariadotexas@gmail.com';
-const formRef = ref();
-const loading = ref(false);
-
-const form = reactive({
-  fullName: '',
-  subject: '',
-  message: '',
+useMeta({
+  title: `Contacto | ${branding.name}`,
+  meta: {
+    description: { name: 'description', content: `Contacto con ${branding.name}` },
+  },
 });
 
-// Enlace mailto dinámico construido a partir del formulario
-const mailtoLink = computed(() => {
-  const subject = form.subject?.trim() || 'Consulta desde el formulario de contacto';
-  const lines: string[] = [];
-  if (form.subject) lines.push(`Asunto: ${form.subject}`);
-  if (form.message) lines.push(`Mensaje: ${form.message}`);
-  const sender = [form.fullName || null].filter(Boolean).join(' | ');
-  if (sender) lines.push(`Enviado por: ${sender}`);
-  const body = lines.join('\n');
-  return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
-
-function req(v: string) {
-  return !!v || 'Requerido';
-}
-function reqMin(v: string) {
-  if (!v) return 'Requerido';
-  return v.trim().length >= 10 || 'Mínimo 10 caracteres';
-}
-
-// Validez general del formulario para habilitar botones
-const isFormValid = computed(() => {
-  const nameOk = !!form.fullName?.trim();
-  const subjectOk = !!form.subject?.trim();
-  const messageOk = !!form.message && form.message.trim().length >= 10;
-  return nameOk && subjectOk && messageOk;
-});
-
-async function onSubmit() {
-  const valid = await formRef.value?.validate?.();
-  if (!valid) return;
-  try {
-    loading.value = true;
-
-    // Construir el mensaje para WhatsApp
-    const lines: string[] = [];
-    if (form.subject) lines.push(`Asunto: ${form.subject}`);
-    if (form.message) lines.push(`Mensaje: ${form.message}`);
-    const sender = [form.fullName || null].filter(Boolean).join(' | ');
-    if (sender) lines.push(`Enviado por: ${sender}`);
-    const text = encodeURIComponent(lines.join('\n'));
-
-    // Abrir WhatsApp con el mensaje preparado
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    window.open(url, '_blank');
-    $q.notify({ type: 'positive', message: 'Abriendo WhatsApp para enviar tu mensaje…' });
-    onReset();
-  } catch {
-    $q.notify({
-      type: 'negative',
-      message: 'No se pudo preparar el envío por WhatsApp. Intenta nuevamente.',
-    });
-  } finally {
-    loading.value = false;
-  }
-}
-
-function onReset() {
-  form.fullName = '';
-  form.subject = '';
-  form.message = '';
-}
+const { sendContactMessage } = useWhatsApp();
 </script>
-
-<style scoped>
-/* Ensure two-column layout on >= sm is handled by Quasar grid classes */
-.contact-page {
-  max-width: 100%;
-  padding: 0 16px;
-}
-.contact-page::before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(to bottom right, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)),
-    url('/images/fondo2.JPG') center/cover no-repeat fixed;
-  filter: blur(8px);
-  z-index: 0;
-}
-</style>

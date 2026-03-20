@@ -1,29 +1,44 @@
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image?: string;
+  category: string;
+  subcategory?: string;
+  estado: 'Disponible' | 'Agotado';
+  oferta?: boolean;
+  descuento?: number;
+  descripcion?: string;
+  new?: boolean;
+  currency?: 'CUP' | 'USD';
+  negocio_id?: string;
+  created_at?: string;
+}
+
+export interface ProductFormData {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+  subcategory?: string;
+  estado: 'Disponible' | 'Agotado';
+  oferta: boolean;
+  descuento: number;
+  descripcion: string;
+  new: boolean;
+}
+
 export interface Category {
   id: string;
   name: string;
   image?: string;
 }
 
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  categoryId: string;
-  image?: string;
-  shortDescription?: string;
-  description?: string;
-  // internal marker to differentiate base vs custom (optional)
-  _base?: boolean;
-}
-export interface RemesasService {
-  id?: string;
-  negocio_id?: string;
-  rate_cup?: number;
-  rate_usd?: number;
-}
 export interface CartItem {
   product: Product;
   quantity: number;
+  currency: 'CUP' | 'USD';
 }
 
 export interface OrderContact {
@@ -38,16 +53,13 @@ export interface OrderRecord {
   items: CartItem[];
   total: number;
   contact: OrderContact;
-  createdAt: string; // ISO
+  createdAt: string;
 }
 
 export interface User {
   id: string;
   email: string;
-  password?: string; // demo only
   fullName?: string;
   phone?: string;
-  address?: string;
-  refs?: string;
   isAdmin?: boolean;
 }
