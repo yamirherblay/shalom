@@ -8,7 +8,7 @@ export const branding = {
     ctaText: 'Ver Catálogo',
     ctaLink: '/catalogo',
     secondaryCtaText: 'Ofertas Especiales',
-    secondaryCtaLink: '/catalogo?cat=ofertas',
+    secondaryCtaLink: '/catalogo?cat=Ofertas',
   },
   colors: {
     primary: '#27272A',

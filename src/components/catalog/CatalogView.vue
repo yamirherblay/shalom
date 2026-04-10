@@ -117,6 +117,6 @@ onMounted(async () => {
 
 <style scoped>
 .catalog-page {
-  background: #fafafa;
+  background: #3F3F46;
 }
 </style>
