@@ -145,36 +145,23 @@
 import { reactive, watch, ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { supabase } from 'boot/supabase';
 import { useQuasar } from 'quasar';
+import type { Product } from 'src/stores/types';
 
 const MAX_FILE_SIZE = 400 * 1024; // 400KB en bytes
 
-export interface ProductFormModel {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-  new?: boolean;
-  oferta?: boolean;
-  estado?: string;
-  subcategory?: string;
-  descuento: number;
-  descripcion?: string;
-}
-
 const props = defineProps<{
-  modelValue: ProductFormModel;
+  modelValue: Product;
   mode: 'add' | 'edit';
   negocioId: string;
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: ProductFormModel): void;
-  (e: 'save', value: ProductFormModel): void;
+  (e: 'update:modelValue', value: Product): void;
+  (e: 'save', value: Product): void;
   (e: 'cancel'): void;
 }>();
 const isForSabrinaFashion = ref(false);
-const localProduct = reactive<ProductFormModel>(
+const localProduct = reactive<Product>(
   { ...props.modelValue,
   });
 const $q = useQuasar();

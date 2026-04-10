@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { supabase } from 'boot/supabase';
-import { getBusinessId } from 'config/business';
+import { getBusinessId } from 'src/config/business'
 import type { Product } from 'src/stores/types';
 
 export function useProducts() {

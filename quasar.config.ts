@@ -1,6 +1,7 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
+// @ts-ignore
 import { defineConfig } from '#q-app/wrappers';
 
 export default defineConfig((/* ctx */) => {

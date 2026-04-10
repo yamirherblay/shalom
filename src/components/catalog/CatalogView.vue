@@ -78,9 +78,9 @@ const filteredProducts = computed(() => {
   return filtered;
 });
 
-function handleCategorySelect(key: string) {
+function  handleCategorySelect(key: string) {
   selectedCategory.value = key;
-  router.replace({
+  void router.replace({
     query: key !== 'all' ? { cat: key } : {},
   });
 }
@@ -91,13 +91,7 @@ function handleWhatsApp(product: Product) {
 
 function handleAddToCart(product: Product) {
   cartStore.add(
-    {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      categoryId: product.category,
-    },
+    product,
     1,
     product.currency || 'CUP',
   );
@@ -123,6 +117,6 @@ onMounted(async () => {
 
 <style scoped>
 .catalog-page {
-  background: #fafafa;
+  background: #3F3F46;
 }
 </style>

@@ -10,14 +10,14 @@
     </q-img>
 
     <q-card-section>
-      <div class="text-subtitle1 ellipsis-2-lines">{{ product.name }}</div>
-      <div v-if="product.descripcion" class="text-caption text-grey-7 ellipsis-2-lines">
+      <div class="text-subtitle1 ellipsis-2-lines card-title">{{ product.name }}</div>
+      <div v-if="product.descripcion" class="text-caption card-caption ellipsis-2-lines">
         {{ product.descripcion }}
       </div>
       <div class="row items-center q-mt-sm justify-between">
-        <div class="text-h6">{{ formattedPrice }}</div>
+        <div class="text-h6 card-price">{{ formattedPrice }}</div>
         <q-badge
-          :color="product.estado === 'Disponible' ? 'green' : 'red'"
+          :color="product.estado === 'Disponible' ? 'blue-7' : 'red'"
           :text-color="product.estado === 'Disponible' ? 'white' : 'grey-1'"
           :label="product.estado"
         />
@@ -29,7 +29,7 @@
     <q-card-actions align="right">
       <q-btn
         v-if="showWhatsApp"
-        color="positive"
+        class="card-whatsapp text-white"
         unelevated
         size="sm"
         icon="fa-brands fa-whatsapp"
@@ -84,7 +84,31 @@ function formatPrice(value: number, currency: 'CUP' | 'USD'): string {
 .product-card {
   width: 100%;
   max-width: 320px;
+  margin: 0 auto;
   border-radius: 12px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #27272a;
+}
+
+.card-caption {
+  color: #71717a;
+}
+
+.card-price {
+  color: #27272a;
+}
+.card-whatsapp {
+  background-color: #25D366;
 }
 
 .ellipsis-2-lines {

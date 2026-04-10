@@ -2,12 +2,12 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  image?: string;
+  image: string;
   category: string;
   subcategory?: string;
   estado: 'Disponible' | 'Agotado';
   oferta?: boolean;
-  descuento?: number;
+  descuento: number;
   descripcion?: string;
   new?: boolean;
   currency?: 'CUP' | 'USD';

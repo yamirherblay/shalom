@@ -1,7 +1,7 @@
 <template>
   <div class="product-grid">
     <div class="row q-col-gutter-md">
-      <div v-for="product in products" :key="product.id" class="col-6 col-sm-4 col-md-3">
+      <div v-for="product in products" :key="product.id" class="col-12 col-sm-12 col-md-3">
         <ProductCard
           :product="product"
           :show-whats-app="true"

@@ -1,8 +1,8 @@
 {
-  "name": "mercadotexas",
+  "name": "catalogOnline",
   "version": "0.0.1",
-  "description": "Mercado Variado Texas LLC",
-  "productName": "MercadoTexas APP",
+  "description": "Solution Online Catalogo",
+  "productName": "CatalogOnlinen APP",
   "author": "Yyd Solution",
   "type": "module",
   "private": true,
