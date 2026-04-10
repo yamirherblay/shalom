@@ -1,9 +1,9 @@
-import { whatsappConfig, formatWhatsAppUrl } from 'config/whatsapp';
+import { whatsappConfig, formatWhatsAppUrl } from 'src/config/whatsapp';
 import type { Product } from 'src/stores/types';
 import type { CartItem } from 'src/stores/types';
 
 export function useWhatsApp() {
-  function sendProductRequest(product: Product, quantity = 1) {
+  function sendProductRequest(product: Product) {
     const price = formatProductPrice(product);
     const message = whatsappConfig.messageTemplates.product(product.name, price);
     window.open(formatWhatsAppUrl(message), '_blank');

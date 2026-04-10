@@ -64,7 +64,7 @@ export const useCartStore = defineStore('cart', () => {
     if (found) {
       found.quantity += qty;
     } else {
-      items.value.push({ product, quantity: Math.max(1, qty) });
+      items.value.push({ currency: currency, product, quantity: qty });
     }
     // guarda/actualiza la moneda observada para este producto
     itemCurrency.value[product.id] = currency;

@@ -11,9 +11,9 @@ export const branding = {
     secondaryCtaLink: '/catalogo?cat=ofertas',
   },
   colors: {
-    primary: '#1976D2',
-    secondary: '#424242',
-    accent: '#FF7043',
+    primary: '#27272A',
+    secondary: '#71717A',
+    accent: '#16A34A',
   },
   contact: {
     email: 'contacto@minegocio.com',

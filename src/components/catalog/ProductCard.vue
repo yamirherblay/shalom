@@ -84,6 +84,7 @@ function formatPrice(value: number, currency: 'CUP' | 'USD'): string {
 .product-card {
   width: 100%;
   max-width: 320px;
+  margin: auto;
   border-radius: 12px;
 }
 

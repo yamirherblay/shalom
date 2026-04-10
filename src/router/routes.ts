@@ -23,16 +23,12 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: '/mvtexas/admin',
+    path: '/adminstore',
     component: () => import('layouts/AdminLayout.vue'),
     meta: { requiresAuth: true },
     children: [
       { path: '', name: 'admin', component: () => import('pages/AdminPage.vue') },
-      {
-        path: 'clothes',
-        name: 'admin-clothes',
-        component: () => import('pages/ClothStoreAdmin.vue'),
-      },
+
       /*  { path: 'mayorista', name: 'admin-mayorista', component: () => import('pages/AdminMayorista.vue') },*/
     ],
   },

@@ -71,6 +71,7 @@
 import { ref } from 'vue';
 import { useCartStore } from 'src/stores/cart';
 import { branding } from 'src/config/branding';
+import CartModal from 'components/CartModal.vue';
 
 const leftDrawerOpen = ref(false);
 const showCart = ref(false);

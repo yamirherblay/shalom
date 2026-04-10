@@ -3,8 +3,8 @@
     <q-img :src="product.image || '/images/placeholder.svg'" :alt="product.name" ratio="4/3" />
     <q-card-section>
       <div class="text-subtitle1">{{ product.name }}</div>
-      <div v-if="product.description" class="text-caption text-grey-7">
-        {{ product.description }}
+      <div v-if="product.descripcion" class="text-caption text-grey-7">
+        {{ product.descripcion }}
       </div>
       <div class="text-h6 q-mt-sm">{{ currency(product.price) }}</div>
     </q-card-section>
