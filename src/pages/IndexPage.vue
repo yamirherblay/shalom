@@ -109,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { branding } from 'src/config/branding';
 import { defaultCategories } from 'src/config/categories';
 import { useProducts } from 'src/composables/useProducts';
@@ -150,6 +150,10 @@ useMeta({
 </script>
 
 <style scoped>
+.index-page {
+  overflow-x: hidden;
+}
+
 /* Hero */
 .hero-section {
   min-height: 80vh;
