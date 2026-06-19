@@ -109,7 +109,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { ref,computed, onMounted } from 'vue';
 import { branding } from 'src/config/branding';
 import { defaultCategories } from 'src/config/categories';
 import { useProducts } from 'src/composables/useProducts';
