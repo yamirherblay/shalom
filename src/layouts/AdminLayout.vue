@@ -78,8 +78,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
-import { useQuasar } from 'quasar';
+import { useRouter } from 'vue-router';
+
 import AdminChangeNotifications from 'layouts/AdminChangeNotifications.vue';
 import { useAuthStore } from 'src/stores/auth';
 
