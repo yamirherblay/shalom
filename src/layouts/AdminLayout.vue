@@ -85,10 +85,7 @@ import { useAuthStore } from 'src/stores/auth';
 
 const left = ref(false);
 const router = useRouter();
-const route = useRoute();
 const auth = useAuthStore();
-const $q = useQuasar();
-
 async function logout() {
   await auth.logout();
   void router.push({ name: 'home' });
