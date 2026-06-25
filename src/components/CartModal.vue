@@ -32,7 +32,13 @@
             <q-item-section>
               <q-item-label class="text-weight-bold">{{ it.product.name }}</q-item-label>
               <q-item-label caption class="text-grey-7">
-                {{ formatPrice(it.product.price) }}
+                <template v-if="it.product.oferta">
+                  {{ formatPrice(it.product.descuento) }}
+                  <span class="offer-tag">(Oferta)</span>
+                </template>
+                <template v-else>
+                  {{ formatPrice(it.product.price) }}
+                </template>
               </q-item-label>
               <div class="row items-center q-gutter-sm q-mt-xs">
                 <q-btn dense round outline size="sm" icon="remove" @click="dec(it.product.id)" />
@@ -42,7 +48,7 @@
             </q-item-section>
             <q-item-section side top>
               <div class="text-weight-bold text-h6">
-                {{ formatPrice(it.product.price * it.quantity) }}
+                {{ formatPrice(effectivePrice(it.product) * it.quantity) }}
               </div>
               <q-btn
                 flat
@@ -94,9 +100,14 @@ import { ref, watch } from 'vue';
 import { useCartStore } from 'src/stores/cart';
 import { useQuasar } from 'quasar';
 import { whatsappConfig } from 'src/config/whatsapp';
+import type { Product } from 'src/stores/types';
 
 const cart = useCartStore();
 const $q = useQuasar();
+
+function effectivePrice(p: Product): number {
+  return p.oferta && p.descuento ? p.descuento : p.price;
+}
 
 const props = defineProps<{ modelValue: boolean }>();
 const emit = defineEmits<{ (e: 'update:modelValue', v: boolean): void }>();
@@ -130,8 +141,9 @@ function buyWhatsApp() {
   const lines: string[] = [];
   lines.push(`Hola, quiero hacer el siguiente pedido:`);
   cart.items.forEach((it, idx) => {
+    const label = it.product.oferta ? `${formatPrice(effectivePrice(it.product) * it.quantity)} (Oferta)` : formatPrice(effectivePrice(it.product) * it.quantity);
     lines.push(
-      `${idx + 1}. ${it.product.name} x${it.quantity} — ${formatPrice(it.product.price * it.quantity)}`,
+      `${idx + 1}. ${it.product.name} x${it.quantity} — ${label}`,
     );
   });
   lines.push('');
@@ -157,3 +169,13 @@ function formatPrice(n: number): string {
   }).format(n);
 }
 </script>
+
+<style scoped>
+.offer-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #E85D04;
+  margin-left: 3px;
+  text-transform: uppercase;
+}
+</style>

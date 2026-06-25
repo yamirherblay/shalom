@@ -22,7 +22,15 @@
         {{ product.descripcion }}
       </div>
       <div class="row items-center q-mt-xs justify-between">
-        <div class="card-price">{{ formattedPrice }}</div>
+        <div class="card-price">
+          <template v-if="product.oferta">
+            <span class="old-price">{{ formatPrice(product.price) }}</span>
+            <span class="sale-price">{{ formatPrice(product.descuento) }}</span>
+          </template>
+          <template v-else>
+            <span class="sale-price">{{ formatPrice(product.price) }}</span>
+          </template>
+        </div>
         <q-badge
           :color="product.estado === 'Disponible' ? 'positive' : 'negative'"
           :text-color="'white'"
@@ -60,13 +68,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import type { Product } from 'src/stores/types';
 import { useProductPreview } from 'src/composables/useProductPreview';
 
 const preview = useProductPreview();
 
-const props = defineProps<{
+defineProps<{
   product: Product;
   showWhatsApp?: boolean;
   showAddToCart?: boolean;
@@ -76,11 +83,6 @@ defineEmits<{
   (e: 'whatsapp', product: Product): void;
   (e: 'add-to-cart', product: Product): void;
 }>();
-
-const formattedPrice = computed(() => {
-  const price = props.product.oferta ? props.product.descuento : props.product.price;
-  return formatPrice(price);
-});
 
 function formatPrice(value: number): string {
   return new Intl.NumberFormat('es-CU', {
@@ -147,11 +149,22 @@ function formatPrice(value: number): string {
 }
 
 .card-add {
-  border-color: #c8963e;
-  color: #c8963e;
+  border-color: #C8963E;
+  color: #C8963E;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  opacity: 0.45;
+  margin-right: 6px;
+  font-size: 0.85em;
+}
+
+.sale-price {
+  font-weight: 600;
 }
 
 .badge-oferta {

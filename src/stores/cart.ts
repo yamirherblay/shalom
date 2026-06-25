@@ -29,8 +29,12 @@ export const useCartStore = defineStore('cart', () => {
 
   const count = computed(() => items.value.reduce((s, it) => s + it.quantity, 0));
 
+  function effectivePrice(p: Product): number {
+    return p.oferta && p.descuento ? p.descuento : p.price;
+  }
+
   const total = computed(() =>
-    items.value.reduce((s, it) => s + it.product.price * it.quantity, 0),
+    items.value.reduce((s, it) => s + effectivePrice(it.product) * it.quantity, 0),
   );
 
   function add(product: Product, qty = 1) {

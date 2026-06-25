@@ -4,14 +4,14 @@
     <section class="hero-section text-white noise-bg">
       <div class="hero-glow"></div>
       <div class="hero-content column items-center text-center q-pa-lg">
-        <q-img
-          src="/images/logo.png"
-          alt="Ferretería VIP"
-          class="hero-logo q-mb-lg"
-          ratio="1"
-        />
-        <div class="hero-subtitle text-grey-4 q-mb-lg hero-enter-sub">
-          {{ branding.hero.subtitle }}
+        <q-img src="/images/logo.jpeg" alt="Ferretería VIP" class="hero-logo q-mb-lg" ratio="1" />
+        <div class="hero-tags q-mb-lg hero-enter-sub">
+          <span class="hero-tag">Herramientas</span>
+          <span class="hero-tag">Material eléctrico</span>
+          <span class="hero-tag">Grifería</span>
+          <span class="hero-tag">Cerraduras</span>
+          <span class="hero-tag">Spray</span>
+          <span class="hero-tag">Lijas</span>
         </div>
         <q-btn
           color="accent"
@@ -67,8 +67,8 @@
       </div>
       <div v-if="loading" class="row q-col-gutter-md">
         <div v-for="n in 4" :key="n" class="col-6 col-sm-4 col-md-3">
-          <div class="skeleton-card bg-white" style="border-radius: 4px; overflow: hidden;">
-            <q-skeleton square style="width: 100%; aspect-ratio: 1;" animation="wave" />
+          <div class="skeleton-card bg-white" style="border-radius: 4px; overflow: hidden">
+            <q-skeleton square style="width: 100%; aspect-ratio: 1" animation="wave" />
             <div class="q-pa-sm">
               <q-skeleton type="text" width="80%" height="14px" animation="wave" />
               <q-skeleton type="text" width="50%" height="16px" class="q-mt-xs" animation="wave" />
@@ -94,7 +94,15 @@
             <div class="shelf-divider"></div>
             <div class="shelf-info q-pa-sm">
               <div class="shelf-name text-weight-bold">{{ product.name }}</div>
-              <div class="shelf-price">{{ formatPrice(product.descuento || product.price) }}</div>
+              <div class="shelf-price">
+                <template v-if="product.oferta">
+                  <span class="old-price">{{ formatPrice(product.price) }}</span>
+                  <span class="sale-price">{{ formatPrice(product.descuento) }}</span>
+                </template>
+                <template v-else>
+                  <span class="sale-price">{{ formatPrice(product.price) }}</span>
+                </template>
+              </div>
               <q-badge
                 :color="product.estado === 'Disponible' ? 'positive' : 'negative'"
                 :label="product.estado"
@@ -105,13 +113,7 @@
         </div>
       </div>
       <div class="text-center q-mt-md">
-        <q-btn
-          flat
-          no-caps
-          label="Ver catálogo completo →"
-          to="/catalogo"
-          class="shelf-link"
-        />
+        <q-btn flat no-caps label="Ver catálogo completo →" to="/catalogo" class="shelf-link" />
       </div>
     </section>
 
@@ -120,19 +122,22 @@
     <!-- WhatsApp CTA -->
     <section class="cta-section bg-primary text-white q-pa-lg section-reveal">
       <div class="column items-center text-center">
-        <q-icon name="fa-brands fa-whatsapp" size="3rem" class="q-mb-md" style="color: #25D366;" />
-        <div class="cta-title text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 3px; font-size: 1.5rem;">¿NECESITAS AYUDA?</div>
-        <div class="cta-subtitle text-grey-4 q-mb-md q-mt-sm">
-          Escríbenos por WhatsApp y te asesoramos
+        <div class="cta-title">¿Necesitas herramientas o materiales?</div>
+        <div class="cta-bullets q-my-md">
+          <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Atención rápida</span>
+          <span class="cta-dot">·</span>
+          <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Buenos precios</span>
+          <span class="cta-dot">·</span>
+          <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Variedad de productos</span>
         </div>
         <q-btn
           color="positive"
           size="md"
-          label="Escribir por WhatsApp"
+          label="Escríbenos directo aquí"
           unelevated
           no-caps
           class="q-px-xl"
-          style="border-radius: 2px;"
+          style="border-radius: 6px"
           @click="openWhatsApp"
         >
           <template v-slot:default>
@@ -225,7 +230,7 @@ useMeta({
 
 /* Hero */
 .hero-section {
-  background: #0C1A2E;
+  background: #0c1a2e;
   min-height: 70vh;
   display: flex;
   align-items: center;
@@ -261,10 +266,23 @@ useMeta({
   animation-delay: 0s, 1.2s;
 }
 
-.hero-subtitle {
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 480px;
+}
+
+.hero-tag {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  max-width: 320px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.3px;
 }
 
 .hero-cta {
@@ -275,28 +293,53 @@ useMeta({
 
 /* Entrance animations */
 @keyframes hero-scale-in {
-  from { opacity: 0; transform: scale(0.92); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes hero-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes hero-fade-up {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes hero-rule-expand {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @keyframes logo-float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .hero-enter-sub {
@@ -317,7 +360,7 @@ useMeta({
 
 /* Categories */
 .categories-section {
-  background: #F5F3EF;
+  background: #f5f3ef;
 }
 
 .categories-title {
@@ -332,7 +375,9 @@ useMeta({
 
 .category-inner {
   border-radius: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .category-inner:hover {
@@ -341,7 +386,7 @@ useMeta({
 }
 
 .category-icon {
-  color: #C8963E;
+  color: #c8963e;
 }
 
 .category-label {
@@ -352,7 +397,7 @@ useMeta({
 
 /* Shelf (featured products) */
 .shelf-section {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .shelf-title {
@@ -364,7 +409,9 @@ useMeta({
 .shelf-card {
   border-radius: 4px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .shelf-card:hover {
@@ -374,7 +421,7 @@ useMeta({
 
 .shelf-divider {
   height: 1px;
-  background: #8C929A;
+  background: #8c929a;
   margin: 0;
 }
 
@@ -383,15 +430,26 @@ useMeta({
   font-size: 0.85rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #1A1A2E;
+  color: #1a1a2e;
   line-height: 1.2;
 }
 
 .shelf-price {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
-  color: #1A1A2E;
+  color: #1a1a2e;
   margin-top: 2px;
+
+  .old-price {
+    text-decoration: line-through;
+    opacity: 0.45;
+    margin-right: 6px;
+    font-size: 0.85em;
+  }
+
+  .sale-price {
+    font-weight: 600;
+  }
 }
 
 .shelf-badge {
@@ -407,16 +465,37 @@ useMeta({
   font-family: 'Oswald', sans-serif;
   font-size: 0.95rem;
   letter-spacing: 1px;
-  color: #C8963E;
+  color: #c8963e;
 }
 
 /* CTA section */
 .cta-title {
   font-family: 'Oswald', sans-serif;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
 }
 
-.cta-subtitle {
+.cta-bullets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cta-bullet {
   font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cta-dot {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1rem;
+  user-select: none;
 }
 
 /* Responsive hero */
@@ -425,9 +504,14 @@ useMeta({
     width: 380px;
     height: 380px;
   }
-  .hero-subtitle {
-    font-size: 1.15rem;
-    max-width: 400px;
+  .hero-tags {
+    max-width: 560px;
+    gap: 10px;
+  }
+
+  .hero-tag {
+    font-size: 0.85rem;
+    padding: 6px 18px;
   }
 }
 

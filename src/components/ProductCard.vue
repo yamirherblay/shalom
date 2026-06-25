@@ -6,7 +6,15 @@
       <div v-if="product.descripcion" class="text-caption text-grey-7">
         {{ product.descripcion }}
       </div>
-      <div class="text-h6 q-mt-sm">{{ currency(product.price) }}</div>
+      <div class="text-h6 q-mt-sm">
+        <template v-if="product.oferta">
+          <span class="old-price">{{ currency(product.price) }}</span>
+          <span class="sale-price">{{ currency(product.descuento) }}</span>
+        </template>
+        <template v-else>
+          <span class="sale-price">{{ currency(product.price) }}</span>
+        </template>
+      </div>
     </q-card-section>
     <q-card-actions align="between">
       <q-btn color="primary" label="Agregar al carrito" @click="addToCart" />
@@ -34,5 +42,16 @@ function currency(n: number) {
 .my-card {
   max-width: 320px;
   width: 100%;
+}
+
+.old-price {
+  text-decoration: line-through;
+  opacity: 0.45;
+  margin-right: 6px;
+  font-size: 0.85em;
+}
+
+.sale-price {
+  font-weight: 600;
 }
 </style>

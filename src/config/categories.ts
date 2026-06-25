@@ -10,7 +10,7 @@ export const defaultCategories: Category[] = [
   { key: 'herramientas', label: 'Herramientas', icon: 'fa-solid fa-tools' },
   { key: 'pintura', label: 'Pintura', icon: 'fa-solid fa-paint-roller' },
   { key: 'electricidad', label: 'Electricidad', icon: 'fa-solid fa-bolt' },
-  { key: 'plomeria', label: 'Plomería', icon: 'fa-solid fa-wrench' },
+  { key: 'plomeria', label: 'Plomería', icon: 'fa-solid fa-droplet' },
   { key: 'construccion', label: 'Construcción', icon: 'fa-solid fa-hard-hat' },
   { key: 'jardin', label: 'Jardín', icon: 'fa-solid fa-seedling' },
   { key: 'seguridad', label: 'Seguridad', icon: 'fa-solid fa-shield' },

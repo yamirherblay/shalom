@@ -37,8 +37,9 @@ export function useWhatsApp() {
 }
 
 function formatProductPrice(product: Product): string {
-  const price = product.descuento || product.price;
-  return formatPrice(price);
+  const price = product.oferta && product.descuento ? product.descuento : product.price;
+  const label = formatPrice(price);
+  return product.oferta ? `${label} (Oferta)` : label;
 }
 
 function formatPrice(value: number): string {

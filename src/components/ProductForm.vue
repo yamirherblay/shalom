@@ -345,8 +345,6 @@ async function onSubmit() {
       color: 'negative',
       icon: 'error',
     });
-  } finally {
-    $q.loading.hide();
   }
 }
 </script>

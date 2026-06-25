@@ -66,7 +66,7 @@
           style="width: 60px; height: 60px; border-radius: 50%;"
           class="q-mb-sm"
         />
-        <div class="text-caption text-grey-5" style="font-family: 'Inter', sans-serif;">TODO INCLUIDO</div>
+        <div class="text-caption text-grey-8" style="font-family: 'Inter', sans-serif;">TODO INCLUIDO</div>
       </div>
     </q-drawer>
 

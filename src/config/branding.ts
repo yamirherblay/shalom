@@ -4,7 +4,7 @@ export const branding = {
   logo: '/images/logo.jpeg',
   hero: {
     title: 'FERRETERÍA',
-    subtitle: 'Herramientas, materiales y más para tu hogar',
+    subtitle:'Herramientas, material eléctrico, grifería, cerraduras, spray, lijas y mucho más para su hogar.',
     ctaText: 'Ver Catálogo',
     ctaLink: '/catalogo',
     secondaryCtaText: '',
