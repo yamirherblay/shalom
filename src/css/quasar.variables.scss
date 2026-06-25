@@ -1,46 +1,30 @@
-// Quasar SCSS (& Sass) Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+$primary: #0A2747;
+$primary-light: #123A5E;
+$primary-dark: #06182B;
 
-// Check documentation for full list of Quasar variables
+$secondary: #C8963E;
+$secondary-light: #D4A84E;
+$secondary-dark: #A87A2E;
 
-// Your own variables (that are declared here) and Quasar's own
-// ones will be available out of the box in your .vue/.scss/.sass files
+$accent: #E85D04;
+$accent-light: #F56A0E;
+$accent-dark: #C04E00;
 
-// It's highly recommended to change the default colors
-// to match your app's branding.
-// Tip: Use the "Theme Builder" on Quasar's documentation website.
+$dark: #1A1A2E;
+$dark-page: #FFFFFF;
 
-$primary: #27272A; // Zinc-800
-$primary-light: #3F3F46; // Zinc-700
-$primary-dark: #18181B; // Zinc-900
+$positive: #1A936F;
+$positive-light: #23B582;
+$positive-dark: #157D5A;
 
-$secondary: #71717A; // Zinc-500
-$secondary-light: #A1A1AA; // Zinc-400
-$secondary-dark: #52525B; // Zinc-600
+$negative: #D32F2F;
+$negative-light: #E57373;
+$negative-dark: #B71C1C;
 
-$accent: #16A34A; // Green-600
-$accent-light: #22C55E; // Green-500
-$accent-dark: #15803D; // Green-700
+$info: #2196F3;
+$info-light: #64B5F6;
+$info-dark: #1976D2;
 
-// Neutros
-$dark: #18181B; // Zinc-900
-$dark-page: #09090B; // Zinc-950
-
-// Feedback
-$positive: #4caf50;
-$positive-light: #81c784;
-$positive-dark: #388e3c;
-
-$negative: #d32f2f;
-$negative-light: #e57373;
-$negative-dark: #b71c1c;
-
-$info: #2196f3;
-$info-light: #64b5f6;
-$info-dark: #1976d2;
-
-$warning: #ffc107;
-$warning-light: #ffd54f;
-$warning-dark: #ffa000;
+$warning: #FFC107;
+$warning-light: #FFD54F;
+$warning-dark: #FFA000;

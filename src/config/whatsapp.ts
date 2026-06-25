@@ -5,12 +5,13 @@ export const whatsappConfig = {
   businessName: branding.name,
   messageTemplates: {
     product: (productName: string, price: string) =>
-      `Hola, me interesa el producto: ${productName} - ${price}`,
+      `Hola, me interesa: ${productName} - ${price}`,
 
     cart: (items: string, total: string) =>
       `Hola, quiero hacer el siguiente pedido:\n\n${items}\n\nTotal: ${total}`,
 
-    contact: () => `Hola, me gustaría obtener más información sobre sus productos.`,
+    contact: () =>
+      `Hola, me gustaría obtener información sobre sus productos de ferretería.`,
   },
 };
 

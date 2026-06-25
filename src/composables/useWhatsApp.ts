@@ -19,7 +19,7 @@ export function useWhatsApp() {
       return sum + price * item.quantity;
     }, 0);
 
-    const totalFormatted = formatTotal(total, items[0]?.currency || 'CUP');
+    const totalFormatted = formatPrice(total);
     const message = whatsappConfig.messageTemplates.cart(itemsList, totalFormatted);
     window.open(formatWhatsAppUrl(message), '_blank');
   }
@@ -38,18 +38,14 @@ export function useWhatsApp() {
 
 function formatProductPrice(product: Product): string {
   const price = product.descuento || product.price;
-  const currency = product.currency || 'CUP';
-  return formatPrice(price, currency);
+  return formatPrice(price);
 }
 
-function formatTotal(total: number, currency: 'CUP' | 'USD'): string {
-  return formatPrice(total, currency);
-}
-
-function formatPrice(value: number, currency: 'CUP' | 'USD'): string {
-  const formatted = new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
-    minimumFractionDigits: currency === 'USD' ? 2 : 0,
-    maximumFractionDigits: currency === 'USD' ? 2 : 0,
+function formatPrice(value: number): string {
+  const formatted = new Intl.NumberFormat('es-CU', {
+    style: 'currency',
+    currency: 'CUP',
+    maximumFractionDigits: 0,
   }).format(value);
-  return `${formatted} ${currency}`;
+  return `${formatted} CUP`;
 }

@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mercado-tex.vercel.app/sitemap.xml

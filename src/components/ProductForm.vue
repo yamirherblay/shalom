@@ -24,15 +24,6 @@
         <q-input v-model="localProduct.id" label="ID" dense outlined :disable="mode === 'edit'" />
       </div>
       <div class="col-12">
-        <q-checkbox
-          v-model="isForSabrinaFashion"
-          dense
-          label="Pertenece a Sabrina Fashion?"
-          outlined
-          :disable="mode === 'edit'"
-        />
-      </div>
-      <div class="col-12">
         <q-input
           v-model="localProduct.name"
           label="Nombre"
@@ -53,7 +44,6 @@
       </div>
       <div class="col-6">
         <q-select
-          v-if="categoryOptions.length"
           v-model="localProduct.category"
           :options="categoryOptions"
           label="Categoría"
@@ -62,16 +52,8 @@
           outlined
           emit-value
           map-options
+          new-value-mode="add-unique"
           :rules="[(val) => !!val || 'La categoría es obligatoria']"
-        />
-        <q-input
-          v-else
-          v-model="localProduct.category"
-          required
-          label="Categoría"
-          dense
-          outlined
-          :rules="[(val) => !!val?.trim() || 'La categoría es obligatoria']"
         />
       </div>
       <div class="col-6">
@@ -146,13 +128,14 @@ import { reactive, watch, ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { supabase } from 'boot/supabase';
 import { useQuasar } from 'quasar';
 import type { Product } from 'src/stores/types';
+import { defaultCategories } from 'src/config/categories';
 
-const MAX_FILE_SIZE = 400 * 1024; // 400KB en bytes
+const MAX_FILE_SIZE = 420 * 1024; // 400KB en bytes
 
 const props = defineProps<{
   modelValue: Product;
   mode: 'add' | 'edit';
-  negocioId: string;
+  negocioId: string | null;
 }>();
 
 const emit = defineEmits<{
@@ -160,12 +143,12 @@ const emit = defineEmits<{
   (e: 'save', value: Product): void;
   (e: 'cancel'): void;
 }>();
-const isForSabrinaFashion = ref(false);
+
 const localProduct = reactive<Product>(
   { ...props.modelValue,
   });
 const $q = useQuasar();
-const DEPARTAMENT = 'clothstore';
+const DEPARTAMENT = 'ferreteria';
 watch(
   () => props.modelValue,
   (v) => {
@@ -190,7 +173,11 @@ const subcategoryOptions = ref([
   { label: 'Zelle', value: 'Zelle' },
 ]);
 
-const categoryOptions = ref<{ label: string; value: string }[]>([]);
+const categoryOptions = ref<{ label: string; value: string }[]>(
+  defaultCategories
+    .filter((c) => c.key !== 'all')
+    .map((c) => ({ label: c.label, value: c.key })),
+);
 
 const fileProxy = ref<File | File[] | null>(null);
 const previewUrl = ref<string>('');
@@ -245,7 +232,7 @@ async function onFileSelected(val: File | File[] | null) {
     localProduct.id = crypto.randomUUID();
   }
   try {
-    const filePath = `mercadovtexas/${Date.now()}-${filename}`;
+    const filePath = `ferreteriaVip/${Date.now()}-${filename}`;
     const { data, error } = await supabase.storage.from('products').upload(filePath, f);
     console.log('Imagen subida:', data);
     if (error) {
@@ -278,27 +265,22 @@ async function onFileSelected(val: File | File[] | null) {
 
 onMounted(async () => {
   try {
-    const dataFromSupabase = await supabase
+    const { data } = await supabase
       .from('products')
-      .select('*')
-      .eq('negocio_id', props.negocioId)
-      .order('created_at', { ascending: false });
-    if (dataFromSupabase) {
-      const data = dataFromSupabase.data;
-      const categories = Array.isArray(data)
-        ? data.map((p) => p?.category).filter((c) => typeof c === 'string' && c.trim() !== '')
-        : [];
+      .select('category')
+      .eq('negocio_id', props.negocioId);
 
-      if (localProduct.category && !categories.includes(localProduct.category)) {
-        categories.push(localProduct.category);
+    if (data) {
+      const current = new Set(categoryOptions.value.map((o) => o.value));
+      const dbCats = [...new Set(data.map((p) => p.category).filter(Boolean))];
+      for (const cat of dbCats) {
+        if (!current.has(cat)) {
+          categoryOptions.value.push({ label: cat, value: cat });
+        }
       }
-      const unique = [...new Set(categories)].sort((a, b) => a.localeCompare(b));
-      categoryOptions.value = unique.map((c) => ({ label: c, value: c }));
-      console.log(categoryOptions);
     }
   } catch (e: unknown) {
-    console.log('message load json', e);
-    // Silencioso: si falla el fetch, se mostrará un input de texto como fallback
+    console.log('Error fetching extra categories', e);
   }
 });
 
@@ -315,7 +297,7 @@ async function onSubmit() {
     const productData = {
       id: localProduct.id,
       negocio_id: props.negocioId,
-      departament: isForSabrinaFashion.value ? DEPARTAMENT : null,
+      departament: DEPARTAMENT,
       name: localProduct.name,
       price: localProduct.price,
       category: localProduct.category,

@@ -1,25 +1,23 @@
 <template>
-  <q-page padding>
-    <div class="text-h4 text-center q-mb-lg">{{ branding.about.title }}</div>
-
+  <q-page class="about-page q-pa-lg">
     <div class="row justify-center">
-      <q-card class="col-12 col-md-8" flat bordered>
-        <q-card-section>
-          <div class="text-body1">{{ branding.about.content }}</div>
-        </q-card-section>
-      </q-card>
-    </div>
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="about-title text-center q-mb-lg">FERRETERÍA VIP</div>
 
-    <div class="row justify-center q-mt-lg">
-      <q-card class="col-12 col-md-8" flat bordered>
-        <q-card-section>
-          <div class="text-h6 q-mb-sm">Nuestra Misión</div>
-          <div class="text-body1">
-            Ofrecer productos de calidad a precios accesibles, brindando un excelente servicio al
-            cliente.
-          </div>
-        </q-card-section>
-      </q-card>
+        <div class="linea-vip q-mx-auto q-mb-lg" style="width: 60px;"></div>
+
+        <div class="about-content">
+          <p>En Ferretería VIP encuentras todo lo que necesitas para tu obra, reparación o proyecto del hogar. Herramientas, pintura, electricidad, plomería, materiales de construcción — todo en un solo lugar.</p>
+          <p>Trabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada.</p>
+          <p>VIP no es solo un nombre: es cómo tratamos a cada cliente.</p>
+        </div>
+
+        <div class="linea-vip q-mx-auto q-my-lg" style="width: 60px;"></div>
+
+        <div class="text-center text-gold" style="letter-spacing: 8px; font-size: 1.2rem;">
+          ★ ★ ★
+        </div>
+      </div>
     </div>
   </q-page>
 </template>
@@ -31,7 +29,36 @@ import { useMeta } from 'quasar';
 useMeta({
   title: `Acerca de | ${branding.name}`,
   meta: {
-    description: { name: 'description', content: branding.about.content },
+    description: { name: 'description', content: 'Conoce Ferretería VIP, tu ferretería de confianza con todo incluido.' },
   },
 });
 </script>
+
+<style scoped>
+.about-page {
+  background: #F5F3EF;
+  min-height: 60vh;
+}
+
+.about-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: #1A1A2E;
+}
+
+.about-content {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1A1A2E;
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+}
+
+.text-gold {
+  color: #C8963E;
+}
+</style>

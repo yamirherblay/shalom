@@ -47,7 +47,7 @@
         <q-card>
           <q-card-section class="row items-center q-col-gutter-sm justify-end">
             <div class="col-auto row q-gutter-sm">
-              <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" />
+              <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" :disable="!negocioId" />
             </div>
             <div class="col-12 col-sm-4">
               <q-input dense outlined v-model="filter" placeholder="Filtrar productos..." clearable>
@@ -137,7 +137,7 @@
               <div><strong>Nombre:</strong> {{ viewProduct?.name }}</div>
               <div>
                 <strong>Precio:</strong>
-                {{ formatPrice(viewProduct?.price, viewProduct?.currency) }}
+                {{ formatPrice(viewProduct?.price) }}
               </div>
               <div><strong>Categoría:</strong> {{ viewProduct?.category }}</div>
               <div><strong>Estado:</strong> {{ viewProduct?.estado }}</div>
@@ -195,7 +195,7 @@ import type { QTableColumn } from 'quasar';
 import ProductForm from 'src/components/ProductForm.vue';
 import { useAdminChangesStore } from 'src/stores/adminChanges';
 import { supabase } from 'boot/supabase';
-import { getBusinessId } from 'src/config/business';
+import { getAdminBusinessId } from 'src/config/business';
 import type { Product } from 'src/stores/types';
 
 const products = ref<Product[]>([]);
@@ -203,7 +203,7 @@ const filter = ref('');
 const changesStore = useAdminChangesStore();
 const addDialog = ref(false);
 const editDialog = ref(false);
-const negocioId = getBusinessId();
+const negocioId = getAdminBusinessId();
 
 const newProduct = ref<Product>({
   id: '',
@@ -217,8 +217,7 @@ const newProduct = ref<Product>({
   subcategory: '',
   descuento: 0,
   descripcion: '',
-  currency: 'CUP',
-  negocio_id: negocioId,
+  negocio_id: negocioId ?? '',
 });
 
 const editProduct = ref<Product>({
@@ -233,8 +232,7 @@ const editProduct = ref<Product>({
   subcategory: '',
   descuento: 0,
   descripcion: '',
-  currency: 'CUP',
-  negocio_id: negocioId,
+  negocio_id: negocioId ?? '',
 });
 
 const originalEditId = ref<string | null>(null);
@@ -248,7 +246,7 @@ const columns = <QTableColumn[]>[
     field: 'price',
     align: 'right',
     sortable: true,
-    format: (v: number, row: Product) => formatPrice(v, row?.currency),
+    format: (v: number) => formatPrice(v),
   },
   { name: 'category', label: 'Categoría', field: 'category', align: 'left', sortable: true },
   {
@@ -294,8 +292,7 @@ function openAdd() {
     subcategory: '',
     descuento: 0,
     descripcion: '',
-    currency: 'CUP',
-    negocio_id: negocioId,
+    negocio_id: negocioId ?? '',
   };
   addDialog.value = true;
 }
@@ -336,17 +333,17 @@ function saveEdit(product: Product) {
   editDialog.value = false;
 }
 
-function formatPrice(val?: number, currency?: string) {
-  if (val == null) return '';
-  const curr = currency || 'CUP';
-  return new Intl.NumberFormat(curr === 'USD' ? 'en-US' : 'es-ES', {
+function formatPrice(val?: number) {
+  if (val == null) return '-';
+  return new Intl.NumberFormat('es-CU', {
     style: 'currency',
-    currency: curr,
-    maximumFractionDigits: curr === 'USD' ? 2 : 0,
+    currency: 'CUP',
+    maximumFractionDigits: 0,
   }).format(val);
 }
 
 onMounted(async () => {
+  if (!negocioId) return;
   try {
     const { data } = await supabase
       .from('products')

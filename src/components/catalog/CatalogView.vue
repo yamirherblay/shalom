@@ -25,7 +25,7 @@
       @add-to-cart="handleAddToCart"
     >
       <template #empty>
-        <div v-if="searchQuery">No se encontraron productos para "{{ searchQuery }}"</div>
+        <div v-if="filterQuery">No se encontraron productos para "{{ filterQuery }}"</div>
         <div v-else>No hay productos disponibles en esta categoría.</div>
       </template>
     </ProductGrid>
@@ -39,6 +39,7 @@ import ProductFilters from './ProductFilters.vue';
 import ProductGrid from './ProductGrid.vue';
 import { useProducts } from 'src/composables/useProducts';
 import { useWhatsApp } from 'src/composables/useWhatsApp';
+import { useGlobalSearch } from 'src/composables/useGlobalSearch';
 import { useCartStore } from 'src/stores/cart';
 import type { Product } from 'src/stores/types';
 import { useQuasar } from 'quasar';
@@ -51,7 +52,11 @@ const { sendProductRequest } = useWhatsApp();
 const cartStore = useCartStore();
 
 const selectedCategory = ref('all');
-const searchQuery = ref('');
+const { searchQuery } = useGlobalSearch();
+
+const filterQuery = computed(() => {
+  return searchQuery.value || (route.query.q as string) || '';
+});
 
 const categories = computed(() => {
   const cats = getCategories();
@@ -65,8 +70,8 @@ const filteredProducts = computed(() => {
     filtered = filtered.filter((p) => p.category === selectedCategory.value);
   }
 
-  if (searchQuery.value.trim()) {
-    const query = searchQuery.value.toLowerCase().trim();
+  if (filterQuery.value.trim()) {
+    const query = filterQuery.value.toLowerCase().trim();
     filtered = filtered.filter(
       (p) =>
         p.name?.toLowerCase().includes(query) ||
@@ -90,11 +95,7 @@ function handleWhatsApp(product: Product) {
 }
 
 function handleAddToCart(product: Product) {
-  cartStore.add(
-    product,
-    1,
-    product.currency || 'CUP',
-  );
+  cartStore.add(product);
   $q.notify({
     type: 'info',
     message: `Agregado al carrito: ${product.name}`,

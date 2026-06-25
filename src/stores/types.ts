@@ -10,7 +10,6 @@ export interface Product {
   descuento: number;
   descripcion?: string;
   new?: boolean;
-  currency?: 'CUP' | 'USD';
   negocio_id?: string;
   created_at?: string;
 }
@@ -38,7 +37,6 @@ export interface Category {
 export interface CartItem {
   product: Product;
   quantity: number;
-  currency: 'CUP' | 'USD';
 }
 
 export interface OrderContact {

@@ -1,55 +1,62 @@
 <template>
-  <q-page padding>
-    <div class="text-h4 text-center q-mb-lg">{{ branding.name }}</div>
+  <q-page class="contact-page q-pa-lg">
+    <div class="row justify-center">
+      <div class="col-12 col-md-6 col-lg-5">
+        <div class="contact-title text-center q-mb-lg">CONTACTO</div>
 
-    <div class="row q-col-gutter-lg justify-center">
-      <q-card class="col-12 col-md-6" flat bordered>
-        <q-card-section>
-          <div class="text-h6 q-mb-md">Contáctanos</div>
+        <div class="linea-vip q-mx-auto q-mb-lg" style="width: 60px;"></div>
 
-          <q-list>
-            <q-item v-if="branding.contact.email">
-              <q-item-section avatar>
-                <q-icon name="email" color="primary" />
-              </q-item-section>
-              <q-item-section>
-                <q-item-label>Email</q-item-label>
-                <q-item-label caption>{{ branding.contact.email }}</q-item-label>
-              </q-item-section>
-            </q-item>
+        <q-card flat bordered class="contact-card">
+          <q-card-section>
+            <q-list>
+              <q-item v-if="branding.contact.email">
+                <q-item-section avatar>
+                  <q-icon name="email" color="secondary" size="1.5rem" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label class="text-weight-bold">Email</q-item-label>
+                  <q-item-label caption>{{ branding.contact.email }}</q-item-label>
+                </q-item-section>
+              </q-item>
 
-            <q-item v-if="branding.contact.phone">
-              <q-item-section avatar>
-                <q-icon name="phone" color="primary" />
-              </q-item-section>
-              <q-item-section>
-                <q-item-label>Teléfono</q-item-label>
-                <q-item-label caption>{{ branding.contact.phone }}</q-item-label>
-              </q-item-section>
-            </q-item>
+              <q-item v-if="branding.contact.phone">
+                <q-item-section avatar>
+                  <q-icon name="phone" color="secondary" size="1.5rem" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label class="text-weight-bold">Teléfono</q-item-label>
+                  <q-item-label caption>{{ branding.contact.phone }}</q-item-label>
+                </q-item-section>
+              </q-item>
 
-            <q-item v-if="branding.contact.address">
-              <q-item-section avatar>
-                <q-icon name="location_on" color="primary" />
-              </q-item-section>
-              <q-item-section>
-                <q-item-label>Dirección</q-item-label>
-                <q-item-label caption>{{ branding.contact.address }}</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
+              <q-item v-if="branding.contact.address">
+                <q-item-section avatar>
+                  <q-icon name="location_on" color="secondary" size="1.5rem" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label class="text-weight-bold">Dirección</q-item-label>
+                  <q-item-label caption>{{ branding.contact.address }}</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-card-section>
 
-          <q-btn
-            color="positive"
-            icon="fa-brands fa-whatsapp"
-            label="Escribir por WhatsApp"
-            class="q-mt-lg full-width"
-            unelevated
-            size="lg"
-            @click="sendContactMessage"
-          />
-        </q-card-section>
-      </q-card>
+          <q-separator />
+
+          <q-card-actions class="q-pa-md">
+            <q-btn
+              color="positive"
+              icon="fa-brands fa-whatsapp"
+              label="Escribir por WhatsApp"
+              class="full-width"
+              unelevated
+              size="lg"
+              no-caps
+              @click="sendContactMessage"
+            />
+          </q-card-actions>
+        </q-card>
+      </div>
     </div>
   </q-page>
 </template>
@@ -62,9 +69,27 @@ import { useMeta } from 'quasar';
 useMeta({
   title: `Contacto | ${branding.name}`,
   meta: {
-    description: { name: 'description', content: `Contacto con ${branding.name}` },
+    description: { name: 'description', content: `Contacta con ${branding.name}` },
   },
 });
 
 const { sendContactMessage } = useWhatsApp();
 </script>
+
+<style scoped>
+.contact-page {
+  background: #F5F3EF;
+  min-height: 60vh;
+}
+
+.contact-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: #1A1A2E;
+}
+
+.contact-card {
+  border-radius: 4px;
+}
+</style>

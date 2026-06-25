@@ -3,22 +3,23 @@ import { supabase } from 'boot/supabase';
 
 interface AuthState {
   isAuthenticated: boolean;
+  negocio_id: string | null;
   user: {
     id: string;
     email: string;
   } | null;
 }
 
-const STORAGE_KEY = 'mtx_auth_v1';
+const STORAGE_KEY = 'ferreteriavip_auth';
 
 function loadState(): AuthState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw) as AuthState;
-  } catch (Error: unknown) {
-    console.error(Error, 'Error loading auth state from localStorage.');
+  } catch {
+    console.error('Error loading auth state from localStorage.');
   }
-  return { isAuthenticated: false, user: null };
+  return { isAuthenticated: false, negocio_id: null, user: null };
 }
 
 export const useAuthStore = defineStore('auth', {
@@ -28,6 +29,15 @@ export const useAuthStore = defineStore('auth', {
     userEmail: (state) => state.user?.email || null,
   },
   actions: {
+    async fetchNegocioId(userId: string) {
+      const { data } = await supabase
+        .from('negocios')
+        .select('id')
+        .eq('user_uuid', userId)
+        .maybeSingle();
+      this.negocio_id = data?.id || null;
+    },
+
     async login(email: string, password: string): Promise<{ success: boolean; error?: string }> {
       try {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -45,6 +55,7 @@ export const useAuthStore = defineStore('auth', {
             id: data.user.id,
             email: data.user.email || '',
           };
+          await this.fetchNegocioId(data.user.id);
           this.persist();
           return { success: true };
         }
@@ -59,6 +70,7 @@ export const useAuthStore = defineStore('auth', {
     async logout() {
       await supabase.auth.signOut();
       this.isAuthenticated = false;
+      this.negocio_id = null;
       this.user = null;
       this.persist();
     },
@@ -74,6 +86,7 @@ export const useAuthStore = defineStore('auth', {
           id: session.user.id,
           email: session.user.email || '',
         };
+        await this.fetchNegocioId(session.user.id);
         this.persist();
       }
 
@@ -84,11 +97,13 @@ export const useAuthStore = defineStore('auth', {
             id: session.user.id,
             email: session.user.email || '',
           };
+         void this.fetchNegocioId(session.user.id).then(() => this.persist());
         } else {
           this.isAuthenticated = false;
+          this.negocio_id = null;
           this.user = null;
+          this.persist();
         }
-        this.persist();
       });
     },
 
@@ -98,11 +113,12 @@ export const useAuthStore = defineStore('auth', {
           STORAGE_KEY,
           JSON.stringify({
             isAuthenticated: this.isAuthenticated,
+            negocio_id: this.negocio_id,
             user: this.user,
           }),
         );
-      } catch (Error: unknown) {
-        console.error(Error, 'Error saving auth state to localStorage.');
+      } catch {
+        console.error('Error saving auth state to localStorage.');
       }
     },
   },

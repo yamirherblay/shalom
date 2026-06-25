@@ -46,7 +46,7 @@
 
         <q-item class="text-center justify-center">
           <q-item-section>
-            <q-img src="/images/logo.png" alt="MercadoTexas" />
+            <q-img src="/images/logo.png" alt="Ferretería VIP" />
           </q-item-section>
         </q-item>
       </q-list>

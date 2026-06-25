@@ -1,7 +1,7 @@
 <template>
   <div class="product-grid">
     <div class="row q-col-gutter-md">
-      <div v-for="product in products" :key="product.id" class="col-12 col-sm-12 col-md-3">
+      <div v-for="product in products" :key="product.id" class="col-6 col-sm-6 col-md-4 col-lg-3">
         <ProductCard
           :product="product"
           :show-whats-app="true"
@@ -13,7 +13,7 @@
     </div>
 
     <div v-if="products.length === 0" class="q-mt-xl text-grey text-center">
-      <slot name="empty"> No hay productos disponibles. </slot>
+      <slot name="empty">No hay productos disponibles.</slot>
     </div>
   </div>
 </template>

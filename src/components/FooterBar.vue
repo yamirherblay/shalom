@@ -1,25 +1,23 @@
 <template>
-  <q-footer
-    :class="isClothStore ? 'custom-footer text-white' : 'bg-secondary text-accent'"
-    bordered
-  >
-    <q-toolbar class="q-py-sm q-px-md">
+  <q-footer class="bg-primary text-white" bordered>
+    <q-toolbar class="q-py-md q-px-md">
       <div class="row items-center justify-between full-width q-col-gutter-md">
-        <!-- Brand / Logo -->
         <div class="row items-center q-gutter-sm">
           <q-img
-            src="/images/logo.png"
-            alt="Mercado Variado Texas"
-            width="28px"
-            height="28px"
+            src="/images/logo.jpeg"
+            :alt="brand"
+            width="40px"
+            height="40px"
             ratio="1"
           />
-          <div class="text-subtitle2 text-weight-medium text-accent">{{ brand }}</div>
+          <div>
+            <div class="text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1rem;">{{ brand }}</div>
+            <div class="text-caption text-grey-4" style="letter-spacing: 1px;">TODO INCLUIDO</div>
+          </div>
         </div>
 
-        <!-- Contact / Social -->
         <div class="row items-center q-gutter-xs">
-          <q-btn flat round dense icon="home" to="/" :aria-label="'Ir a inicio'"></q-btn>
+          <q-btn flat round dense icon="home" to="/" :aria-label="'Ir a inicio'" color="white" />
           <q-btn
             v-if="phone"
             flat
@@ -28,6 +26,7 @@
             icon="call"
             :href="`tel:${phone}`"
             :aria-label="`Llamar al ${phone}`"
+            color="white"
           />
           <q-btn
             v-if="email"
@@ -37,6 +36,7 @@
             icon="email"
             :href="`mailto:${email}`"
             aria-label="Enviar correo"
+            color="white"
           />
           <q-btn
             v-if="whatsapp"
@@ -47,12 +47,15 @@
             :href="`https://wa.me/${whatsapp}`"
             target="_blank"
             aria-label="WhatsApp"
+            color="white"
           />
         </div>
       </div>
     </q-toolbar>
-    <q-separator />
-    <div class="q-px-md q-py-sm text-caption text-center text-white">
+    <div class="text-center q-py-sm" style="color: #C8963E; letter-spacing: 8px; font-size: 1rem;">
+      ★ ★ ★
+    </div>
+    <div class="q-px-md q-py-sm text-caption text-center text-grey-4">
       © {{ year }} {{ brand }} — Todos los derechos reservados.
     </div>
   </q-footer>
@@ -60,7 +63,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
 
 interface Props {
   brand?: string;
@@ -70,23 +72,12 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  brand: 'Mercado Texas',
-  phone: '+53 54512675',
-  email: 'mercadvariadotexas@gmail.com',
-  whatsapp: '+5354512675',
+  brand: 'Ferretería VIP',
+  phone: '',
+  email: '',
+  whatsapp: '',
 });
 
 const year = computed(() => new Date().getFullYear());
-
-// expose props for template (script setup auto-exposes)
 const { brand, phone, email, whatsapp } = props;
-
-const route = useRoute();
-const isClothStore = computed(() => route.name === 'clothStore' || route.path === '/clothStore');
 </script>
-
-<style scoped>
-.custom-footer {
-  background: rgba(176, 146, 243, 0.83);
-}
-</style>

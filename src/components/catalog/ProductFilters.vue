@@ -11,7 +11,7 @@
           v-for="cat in categories"
           :key="cat.key"
           clickable
-          :color="selectedCategory === cat.key ? 'primary' : 'grey-3'"
+          :color="selectedCategory === cat.key ? 'secondary' : 'grey-3'"
           :text-color="selectedCategory === cat.key ? 'white' : 'dark'"
           class="q-px-md q-py-xs text-weight-medium"
           @click="$emit('select', cat.key)"
@@ -60,7 +60,7 @@ const barStyle = {
 .cat-scroll {
   height: 56px;
   padding: 6px 4px;
-  background: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 

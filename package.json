@@ -1,8 +1,8 @@
 {
-  "name": "catalogOnline",
+  "name": "FerreteriaVIP",
   "version": "0.0.1",
-  "description": "Solution Online Catalogo",
-  "productName": "CatalogOnlinen APP",
+  "description": "Catalogo online de Ferreteria VIP, Productos y servicios",
+  "productName": "FerreteriaVIP APP",
   "author": "Yyd Solution",
   "type": "module",
   "private": true,

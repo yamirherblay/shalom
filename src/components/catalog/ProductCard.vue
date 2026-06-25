@@ -1,48 +1,51 @@
 <template>
   <q-card class="product-card">
+    <div class="gold-border-top"></div>
     <q-img :src="product.image || '/images/placeholder.svg'" :ratio="1" :alt="product.name">
       <div v-if="product.oferta && product.estado !== 'Agotado'" class="absolute-top-right q-pa-sm">
-        <q-badge color="red" text-color="white" label="Oferta" />
+        <q-badge color="accent" text-color="white" label="Oferta" class="badge-oferta" />
       </div>
       <div v-if="product.new" class="absolute-top-left q-pa-sm">
-        <q-badge color="primary" text-color="white" label="Nuevo" />
+        <q-badge color="dark" text-color="white" label="Nuevo" class="badge-new" />
       </div>
     </q-img>
 
-    <q-card-section>
-      <div class="text-subtitle1 ellipsis-2-lines card-title">{{ product.name }}</div>
-      <div v-if="product.descripcion" class="text-caption card-caption ellipsis-2-lines">
+    <q-card-section class="q-pa-sm">
+      <div class="card-title">{{ product.name }}</div>
+      <div v-if="product.descripcion" class="card-desc text-grey-7 ellipsis-2-lines">
         {{ product.descripcion }}
       </div>
-      <div class="row items-center q-mt-sm justify-between">
-        <div class="text-h6 card-price">{{ formattedPrice }}</div>
+      <div class="row items-center q-mt-xs justify-between">
+        <div class="card-price">{{ formattedPrice }}</div>
         <q-badge
-          :color="product.estado === 'Disponible' ? 'blue-7' : 'red'"
-          :text-color="product.estado === 'Disponible' ? 'white' : 'grey-1'"
+          :color="product.estado === 'Disponible' ? 'positive' : 'negative'"
+          :text-color="'white'"
           :label="product.estado"
+          class="card-status"
         />
       </div>
     </q-card-section>
 
-    <q-separator />
-
-    <q-card-actions align="right">
+    <q-card-actions class="q-pa-sm row items-center justify-between">
       <q-btn
         v-if="showWhatsApp"
-        class="card-whatsapp text-white"
-        unelevated
-        size="sm"
+        flat
+        round
+        dense
         icon="fa-brands fa-whatsapp"
-        label="Solicitar"
+        size="sm"
+        class="card-whatsapp-icon"
         @click="$emit('whatsapp', product)"
       />
+      <div v-else />
       <q-btn
         v-if="showAddToCart"
-        color="primary"
-        unelevated
+        class="card-add"
+        outline
         size="sm"
         icon="shopping_cart"
         label="Añadir"
+        no-caps
         :disable="product.estado === 'Agotado'"
         @click="$emit('add-to-cart', product)"
       />
@@ -67,15 +70,14 @@ defineEmits<{
 
 const formattedPrice = computed(() => {
   const price = props.product.descuento || props.product.price;
-  const currency = props.product.currency || 'CUP';
-  return formatPrice(price, currency);
+  return formatPrice(price);
 });
 
-function formatPrice(value: number, currency: 'CUP' | 'USD'): string {
-  return new Intl.NumberFormat(currency === 'USD' ? 'en-US' : 'es-ES', {
+function formatPrice(value: number): string {
+  return new Intl.NumberFormat('es-CU', {
     style: 'currency',
-    currency: currency,
-    maximumFractionDigits: currency === 'USD' ? 2 : 0,
+    currency: 'CUP',
+    maximumFractionDigits: 0,
   }).format(value);
 }
 </script>
@@ -83,32 +85,78 @@ function formatPrice(value: number, currency: 'CUP' | 'USD'): string {
 <style scoped>
 .product-card {
   width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  border-radius: 12px;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover .gold-border-top {
+  border-image: linear-gradient(90deg, #C8963E, #D4A84E) 1;
 }
 
 .card-title {
-  color: #27272a;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #1A1A2E;
+  line-height: 1.2;
 }
 
-.card-caption {
-  color: #71717a;
+.card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  margin-top: 2px;
 }
 
 .card-price {
-  color: #27272a;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1A1A2E;
 }
-.card-whatsapp {
-  background-color: #25D366;
+
+.card-status {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.card-whatsapp-icon {
+  color: #25D366;
+}
+
+.card-add {
+  border-color: #C8963E;
+  color: #C8963E;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.badge-oferta {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.badge-new {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  border-radius: 2px;
 }
 
 .ellipsis-2-lines {

@@ -5,10 +5,9 @@
         v-if="showButton && buttonLabel"
         dense
         flat
-        class="bg-grey-10 text-yellow"
+        class="bg-grey-10 text-gold"
         @click="$emit('button-click')"
-        >{{ buttonLabel }}</q-btn
-      >
+      >{{ buttonLabel }}</q-btn>
       <div class="marquee-track">
         <span>{{ message }}</span>
       </div>
@@ -36,15 +35,14 @@ defineEmits<{
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(169, 168, 169, 0.92);
-  color: #000;
+  background: #1A1A2E;
+  color: #C8963E;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 8px;
+  padding: 6px 8px;
   z-index: 2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .marquee-bar.absolute {
   position: absolute;
@@ -54,18 +52,14 @@ defineEmits<{
   white-space: nowrap;
   display: inline-block;
   padding-left: 100%;
-  font-weight: 600;
-  font-size: 1.125rem;
+  font-weight: 500;
+  font-size: 0.95rem;
   animation: marquee-scroll 15s linear infinite;
 }
 
 @keyframes marquee-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 @media (prefers-reduced-motion: reduce) {

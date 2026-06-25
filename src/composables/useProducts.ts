@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { supabase } from 'boot/supabase';
-import { getBusinessId } from 'src/config/business'
+import { getBusinessId, getAdminBusinessId } from 'src/config/business'
 import type { Product } from 'src/stores/types';
 
 export function useProducts() {
@@ -40,13 +40,19 @@ export function useProducts() {
   }
 
   async function createProduct(productData: Partial<Product>): Promise<Product | null> {
+    const adminNegocioId = getAdminBusinessId();
+    if (!adminNegocioId) {
+      error.value = 'No autorizado: inicia sesión para crear productos';
+      return null;
+    }
+
     loading.value = true;
     error.value = null;
     try {
       const dataToInsert = {
         ...productData,
-        negocio_id,
-        currency: productData.currency || 'CUP',
+        negocio_id: adminNegocioId,
+        currency: 'CUP',
         estado: productData.estado || 'Disponible',
         oferta: productData.oferta || false,
         new: productData.new || false,
@@ -71,6 +77,12 @@ export function useProducts() {
   }
 
   async function updateProduct(id: string, productData: Partial<Product>): Promise<boolean> {
+    const adminNegocioId = getAdminBusinessId();
+    if (!adminNegocioId) {
+      error.value = 'No autorizado: inicia sesión para actualizar productos';
+      return false;
+    }
+
     loading.value = true;
     error.value = null;
     try {
@@ -78,7 +90,7 @@ export function useProducts() {
         .from('products')
         .update(productData)
         .eq('id', id)
-        .eq('negocio_id', negocio_id);
+        .eq('negocio_id', adminNegocioId);
 
       if (updateError) throw updateError;
       return true;
@@ -92,6 +104,12 @@ export function useProducts() {
   }
 
   async function deleteProduct(id: string): Promise<boolean> {
+    const adminNegocioId = getAdminBusinessId();
+    if (!adminNegocioId) {
+      error.value = 'No autorizado: inicia sesión para eliminar productos';
+      return false;
+    }
+
     loading.value = true;
     error.value = null;
     try {
@@ -99,7 +117,7 @@ export function useProducts() {
         .from('products')
         .delete()
         .eq('id', id)
-        .eq('negocio_id', negocio_id);
+        .eq('negocio_id', adminNegocioId);
 
       if (deleteError) throw deleteError;
       return true;

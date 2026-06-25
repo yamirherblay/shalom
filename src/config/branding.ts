@@ -1,27 +1,29 @@
 export const branding = {
-  name: 'Mi Negocio',
-  slogan: 'Los mejores productos para ti',
-  logo: '/images/logo.svg',
+  name: 'Ferretería VIP',
+  slogan: 'Todo Incluido',
+  logo: '/images/logo.jpeg',
   hero: {
-    title: 'Bienvenido a Mi Negocio',
-    subtitle: 'Calidad y precios inmejorables',
+    title: 'FERRETERÍA',
+    subtitle: 'Herramientas, materiales y más para tu hogar',
     ctaText: 'Ver Catálogo',
     ctaLink: '/catalogo',
-    secondaryCtaText: 'Ofertas Especiales',
-    secondaryCtaLink: '/catalogo?cat=Hogar',
+    secondaryCtaText: '',
+    secondaryCtaLink: '',
   },
   colors: {
-    primary: '#27272A',
-    secondary: '#71717A',
-    accent: '#16A34A',
+    primary: '#0A2747',
+    secondary: '#C8963E',
+    accent: '#E85D04',
+    heroBg: '#0C1A2E',
   },
   contact: {
-    email: 'contacto@minegocio.com',
-    phone: '555-1234',
+    email: '',
+    phone: '',
     address: '',
   },
   about: {
-    title: 'Sobre Nosotros',
-    content: 'Somos una empresa dedicada a ofrecer los mejores productos a precios competitivos.',
+    title: 'Ferretería VIP',
+    content:
+      'En Ferretería VIP encuentras todo lo que necesitas para tu obra, reparación o proyecto del hogar. Herramientas, pintura, electricidad, plomería, materiales de construcción — todo en un solo lugar.\n\nTrabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada.\n\nVIP no es solo un nombre: es cómo tratamos a cada cliente.',
   },
 };

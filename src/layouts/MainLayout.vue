@@ -1,79 +1,165 @@
 <template>
-  <q-layout view="lHh Lpr lff">
-    <q-header class="bg-primary" elevated>
+  <q-layout view="lHh Lpr lFf">
+    <q-header class="bg-primary text-white" elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          round
-          dense
-          icon="menu"
-          class="lt-md"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
         <q-toolbar-title>
           <q-btn flat no-caps :to="'/'">
-            {{ branding.name }}
+            <span class="text-white text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">FERRETERÍA</span>
+            <span class="text-gold q-ml-xs text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">VIP</span>
           </q-btn>
         </q-toolbar-title>
 
         <div class="gt-sm row items-center q-gutter-x-sm">
-          <q-btn flat dense label="Inicio" to="/" />
-          <q-btn flat dense label="Catálogo" to="/catalogo" />
-          <q-btn flat dense label="Contacto" to="/contacto" />
-          <q-btn flat dense label="Acerca" to="/acerca" />
+          <q-btn flat dense label="Inicio" to="/" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
+          <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
+          <q-btn flat dense label="Contacto" to="/contacto" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
+          <q-btn flat dense label="Acerca" to="/acerca" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
         </div>
 
-        <q-btn flat round dense icon="shopping_cart" class="q-ml-sm" @click="showCart = true">
-          <q-badge color="red" text-color="white" floating v-if="cart.count">
+        <q-btn
+          flat
+          round
+          dense
+          icon="shopping_cart"
+          class="q-ml-sm text-white"
+          @click="showCart = true"
+        >
+          <q-badge color="accent" text-color="white" floating v-if="cart.count">
             {{ cart.count }}
           </q-badge>
         </q-btn>
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay behavior="mobile" bordered class="lt-md">
-      <q-list padding>
-        <q-item clickable v-ripple to="/">
-          <q-item-section avatar><q-icon name="home" /></q-item-section>
-          <q-item-section>Inicio</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/catalogo">
-          <q-item-section avatar><q-icon name="store" /></q-item-section>
-          <q-item-section>Catálogo</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/contacto">
-          <q-item-section avatar><q-icon name="contact_support" /></q-item-section>
-          <q-item-section>Contacto</q-item-section>
-        </q-item>
-        <q-item clickable v-ripple to="/acerca">
-          <q-item-section avatar><q-icon name="info" /></q-item-section>
-          <q-item-section>Acerca de</q-item-section>
-        </q-item>
-        <q-separator class="q-my-md" />
-        <q-item>
-          <q-item-section class="text-center">
-            <q-img :src="branding.logo" :alt="branding.name" style="max-width: 120px" />
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer v-if="$q.screen.lt.md" class="bg-primary text-white bottom-nav" bordered fixed>
+      <div class="search-panel" :class="{ 'search-open': searchActive }">
+        <q-input
+          ref="searchInputRef"
+          v-model="searchQuery"
+          dense
+          filled
+          placeholder="Buscar productos..."
+          class="search-input q-px-sm q-py-xs"
+          dark
+          bg-color="primary"
+          @keyup.enter="doSearch"
+        >
+          <template v-slot:prepend>
+            <q-icon name="search" />
+          </template>
+          <template v-slot:append>
+            <q-btn flat round dense icon="close" size="sm" color="white" @click="closeSearch" />
+          </template>
+        </q-input>
+      </div>
+
+      <q-tabs
+        active-color="secondary"
+        indicator-color="transparent"
+        class="text-grey-4"
+        narrow-indicator
+        dense
+      >
+        <q-route-tab icon="home" to="/" label="Inicio" />
+        <q-route-tab icon="store" to="/catalogo" label="Catálogo" />
+        <q-tab
+          icon="search"
+          label="Buscar"
+          @click="toggleSearch"
+        />
+        <q-route-tab icon="contact_support" to="/contacto" label="Contacto" />
+        <q-route-tab icon="info" to="/acerca" label="Acerca" />
+      </q-tabs>
+    </q-footer>
 
     <cart-modal v-model="showCart" />
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
+import { useRouter } from 'vue-router';
+import { useQuasar } from 'quasar';
 import { useCartStore } from 'src/stores/cart';
-import { branding } from 'src/config/branding';
+import { useGlobalSearch } from 'src/composables/useGlobalSearch';
 import CartModal from 'components/CartModal.vue';
 
-const leftDrawerOpen = ref(false);
+const $q = useQuasar();
+const router = useRouter();
 const showCart = ref(false);
 const cart = useCartStore();
+
+const searchActive = ref(false);
+const searchInputRef = ref<{ focus: () => void } | null>(null);
+const { searchQuery } = useGlobalSearch();
+
+function toggleSearch() {
+  searchActive.value = !searchActive.value;
+  if (searchActive.value) {
+    void nextTick(() => {
+      searchInputRef.value?.focus();
+    });
+  }
+}
+
+function closeSearch() {
+  searchActive.value = false;
+  searchQuery.value = '';
+}
+
+function doSearch() {
+  const q = searchQuery.value.trim();
+  if (!q) return;
+  searchActive.value = false;
+  searchQuery.value = '';
+  void router.push({ path: '/catalogo', query: { q } });
+}
 </script>
+
+<style lang="scss">
+.text-gold {
+  color: #C8963E;
+}
+
+.search-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  &.search-open {
+    max-height: 56px;
+  }
+}
+
+.search-input {
+  :deep(.q-field__control) {
+    border-radius: 0;
+  }
+
+  :deep(.q-field__native) {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+  }
+}
+
+.bottom-nav {
+  .q-tab {
+    padding: 4px 0;
+    min-height: 56px;
+  }
+
+  .q-tab__icon {
+    font-size: 1.6rem;
+  }
+
+  .q-tab__label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+  }
+}
+</style>
