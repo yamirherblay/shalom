@@ -5,7 +5,7 @@
       <div class="hero-glow"></div>
       <div class="hero-content column items-center text-center q-pa-lg">
         <q-img
-          src="/images/logo.jpeg"
+          src="/images/logo.png"
           alt="Ferretería VIP"
           class="hero-logo q-mb-lg"
           ratio="1"
