@@ -1,7 +1,13 @@
 <template>
   <q-card class="product-card">
     <div class="gold-border-top"></div>
-    <q-img :src="product.image || '/images/placeholder.svg'" :ratio="1" :alt="product.name">
+    <q-img
+      :src="product.image || '/images/placeholder.svg'"
+      :ratio="1"
+      :alt="product.name"
+      class="cursor-pointer"
+      @click.stop="preview.open(product)"
+    >
       <div v-if="product.oferta && product.estado !== 'Agotado'" class="absolute-top-right q-pa-sm">
         <q-badge color="accent" text-color="white" label="Oferta" class="badge-oferta" />
       </div>
@@ -56,6 +62,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { Product } from 'src/stores/types';
+import { useProductPreview } from 'src/composables/useProductPreview';
+
+const preview = useProductPreview();
 
 const props = defineProps<{
   product: Product;

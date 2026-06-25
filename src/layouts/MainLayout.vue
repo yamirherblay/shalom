@@ -102,6 +102,7 @@
     </q-footer>
 
     <cart-modal v-model="showCart" />
+    <ProductPreview />
   </q-layout>
 </template>
 
@@ -112,6 +113,7 @@ import { useQuasar } from 'quasar';
 import { useCartStore } from 'src/stores/cart';
 import { useGlobalSearch } from 'src/composables/useGlobalSearch';
 import { formatWhatsAppUrl, whatsappConfig } from 'src/config/whatsapp';
+import ProductPreview from 'components/catalog/ProductPreview.vue';
 import CartModal from 'components/CartModal.vue';
 
 const $q = useQuasar();

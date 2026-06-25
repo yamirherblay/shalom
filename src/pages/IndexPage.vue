@@ -1,7 +1,8 @@
 <template>
   <q-page class="index-page">
     <!-- Hero -->
-    <section class="hero-section text-white">
+    <section class="hero-section text-white noise-bg">
+      <div class="hero-glow"></div>
       <div class="hero-content column items-center text-center q-pa-lg">
         <q-img
           src="/images/logo.jpeg"
@@ -9,7 +10,7 @@
           class="hero-logo q-mb-lg"
           ratio="1"
         />
-        <div class="hero-subtitle text-grey-4 q-mb-lg">
+        <div class="hero-subtitle text-grey-4 q-mb-lg hero-enter-sub">
           {{ branding.hero.subtitle }}
         </div>
         <q-btn
@@ -19,12 +20,12 @@
           :to="branding.hero.ctaLink"
           unelevated
           no-caps
-          class="hero-cta q-px-xl"
+          class="hero-cta q-px-xl hero-enter-cta"
         />
       </div>
     </section>
 
-    <hr class="brass-rule" />
+    <hr class="brass-rule hero-enter-rule" />
 
     <!-- Categories -->
     <section class="categories-section q-pa-lg section-reveal">
@@ -87,7 +88,8 @@
             <q-img
               :src="product.image || '/images/placeholder.svg'"
               ratio="1"
-              class="shelf-img"
+              class="shelf-img cursor-pointer"
+              @click.stop="preview.open(product)"
             />
             <div class="shelf-divider"></div>
             <div class="shelf-info q-pa-sm">
@@ -148,7 +150,10 @@ import { branding } from 'src/config/branding';
 import { defaultCategories } from 'src/config/categories';
 import { whatsappConfig, formatWhatsAppUrl } from 'src/config/whatsapp';
 import { useProducts } from 'src/composables/useProducts';
+import { useProductPreview } from 'src/composables/useProductPreview';
 import { useMeta } from 'quasar';
+
+const preview = useProductPreview();
 
 const displayCategories = defaultCategories.filter((c) => c.key !== 'all');
 const revealedCategories = ref(false);
@@ -221,12 +226,34 @@ useMeta({
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(200, 150, 62, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-logo {
   width: 260px;
   height: 260px;
   border-radius: 50%;
+  animation:
+    hero-scale-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
+    logo-float 4s ease-in-out infinite;
+  animation-delay: 0s, 1.2s;
 }
 
 .hero-subtitle {
@@ -239,6 +266,48 @@ useMeta({
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   border-radius: 2px;
+}
+
+/* Entrance animations */
+@keyframes hero-scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-rule-expand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.hero-enter-sub {
+  animation: hero-fade-in 0.6s ease both;
+  animation-delay: 0.25s;
+}
+
+.hero-enter-cta {
+  animation: hero-fade-up 0.6s ease both;
+  animation-delay: 0.5s;
+}
+
+.hero-enter-rule {
+  animation: hero-rule-expand 0.5s ease both;
+  animation-delay: 0.8s;
+  transform-origin: center;
 }
 
 /* Categories */
