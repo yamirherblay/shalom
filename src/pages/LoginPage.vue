@@ -59,6 +59,15 @@
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useAuthStore } from 'src/stores/auth';
+import { useMeta } from 'quasar';
+
+useMeta({
+  title: 'Acceso | Ferretería VIP',
+  meta: {
+    robots: { name: 'robots', content: 'noindex, nofollow' },
+  },
+});
+
 
 const email = ref('');
 const password = ref('');

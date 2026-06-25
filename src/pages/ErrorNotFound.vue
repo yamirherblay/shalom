@@ -19,5 +19,12 @@
 </template>
 
 <script setup lang="ts">
-//
+import { useMeta } from 'quasar';
+
+useMeta({
+  title: '404 | Página no encontrada',
+  meta: {
+    robots: { name: 'robots', content: 'noindex, nofollow' },
+  },
+});
 </script>

@@ -14,6 +14,11 @@ useMeta({
   title: 'Ferretería VIP | Catálogo',
   meta: {
     description: { name: 'description', content: 'Catálogo de productos Ferretería VIP' },
+    'og:title': { property: 'og:title', content: 'Ferretería VIP | Catálogo' },
+    'og:description': { property: 'og:description', content: 'Catálogo de productos Ferretería VIP' },
+    'og:url': { property: 'og:url', content: '/catalogo' },
+    'twitter:title': { name: 'twitter:title', content: 'Ferretería VIP | Catálogo' },
+    'twitter:description': { name: 'twitter:description', content: 'Catálogo de productos Ferretería VIP' },
   },
 });
 </script>

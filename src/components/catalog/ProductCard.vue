@@ -78,7 +78,7 @@ defineEmits<{
 }>();
 
 const formattedPrice = computed(() => {
-  const price = props.product.descuento || props.product.price;
+  const price = props.product.oferta ? props.product.descuento : props.product.price;
   return formatPrice(price);
 });
 
@@ -96,7 +96,9 @@ function formatPrice(value: number): string {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .product-card:hover {
@@ -105,7 +107,7 @@ function formatPrice(value: number): string {
 }
 
 .product-card:hover .gold-border-top {
-  border-image: linear-gradient(90deg, #C8963E, #D4A84E) 1;
+  border-image: linear-gradient(90deg, #c8963e, #d4a84e) 1;
 }
 
 .card-title {
@@ -114,7 +116,7 @@ function formatPrice(value: number): string {
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #1A1A2E;
+  color: #1a1a2e;
   line-height: 1.2;
 }
 
@@ -129,7 +131,7 @@ function formatPrice(value: number): string {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
   font-weight: 400;
-  color: #1A1A2E;
+  color: #1a1a2e;
 }
 
 .card-status {
@@ -141,12 +143,12 @@ function formatPrice(value: number): string {
 }
 
 .card-whatsapp-icon {
-  color: #25D366;
+  color: #25d366;
 }
 
 .card-add {
-  border-color: #C8963E;
-  color: #C8963E;
+  border-color: #c8963e;
+  color: #c8963e;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 0.8rem;

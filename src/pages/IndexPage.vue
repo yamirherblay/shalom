@@ -209,6 +209,11 @@ useMeta({
   title: `${branding.name} | Inicio`,
   meta: {
     description: { name: 'description', content: branding.slogan },
+    'og:title': { property: 'og:title', content: `${branding.name} | Inicio` },
+    'og:description': { property: 'og:description', content: branding.slogan },
+    'og:url': { property: 'og:url', content: '/' },
+    'twitter:title': { name: 'twitter:title', content: `${branding.name} | Inicio` },
+    'twitter:description': { name: 'twitter:description', content: branding.slogan },
   },
 });
 </script>

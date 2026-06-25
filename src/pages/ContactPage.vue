@@ -70,6 +70,11 @@ useMeta({
   title: `Contacto | ${branding.name}`,
   meta: {
     description: { name: 'description', content: `Contacta con ${branding.name}` },
+    'og:title': { property: 'og:title', content: `Contacto | ${branding.name}` },
+    'og:description': { property: 'og:description', content: `Contacta con ${branding.name}` },
+    'og:url': { property: 'og:url', content: '/contacto' },
+    'twitter:title': { name: 'twitter:title', content: `Contacto | ${branding.name}` },
+    'twitter:description': { name: 'twitter:description', content: `Contacta con ${branding.name}` },
   },
 });
 

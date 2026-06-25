@@ -30,7 +30,7 @@
           dense
           icon="admin_panel_settings"
           class="q-ml-sm text-white"
-          to="/login"
+          :to="adminRoute"
         />
 
         <q-btn
@@ -111,10 +111,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, nextTick } from 'vue';
+import { ref, computed, watch, nextTick } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useQuasar } from 'quasar';
 import { useCartStore } from 'src/stores/cart';
+import { useAuthStore } from 'src/stores/auth';
 import { useGlobalSearch } from 'src/composables/useGlobalSearch';
 import { formatWhatsAppUrl, whatsappConfig } from 'src/config/whatsapp';
 import ProductPreview from 'components/catalog/ProductPreview.vue';
@@ -125,6 +126,10 @@ const router = useRouter();
 const route = useRoute();
 const showCart = ref(false);
 const cart = useCartStore();
+const auth = useAuthStore();
+const adminRoute = computed(() =>
+  auth.isAuthenticated ? { name: 'admin' } : { name: 'login' },
+);
 
 const searchActive = ref(false);
 const searchInputRef = ref<{ focus: () => void } | null>(null);

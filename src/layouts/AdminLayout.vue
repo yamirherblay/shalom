@@ -48,14 +48,14 @@
         <q-item
           clickable
           v-ripple
-          :active="$route.name === 'tienda'"
+          :active="$route.name === 'catalogo'"
           active-class="text-secondary bg-grey-2"
-          @click="$router.push({ name: 'tienda' })"
+          @click="$router.push({ name: 'catalogo' })"
         >
           <q-item-section avatar>
             <q-icon name="store" class="text-grey-6" />
           </q-item-section>
-          <q-item-section class="text-weight-medium">Tienda</q-item-section>
+          <q-item-section class="text-weight-medium">Catalogo</q-item-section>
         </q-item>
       </q-list>
 
