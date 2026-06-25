@@ -75,25 +75,29 @@
       </div>
 
       <q-tabs
+        v-model="activeTab"
         active-color="secondary"
         indicator-color="transparent"
         class="text-grey-4"
         narrow-indicator
         dense
       >
-        <q-route-tab icon="home" to="/" label="Inicio" />
-        <q-route-tab icon="store" to="/catalogo" label="Catálogo" />
+        <q-route-tab name="home" icon="home" to="/" label="Inicio" />
+        <q-route-tab name="store" icon="store" to="/catalogo" label="Catálogo" />
         <q-tab
+          name="search"
           icon="search"
           label="Buscar"
           @click="toggleSearch"
         />
         <q-tab
+          name="cart"
           icon="shopping_cart"
           label="Carrito"
           @click="showCart = true"
         />
         <q-tab
+          name="whatsapp"
           icon="fa-brands fa-whatsapp"
           label="WhatsApp"
           @click="openWhatsApp"
@@ -107,8 +111,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, watch, nextTick } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import { useQuasar } from 'quasar';
 import { useCartStore } from 'src/stores/cart';
 import { useGlobalSearch } from 'src/composables/useGlobalSearch';
@@ -118,6 +122,7 @@ import CartModal from 'components/CartModal.vue';
 
 const $q = useQuasar();
 const router = useRouter();
+const route = useRoute();
 const showCart = ref(false);
 const cart = useCartStore();
 
@@ -127,18 +132,40 @@ const { searchQuery } = useGlobalSearch();
 
 const whatsappUrl = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
 
+function activeTabFromRoute(path: string) {
+  if (path === '/') return 'home';
+  if (path === '/catalogo') return 'store';
+  return 'home';
+}
+
+const activeTab = ref(activeTabFromRoute(route.path));
+
+watch(() => route.path, (path) => {
+  activeTab.value = activeTabFromRoute(path);
+});
+
+watch(showCart, (val) => {
+  if (!val) {
+    activeTab.value = activeTabFromRoute(route.path);
+  }
+});
+
 function toggleSearch() {
   searchActive.value = !searchActive.value;
   if (searchActive.value) {
+    activeTab.value = 'search';
     void nextTick(() => {
       searchInputRef.value?.focus();
     });
+  } else {
+    activeTab.value = activeTabFromRoute(route.path);
   }
 }
 
 function closeSearch() {
   searchActive.value = false;
   searchQuery.value = '';
+  activeTab.value = activeTabFromRoute(route.path);
 }
 
 function doSearch() {
@@ -151,6 +178,7 @@ function doSearch() {
 
 function openWhatsApp() {
   window.open(whatsappUrl, '_blank');
+  activeTab.value = activeTabFromRoute(route.path);
 }
 </script>
 
