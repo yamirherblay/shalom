@@ -217,16 +217,28 @@ function openWhatsApp() {
   .q-tab {
     padding: 4px 0;
     min-height: 56px;
+    transition: transform 0.12s ease;
   }
 
   .q-tab__icon {
     font-size: 1.6rem;
+    transition: transform 0.12s ease;
   }
 
   .q-tab__label {
     font-size: 0.8rem;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
+  }
+
+  @media (hover: hover) {
+    .q-tab:hover {
+      transform: scale(1.08);
+    }
+  }
+
+  .q-tab:active {
+    transform: scale(1.08);
   }
 }
 </style>
