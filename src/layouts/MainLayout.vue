@@ -12,9 +12,26 @@
         <div class="gt-sm row items-center q-gutter-x-sm">
           <q-btn flat dense label="Inicio" to="/" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
           <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
-          <q-btn flat dense label="Contacto" to="/contacto" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
-          <q-btn flat dense label="Acerca" to="/acerca" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
+          <q-btn
+            flat
+            dense
+            :href="whatsappUrl"
+            target="_blank"
+            icon="fa-brands fa-whatsapp"
+            label="WhatsApp"
+            class="text-white"
+            style="font-family: 'Inter', sans-serif; letter-spacing: 1px;"
+          />
         </div>
+
+        <q-btn
+          flat
+          round
+          dense
+          icon="admin_panel_settings"
+          class="q-ml-sm text-white"
+          to="/login"
+        />
 
         <q-btn
           flat
@@ -71,8 +88,16 @@
           label="Buscar"
           @click="toggleSearch"
         />
-        <q-route-tab icon="contact_support" to="/contacto" label="Contacto" />
-        <q-route-tab icon="info" to="/acerca" label="Acerca" />
+        <q-tab
+          icon="shopping_cart"
+          label="Carrito"
+          @click="showCart = true"
+        />
+        <q-tab
+          icon="fa-brands fa-whatsapp"
+          label="WhatsApp"
+          @click="openWhatsApp"
+        />
       </q-tabs>
     </q-footer>
 
@@ -86,6 +111,7 @@ import { useRouter } from 'vue-router';
 import { useQuasar } from 'quasar';
 import { useCartStore } from 'src/stores/cart';
 import { useGlobalSearch } from 'src/composables/useGlobalSearch';
+import { formatWhatsAppUrl, whatsappConfig } from 'src/config/whatsapp';
 import CartModal from 'components/CartModal.vue';
 
 const $q = useQuasar();
@@ -96,6 +122,8 @@ const cart = useCartStore();
 const searchActive = ref(false);
 const searchInputRef = ref<{ focus: () => void } | null>(null);
 const { searchQuery } = useGlobalSearch();
+
+const whatsappUrl = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
 
 function toggleSearch() {
   searchActive.value = !searchActive.value;
@@ -117,6 +145,10 @@ function doSearch() {
   searchActive.value = false;
   searchQuery.value = '';
   void router.push({ path: '/catalogo', query: { q } });
+}
+
+function openWhatsApp() {
+  window.open(whatsappUrl, '_blank');
 }
 </script>
 

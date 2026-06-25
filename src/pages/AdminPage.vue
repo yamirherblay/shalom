@@ -1,146 +1,168 @@
 <template>
   <q-page padding>
-    <div class="row q-col-gutter-md items-lg-stretch">
-      <div class="row q-col-gutter-lg q-mt-md q-mb-lg col-12 justify-around">
-        <q-card
-          bordered
-          class="col-12 col-sm-6 col-md-4 stat-card bg-info text-white shadow-2 rounded-borders q-pa-md"
-        >
-          <q-card-section class="row items-center">
-            <q-icon name="inventory_2" size="32px" class="q-mr-md" />
-            <div>
-              <div class="text-subtitle2">Total de productos</div>
-              <div class="text-h5 text-weight-bold">{{ totalProducts }}</div>
-            </div>
-          </q-card-section>
-        </q-card>
+    <div class="text-h5 q-mb-none" style="font-family: 'Oswald', sans-serif; letter-spacing: 1.5px; color: #0A2747;">RESUMEN</div>
+    <div class="q-mb-lg" style="border-bottom: 2px solid #C8963E; width: 40px; margin-top: 4px;"></div>
 
-        <q-card
-          bordered
-          class="col-12 col-sm-6 col-md-4 stat-card bg-positive text-white shadow-2 rounded-borders q-pa-md"
-        >
-          <q-card-section class="row items-center">
-            <q-icon name="check_circle" size="32px" class="q-mr-md" />
-            <div>
-              <div class="text-subtitle2">Disponibles</div>
-              <div class="text-h5 text-weight-bold">{{ availableCount }}</div>
+    <div class="row q-col-gutter-md q-mb-lg">
+      <div class="col-12 col-sm-4">
+        <q-card class="stat-card" style="border-left: 4px solid #0A2747;">
+          <q-card-section class="row items-center no-wrap q-py-md">
+            <div class="stat-icon" style="background: #0A2747;">
+              <q-icon name="inventory_2" size="22px" color="white" />
             </div>
-          </q-card-section>
-        </q-card>
-
-        <q-card
-          bordered
-          class="col-12 col-sm-6 col-md-4 stat-card bg-orange-7 text-white shadow-2 rounded-borders q-pa-md"
-        >
-          <q-card-section class="row items-center no-wrap">
-            <q-icon name="local_offer" size="32px" class="q-mr-md" />
-            <div>
-              <div class="text-subtitle2">En oferta</div>
-              <div class="text-h5 text-weight-bold">{{ offerCount }}</div>
+            <div class="q-ml-md">
+              <div class="text-caption text-grey-7 text-weight-medium" style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px;">TOTAL</div>
+              <div class="text-h5 text-weight-bold" style="font-family: 'JetBrains Mono', monospace; color: #0A2747;">{{ totalProducts }}</div>
             </div>
           </q-card-section>
         </q-card>
       </div>
 
-      <div class="col-12">
-        <div class="text-h5">Productos</div>
-        <q-card>
-          <q-card-section class="row items-center q-col-gutter-sm justify-end">
-            <div class="col-auto row q-gutter-sm">
-              <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" :disable="!negocioId" />
+      <div class="col-12 col-sm-4">
+        <q-card class="stat-card" style="border-left: 4px solid #2D6A4F;">
+          <q-card-section class="row items-center no-wrap q-py-md">
+            <div class="stat-icon" style="background: #2D6A4F;">
+              <q-icon name="check_circle" size="22px" color="white" />
             </div>
-            <div class="col-12 col-sm-4">
-              <q-input dense outlined v-model="filter" placeholder="Filtrar productos..." clearable>
-                <template #prepend>
-                  <q-icon name="search" />
-                </template>
-              </q-input>
+            <div class="q-ml-md">
+              <div class="text-caption text-grey-7 text-weight-medium" style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px;">DISPONIBLES</div>
+              <div class="text-h5 text-weight-bold" style="font-family: 'JetBrains Mono', monospace; color: #2D6A4F;">{{ availableCount }}</div>
             </div>
           </q-card-section>
-          <q-separator />
-          <q-card-section>
-            <q-table
-              flat
-              bordered
-              :rows="filteredProducts"
-              :columns="columns"
-              loading-label="Cargando productos..."
-              row-key="id"
-              :pagination="{ rowsPerPage: 10 }"
-            >
-              <template #body-cell-actions="props">
-                <q-td :props="props">
-                  <q-btn
-                    size="sm"
-                    color="primary"
-                    flat
-                    icon="visibility"
-                    label="Ver"
-                    class="q-mr-sm"
-                    @click="openView(props.row)"
-                  />
-                  <q-btn
-                    size="sm"
-                    color="secondary"
-                    flat
-                    icon="edit"
-                    label="Editar"
-                    @click="openEdit(props.row)"
-                  />
-                </q-td>
-              </template>
-              <template #body-cell-image="props">
-                <q-td :props="props">
-                  <q-img :src="props.row.image" :ratio="1" style="width: 40px; height: 40px" />
-                </q-td>
-              </template>
-              <template #body-cell-disponibilidad="props">
-                <q-td :props="props">
-                  <q-badge
-                    :label="props.row.estado"
-                    :color="props.row.estado === 'Disponible' ? 'green' : 'red-7'"
-                    :text-color="props.row.estado === 'Disponible' ? 'white' : 'grey1'"
-                    dense
-                  />
-                </q-td>
-              </template>
-              <template #body-cell-oferta="props">
-                <q-td :props="props">
-                  <q-badge
-                    :label="props.row.oferta ? 'Oferta' : ''"
-                    :color="props.row.oferta ? 'orange' : 'white'"
-                    dense
-                  />
-                </q-td>
-              </template>
-            </q-table>
+        </q-card>
+      </div>
+
+      <div class="col-12 col-sm-4">
+        <q-card class="stat-card" style="border-left: 4px solid #C8963E;">
+          <q-card-section class="row items-center no-wrap q-py-md">
+            <div class="stat-icon" style="background: #C8963E;">
+              <q-icon name="local_offer" size="22px" color="white" />
+            </div>
+            <div class="q-ml-md">
+              <div class="text-caption text-grey-7 text-weight-medium" style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px;">EN OFERTA</div>
+              <div class="text-h5 text-weight-bold" style="font-family: 'JetBrains Mono', monospace; color: #C8963E;">{{ offerCount }}</div>
+            </div>
           </q-card-section>
         </q-card>
       </div>
     </div>
 
+    <div class="text-h5 q-mb-none" style="font-family: 'Oswald', sans-serif; letter-spacing: 1.5px; color: #0A2747;">PRODUCTOS</div>
+    <div class="q-mb-md" style="border-bottom: 2px solid #C8963E; width: 40px; margin-top: 4px;"></div>
+
+    <q-card flat class="products-card">
+      <q-card-section class="row items-center q-col-gutter-sm q-py-sm">
+        <div class="col-auto">
+          <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" :disable="!negocioId" style="font-family: 'Inter', sans-serif;" />
+        </div>
+        <div class="col-12 col-sm-4 q-ml-auto">
+          <q-input dense outlined v-model="filter" placeholder="Buscar productos..." clearable>
+            <template #prepend>
+              <q-icon name="search" />
+            </template>
+          </q-input>
+        </div>
+      </q-card-section>
+
+      <q-separator />
+
+      <q-table
+        :rows="filteredProducts"
+        :columns="columns"
+        flat
+        loading-label="Cargando productos..."
+        row-key="id"
+        :pagination="{ rowsPerPage: 10 }"
+        class="products-table"
+      >
+        <template #body-cell-actions="props">
+          <q-td :props="props">
+            <q-btn size="sm" color="primary" flat icon="visibility" @click="openView(props.row)" class="q-mr-xs">
+              <q-tooltip>Ver detalle</q-tooltip>
+            </q-btn>
+            <q-btn size="sm" color="secondary" flat icon="edit" @click="openEdit(props.row)">
+              <q-tooltip>Editar</q-tooltip>
+            </q-btn>
+          </q-td>
+        </template>
+        <template #body-cell-image="props">
+          <q-td :props="props">
+            <q-img :src="props.row.image" :ratio="1" style="width: 36px; height: 36px; border-radius: 2px;" />
+          </q-td>
+        </template>
+        <template #body-cell-id="props">
+          <q-td :props="props" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #6B7280;">
+            {{ props.row.id?.slice(0, 8) }}...
+          </q-td>
+        </template>
+        <template #body-cell-price="props">
+          <q-td :props="props" style="font-family: 'JetBrains Mono', monospace;">
+            {{ formatPrice(props.row.price) }}
+          </q-td>
+        </template>
+        <template #body-cell-disponibilidad="props">
+          <q-td :props="props">
+            <q-badge
+              :label="props.row.estado"
+              :color="props.row.estado === 'Disponible' ? 'green-7' : 'red-5'"
+              dense
+              style="font-family: 'Inter', sans-serif; font-weight: 500; padding: 2px 8px;"
+            />
+          </q-td>
+        </template>
+        <template #body-cell-oferta="props">
+          <q-td :props="props">
+            <q-badge
+              v-if="props.row.oferta"
+              label="Oferta"
+              color="secondary"
+              dense
+              style="font-family: 'Inter', sans-serif; font-weight: 500; padding: 2px 8px;"
+            />
+          </q-td>
+        </template>
+      </q-table>
+    </q-card>
+
     <q-dialog v-model="viewDialog">
-      <q-card style="max-width: 500px; width: 100%">
-        <q-card-section class="row items-center q-col-gutter-sm">
-          <div class="text-h6 col">{{ viewProduct?.name }}</div>
+      <q-card style="max-width: 500px; width: 100%;">
+        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C8963E;">
+          <div class="text-subtitle1 text-weight-bold" style="font-family: 'Inter', sans-serif; color: #0A2747;">{{ viewProduct?.name }}</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
-        <q-separator />
-        <q-card-section>
+        <q-card-section class="q-pt-md">
           <div class="row q-col-gutter-md">
             <div class="col-4">
-              <q-img :src="viewProduct?.image" :ratio="1" />
+              <q-img :src="viewProduct?.image" :ratio="1" style="border-radius: 4px;" />
             </div>
             <div class="col-8">
-              <div><strong>ID:</strong> {{ viewProduct?.id }}</div>
-              <div><strong>Nombre:</strong> {{ viewProduct?.name }}</div>
-              <div>
-                <strong>Precio:</strong>
-                {{ formatPrice(viewProduct?.price) }}
+              <div class="q-mb-xs">
+                <span class="text-caption text-grey-7">ID</span>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #1A1A1A;">{{ viewProduct?.id }}</div>
               </div>
-              <div><strong>Categoría:</strong> {{ viewProduct?.category }}</div>
-              <div><strong>Estado:</strong> {{ viewProduct?.estado }}</div>
+              <div class="q-mb-xs">
+                <span class="text-caption text-grey-7">Precio</span>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: #0A2747; font-weight: 600;">{{ formatPrice(viewProduct?.price) }}</div>
+              </div>
+              <div class="q-mb-xs">
+                <span class="text-caption text-grey-7">Categoría</span>
+                <div class="text-body2">{{ viewProduct?.category }}</div>
+              </div>
+              <div class="q-mb-xs">
+                <span class="text-caption text-grey-7">Estado</span>
+                <div>
+                  <q-badge
+                    :label="viewProduct?.estado"
+                    :color="viewProduct?.estado === 'Disponible' ? 'green-7' : 'red-5'"
+                    dense
+                  />
+                </div>
+              </div>
+              <div v-if="viewProduct?.descripcion" class="q-mt-sm">
+                <span class="text-caption text-grey-7">Descripción</span>
+                <div class="text-body2 text-grey-8">{{ viewProduct?.descripcion }}</div>
+              </div>
             </div>
           </div>
         </q-card-section>
@@ -148,13 +170,12 @@
     </q-dialog>
 
     <q-dialog v-model="addDialog" persistent>
-      <q-card style="max-width: 700px; width: 100%">
-        <q-card-section class="row items-center">
-          <div class="text-h6 col">Nuevo producto</div>
+      <q-card style="max-width: 700px; width: 100%;">
+        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C8963E;">
+          <div class="text-subtitle1 text-weight-bold" style="font-family: 'Inter', sans-serif; color: #0A2747;">Nuevo producto</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
-        <q-separator />
         <q-card-section>
           <ProductForm
             v-model="newProduct"
@@ -168,13 +189,12 @@
     </q-dialog>
 
     <q-dialog v-model="editDialog" persistent>
-      <q-card style="max-width: 700px; width: 100%">
-        <q-card-section class="row items-center">
-          <div class="text-h6 col">Editar producto</div>
+      <q-card style="max-width: 700px; width: 100%;">
+        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C8963E;">
+          <div class="text-subtitle1 text-weight-bold" style="font-family: 'Inter', sans-serif; color: #0A2747;">Editar producto</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
-        <q-separator />
         <q-card-section>
           <ProductForm
             v-model="editProduct"
@@ -238,7 +258,8 @@ const editProduct = ref<Product>({
 const originalEditId = ref<string | null>(null);
 
 const columns = <QTableColumn[]>[
-  { name: 'image', label: 'Imagen', field: 'image', align: 'left' },
+  { name: 'image', label: '', field: 'image', align: 'left', style: 'width: 48px' },
+  { name: 'id', label: 'ID', field: 'id', align: 'left', sortable: true },
   { name: 'name', label: 'Nombre', field: 'name', align: 'left', sortable: true },
   {
     name: 'price',
@@ -257,7 +278,7 @@ const columns = <QTableColumn[]>[
   },
   { name: 'disponibilidad', label: 'Estado', field: 'estado', align: 'left' },
   { name: 'oferta', label: 'Oferta', field: 'oferta', align: 'left' },
-  { name: 'actions', label: 'Acciones', field: 'actions', align: 'right' },
+  { name: 'actions', label: '', field: 'actions', align: 'right' },
 ];
 
 const filteredProducts = computed(() => {
@@ -360,9 +381,40 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped>
-stat-card {
-  min-height: 120px;
-  padding: 1rem;
+<style lang="scss">
+.stat-card {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+}
+
+.products-card {
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.products-table {
+  thead th {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #6B7280;
+    background: #F9FAFB;
+  }
+
+  .q-table__middle {
+    border-radius: 0;
+  }
 }
 </style>

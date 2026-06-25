@@ -28,8 +28,6 @@ const routes: RouteRecordRaw[] = [
     meta: { requiresAuth: true },
     children: [
       { path: '', name: 'admin', component: () => import('pages/AdminPage.vue') },
-
-      /*  { path: 'mayorista', name: 'admin-mayorista', component: () => import('pages/AdminMayorista.vue') },*/
     ],
   },
   // Catch-all route goes to the same blank page for now

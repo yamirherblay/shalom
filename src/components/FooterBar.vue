@@ -55,7 +55,14 @@
     <div class="text-center q-py-sm" style="color: #C8963E; letter-spacing: 8px; font-size: 1rem;">
       ★ ★ ★
     </div>
-    <div class="q-px-md q-py-sm text-caption text-center text-grey-4">
+    <div class="q-px-md q-py-xs text-caption text-center text-grey-4">
+      <router-link to="/contacto" class="text-grey-4" style="text-decoration: none;">Contacto</router-link>
+      <span class="q-mx-sm">·</span>
+      <router-link to="/acerca" class="text-grey-4" style="text-decoration: none;">Acerca</router-link>
+      <span class="q-mx-sm">·</span>
+      <router-link to="/login" class="text-grey-4" style="text-decoration: none;">Admin</router-link>
+    </div>
+    <div class="q-px-md q-py-sm text-caption text-center text-grey-5">
       © {{ year }} {{ brand }} — Todos los derechos reservados.
     </div>
   </q-footer>

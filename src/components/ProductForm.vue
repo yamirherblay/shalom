@@ -111,13 +111,14 @@
       </div>
     </div>
     <div class="row justify-end q-gutter-sm q-mt-md">
-      <q-btn flat color="grey-9" class="bg-grey-4" no-caps label="Cancelar" @click="onCancel" />
+      <q-btn flat color="grey-7" no-caps label="Cancelar" @click="onCancel" style="font-family: 'Inter', sans-serif;" />
       <q-btn
         color="primary"
         no-caps
         :label="mode === 'add' ? 'Crear' : 'Guardar'"
         type="submit"
         :disable="!isFormValid"
+        style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px;"
       />
     </div>
   </q-form>
