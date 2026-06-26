@@ -6,7 +6,7 @@
       <div v-if="product.descripcion" class="text-caption text-grey-7">
         {{ product.descripcion }}
       </div>
-      <div class="text-h6 q-mt-sm">
+      <div class="text-h6 q-mt-sm" :class="{'price-stacked': product.oferta}">
         <template v-if="product.oferta">
           <span class="old-price">{{ currency(product.price) }}</span>
           <span class="sale-price">{{ currency(product.descuento) }}</span>
@@ -44,11 +44,19 @@ function currency(n: number) {
   width: 100%;
 }
 
+.price-stacked {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 2px;
+}
+
 .old-price {
   text-decoration: line-through;
   opacity: 0.45;
   margin-right: 6px;
   font-size: 0.85em;
+  color: #dc2626;
 }
 
 .sale-price {

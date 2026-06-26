@@ -22,7 +22,7 @@
         {{ product.descripcion }}
       </div>
       <div class="row items-center q-mt-xs justify-between">
-        <div class="card-price">
+        <div class="card-price" :class="{'price-stacked': product.oferta}">
           <template v-if="product.oferta">
             <span class="old-price">{{ formatPrice(product.price) }}</span>
             <span class="sale-price">{{ formatPrice(product.descuento) }}</span>
@@ -47,7 +47,7 @@
         round
         dense
         icon="fa-brands fa-whatsapp"
-        size="sm"
+        size="md"
         class="card-whatsapp-icon"
         @click="$emit('whatsapp', product)"
       />
@@ -56,7 +56,7 @@
         v-if="showAddToCart"
         class="card-add"
         outline
-        size="sm"
+        size="md"
         icon="shopping_cart"
         label="Añadir"
         no-caps
@@ -149,22 +149,29 @@ function formatPrice(value: number): string {
 }
 
 .card-add {
-  border-color: #C8963E;
-  color: #C8963E;
+  border-color: #c8963e;
+  color: #c8963e;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
 }
-
+.price-stacked {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 2px;
+}
 .old-price {
   text-decoration: line-through;
   opacity: 0.45;
+  color: #dc2626;
   margin-right: 6px;
   font-size: 0.85em;
 }
 
 .sale-price {
   font-weight: 600;
+  color: #1a1a2e;
 }
 
 .badge-oferta {

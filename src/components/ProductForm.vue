@@ -52,6 +52,8 @@
           outlined
           emit-value
           map-options
+          use-input
+          input-debounce="0"
           new-value-mode="add-unique"
           :rules="[(val) => !!val || 'La categoría es obligatoria']"
         />

@@ -1,7 +1,12 @@
 <template>
   <div class="product-grid">
     <div class="row q-col-gutter-md">
-      <div v-for="product in products" :key="product.id" class="col-6 col-sm-6 col-md-4 col-lg-3">
+      <div
+        v-for="(product, index) in products"
+        :key="product.id"
+        class="col-6 col-sm-6 col-md-4 col-lg-3 product-card-wrapper"
+        :style="{ '--i': index }"
+      >
         <ProductCard
           :product="product"
           :show-whats-app="true"
@@ -35,5 +40,29 @@ defineEmits<{
 <style scoped>
 .product-grid {
   min-height: 200px;
+}
+
+.product-card-wrapper {
+  animation: fade-slide-in 0.3s ease-out both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card-wrapper {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 </style>

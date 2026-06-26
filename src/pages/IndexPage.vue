@@ -94,7 +94,7 @@
             <div class="shelf-divider"></div>
             <div class="shelf-info q-pa-sm">
               <div class="shelf-name text-weight-bold">{{ product.name }}</div>
-              <div class="shelf-price">
+              <div class="shelf-price" :class="{'shelf-stacked': product.oferta}">
                 <template v-if="product.oferta">
                   <span class="old-price">{{ formatPrice(product.price) }}</span>
                   <span class="sale-price">{{ formatPrice(product.descuento) }}</span>
@@ -445,11 +445,19 @@ useMeta({
     opacity: 0.45;
     margin-right: 6px;
     font-size: 0.85em;
+    color: #dc2626;
   }
 
   .sale-price {
     font-weight: 600;
   }
+}
+
+.shelf-stacked {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 2px;
 }
 
 .shelf-badge {

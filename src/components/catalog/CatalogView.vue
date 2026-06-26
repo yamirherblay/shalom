@@ -20,7 +20,7 @@
     </q-input>
 
     <ProductGrid
-      :products="filteredProducts"
+      :products="displayedProducts"
       @whatsapp="handleWhatsApp"
       @add-to-cart="handleAddToCart"
     >
@@ -29,11 +29,13 @@
         <div v-else>No hay productos disponibles en esta categoría.</div>
       </template>
     </ProductGrid>
+
+    <div ref="sentinelRef" class="sentinel" />
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch, nextTick, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import ProductFilters from './ProductFilters.vue';
 import ProductGrid from './ProductGrid.vue';
@@ -53,6 +55,11 @@ const cartStore = useCartStore();
 
 const selectedCategory = ref('all');
 const { searchQuery } = useGlobalSearch();
+
+const PAGE_SIZE = 15;
+const visibleCount = ref(PAGE_SIZE);
+const sentinelRef = ref<HTMLElement | null>(null);
+let observer: IntersectionObserver | null = null;
 
 const filterQuery = computed(() => {
   return searchQuery.value || (route.query.q as string) || '';
@@ -83,7 +90,19 @@ const filteredProducts = computed(() => {
   return filtered;
 });
 
-function  handleCategorySelect(key: string) {
+const displayedProducts = computed(() =>
+  filteredProducts.value.slice(0, visibleCount.value),
+);
+
+const hasMore = computed(() =>
+  filteredProducts.value.length > displayedProducts.value.length,
+);
+
+watch([selectedCategory, filterQuery], () => {
+  visibleCount.value = PAGE_SIZE;
+});
+
+function handleCategorySelect(key: string) {
   selectedCategory.value = key;
   void router.replace({
     query: key !== 'all' ? { cat: key } : {},
@@ -110,14 +129,29 @@ function capitalize(s: string): string {
 
 onMounted(async () => {
   await fetchProducts();
-  if (route.query.cat) {
-    selectedCategory.value = route.query.cat as string;
+  if (route.query.cat && typeof route.query.cat === 'string') {
+    selectedCategory.value = route.query.cat;
+  }
+  await nextTick();
+  observer = new IntersectionObserver((entries) => {
+    if (entries[0]?.isIntersecting && hasMore.value) {
+      visibleCount.value += PAGE_SIZE;
+    }
+  }, { rootMargin: '400px' });
+  if (sentinelRef.value) {
+    observer.observe(sentinelRef.value);
   }
 });
+
+onBeforeUnmount(() => observer?.disconnect());
 </script>
 
 <style scoped>
 .catalog-page {
   background: #3F3F46;
+}
+
+.sentinel {
+  height: 1px;
 }
 </style>
