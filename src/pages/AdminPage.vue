@@ -6,14 +6,14 @@
 
     <div class="row q-col-gutter-md q-mb-lg">
       <div class="col-12 col-sm-4">
-        <q-card class="stat-gauge" style="border-left: 4px solid #0A2747;">
+        <q-card class="stat-gauge" style="border-left: 4px solid #2D4A3B;">
           <q-card-section class="row items-center no-wrap q-py-md">
-            <div class="gauge-icon" style="background: #0A2747;">
+            <div class="gauge-icon" style="background: #2D4A3B;">
               <q-icon name="inventory_2" size="22px" color="white" />
             </div>
             <div class="q-ml-md">
               <div class="gauge-label">TOTAL</div>
-              <div class="gauge-value" style="color: #0A2747;">{{ totalProducts }}</div>
+              <div class="gauge-value" style="color: #2D4A3B;">{{ totalProducts }}</div>
             </div>
           </q-card-section>
         </q-card>
@@ -34,14 +34,14 @@
       </div>
 
       <div class="col-12 col-sm-4">
-        <q-card class="stat-gauge" style="border-left: 4px solid #C8963E;">
+        <q-card class="stat-gauge" style="border-left: 4px solid #C17A4B;">
           <q-card-section class="row items-center no-wrap q-py-md">
-            <div class="gauge-icon" style="background: #C8963E;">
+            <div class="gauge-icon" style="background: #C17A4B;">
               <q-icon name="local_offer" size="22px" color="white" />
             </div>
             <div class="q-ml-md">
               <div class="gauge-label">EN OFERTA</div>
-              <div class="gauge-value" style="color: #C8963E;">{{ offerCount }}</div>
+              <div class="gauge-value" style="color: #C17A4B;">{{ offerCount }}</div>
             </div>
           </q-card-section>
         </q-card>
@@ -54,7 +54,7 @@
     <q-card class="products-card">
       <q-card-section class="row items-center q-col-gutter-sm q-py-sm">
         <div class="col-auto">
-          <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" :disable="!negocioId" style="font-family: 'Inter', sans-serif;" />
+          <q-btn color="primary" icon="add" label="Añadir" no-caps @click="openAdd" :disable="!negocioId" style="font-family: 'DM Sans', sans-serif;" />
         </div>
         <div class="col-12 col-sm-4 q-ml-auto">
           <q-input dense outlined v-model="filter" placeholder="Buscar productos..." clearable>
@@ -111,7 +111,7 @@
               :label="props.row.estado"
               :color="props.row.estado === 'Disponible' ? 'green-7' : 'red-5'"
               dense
-              style="font-family: 'Inter', sans-serif; font-weight: 500; padding: 2px 8px;"
+              style="font-family: 'DM Sans', sans-serif; font-weight: 500; padding: 2px 8px;"
             />
           </q-td>
         </template>
@@ -122,7 +122,7 @@
               label="Oferta"
               color="secondary"
               dense
-              style="font-family: 'Inter', sans-serif; font-weight: 500; padding: 2px 8px;"
+              style="font-family: 'DM Sans', sans-serif; font-weight: 500; padding: 2px 8px;"
             />
           </q-td>
         </template>
@@ -131,8 +131,8 @@
 
     <q-dialog v-model="viewDialog">
       <q-card style="max-width: 500px; width: 100%;">
-        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C8963E;">
-          <div class="text-subtitle1 text-weight-bold" style="font-family: 'Inter', sans-serif; color: #0A2747;">{{ viewProduct?.name }}</div>
+        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C17A4B;">
+          <div class="text-subtitle1 text-weight-bold" style="font-family: 'DM Sans', sans-serif; color: #2C2C2C;">{{ viewProduct?.name }}</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
@@ -148,7 +148,7 @@
               </div>
               <div class="q-mb-xs">
                 <span class="text-caption text-grey-7">Precio</span>
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: #0A2747; font-weight: 600;">{{ formatPrice(viewProduct?.price) }}</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: #2C2C2C; font-weight: 600;">{{ formatPrice(viewProduct?.price) }}</div>
               </div>
               <div class="q-mb-xs">
                 <span class="text-caption text-grey-7">Categoría</span>
@@ -176,8 +176,8 @@
 
     <q-dialog v-model="addDialog" persistent>
       <q-card style="max-width: 700px; width: 100%;">
-        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C8963E;">
-          <div class="text-subtitle1 text-weight-bold" style="font-family: 'Inter', sans-serif; color: #0A2747;">Nuevo producto</div>
+        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C17A4B;">
+          <div class="text-subtitle1 text-weight-bold" style="font-family: 'DM Sans', sans-serif; color: #2C2C2C;">Nuevo producto</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
@@ -195,8 +195,8 @@
 
     <q-dialog v-model="editDialog" persistent>
       <q-card style="max-width: 700px; width: 100%;">
-        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C8963E;">
-          <div class="text-subtitle1 text-weight-bold" style="font-family: 'Inter', sans-serif; color: #0A2747;">Editar producto</div>
+        <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C17A4B;">
+          <div class="text-subtitle1 text-weight-bold" style="font-family: 'DM Sans', sans-serif; color: #2C2C2C;">Editar producto</div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
@@ -220,7 +220,7 @@ import type { QTableColumn } from 'quasar';
 import { useMeta, useQuasar } from 'quasar';
 
 useMeta({
-  title: 'Admin | Ferretería VIP',
+  title: 'Admin | Shalom',
   meta: {
     robots: { name: 'robots', content: 'noindex, nofollow' },
   },
@@ -275,9 +275,9 @@ const editProduct = ref<Product>({
 const originalEditId = ref<string | null>(null);
 
 const headerCellStyle = () => ({
-  background: '#0F1B2D',
+  background: '#2D4A3B',
   color: '#FFFFFF',
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'DM Sans, sans-serif',
   fontWeight: 600,
   fontSize: '0.75rem',
   letterSpacing: '0.5px',
@@ -440,13 +440,13 @@ onMounted(async () => {
 
 <style lang="scss">
 .admin-page {
-  background: #F4F1EA;
+  background: #F5F0E8;
   min-height: 100vh;
 }
 
 /* Section headers */
 .section-eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 2px;
@@ -456,16 +456,16 @@ onMounted(async () => {
 }
 
 .section-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 1.5rem;
-  letter-spacing: 3px;
-  color: #0F1B2D;
+  letter-spacing: 2px;
+  color: #2C2C2C;
   line-height: 1.1;
 }
 
 .section-rule {
   height: 1px;
-  background: linear-gradient(90deg, #C8963E 60px, #D4C9B5 60px);
+  background: linear-gradient(90deg, #C17A4B 60px, #D4C9B5 60px);
   margin: 12px 0 24px 0;
   width: 100%;
 }
@@ -492,7 +492,7 @@ onMounted(async () => {
   }
 
   .gauge-label {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -542,7 +542,7 @@ onMounted(async () => {
   }
 
   td {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.85rem;
   }
 }

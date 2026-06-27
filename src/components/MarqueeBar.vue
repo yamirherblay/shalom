@@ -5,28 +5,54 @@
         v-if="showButton && buttonLabel"
         dense
         flat
-        class="bg-grey-10 text-gold"
+        class="bg-dark text-amber"
         @click="$emit('button-click')"
       >{{ buttonLabel }}</q-btn>
-      <div class="marquee-track">
-        <span>{{ message }}</span>
+      <div class="marquee-track" :key="currentMessage">
+        <span>{{ currentMessage }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+
+const props = withDefaults(defineProps<{
   message: string;
+  messages?: string[];
   showButton?: boolean;
   buttonLabel?: string;
   absolute?: boolean;
   showMarquee?: boolean;
-}>();
+}>(), {
+  messages: () => [],
+});
 
 defineEmits<{
   (e: 'button-click'): void;
 }>();
+
+const all = computed(() =>
+  props.messages.length ? props.messages : [props.message],
+);
+
+const index = ref(0);
+const currentMessage = computed(() => all.value[index.value % all.value.length]);
+
+let timer: ReturnType<typeof setInterval> | null = null;
+
+onMounted(() => {
+  if (all.value.length > 1) {
+    timer = setInterval(() => {
+      index.value++;
+    }, 5000);
+  }
+});
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer);
+});
 </script>
 
 <style scoped>
@@ -35,8 +61,8 @@ defineEmits<{
   top: 0;
   left: 0;
   right: 0;
-  background: #1A1A2E;
-  color: #C8963E;
+  background: #2D4A3B;
+  color: #E8A838;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -55,6 +81,7 @@ defineEmits<{
   font-weight: 500;
   font-size: 0.95rem;
   animation: marquee-scroll 15s linear infinite;
+  transition: opacity 0.4s ease;
 }
 
 @keyframes marquee-scroll {

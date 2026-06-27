@@ -2,35 +2,39 @@
   <q-page class="index-page">
     <!-- Hero -->
     <section class="hero-section text-white noise-bg">
+      <canvas ref="particleCanvas" class="hero-particles"></canvas>
       <div class="hero-glow"></div>
       <div class="hero-content column items-center text-center q-pa-lg">
-        <q-img src="/images/logo.jpeg" alt="Ferretería VIP" class="hero-logo q-mb-lg" ratio="1" />
+        <q-img src="/images/logo.jpeg" alt="Shalom" class="hero-logo q-mb-lg" ratio="1" />
+        <div class="hero-title hero-enter-title">SHALOM</div>
+        <div class="hero-subtitle hero-enter-sub">Tu tienda de confianza</div>
         <div class="hero-tags q-mb-lg hero-enter-sub">
-          <span class="hero-tag">Herramientas</span>
-          <span class="hero-tag">Material eléctrico</span>
-          <span class="hero-tag">Grifería</span>
-          <span class="hero-tag">Cerraduras</span>
-          <span class="hero-tag">Spray</span>
-          <span class="hero-tag">Lijas</span>
+          <span class="hero-tag">Alimentos</span>
+          <span class="hero-tag">Bebidas</span>
+          <span class="hero-tag">Aseo Personal</span>
+          <span class="hero-tag">Limpieza</span>
+          <span class="hero-tag">Hogar</span>
+          <span class="hero-tag">Variedades</span>
         </div>
         <q-btn
-          color="secondary"
+          color="accent"
           size="lg"
           :label="branding.hero.ctaText"
           :to="branding.hero.ctaLink"
           unelevated
           no-caps
+          text-color="dark"
           class="hero-cta q-px-xl hero-enter-cta"
         />
       </div>
     </section>
 
-    <hr class="brass-rule hero-enter-rule" />
+    <div class="wave-divider hero-enter-rule" />
 
     <!-- Categories -->
-    <section class="categories-section q-pa-lg section-reveal">
+    <section class="categories-section q-pa-lg section-reveal basket-texture">
       <div class="text-center q-mb-lg">
-        <div class="categories-title text-weight-bold">CATEGORÍAS</div>
+        <div class="categories-title">CATEGORÍAS</div>
         <div class="text-grey-7 text-caption">Explora por secciones</div>
       </div>
       <div class="row q-col-gutter-md justify-center">
@@ -45,11 +49,11 @@
             :style="{ transitionDelay: `${index * 80}ms` }"
             @click="$router.push(`/catalogo?cat=${cat.key}`)"
           >
-            <q-card flat bordered class="category-inner bg-white">
-              <div class="gold-border-top"></div>
+            <q-card flat bordered class="category-inner bg-white" :style="{ '--cat-color': categoryColors[cat.key] || '#C17A4B' }">
+              <div class="terracota-border-top"></div>
               <q-card-section class="column items-center text-center q-py-lg">
                 <q-icon :name="cat.icon" size="2.5rem" class="category-icon q-mb-sm" />
-                <div class="category-label text-weight-bold">{{ cat.label }}</div>
+                <div class="category-label">{{ cat.label }}</div>
               </q-card-section>
             </q-card>
           </div>
@@ -57,12 +61,12 @@
       </div>
     </section>
 
-    <hr class="brass-rule" />
+    <div class="wave-divider" />
 
     <!-- Featured products -->
     <section class="shelf-section q-pa-lg section-reveal">
       <div class="text-center q-mb-lg">
-        <div class="shelf-title text-weight-bold">PRODUCTOS DESTACADOS</div>
+        <div class="shelf-title">PRODUCTOS DESTACADOS</div>
         <div class="text-grey-7 text-caption">Lo más vendido — incluye ofertas</div>
       </div>
       <div v-if="loading" class="row q-col-gutter-md">
@@ -115,12 +119,12 @@
       </div>
     </section>
 
-    <hr class="brass-rule" />
+    <div class="wave-divider" />
 
     <!-- WhatsApp CTA -->
     <section class="cta-section bg-primary text-white q-pa-lg section-reveal">
       <div class="column items-center text-center">
-        <div class="cta-title">¿Necesitas herramientas o materiales?</div>
+        <div class="cta-title">¿Necesitas algo en especial?</div>
         <div class="cta-bullets q-my-md">
           <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Atención rápida</span>
           <span class="cta-dot">·</span>
@@ -128,20 +132,21 @@
           <span class="cta-dot">·</span>
           <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Variedad de productos</span>
         </div>
-        <q-btn
-          color="positive"
-          size="md"
-          label="Escríbenos directo aquí"
-          unelevated
-          no-caps
-          class="q-px-xl"
-          style="border-radius: 6px"
-          @click="openWhatsApp"
-        >
-          <template v-slot:default>
-            <q-icon name="fa-brands fa-whatsapp" />
-          </template>
-        </q-btn>
+          <q-btn
+            color="accent"
+            size="md"
+            text-color="dark"
+            label="Escríbenos directo aquí"
+            unelevated
+            no-caps
+            class="q-px-xl"
+            style="border-radius: 6px"
+            @click="openWhatsApp"
+          >
+            <template v-slot:default>
+              <q-icon name="fa-brands fa-whatsapp" />
+            </template>
+          </q-btn>
       </div>
     </section>
   </q-page>
@@ -160,6 +165,18 @@ const preview = useProductPreview();
 
 const displayCategories = defaultCategories.filter((c) => c.key !== 'all');
 const revealedCategories = ref(false);
+
+const categoryColors: Record<string, string> = {
+  alimentos: '#E8A838',
+  bebidas: '#5FA8D3',
+  aseo: '#C08497',
+  limpieza: '#7EC8B6',
+  hogar: '#D4896B',
+  variado: '#C9A84C',
+};
+
+const particleCanvas = ref<HTMLCanvasElement | null>(null);
+let particleAnimId = 0;
 
 const { products, fetchProducts, loading } = useProducts();
 
@@ -184,10 +201,92 @@ function formatPrice(value: number): string {
   }).format(value);
 }
 
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedY: number;
+  speedX: number;
+  opacity: number;
+  opacitySpeed: number;
+}
+
+function initParticles(canvas: HTMLCanvasElement) {
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  const particles: Particle[] = [];
+  const count = 35;
+
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 3 + 1.5,
+      speedY: -(Math.random() * 0.3 + 0.15),
+      speedX: (Math.random() - 0.5) * 0.2,
+      opacity: Math.random() * 0.25 + 0.1,
+      opacitySpeed: (Math.random() - 0.5) * 0.003,
+    });
+  }
+
+  let lastTime = 0;
+
+  function animate(time: number) {
+    const dt = Math.min(time - lastTime, 50);
+    lastTime = time;
+    ctx!.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const p of particles) {
+      p.y += p.speedY * (dt / 16);
+      p.x += p.speedX * (dt / 16);
+      p.opacity += p.opacitySpeed * (dt / 16);
+
+      if (p.opacity > 0.35) { p.opacity = 0.35; p.opacitySpeed = -p.opacitySpeed; }
+      if (p.opacity < 0.05) { p.opacity = 0.05; p.opacitySpeed = -p.opacitySpeed; }
+
+      if (p.y < -10) {
+        p.y = canvas.height + 10;
+        p.x = Math.random() * canvas.width;
+      }
+
+      ctx!.beginPath();
+      ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx!.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+      ctx!.fill();
+    }
+
+    particleAnimId = requestAnimationFrame(animate);
+  }
+
+  particleAnimId = requestAnimationFrame(animate);
+
+  const onResize = () => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  };
+  window.addEventListener('resize', onResize);
+
+  return () => {
+    cancelAnimationFrame(particleAnimId);
+    window.removeEventListener('resize', onResize);
+  };
+}
+
 let observer: IntersectionObserver | null = null;
 
 onMounted(async () => {
   await fetchProducts();
+  if (particleCanvas.value) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      const cleanup = initParticles(particleCanvas.value);
+      onUnmounted(() => cleanup?.());
+    }
+  }
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -237,7 +336,7 @@ useMeta({
 
 /* Hero */
 .hero-section {
-  background: #0c1a2e;
+  background: #1A2E24;
   min-height: 70vh;
   display: flex;
   align-items: center;
@@ -253,7 +352,7 @@ useMeta({
   width: 500px;
   height: 500px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse at center, rgba(200, 150, 62, 0.25) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(232, 168, 56, 0.2) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -263,14 +362,41 @@ useMeta({
   z-index: 1;
 }
 
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .hero-logo {
-  width: 260px;
-  height: 260px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   animation:
     hero-scale-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
     logo-float 4s ease-in-out infinite;
   animation-delay: 0s, 1.2s;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  letter-spacing: 6px;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 2px;
+  margin-top: 4px;
+  margin-bottom: 20px;
 }
 
 .hero-tags {
@@ -282,19 +408,19 @@ useMeta({
 }
 
 .hero-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
   padding: 5px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.3px;
 }
 
 .hero-cta {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
   border-radius: 6px;
 }
 
@@ -330,12 +456,14 @@ useMeta({
   }
 }
 
-@keyframes hero-rule-expand {
+@keyframes hero-fade-down {
   from {
-    transform: scaleX(0);
+    opacity: 0;
+    transform: translateY(-8px);
   }
   to {
-    transform: scaleX(1);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -349,9 +477,14 @@ useMeta({
   }
 }
 
+.hero-enter-title {
+  animation: hero-fade-down 0.6s ease both;
+  animation-delay: 0.15s;
+}
+
 .hero-enter-sub {
   animation: hero-fade-in 0.6s ease both;
-  animation-delay: 0.25s;
+  animation-delay: 0.3s;
 }
 
 .hero-enter-cta {
@@ -360,20 +493,20 @@ useMeta({
 }
 
 .hero-enter-rule {
-  animation: hero-rule-expand 0.5s ease both;
-  animation-delay: 0.8s;
-  transform-origin: center;
+  animation: hero-fade-in 0.6s ease both;
+  animation-delay: 0.7s;
 }
 
 /* Categories */
 .categories-section {
-  background: #f5f3ef;
+  background: #F5F0E8;
 }
 
 .categories-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 3px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  color: #2D4A3B;
 }
 
 .category-card {
@@ -381,41 +514,77 @@ useMeta({
 }
 
 .category-inner {
-  border-radius: 4px;
+  border-radius: 6px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
+.category-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 40%, rgba(193, 122, 75, 0.14), transparent 70%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.category-inner:hover::before {
+  opacity: 1;
+}
+
 .category-inner:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(45, 74, 59, 0.12);
+}
+
+.category-inner:hover::before {
+  opacity: 1;
+}
+
+.category-inner:hover .terracota-border-top {
+  border-top-color: var(--cat-color, #C17A4B);
 }
 
 .category-icon {
-  color: #c8963e;
+  color: #C17A4B;
+  transition: color 0.3s ease;
+}
+
+.category-inner:hover .category-icon {
+  color: var(--cat-color, #C17A4B);
 }
 
 .category-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #2C2C2C;
 }
 
 /* Shelf (featured products) */
 .shelf-section {
-  background: #ffffff;
+  background: #F5F0E8;
 }
 
 .shelf-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 3px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  color: #2D4A3B;
 }
 
 .shelf-card {
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
+  background: #FFFFFF;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -430,9 +599,9 @@ useMeta({
   position: absolute;
   top: 14px;
   right: -30px;
-  background: #E85D04;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
+  background: #E8A838;
+  color: #1A1A1A;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -445,29 +614,30 @@ useMeta({
 }
 
 .shelf-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(45, 74, 59, 0.1);
 }
 
 .shelf-divider {
   height: 1px;
-  background: #8c929a;
+  background: #C17A4B;
+  opacity: 0.3;
   margin: 0;
 }
 
 .shelf-name {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: #1a1a2e;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #2C2C2C;
   line-height: 1.2;
 }
 
 .shelf-price {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
-  color: #1a1a2e;
+  color: #2C2C2C;
   margin-top: 2px;
 
   .old-price {
@@ -491,7 +661,7 @@ useMeta({
 }
 
 .shelf-badge {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.65rem;
   font-weight: 500;
   padding: 2px 6px;
@@ -500,17 +670,18 @@ useMeta({
 }
 
 .shelf-link {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
-  letter-spacing: 1px;
-  color: #c8963e;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #C17A4B;
 }
 
 /* CTA section */
 .cta-title {
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 3px;
-  font-size: 1.5rem;
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: 2px;
+  font-size: 1.6rem;
 }
 
 .cta-bullets {
@@ -522,7 +693,7 @@ useMeta({
 }
 
 .cta-bullet {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.85);
   display: inline-flex;
@@ -539,8 +710,15 @@ useMeta({
 /* Responsive hero */
 @media (min-width: 768px) {
   .hero-logo {
-    width: 380px;
-    height: 380px;
+    width: 180px;
+    height: 180px;
+  }
+  .hero-title {
+    font-size: 4.5rem;
+    letter-spacing: 10px;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
   }
   .hero-tags {
     max-width: 560px;
@@ -555,8 +733,11 @@ useMeta({
 
 @media (min-width: 1024px) {
   .hero-logo {
-    width: 420px;
-    height: 420px;
+    width: 200px;
+    height: 200px;
+  }
+  .hero-title {
+    font-size: 5.5rem;
   }
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="col-12 col-md-6 col-lg-5">
         <div class="contact-title text-center q-mb-lg">CONTACTO</div>
 
-        <div class="linea-vip q-mx-auto q-mb-lg" style="width: 60px;"></div>
+        <div class="contact-rule q-mx-auto q-mb-lg" style="width: 60px;"></div>
 
         <q-card flat bordered class="contact-card">
           <q-card-section>
@@ -83,18 +83,23 @@ const { sendContactMessage } = useWhatsApp();
 
 <style scoped>
 .contact-page {
-  background: #F5F3EF;
+  background: #F5F0E8;
   min-height: 60vh;
 }
 
 .contact-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 2rem;
   letter-spacing: 4px;
-  color: #1A1A2E;
+  color: #2C2C2C;
 }
 
 .contact-card {
   border-radius: 4px;
+}
+
+.contact-rule {
+  height: 2px;
+  background: #C17A4B;
 }
 </style>

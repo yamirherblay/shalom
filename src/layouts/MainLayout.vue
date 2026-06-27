@@ -4,14 +4,13 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-btn flat no-caps :to="'/'">
-            <span class="text-white text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">FERRETERÍA</span>
-            <span class="text-gold q-ml-xs text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">VIP</span>
+            <span class="text-white" style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.25rem; font-weight: 400;">Shalom</span>
           </q-btn>
         </q-toolbar-title>
 
         <div class="gt-sm row items-center q-gutter-x-sm">
-          <q-btn flat dense label="Inicio" to="/" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
-          <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
+          <q-btn flat dense label="Inicio" to="/" class="text-white" style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;" />
+          <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;" />
           <q-btn
             flat
             dense
@@ -20,7 +19,7 @@
             icon="fa-brands fa-whatsapp"
             label="WhatsApp"
             class="text-white"
-            style="font-family: 'Inter', sans-serif; letter-spacing: 1px;"
+            style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;"
           />
         </div>
 
@@ -47,6 +46,18 @@
         </q-btn>
       </q-toolbar>
     </q-header>
+
+    <MarqueeBar
+      :show-marquee="true"
+      message="Paz y confianza — Shalom"
+      :messages="[
+        '🕊️ Paz y confianza — Shalom',
+        'Precios en CUP',
+        'Atención personalizada',
+        'Todo para tu hogar',
+        'Shalom — tu tienda de confianza',
+      ]"
+    />
 
     <q-page-container>
       <router-view />
@@ -118,6 +129,7 @@ import { useCartStore } from 'src/stores/cart';
 import { useAuthStore } from 'src/stores/auth';
 import { useGlobalSearch } from 'src/composables/useGlobalSearch';
 import { formatWhatsAppUrl, whatsappConfig } from 'src/config/whatsapp';
+import MarqueeBar from 'components/MarqueeBar.vue';
 import ProductPreview from 'components/catalog/ProductPreview.vue';
 import CartModal from 'components/CartModal.vue';
 
@@ -188,8 +200,8 @@ function openWhatsApp() {
 </script>
 
 <style lang="scss">
-.text-gold {
-  color: #C8963E;
+.text-terracota {
+  color: #C17A4B;
 }
 
 .search-panel {
@@ -207,10 +219,10 @@ function openWhatsApp() {
     border-radius: 0;
   }
 
-  :deep(.q-field__native) {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-  }
+      :deep(.q-field__native) {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.9rem;
+      }
 }
 
 .bottom-nav {
@@ -228,7 +240,7 @@ function openWhatsApp() {
   .q-tab__label {
     font-size: 0.8rem;
     font-weight: 500;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   @media (hover: hover) {

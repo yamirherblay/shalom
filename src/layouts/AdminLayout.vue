@@ -4,9 +4,8 @@
       <q-toolbar>
         <q-btn flat dense round icon="menu" @click="left = !left" class="q-mr-sm" />
         <q-toolbar-title class="row items-center">
-          <span style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">FERRETERÍA</span>
-          <span class="text-gold q-ml-xs" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">VIP</span>
-          <span class="text-grey-4 q-ml-sm" style="font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">Admin</span>
+          <span style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.2rem;">Shalom</span>
+          <span class="text-grey-4 q-ml-sm" style="font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">Admin</span>
         </q-toolbar-title>
         <AdminChangeNotifications />
         <q-btn flat dense round>
@@ -62,11 +61,11 @@
       <div class="absolute-bottom q-pa-md text-center">
         <q-img
           src="/images/logo.jpeg"
-          alt="Ferretería VIP"
+          alt="Shalom"
           style="width: 60px; height: 60px; border-radius: 50%;"
           class="q-mb-sm"
         />
-        <div class="text-caption text-grey-8" style="font-family: 'Inter', sans-serif;">TODO INCLUIDO</div>
+        <div class="text-caption text-grey-8" style="font-family: 'DM Sans', sans-serif;">Tu tienda de confianza</div>
       </div>
     </q-drawer>
 
@@ -103,7 +102,7 @@ async function logout() {
       background: #F0EDE8;
 
       .q-icon {
-        color: #C8963E !important;
+        color: #C17A4B !important;
       }
     }
   }

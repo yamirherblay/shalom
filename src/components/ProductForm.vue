@@ -113,14 +113,14 @@
       </div>
     </div>
     <div class="row justify-end q-gutter-sm q-mt-md">
-      <q-btn flat color="grey-7" no-caps label="Cancelar" @click="onCancel" style="font-family: 'Inter', sans-serif;" />
+      <q-btn flat color="grey-7" no-caps label="Cancelar" @click="onCancel" style="font-family: 'DM Sans', sans-serif;" />
       <q-btn
         color="primary"
         no-caps
         :label="mode === 'add' ? 'Crear' : 'Guardar'"
         type="submit"
         :disable="!isFormValid"
-        style="font-family: 'Inter', sans-serif; letter-spacing: 0.5px;"
+        style="font-family: 'DM Sans', sans-serif; letter-spacing: 0.5px;"
       />
     </div>
   </q-form>
@@ -151,7 +151,7 @@ const localProduct = reactive<Product>(
   { ...props.modelValue,
   });
 const $q = useQuasar();
-const DEPARTAMENT = 'ferreteria';
+const DEPARTAMENT = 'shalom';
 watch(
   () => props.modelValue,
   (v) => {
@@ -233,7 +233,7 @@ async function onFileSelected(val: File | File[] | null) {
     localProduct.id = crypto.randomUUID();
   }
   try {
-    const filePath = `ferreteriaVip/${Date.now()}-${filename}`;
+    const filePath = `shalom/${Date.now()}-${filename}`;
     const { data, error } = await supabase.storage.from('products').upload(filePath, f);
     console.log('Imagen subida:', data);
     if (error) {

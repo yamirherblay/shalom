@@ -2,19 +2,19 @@
   <q-page class="about-page q-pa-lg">
     <div class="row justify-center">
       <div class="col-12 col-md-8 col-lg-6">
-        <div class="about-title text-center q-mb-lg">FERRETERÍA VIP</div>
+        <div class="about-title text-center q-mb-lg">SHALOM</div>
 
-        <div class="linea-vip q-mx-auto q-mb-lg" style="width: 60px;"></div>
+        <div class="about-rule q-mx-auto q-mb-lg" style="width: 60px;"></div>
 
         <div class="about-content">
-          <p>En Ferretería VIP encuentras todo lo que necesitas para tu obra, reparación o proyecto del hogar. Herramientas, pintura, electricidad, plomería, materiales de construcción — todo en un solo lugar.</p>
-          <p>Trabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada.</p>
-          <p>VIP no es solo un nombre: es cómo tratamos a cada cliente.</p>
+          <p>Shalom es tu tienda de productos para el hogar y la familia. Alimentos, bebidas, aseo personal, limpieza y artículos para tu casa — todo lo que necesitas en un solo lugar.</p>
+          <p>Trabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada y rápida.</p>
+          <p>Shalom: paz, confianza y buena atención para ti y los tuyos.</p>
         </div>
 
-        <div class="linea-vip q-mx-auto q-my-lg" style="width: 60px;"></div>
+        <div class="about-rule q-mx-auto q-my-lg" style="width: 60px;"></div>
 
-        <div class="text-center text-gold" style="letter-spacing: 8px; font-size: 1.2rem;">
+        <div class="text-center text-terracota" style="letter-spacing: 8px; font-size: 1.2rem;">
           ★ ★ ★
         </div>
       </div>
@@ -29,41 +29,46 @@ import { useMeta } from 'quasar';
 useMeta({
   title: `Acerca de | ${branding.name}`,
   meta: {
-    description: { name: 'description', content: 'Conoce Ferretería VIP, tu ferretería de confianza con todo incluido.' },
+    description: { name: 'description', content: 'Conoce Shalom, tu tienda de productos de confianza.' },
     'og:title': { property: 'og:title', content: `Acerca de | ${branding.name}` },
-    'og:description': { property: 'og:description', content: 'Conoce Ferretería VIP, tu ferretería de confianza con todo incluido.' },
+    'og:description': { property: 'og:description', content: 'Conoce Shalom, tu tienda de productos de confianza.' },
     'og:url': { property: 'og:url', content: '/acerca' },
     'twitter:title': { name: 'twitter:title', content: `Acerca de | ${branding.name}` },
-    'twitter:description': { name: 'twitter:description', content: 'Conoce Ferretería VIP, tu ferretería de confianza con todo incluido.' },
+    'twitter:description': { name: 'twitter:description', content: 'Conoce Shalom, tu tienda de productos de confianza.' },
   },
 });
 </script>
 
 <style scoped>
 .about-page {
-  background: #F5F3EF;
+  background: #F5F0E8;
   min-height: 60vh;
 }
 
 .about-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 2rem;
   letter-spacing: 4px;
-  color: #1A1A2E;
+  color: #2C2C2C;
+}
+
+.about-rule {
+  height: 2px;
+  background: #C17A4B;
 }
 
 .about-content {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: #1A1A2E;
+  color: #2C2C2C;
 }
 
 .about-content p {
   margin-bottom: 1rem;
 }
 
-.text-gold {
-  color: #C8963E;
+.text-terracota {
+  color: #C17A4B;
 }
 </style>

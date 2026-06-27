@@ -11,8 +11,8 @@
             ratio="1"
           />
           <div>
-            <div class="text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1rem;">{{ brand }}</div>
-            <div class="text-caption text-grey-4" style="letter-spacing: 1px;">TODO INCLUIDO</div>
+            <div style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.1rem;">{{ brand }}</div>
+            <div class="text-caption text-grey-4" style="letter-spacing: 1px;">Tu tienda de confianza</div>
           </div>
         </div>
 
@@ -52,7 +52,14 @@
         </div>
       </div>
     </q-toolbar>
-    <div class="text-center q-py-sm" style="color: #C8963E; letter-spacing: 8px; font-size: 1rem;">
+    <div class="row justify-center q-py-sm">
+      <div class="sello-shalom">
+        <span class="sello-icon">✦</span>
+        <span class="sello-text">SHALOM</span>
+        <span class="sello-text" style="font-size: 0.45rem; letter-spacing: 1px;">paz</span>
+      </div>
+    </div>
+    <div class="text-center q-py-sm" style="color: #C17A4B; letter-spacing: 8px; font-size: 1rem;">
       ★ ★ ★
     </div>
     <div class="q-px-md q-py-xs text-caption text-center text-grey-4">
@@ -79,7 +86,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  brand: 'Ferretería VIP',
+  brand: 'Shalom',
   phone: '',
   email: '',
   whatsapp: '',
