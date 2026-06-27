@@ -9,18 +9,7 @@
         </q-toolbar-title>
 
         <div class="gt-sm row items-center q-gutter-x-sm">
-          <q-btn flat dense label="Inicio" to="/" class="text-white" style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;" />
           <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;" />
-          <q-btn
-            flat
-            dense
-            :href="whatsappUrl"
-            target="_blank"
-            icon="fa-brands fa-whatsapp"
-            label="WhatsApp"
-            class="text-white"
-            style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;"
-          />
         </div>
 
         <q-btn
@@ -47,17 +36,7 @@
       </q-toolbar>
     </q-header>
 
-    <MarqueeBar
-      :show-marquee="true"
-      message="Paz y confianza — Shalom"
-      :messages="[
-        '🕊️ Paz y confianza — Shalom',
-        'Precios en CUP',
-        'Atención personalizada',
-        'Todo para tu hogar',
-        'Shalom — tu tienda de confianza',
-      ]"
-    />
+
 
     <q-page-container>
       <router-view />
@@ -107,14 +86,20 @@
           label="Carrito"
           @click="showCart = true"
         />
-        <q-tab
-          name="whatsapp"
-          icon="fa-brands fa-whatsapp"
-          label="WhatsApp"
-          @click="openWhatsApp"
-        />
       </q-tabs>
     </q-footer>
+
+    <q-page-sticky position="bottom-right" :offset="[18, 74]">
+      <q-btn
+        fab
+        icon="fa-brands fa-whatsapp"
+        color="green"
+        text-color="white"
+        size="md"
+        class="whatsapp-fab"
+        @click="openWhatsApp"
+      />
+    </q-page-sticky>
 
     <cart-modal v-model="showCart" />
     <ProductPreview />
@@ -129,7 +114,6 @@ import { useCartStore } from 'src/stores/cart';
 import { useAuthStore } from 'src/stores/auth';
 import { useGlobalSearch } from 'src/composables/useGlobalSearch';
 import { formatWhatsAppUrl, whatsappConfig } from 'src/config/whatsapp';
-import MarqueeBar from 'components/MarqueeBar.vue';
 import ProductPreview from 'components/catalog/ProductPreview.vue';
 import CartModal from 'components/CartModal.vue';
 
@@ -146,8 +130,6 @@ const adminRoute = computed(() =>
 const searchActive = ref(false);
 const searchInputRef = ref<{ focus: () => void } | null>(null);
 const { searchQuery } = useGlobalSearch();
-
-const whatsappUrl = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
 
 function activeTabFromRoute(path: string) {
   if (path === '/') return 'home';
@@ -194,7 +176,8 @@ function doSearch() {
 }
 
 function openWhatsApp() {
-  window.open(whatsappUrl, '_blank');
+  const url = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
+  window.open(url, '_blank');
   activeTab.value = activeTabFromRoute(route.path);
 }
 </script>

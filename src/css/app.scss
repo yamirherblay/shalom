@@ -69,6 +69,19 @@ body {
   }
 }
 
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 2px 12px rgba(37, 211, 102, 0.55), 0 0 0 8px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-fab {
+  animation: whatsapp-pulse 2.5s ease-in-out infinite;
+}
+
 @keyframes sello-pulse {
   0%, 100% { opacity: 0.65; }
   50% { opacity: 0.85; }
