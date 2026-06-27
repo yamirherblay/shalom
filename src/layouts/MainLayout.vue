@@ -4,24 +4,12 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-btn flat no-caps :to="'/'">
-            <span class="text-white text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">FERRETERÍA</span>
-            <span class="text-gold q-ml-xs text-weight-bold" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px; font-size: 1.15rem;">VIP</span>
+            <span class="text-white" style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.25rem; font-weight: 400;">Shalom</span>
           </q-btn>
         </q-toolbar-title>
 
         <div class="gt-sm row items-center q-gutter-x-sm">
-          <q-btn flat dense label="Inicio" to="/" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
-          <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'Inter', sans-serif; letter-spacing: 1px;" />
-          <q-btn
-            flat
-            dense
-            :href="whatsappUrl"
-            target="_blank"
-            icon="fa-brands fa-whatsapp"
-            label="WhatsApp"
-            class="text-white"
-            style="font-family: 'Inter', sans-serif; letter-spacing: 1px;"
-          />
+          <q-btn flat dense label="Catálogo" to="/catalogo" class="text-white" style="font-family: 'DM Sans', sans-serif; letter-spacing: 1px; font-weight: 500;" />
         </div>
 
         <q-btn
@@ -47,6 +35,8 @@
         </q-btn>
       </q-toolbar>
     </q-header>
+
+
 
     <q-page-container>
       <router-view />
@@ -96,14 +86,20 @@
           label="Carrito"
           @click="showCart = true"
         />
-        <q-tab
-          name="whatsapp"
-          icon="fa-brands fa-whatsapp"
-          label="WhatsApp"
-          @click="openWhatsApp"
-        />
       </q-tabs>
     </q-footer>
+
+    <q-page-sticky position="bottom-right" :offset="[18, 74]">
+      <q-btn
+        fab
+        icon="fa-brands fa-whatsapp"
+        color="green"
+        text-color="white"
+        size="md"
+        class="whatsapp-fab"
+        @click="openWhatsApp"
+      />
+    </q-page-sticky>
 
     <cart-modal v-model="showCart" />
     <ProductPreview />
@@ -134,8 +130,6 @@ const adminRoute = computed(() =>
 const searchActive = ref(false);
 const searchInputRef = ref<{ focus: () => void } | null>(null);
 const { searchQuery } = useGlobalSearch();
-
-const whatsappUrl = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
 
 function activeTabFromRoute(path: string) {
   if (path === '/') return 'home';
@@ -182,14 +176,15 @@ function doSearch() {
 }
 
 function openWhatsApp() {
-  window.open(whatsappUrl, '_blank');
+  const url = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
+  window.open(url, '_blank');
   activeTab.value = activeTabFromRoute(route.path);
 }
 </script>
 
 <style lang="scss">
-.text-gold {
-  color: #C8963E;
+.text-terracota {
+  color: #C17A4B;
 }
 
 .search-panel {
@@ -207,10 +202,10 @@ function openWhatsApp() {
     border-radius: 0;
   }
 
-  :deep(.q-field__native) {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-  }
+      :deep(.q-field__native) {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.9rem;
+      }
 }
 
 .bottom-nav {
@@ -228,7 +223,7 @@ function openWhatsApp() {
   .q-tab__label {
     font-size: 0.8rem;
     font-weight: 500;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   @media (hover: hover) {

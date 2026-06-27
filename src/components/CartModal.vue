@@ -16,9 +16,10 @@
       <q-separator class="bg-grey-3" />
 
       <q-card-section>
-        <div v-if="!cart.items.length" class="text-grey-6 text-center q-py-lg">
-          Tu carrito está vacío.
-          <br>
+        <div v-if="!cart.items.length" class="text-grey-6 text-center q-py-lg empty-cart">
+          <div class="empty-cart-icon q-mb-md">🕊️</div>
+          <div class="empty-cart-text">Paz mental... pero carrito vacío.</div>
+          <div class="empty-cart-sub text-grey-5 q-mb-md">¿Vemos el catálogo?</div>
           <q-btn flat color="secondary" label="Ver catálogo" to="/catalogo" class="q-mt-sm" @click="close" />
         </div>
         <q-list v-else separator>
@@ -174,8 +175,23 @@ function formatPrice(n: number): string {
 .offer-tag {
   font-size: 0.65rem;
   font-weight: 600;
-  color: #E85D04;
+  color: #E8A838;
   margin-left: 3px;
   text-transform: uppercase;
+}
+
+.empty-cart-icon {
+  font-size: 2.5rem;
+}
+
+.empty-cart-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: #2C2C2C;
+}
+
+.empty-cart-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
 }
 </style>

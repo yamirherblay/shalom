@@ -11,7 +11,7 @@ export const whatsappConfig = {
       `Hola, quiero hacer el siguiente pedido:\n\n${items}\n\nTotal: ${total}`,
 
     contact: () =>
-      `Hola, me gustaría obtener información sobre sus productos de ferretería.`,
+      `Hola, me gustaría obtener información sobre sus productos.`,
   },
 };
 

@@ -66,7 +66,7 @@ function addToCart() {
 
 <style lang="scss">
 .preview-card {
-  background: rgba(12, 26, 46, 0.92);
+  background: rgba(26, 46, 36, 0.92);
   backdrop-filter: blur(8px);
   width: 100vw;
   height: 100vh;
@@ -92,9 +92,9 @@ function addToCart() {
 }
 
 .preview-add {
-  border-color: #C8963E;
-  color: #C8963E;
-  font-family: 'Inter', sans-serif;
+  border-color: #C17A4B;
+  color: #C17A4B;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 500;
 }
 

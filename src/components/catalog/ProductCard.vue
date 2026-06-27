@@ -1,6 +1,6 @@
 <template>
   <q-card class="product-card">
-    <div class="gold-border-top"></div>
+    <div class="terracota-border-top"></div>
     <q-img
       :src="product.image || '/images/placeholder.svg'"
       :ratio="1"
@@ -9,7 +9,7 @@
       @click.stop="preview.open(product)"
     >
       <div v-if="product.oferta && product.estado !== 'Agotado'" class="absolute-top-right q-pa-sm">
-        <q-badge color="accent" text-color="white" label="Oferta" class="badge-oferta" />
+        <q-badge color="accent" text-color="dark" label="Oferta" class="badge-oferta" />
       </div>
       <div v-if="product.new" class="absolute-top-left q-pa-sm">
         <q-badge color="dark" text-color="white" label="Nuevo" class="badge-new" />
@@ -32,7 +32,7 @@
           </template>
         </div>
         <q-badge
-          :color="product.estado === 'Disponible' ? 'positive' : 'negative'"
+          :color="product.estado === 'Disponible' ? 'blue' : 'negative'"
           :text-color="'white'"
           :label="product.estado"
           class="card-status"
@@ -54,6 +54,7 @@
       <div v-else />
       <q-btn
         v-if="showAddToCart"
+        ref="addBtnRef"
         class="card-add"
         outline
         size="md"
@@ -61,28 +62,54 @@
         label="Añadir"
         no-caps
         :disable="product.estado === 'Agotado'"
-        @click="$emit('add-to-cart', product)"
+        @click="handleAdd"
       />
     </q-card-actions>
+    <div v-for="dot in burstDots" :key="dot.id" class="burst-dot" :style="{ top: dot.y + 'px', left: dot.x + 'px' }"></div>
   </q-card>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import type { Product } from 'src/stores/types';
 import { useProductPreview } from 'src/composables/useProductPreview';
 
 const preview = useProductPreview();
 
-defineProps<{
+const props = defineProps<{
   product: Product;
   showWhatsApp?: boolean;
   showAddToCart?: boolean;
 }>();
 
-defineEmits<{
+const emit = defineEmits<{
   (e: 'whatsapp', product: Product): void;
   (e: 'add-to-cart', product: Product): void;
 }>();
+
+const addBtnRef = ref<HTMLElement | null>(null);
+const burstDots = ref<{ id: number; x: number; y: number }[]>([]);
+let burstId = 0;
+
+function handleAdd() {
+  emit('add-to-cart', props.product);
+  if (addBtnRef.value) {
+    const rect = addBtnRef.value.getBoundingClientRect();
+    const card = addBtnRef.value.closest('.product-card');
+    const cardRect = card?.getBoundingClientRect();
+    if (cardRect) {
+      const id = ++burstId;
+      burstDots.value.push({
+        id,
+        x: rect.left - cardRect.left + rect.width / 2,
+        y: rect.top - cardRect.top + rect.height / 2,
+      });
+      setTimeout(() => {
+        burstDots.value = burstDots.value.filter((d) => d.id !== id);
+      }, 500);
+    }
+  }
+}
 
 function formatPrice(value: number): string {
   return new Intl.NumberFormat('es-CU', {
@@ -98,6 +125,7 @@ function formatPrice(value: number): string {
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
+  position: relative;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -108,22 +136,22 @@ function formatPrice(value: number): string {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.product-card:hover .gold-border-top {
-  border-image: linear-gradient(90deg, #c8963e, #d4a84e) 1;
+.product-card:hover .terracota-border-top {
+  border-image: none;
+  border-top: 2px solid #C17A4B;
 }
 
 .card-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: #1a1a2e;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #2C2C2C;
   line-height: 1.2;
 }
 
 .card-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.75rem;
   line-height: 1.3;
   margin-top: 2px;
@@ -133,11 +161,11 @@ function formatPrice(value: number): string {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
   font-weight: 400;
-  color: #1a1a2e;
+  color: #2C2C2C;
 }
 
 .card-status {
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.65rem;
   font-weight: 500;
   padding: 2px 6px;
@@ -149,9 +177,9 @@ function formatPrice(value: number): string {
 }
 
 .card-add {
-  border-color: #c8963e;
-  color: #c8963e;
-  font-family: 'Inter', sans-serif;
+  border-color: #C17A4B;
+  color: #512FAC;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
 }
@@ -171,21 +199,23 @@ function formatPrice(value: number): string {
 
 .sale-price {
   font-weight: 600;
-  color: #1a1a2e;
+  color: #2C2C2C;
 }
 
 .badge-oferta {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   padding: 2px 6px;
   border-radius: 2px;
 }
 
 .badge-new {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   padding: 2px 6px;
   border-radius: 2px;
 }
