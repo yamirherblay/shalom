@@ -87,15 +87,15 @@ const emit = defineEmits<{
   (e: 'add-to-cart', product: Product): void;
 }>();
 
-const addBtnRef = ref<HTMLElement | null>(null);
+const addBtnRef = ref<{ $el: HTMLElement } | null>(null);
 const burstDots = ref<{ id: number; x: number; y: number }[]>([]);
 let burstId = 0;
 
 function handleAdd() {
   emit('add-to-cart', props.product);
   if (addBtnRef.value) {
-    const rect = addBtnRef.value.getBoundingClientRect();
-    const card = addBtnRef.value.closest('.product-card');
+    const rect = addBtnRef.value.$el.getBoundingClientRect();
+    const card = addBtnRef.value.$el.closest('.product-card');
     const cardRect = card?.getBoundingClientRect();
     if (cardRect) {
       const id = ++burstId;
