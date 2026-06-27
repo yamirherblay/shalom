@@ -46,7 +46,7 @@ onMounted(() => {
   if (all.value.length > 1) {
     timer = setInterval(() => {
       index.value++;
-    }, 5000);
+    }, 15000);
   }
 });
 
@@ -80,7 +80,7 @@ onUnmounted(() => {
   padding-left: 100%;
   font-weight: 500;
   font-size: 0.95rem;
-  animation: marquee-scroll 15s linear infinite;
+  animation: marquee-scroll 25s linear infinite;
   transition: opacity 0.4s ease;
 }
 

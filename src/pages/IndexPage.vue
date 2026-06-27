@@ -8,14 +8,6 @@
         <q-img src="/images/logo.jpeg" alt="Shalom" class="hero-logo q-mb-lg" ratio="1" />
         <div class="hero-title hero-enter-title">SHALOM</div>
         <div class="hero-subtitle hero-enter-sub">Tu tienda de confianza</div>
-        <div class="hero-tags q-mb-lg hero-enter-sub">
-          <span class="hero-tag">Alimentos</span>
-          <span class="hero-tag">Bebidas</span>
-          <span class="hero-tag">Aseo Personal</span>
-          <span class="hero-tag">Limpieza</span>
-          <span class="hero-tag">Hogar</span>
-          <span class="hero-tag">Variedades</span>
-        </div>
         <q-btn
           color="accent"
           size="lg"
@@ -34,8 +26,8 @@
     <!-- Categories -->
     <section class="categories-section q-pa-lg section-reveal basket-texture">
       <div class="text-center q-mb-lg">
-        <div class="categories-title">CATEGORÍAS</div>
-        <div class="text-grey-7 text-caption">Explora por secciones</div>
+        <div class="categories-title">LO QUE TENEMOS</div>
+        <div class="text-grey-9 text-caption">Explora por secciones</div>
       </div>
       <div class="row q-col-gutter-md justify-center">
         <div
@@ -66,8 +58,8 @@
     <!-- Featured products -->
     <section class="shelf-section q-pa-lg section-reveal">
       <div class="text-center q-mb-lg">
-        <div class="shelf-title">PRODUCTOS DESTACADOS</div>
-        <div class="text-grey-7 text-caption">Lo más vendido — incluye ofertas</div>
+        <div class="shelf-title">LO QUE TODOS COMPRAN</div>
+        <div class="text-grey-7 text-caption">Lo más vendido — hay ofertas</div>
       </div>
       <div v-if="loading" class="row q-col-gutter-md">
         <div v-for="n in 4" :key="n" class="col-6 col-sm-4 col-md-3">
@@ -115,40 +107,10 @@
         </div>
       </div>
       <div class="text-center q-mt-md">
-        <q-btn flat no-caps label="Ver catálogo completo →" to="/catalogo" class="shelf-link" />
+        <q-btn flat no-caps label="Visita nustra tienda →" to="/catalogo" class="shelf-link" />
       </div>
     </section>
 
-    <div class="wave-divider" />
-
-    <!-- WhatsApp CTA -->
-    <section class="cta-section bg-primary text-white q-pa-lg section-reveal">
-      <div class="column items-center text-center">
-        <div class="cta-title">¿Necesitas algo en especial?</div>
-        <div class="cta-bullets q-my-md">
-          <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Atención rápida</span>
-          <span class="cta-dot">·</span>
-          <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Buenos precios</span>
-          <span class="cta-dot">·</span>
-          <span class="cta-bullet"><q-icon name="check_circle" size="xs" color="positive" /> Variedad de productos</span>
-        </div>
-          <q-btn
-            color="accent"
-            size="md"
-            text-color="dark"
-            label="Escríbenos directo aquí"
-            unelevated
-            no-caps
-            class="q-px-xl"
-            style="border-radius: 6px"
-            @click="openWhatsApp"
-          >
-            <template v-slot:default>
-              <q-icon name="fa-brands fa-whatsapp" />
-            </template>
-          </q-btn>
-      </div>
-    </section>
   </q-page>
 </template>
 
@@ -156,7 +118,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { branding } from 'src/config/branding';
 import { defaultCategories } from 'src/config/categories';
-import { whatsappConfig, formatWhatsAppUrl } from 'src/config/whatsapp';
+
 import { useProducts } from 'src/composables/useProducts';
 import { useProductPreview } from 'src/composables/useProductPreview';
 import { useMeta } from 'quasar';
@@ -310,11 +272,6 @@ onMounted(async () => {
 onUnmounted(() => {
   observer?.disconnect();
 });
-
-function openWhatsApp() {
-  const url = formatWhatsAppUrl(whatsappConfig.messageTemplates.contact());
-  window.open(url, '_blank');
-}
 
 useMeta({
   title: `${branding.name} | Inicio`,
@@ -553,7 +510,7 @@ useMeta({
 }
 
 .category-icon {
-  color: #C17A4B;
+  color: #196ddb;
   transition: color 0.3s ease;
 }
 
@@ -675,36 +632,6 @@ useMeta({
   font-weight: 500;
   letter-spacing: 0.5px;
   color: #C17A4B;
-}
-
-/* CTA section */
-.cta-title {
-  font-family: 'DM Serif Display', serif;
-  letter-spacing: 2px;
-  font-size: 1.6rem;
-}
-
-.cta-bullets {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.cta-bullet {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.cta-dot {
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 1rem;
-  user-select: none;
 }
 
 /* Responsive hero */

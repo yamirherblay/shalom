@@ -32,7 +32,7 @@
           </template>
         </div>
         <q-badge
-          :color="product.estado === 'Disponible' ? 'positive' : 'negative'"
+          :color="product.estado === 'Disponible' ? 'blue' : 'negative'"
           :text-color="'white'"
           :label="product.estado"
           class="card-status"
@@ -178,7 +178,7 @@ function formatPrice(value: number): string {
 
 .card-add {
   border-color: #C17A4B;
-  color: #C17A4B;
+  color: #512FAC;
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 0.8rem;
