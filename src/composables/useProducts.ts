@@ -103,7 +103,19 @@ export function useProducts() {
     }
   }
 
-  async function deleteProduct(id: string): Promise<boolean> {
+  function extractStoragePath(imageUrl: string): string | null {
+    try {
+      const url = new URL(imageUrl);
+      const prefix = '/object/public/products/';
+      const idx = url.pathname.indexOf(prefix);
+      if (idx === -1) return null;
+      return url.pathname.slice(idx + prefix.length);
+    } catch {
+      return null;
+    }
+  }
+
+  async function deleteProduct(id: string, imageUrl?: string): Promise<boolean> {
     const adminNegocioId = getAdminBusinessId();
     if (!adminNegocioId) {
       error.value = 'No autorizado: inicia sesión para eliminar productos';
@@ -113,6 +125,16 @@ export function useProducts() {
     loading.value = true;
     error.value = null;
     try {
+      if (imageUrl) {
+        const storagePath = extractStoragePath(imageUrl);
+        if (storagePath) {
+          const { error: storageError } = await supabase.storage
+            .from('products')
+            .remove([storagePath]);
+          if (storageError) console.warn('Error borrando imagen de storage:', storageError);
+        }
+      }
+
       const { error: deleteError } = await supabase
         .from('products')
         .delete()

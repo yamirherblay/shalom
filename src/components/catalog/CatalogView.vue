@@ -67,14 +67,18 @@ const filterQuery = computed(() => {
 
 const categories = computed(() => {
   const cats = getCategories();
-  return [{ key: 'all', label: 'Todos' }, ...cats.map((c) => ({ key: c, label: capitalize(c) }))];
+  return [{ key: 'all', label: 'Todos'},{key:'offer' , label:'Oferta'}, ...cats.map((c) => ({ key: c, label: capitalize(c) }))];
 });
 
 const filteredProducts = computed(() => {
   let filtered = products.value.filter((p) => p.estado !== 'Agotado');
 
-  if (selectedCategory.value !== 'all') {
+  if (selectedCategory.value !== 'all' && selectedCategory.value !== 'offer') {
     filtered = filtered.filter((p) => p.category === selectedCategory.value);
+  }
+  if(selectedCategory.value == 'offer')
+  {
+    filtered = filtered.filter((p) => p.oferta === true);
   }
 
   if (filterQuery.value.trim()) {

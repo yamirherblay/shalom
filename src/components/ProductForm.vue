@@ -229,9 +229,7 @@ async function onFileSelected(val: File | File[] | null) {
   previewUrl.value = URL.createObjectURL(f);
   const filename = f.name;
   const slug = slugifyBase(filename);
-  // Ajustar ID a partir del nombre del archivo (en ambos modos, como solicitaste)
-  if (slug) {
-    // aunque el campo esté deshabilitado en modo edit, el valor interno se actualiza
+  if (slug && props.mode === 'add') {
     localProduct.id = crypto.randomUUID();
   }
   try {

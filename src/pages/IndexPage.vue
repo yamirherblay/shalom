@@ -14,7 +14,7 @@
           <span class="hero-tag">Lijas</span>
         </div>
         <q-btn
-          color="accent"
+          color="secondary"
           size="lg"
           :label="branding.hero.ctaText"
           :to="branding.hero.ctaLink"
@@ -63,7 +63,7 @@
     <section class="shelf-section q-pa-lg section-reveal">
       <div class="text-center q-mb-lg">
         <div class="shelf-title text-weight-bold">PRODUCTOS DESTACADOS</div>
-        <div class="text-grey-7 text-caption">Lo más vendido de la semana</div>
+        <div class="text-grey-7 text-caption">Lo más vendido — incluye ofertas</div>
       </div>
       <div v-if="loading" class="row q-col-gutter-md">
         <div v-for="n in 4" :key="n" class="col-6 col-sm-4 col-md-3">
@@ -85,12 +85,15 @@
           @click="$router.push('/catalogo')"
         >
           <div class="shelf-card bg-white">
-            <q-img
-              :src="product.image || '/images/placeholder.svg'"
-              ratio="1"
-              class="shelf-img cursor-pointer"
-              @click.stop="preview.open(product)"
-            />
+            <div class="shelf-img-wrap">
+              <q-img
+                :src="product.image || '/images/placeholder.svg'"
+                ratio="1"
+                class="shelf-img cursor-pointer"
+                @click.stop="preview.open(product)"
+              />
+              <div v-if="product.oferta" class="offer-ribbon">OFERTA</div>
+            </div>
             <div class="shelf-divider"></div>
             <div class="shelf-info q-pa-sm">
               <div class="shelf-name text-weight-bold">{{ product.name }}</div>
@@ -103,11 +106,6 @@
                   <span class="sale-price">{{ formatPrice(product.price) }}</span>
                 </template>
               </div>
-              <q-badge
-                :color="product.estado === 'Disponible' ? 'positive' : 'negative'"
-                :label="product.estado"
-                class="shelf-badge"
-              />
             </div>
           </div>
         </div>
@@ -165,9 +163,18 @@ const revealedCategories = ref(false);
 
 const { products, fetchProducts, loading } = useProducts();
 
-const featuredProducts = computed(() =>
-  products.value.filter((p) => p.estado !== 'Agotado').slice(0, 4),
-);
+const featuredProducts = computed(() => {
+  const available = products.value.filter((p) => p.estado !== 'Agotado');
+  const offers = available.filter((p) => p.oferta);
+  const nonOffers = available.filter((p) => !p.oferta);
+
+  const selectedOffers = offers.slice(0, 2);
+  const remaining = 4 - selectedOffers.length;
+  const shuffled = [...nonOffers].sort(() => Math.random() - 0.5);
+  const selectedNonOffers = shuffled.slice(0, remaining);
+
+  return [...selectedOffers, ...selectedNonOffers];
+});
 
 function formatPrice(value: number): string {
   return new Intl.NumberFormat('es-CU', {
@@ -288,7 +295,7 @@ useMeta({
 .hero-cta {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 /* Entrance animations */
@@ -412,6 +419,29 @@ useMeta({
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+}
+
+.shelf-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -30px;
+  background: #E85D04;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 34px;
+  transform: rotate(45deg);
+  z-index: 2;
+  text-transform: uppercase;
+  line-height: 1.4;
+  pointer-events: none;
 }
 
 .shelf-card:hover {

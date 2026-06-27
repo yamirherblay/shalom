@@ -85,6 +85,9 @@
             <q-btn size="sm" color="secondary" flat icon="edit" @click="openEdit(props.row)">
               <q-tooltip>Editar</q-tooltip>
             </q-btn>
+            <q-btn size="sm" color="negative" flat icon="delete" @click="confirmDelete(props.row)">
+              <q-tooltip>Eliminar</q-tooltip>
+            </q-btn>
           </q-td>
         </template>
         <template #body-cell-image="props">
@@ -214,7 +217,7 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue';
 import type { QTableColumn } from 'quasar';
-import { useMeta } from 'quasar';
+import { useMeta, useQuasar } from 'quasar';
 
 useMeta({
   title: 'Admin | Ferretería VIP',
@@ -225,6 +228,7 @@ useMeta({
 
 import ProductForm from 'src/components/ProductForm.vue';
 import { useAdminChangesStore } from 'src/stores/adminChanges';
+import { useProducts } from 'src/composables/useProducts';
 import { supabase } from 'boot/supabase';
 import { getAdminBusinessId } from 'src/config/business';
 import type { Product } from 'src/stores/types';
@@ -235,6 +239,8 @@ const changesStore = useAdminChangesStore();
 const addDialog = ref(false);
 const editDialog = ref(false);
 const negocioId = getAdminBusinessId();
+const $q = useQuasar();
+const { deleteProduct } = useProducts();
 
 const newProduct = ref<Product>({
   id: '',
@@ -373,6 +379,36 @@ function saveEdit(product: Product) {
   }
   originalEditId.value = null;
   editDialog.value = false;
+}
+
+function confirmDelete(row: Product) {
+  $q.dialog({
+    title: 'Eliminar producto',
+    message: `¿Estás seguro de eliminar "${row.name}"?`,
+    cancel: { label: 'Cancelar', flat: true },
+    ok: { label: 'Eliminar', color: 'negative' },
+    persistent: true,
+  }).onOk(() => { void handleDelete(row); });
+}
+
+async function handleDelete(row: Product) {
+  const ok = await deleteProduct(row.id, row.image);
+  if (ok) {
+    const idx = products.value.findIndex((p) => p.id === row.id);
+    if (idx !== -1) products.value.splice(idx, 1);
+    changesStore.addDeleted({ id: row.id, name: row.name });
+    $q.notify({
+      message: 'Producto eliminado correctamente',
+      color: 'positive',
+      icon: 'check_circle',
+    });
+  } else {
+    $q.notify({
+      message: 'Error al eliminar producto',
+      color: 'negative',
+      icon: 'error',
+    });
+  }
 }
 
 function formatPrice(val?: number) {
