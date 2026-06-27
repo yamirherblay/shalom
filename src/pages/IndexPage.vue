@@ -107,7 +107,7 @@
         </div>
       </div>
       <div class="text-center q-mt-md">
-        <q-btn flat no-caps label="Visita nustra tienda →" to="/catalogo" class="shelf-link" />
+        <q-btn flat no-caps label="Visita nuestra tienda →" to="/catalogo" class="shelf-link" />
       </div>
     </section>
 
