@@ -64,7 +64,28 @@
           input-debounce="0"
           new-value-mode="add-unique"
           :rules="[(val) => !!val || 'La categoría es obligatoria']"
-        />
+        >
+          <template #option="scope">
+            <q-item v-bind="scope.itemProps" class="q-pr-sm">
+              <q-item-section>
+                <q-item-label>{{ scope.opt.label }}</q-item-label>
+              </q-item-section>
+              <q-item-section v-if="scope.opt.deletable" side>
+                <q-btn
+                  flat
+                  round
+                  dense
+                  size="sm"
+                  color="negative"
+                  icon="delete"
+                  @click.stop.prevent="removeCustomCategory(scope.opt.value)"
+                >
+                  <q-tooltip>Eliminar categoría (productos van a Variedades)</q-tooltip>
+                </q-btn>
+              </q-item-section>
+            </q-item>
+          </template>
+        </q-select>
       </div>
       <div class="col-6">
         <q-select
@@ -199,11 +220,25 @@ const estadoOptions = [
 //   { label: 'Zelle', value: 'Zelle' },
 // ]);
 
-const categoryOptions = ref<{ label: string; value: string }[]>(
-  defaultCategories
-    .filter((c) => c.key !== 'all')
-    .map((c) => ({ label: c.label, value: c.key })),
-);
+interface CategoryOption {
+  label: string;
+  value: string;
+  deletable?: boolean;
+}
+
+const defaultCategoryOptions: CategoryOption[] = defaultCategories
+  .filter((c) => c.key !== 'all')
+  .map((c) => ({ label: c.label, value: c.key }));
+
+const categoryOptions = ref<CategoryOption[]>([...defaultCategoryOptions]);
+
+function normalizeText(s: string): string {
+  return s
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
 
 const fileProxy = ref<File | File[] | null>(null);
 const previewUrl = ref<string>('');
@@ -352,6 +387,7 @@ async function onFileSelected(val: File | File[] | null) {
 }
 
 onMounted(async () => {
+  if (!props.negocioId) return;
   try {
     const { data } = await supabase
       .from('products')
@@ -362,8 +398,25 @@ onMounted(async () => {
       const current = new Set(categoryOptions.value.map((o) => o.value));
       const dbCats = [...new Set(data.map((p) => p.category).filter(Boolean))];
       for (const cat of dbCats) {
+        const norm = normalizeText(cat);
+        const matchedDefault = defaultCategoryOptions.find(
+          (d) => normalizeText(d.value) === norm || normalizeText(d.label) === norm,
+        );
+
+        if (matchedDefault) {
+          if (cat !== matchedDefault.value) {
+            await supabase
+              .from('products')
+              .update({ category: matchedDefault.value })
+              .eq('negocio_id', props.negocioId)
+              .eq('category', cat);
+          }
+          continue;
+        }
+
         if (!current.has(cat)) {
-          categoryOptions.value.push({ label: cat, value: cat });
+          categoryOptions.value.push({ label: cat, value: cat, deletable: true });
+          current.add(cat);
         }
       }
     }
@@ -371,6 +424,47 @@ onMounted(async () => {
     console.log('Error fetching extra categories', e);
   }
 });
+
+function removeCustomCategory(value: string) {
+  if (!props.negocioId) return;
+  const label = categoryOptions.value.find((o) => o.value === value)?.label || value;
+
+  $q.dialog({
+    title: 'Eliminar categoría',
+    message: `Los productos con la categoría "${label}" se moverán a Variedades. ¿Continuar?`,
+    cancel: true,
+    persistent: true,
+  }).onOk(() => {
+    void deleteAndReassign(value);
+  });
+}
+
+async function deleteAndReassign(value: string) {
+  try {
+    const { error } = await supabase
+      .from('products')
+      .update({ category: 'variado' })
+      .eq('negocio_id', props.negocioId)
+      .eq('category', value);
+    if (error) throw error;
+
+    categoryOptions.value = categoryOptions.value.filter((o) => o.value !== value);
+    if (localProduct.category === value) localProduct.category = '';
+
+    $q.notify({
+      message: 'Categoría eliminada y productos movidos a Variedades',
+      color: 'positive',
+      icon: 'check_circle',
+    });
+  } catch (e: unknown) {
+    console.error('Error eliminando categoría:', e);
+    $q.notify({
+      message: 'Error al eliminar categoría',
+      color: 'negative',
+      icon: 'error',
+    });
+  }
+}
 
 onBeforeUnmount(() => {
   if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);

@@ -1,8 +1,8 @@
 {
-  "name": "FerreteriaVIP",
+  "name": "ShalomStore",
   "version": "0.0.1",
-  "description": "Catalogo online de Ferreteria VIP, Productos y servicios",
-  "productName": "FerreteriaVIP APP",
+  "description": "Catalogo online de Shalom, Productos y servicios",
+  "productName": "Shalom APP",
   "author": "Yyd Solution",
   "type": "module",
   "private": true,
