@@ -21,9 +21,6 @@
         <q-img :src="previewUrl || localProduct.image" :ratio="16 / 9" style="max-height: 200px" />
       </div>
       <div class="col-12">
-        <q-input v-model="localProduct.id" label="ID" dense outlined :disable="mode === 'edit'" />
-      </div>
-      <div class="col-12">
         <q-input
           v-model="localProduct.name"
           label="Nombre"
@@ -44,6 +41,17 @@
       </div>
       <div class="col-6">
         <q-select
+          v-model="currency"
+          :options="currencyOptions"
+          label="Moneda"
+          dense
+          outlined
+          emit-value
+          map-options
+        />
+      </div>
+      <div class="col-6">
+        <q-select
           v-model="localProduct.category"
           :options="categoryOptions"
           label="Categoría"
@@ -60,6 +68,19 @@
       </div>
       <div class="col-6">
         <q-select
+          v-model="localProduct.estado"
+          :options="estadoOptions"
+          label="Estado"
+          required
+          dense
+          outlined
+          emit-value
+          map-options
+        />
+      </div>
+      <!--
+      <div class="col-6">
+        <q-select
           v-model="localProduct.subcategory"
           :options="subcategoryOptions"
           label="Subcategoria"
@@ -71,18 +92,7 @@
           map-options
         />
       </div>
-      <div class="col-6">
-        <q-select
-          v-model="localProduct.estado"
-          :options="estadoOptions"
-          label="Estado"
-          required
-          dense
-          outlined
-          emit-value
-          map-options
-        />
-      </div>
+      -->
       <div class="col-12">
         <q-input v-model="localProduct.image" label="URL de imagen" required dense outlined />
       </div>
@@ -92,11 +102,11 @@
       <div class="col-6">
         <q-toggle v-model="localProduct.oferta" label="En oferta" />
       </div>
-      <div class="col-6" v-if="localProduct.oferta || localProduct.subcategory === 'Mayorista'">
+      <div class="col-6" v-if="localProduct.oferta">
         <q-input
           v-model.number="localProduct.descuento"
           type="number"
-          label="Precio de la Oferta o Mayorista"
+          label="Precio de la Oferta"
           dense
           outlined
         />
@@ -134,6 +144,7 @@ import type { Product } from 'src/stores/types';
 import { defaultCategories } from 'src/config/categories';
 
 const MAX_FILE_SIZE = 420 * 1024; // 400KB en bytes
+const MAX_OUTPUT_DIM = 1200; // tope de dimensión mayor para redimensionar
 
 const props = defineProps<{
   modelValue: Product;
@@ -167,14 +178,26 @@ watch(
   { deep: true },
 );
 
+const currencyOptions = [
+  { label: 'CUP', value: 'CUP' },
+  { label: 'USD', value: 'USD' },
+];
+
+const currency = computed({
+  get: () => localProduct.currency || 'CUP',
+  set: (v: string) => {
+    localProduct.currency = v;
+  },
+});
+
 const estadoOptions = [
   { label: 'Disponible', value: 'Disponible' },
   { label: 'Agotado', value: 'Agotado' },
 ];
-const subcategoryOptions = ref([
-  { label: 'Mayorista', value: 'Mayorista' },
-  { label: 'Zelle', value: 'Zelle' },
-]);
+// const subcategoryOptions = ref([
+//   { label: 'Mayorista', value: 'Mayorista' },
+//   { label: 'Zelle', value: 'Zelle' },
+// ]);
 
 const categoryOptions = ref<{ label: string; value: string }[]>(
   defaultCategories
@@ -205,6 +228,61 @@ function slugifyBase(name: string) {
     .replace(/^-+|-+$/g, '');
 }
 
+function loadBitmap(file: File): Promise<ImageBitmap | HTMLImageElement> {
+  if (typeof createImageBitmap === 'function') {
+    return createImageBitmap(file);
+  }
+  return new Promise<HTMLImageElement>((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(img);
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('No se pudo cargar la imagen'));
+    };
+    img.src = url;
+  });
+}
+
+async function compressImage(file: File): Promise<Blob> {
+  const bitmap = await loadBitmap(file);
+  const naturalW = 'naturalWidth' in bitmap ? bitmap.naturalWidth : bitmap.width;
+  const naturalH = 'naturalHeight' in bitmap ? bitmap.naturalHeight : bitmap.height;
+
+  const scale = Math.min(1, MAX_OUTPUT_DIM / Math.max(naturalW, naturalH));
+  const outW = Math.max(1, Math.round(naturalW * scale));
+  const outH = Math.max(1, Math.round(naturalH * scale));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = outW;
+  canvas.height = outH;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return file;
+
+  const isPng = file.type === 'image/png';
+  if (!isPng) {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, outW, outH);
+  }
+  if ('close' in bitmap) {
+    ctx.drawImage(bitmap, 0, 0, outW, outH);
+    bitmap.close();
+  } else {
+    ctx.drawImage(bitmap, 0, 0, outW, outH);
+  }
+
+  const mime = isPng ? 'image/png' : 'image/jpeg';
+  const blob = await new Promise<Blob | null>((resolve) =>
+    canvas.toBlob(resolve, mime, isPng ? undefined : 0.82),
+  );
+
+  if (blob && blob.size < file.size) return blob;
+  return file;
+}
+
 async function onFileSelected(val: File | File[] | null) {
   const f = Array.isArray(val) ? val[0] : val;
   if (!f) {
@@ -212,10 +290,18 @@ async function onFileSelected(val: File | File[] | null) {
     previewUrl.value = '';
     return;
   }
-  if (f.size > MAX_FILE_SIZE) {
-    const sizeKB = Math.round(f.size / 1024);
+
+  let optimized: Blob;
+  try {
+    optimized = await compressImage(f);
+  } catch {
+    optimized = f;
+  }
+
+  if (optimized.size > MAX_FILE_SIZE) {
+    const sizeKB = Math.round(optimized.size / 1024);
     $q.notify({
-      message: `La imagen que intenta subir tiene (${sizeKB}KB) no puede superar 400KB`,
+      message: `La imagen optimizada sigue siendo muy grande (${sizeKB}KB) y supera los 400KB`,
       color: 'negative',
       icon: 'error',
       position: 'top',
@@ -225,8 +311,9 @@ async function onFileSelected(val: File | File[] | null) {
     fileProxy.value = null;
     return;
   }
+
   if (previewUrl.value) URL.revokeObjectURL(previewUrl.value);
-  previewUrl.value = URL.createObjectURL(f);
+  previewUrl.value = URL.createObjectURL(optimized);
   const filename = f.name;
   const slug = slugifyBase(filename);
   if (slug && props.mode === 'add') {
@@ -234,7 +321,7 @@ async function onFileSelected(val: File | File[] | null) {
   }
   try {
     const filePath = `shalom/${Date.now()}-${filename}`;
-    const { data, error } = await supabase.storage.from('products').upload(filePath, f);
+    const { data, error } = await supabase.storage.from('products').upload(filePath, optimized);
     console.log('Imagen subida:', data);
     if (error) {
       $q.notify({
@@ -301,8 +388,9 @@ async function onSubmit() {
       departament: DEPARTAMENT,
       name: localProduct.name,
       price: localProduct.price,
+      currency: localProduct.currency || 'CUP',
       category: localProduct.category,
-      subcategory: localProduct.subcategory || null,
+      subcategory: null,
       image: localProduct.image,
       descuento: localProduct.descuento || 0,
       new: localProduct.new || false,

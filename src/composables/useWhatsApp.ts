@@ -1,27 +1,37 @@
 import { whatsappConfig, formatWhatsAppUrl } from 'src/config/whatsapp';
-import type { Product } from 'src/stores/types';
-import type { CartItem } from 'src/stores/types';
+import type { Product, CartItem, CartDelivery } from 'src/stores/types';
+import { formatPrice } from 'src/utils/format';
 
 export function useWhatsApp() {
   function sendProductRequest(product: Product) {
     const price = formatProductPrice(product);
-    const message = whatsappConfig.messageTemplates.product(product.name, price);
+    const message = whatsappConfig.messageTemplates.product(product.name, price, product.image ?? '');
     window.open(formatWhatsAppUrl(message), '_blank');
   }
 
-  function sendCartProposal(items: CartItem[]) {
+  function sendCartProposal(
+    items: CartItem[],
+    totals: Record<string, number>,
+    delivery?: CartDelivery,
+    reference?: string,
+  ): { opened: boolean; url: string } {
     const itemsList = items
-      .map((item) => `${item.product.name} x${item.quantity} - ${formatProductPrice(item.product)}`)
+      .map((item) => `• ${item.product.name} x${item.quantity} - ${formatProductPrice(item.product)} c/u`)
       .join('\n');
 
-    const total = items.reduce((sum, item) => {
-      const price = item.product.descuento || item.product.price;
-      return sum + price * item.quantity;
-    }, 0);
+    const currencyEntries = Object.entries(totals);
+    const first = currencyEntries[0] ?? ['CUP', 0];
+    const totalsBlock =
+      currencyEntries.length === 1
+        ? formatPrice(first[1], first[0])
+        : currencyEntries
+            .map(([currency, total]) => `${currency}: ${formatPrice(total, currency)}`)
+            .join('\n');
 
-    const totalFormatted = formatPrice(total);
-    const message = whatsappConfig.messageTemplates.cart(itemsList, totalFormatted);
-    window.open(formatWhatsAppUrl(message), '_blank');
+    const message = whatsappConfig.messageTemplates.cart(itemsList, totalsBlock, delivery, reference);
+    const url = formatWhatsAppUrl(message);
+    const win = window.open(url, '_blank');
+    return { opened: win != null, url };
   }
 
   function sendContactMessage() {
@@ -38,15 +48,7 @@ export function useWhatsApp() {
 
 function formatProductPrice(product: Product): string {
   const price = product.oferta && product.descuento ? product.descuento : product.price;
-  const label = formatPrice(price);
-  return product.oferta ? `${label} (Oferta)` : label;
-}
-
-function formatPrice(value: number): string {
-  const formatted = new Intl.NumberFormat('es-CU', {
-    style: 'currency',
-    currency: 'CUP',
-    maximumFractionDigits: 0,
-  }).format(value);
-  return `${formatted} CUP`;
+  const label = formatPrice(price, product.currency);
+  const suffix = product.currency && product.currency !== 'CUP' ? product.currency : '';
+  return product.oferta ? `${label}${suffix} (Oferta)` : `${label}${suffix}`;
 }

@@ -5,6 +5,7 @@ export interface Product {
   image: string;
   category: string;
   subcategory?: string;
+  currency?: string;
   estado: 'Disponible' | 'Agotado';
   oferta?: boolean;
   descuento: number;
@@ -21,6 +22,7 @@ export interface ProductFormData {
   image: string;
   category: string;
   subcategory?: string;
+  currency: string;
   estado: 'Disponible' | 'Agotado';
   oferta: boolean;
   descuento: number;
@@ -37,6 +39,13 @@ export interface Category {
 export interface CartItem {
   product: Product;
   quantity: number;
+}
+
+export interface CartDelivery {
+  method: 'domicilio' | 'retiro';
+  name?: string;
+  address?: string;
+  refs?: string;
 }
 
 export interface OrderContact {
@@ -60,4 +69,28 @@ export interface User {
   fullName?: string;
   phone?: string;
   isAdmin?: boolean;
+}
+
+export type OrderStatus = 'Pendiente' | 'Confirmado' | 'Entregado' | 'Cancelado';
+
+export interface Order {
+  id: number;
+  token: string;
+  total_cup: number | null;
+  total_usd: number | null;
+  type_delivery: 'domicilio' | 'retiro';
+  status: OrderStatus;
+  client_name?: string | null;
+  address_client?: string | null;
+  negocio_id: string;
+  created_at: string;
+}
+
+export interface OrderProductRow {
+  id: number;
+  id_order: number;
+  id_product: string;
+  qty: number;
+  price_at_order: number | null;
+  products?: { name: string; image?: string; currency?: string } | null;
 }

@@ -95,24 +95,24 @@
             <q-img :src="props.row.image" :ratio="1" style="width: 36px; height: 36px; border-radius: 2px;" />
           </q-td>
         </template>
-        <template #body-cell-id="props">
-          <q-td :props="props" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #6B7280;">
-            {{ props.row.id?.slice(0, 8) }}...
-          </q-td>
-        </template>
         <template #body-cell-price="props">
           <q-td :props="props" style="font-family: 'JetBrains Mono', monospace;">
-            {{ formatPrice(props.row.price) }}
+            {{ formatPrice(props.row.price, props.row.currency) }}
           </q-td>
         </template>
         <template #body-cell-disponibilidad="props">
           <q-td :props="props">
-            <q-badge
-              :label="props.row.estado"
-              :color="props.row.estado === 'Disponible' ? 'green-7' : 'red-5'"
-              dense
-              style="font-family: 'DM Sans', sans-serif; font-weight: 500; padding: 2px 8px;"
-            />
+            <div class="row items-center no-wrap q-gutter-xs">
+              <q-toggle
+                :model-value="props.row.estado === 'Disponible'"
+                color="green-7"
+                dense
+                size="sm"
+                :disable="togglingId === props.row.id"
+                @update:model-value="confirmToggle(props.row)"
+              />
+              <span class="text-caption">{{ props.row.estado }}</span>
+            </div>
           </q-td>
         </template>
         <template #body-cell-oferta="props">
@@ -148,7 +148,7 @@
               </div>
               <div class="q-mb-xs">
                 <span class="text-caption text-grey-7">Precio</span>
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: #2C2C2C; font-weight: 600;">{{ formatPrice(viewProduct?.price) }}</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: #2C2C2C; font-weight: 600;">{{ formatPrice(viewProduct?.price, viewProduct?.currency) }}</div>
               </div>
               <div class="q-mb-xs">
                 <span class="text-caption text-grey-7">Categoría</span>
@@ -232,6 +232,7 @@ import { useProducts } from 'src/composables/useProducts';
 import { supabase } from 'boot/supabase';
 import { getAdminBusinessId } from 'src/config/business';
 import type { Product } from 'src/stores/types';
+import { formatPrice as _formatPrice } from 'src/utils/format';
 
 const products = ref<Product[]>([]);
 const filter = ref('');
@@ -246,6 +247,7 @@ const newProduct = ref<Product>({
   id: '',
   name: '',
   price: 0,
+  currency: 'CUP',
   category: '',
   image: '',
   new: false,
@@ -261,6 +263,7 @@ const editProduct = ref<Product>({
   id: '',
   name: '',
   price: 0,
+  currency: 'CUP',
   category: '',
   image: '',
   new: false,
@@ -286,7 +289,6 @@ const headerCellStyle = () => ({
 
 const columns = <QTableColumn[]>[
   { name: 'image', label: '', field: 'image', align: 'left', style: 'width: 48px' },
-  { name: 'id', label: 'ID', field: 'id', align: 'left', sortable: true },
   { name: 'name', label: 'Nombre', field: 'name', align: 'left', sortable: true },
   {
     name: 'price',
@@ -294,8 +296,9 @@ const columns = <QTableColumn[]>[
     field: 'price',
     align: 'right',
     sortable: true,
-    format: (v: number) => formatPrice(v),
+    format: (v: number, row: Record<string, unknown>) => formatPrice(v, row.currency as string | undefined),
   },
+  { name: 'currency', label: 'Moneda', field: 'currency', align: 'center', style: 'width: 60px' },
   { name: 'category', label: 'Categoría', field: 'category', align: 'left', sortable: true },
   {
     name: 'subcategory',
@@ -411,13 +414,54 @@ async function handleDelete(row: Product) {
   }
 }
 
-function formatPrice(val?: number) {
+function formatPrice(val?: number, currency?: string) {
   if (val == null) return '-';
-  return new Intl.NumberFormat('es-CU', {
-    style: 'currency',
-    currency: 'CUP',
-    maximumFractionDigits: 0,
-  }).format(val);
+  return _formatPrice(val, currency);
+}
+
+const togglingId = ref<string | null>(null);
+
+function confirmToggle(row: Product) {
+  const newEstado = row.estado === 'Disponible' ? 'Agotado' : 'Disponible';
+  $q.dialog({
+    title: 'Cambiar disponibilidad',
+    message: `¿Estás seguro de cambiar "${row.name}" de ${row.estado} a ${newEstado}?`,
+    cancel: { label: 'Cancelar', flat: true },
+    ok: { label: 'Aceptar', color: 'primary' },
+    persistent: true,
+  }).onOk(() => { void toggleVisibility(row, newEstado); });
+}
+
+async function toggleVisibility(row: Product, newEstado: string) {
+  togglingId.value = row.id;
+  try {
+    const { error } = await supabase
+      .from('products')
+      .update({ estado: newEstado })
+      .eq('id', row.id)
+      .eq('negocio_id', negocioId);
+    if (error) throw error;
+    const idx = products.value.findIndex((p) => p.id === row.id);
+    if (idx !== -1) {
+      const target = products.value[idx];
+      if (target) target.estado = newEstado as 'Disponible' | 'Agotado';
+    }
+    changesStore.addUpdated({ id: row.id, name: row.name });
+    $q.notify({
+      message: `"${row.name}" ahora está ${newEstado}`,
+      color: 'positive',
+      icon: 'check_circle',
+      timeout: 2000,
+    });
+  } catch {
+    $q.notify({
+      message: 'Error al cambiar disponibilidad',
+      color: 'negative',
+      icon: 'error',
+    });
+  } finally {
+    togglingId.value = null;
+  }
 }
 
 onMounted(async () => {
