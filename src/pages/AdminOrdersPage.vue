@@ -87,7 +87,7 @@
       <q-card-section class="row items-center q-py-sm">
         <div class="col">
           <div class="row items-center q-gutter-sm">
-            <span class="order-token">#{{ order.id }}</span>
+            <span class="order-token">{{ tokenRef(order.token) }}</span>
             <q-badge :label="order.status" :color="statusColor(order.status)" dense />
           </div>
           <div class="text-caption text-black-6 q-mt-xs">{{ formatDate(order.created_at) }}</div>
@@ -130,7 +130,7 @@
       <q-card :style="$q.screen.lt.md ? '' : 'max-width: 560px; width: 100%'">
         <q-card-section class="row items-center q-py-sm" style="border-bottom: 2px solid #C17A4B;">
           <div class="text-subtitle1 text-weight-bold" style="font-family: 'DM Sans', sans-serif; color: #2C2C2C;">
-            Pedido #{{ detailOrder?.id ?? '' }}
+            Pedido #{{ detailOrder ? tokenRef(detailOrder.token) : '' }}
           </div>
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
@@ -296,6 +296,10 @@ function formatDate(iso: string): string {
 
 function deliveryLabel(method: Order['type_delivery']): string {
   return method === 'domicilio' ? 'A domicilio' : 'Retiro en tienda';
+}
+
+function tokenRef(token: string): string {
+  return `#${token.slice(0, 6).toUpperCase()}`;
 }
 
 function statusColor(status: OrderStatus): string {
