@@ -5,8 +5,8 @@
       <canvas ref="particleCanvas" class="hero-particles"></canvas>
       <div class="hero-glow"></div>
       <div class="hero-content column items-center text-center q-pa-lg">
-        <q-img src="/images/logo.jpeg" alt="Shalom" class="hero-logo q-mb-lg" ratio="1" />
-        <div class="hero-title hero-enter-title">SHALOM</div>
+        <q-img src="/images/logo.jpeg" alt="francoShop" class="hero-logo q-mb-lg" ratio="1" />
+    
         <div class="hero-subtitle hero-enter-sub">Tu tienda de confianza</div>
         <q-btn
           color="accent"
@@ -293,7 +293,7 @@ useMeta({
 
 /* Hero */
 .hero-section {
-  background: #1A2E24;
+  background: #122036;
   min-height: 70vh;
   display: flex;
   align-items: center;
@@ -329,8 +329,8 @@ useMeta({
 }
 
 .hero-logo {
-  width: 140px;
-  height: 140px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   animation:
     hero-scale-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
