@@ -1,9 +1,9 @@
 export const branding = {
-  name: 'Shalom',
+  name: 'FrancoShop',
   slogan: 'Tu tienda de confianza',
   logo: '/images/logo.jpeg',
   hero: {
-    title: 'SHALOM',
+    title: 'FrancoShop',
     subtitle: 'Alimentos, aseo, limpieza, hogar y más — todo en un solo lugar.',
     ctaText: 'Ver Catálogo',
     ctaLink: '/catalogo',
@@ -22,8 +22,8 @@ export const branding = {
     address: '',
   },
   about: {
-    title: 'Shalom',
+    title: 'FrancoShop',
     content:
-      'Shalom es tu tienda de productos para el hogar y la familia. Alimentos, bebidas, aseo personal, limpieza y artículos para tu casa — todo lo que necesitas en un solo lugar.\n\nTrabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada y rápida.\n\nShalom: paz, confianza y buena atención para ti y los tuyos.',
+      'FrancoShop es tu tienda de productos para el hogar y la familia. Alimentos, bebidas, aseo personal, limpieza y artículos para tu casa — todo lo que necesitas en un solo lugar.\n\nTrabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada y rápida.\n\nShalom: paz, confianza y buena atención para ti y los tuyos.',
   },
 };

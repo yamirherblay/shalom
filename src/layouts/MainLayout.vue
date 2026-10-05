@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-toolbar-title>
           <q-btn flat no-caps :to="'/'">
-            <span class="text-white" style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.25rem; font-weight: 400;">Shalom</span>
+            <span class="text-white" style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.25rem; font-weight: 400;">Franco Shop</span>
           </q-btn>
         </q-toolbar-title>
 

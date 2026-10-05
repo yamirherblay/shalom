@@ -1,4 +1,4 @@
-# Shalom — E-commerce 
+# FrancoShop — E-commerce 
 
 > **Quasar 2 + Vue 3 + TypeScript + Supabase**  
 > Scaffolding multi-tenant para catálogos online con pedidos por WhatsApp.
@@ -263,4 +263,4 @@ Las variables de entorno se setean en el dashboard de Vercel.
 ## Licencia
 
 Este proyecto se distribuye como scaffolding genérico.  
-Los derechos comerciales y de marca pertenecen a **Shalom Tienda de Productos** / **Yyd Solution**.
+Los derechos comerciales y de marca pertenecen a **FrancoShop Tienda de Productos** / **Yyd Solution**.

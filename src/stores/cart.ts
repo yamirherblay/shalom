@@ -3,7 +3,7 @@ import { ref, computed, watch } from 'vue';
 import type { CartItem, CartDelivery, Product } from './types';
 
 const STORAGE_KEY = 'ferreteriavip_cart';
-const DELIVERY_KEY = 'shalom_cart_delivery';
+const DELIVERY_KEY = 'FrancoShop_cart_delivery';
 
 export const useCartStore = defineStore('cart', () => {
   const items = ref<CartItem[]>([]);

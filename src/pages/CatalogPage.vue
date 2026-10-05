@@ -11,14 +11,14 @@ import { CatalogView } from 'src/components/catalog';
 import { useMeta } from 'quasar';
 
 useMeta({
-  title: 'Catálogo | Shalom',
+  title: 'Catálogo | FrancoShop',
   meta: {
-    description: { name: 'description', content: 'Catálogo de productos Shalom — alimentos, bebidas, aseo, limpieza, hogar y más.' },
-    'og:title': { property: 'og:title', content: 'Catálogo | Shalom' },
-    'og:description': { property: 'og:description', content: 'Catálogo de productos Shalom' },
+    description: { name: 'description', content: 'Catálogo de productos FrancoShop — alimentos, bebidas, aseo, limpieza, hogar y más.' },
+    'og:title': { property: 'og:title', content: 'Catálogo | FrancoShop' },
+    'og:description': { property: 'og:description', content: 'Catálogo de productos FrancoShop' },
     'og:url': { property: 'og:url', content: '/catalogo' },
-    'twitter:title': { name: 'twitter:title', content: 'Catálogo | Shalom' },
-    'twitter:description': { name: 'twitter:description', content: 'Catálogo de productos Shalom' },
+    'twitter:title': { name: 'twitter:title', content: 'Catálogo | FrancoShop' },
+    'twitter:description': { name: 'twitter:description', content: 'Catálogo de productos FrancoShop' },
   },
 });
 </script>

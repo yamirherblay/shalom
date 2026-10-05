@@ -183,7 +183,7 @@ const localProduct = reactive<Product>(
   { ...props.modelValue,
   });
 const $q = useQuasar();
-const DEPARTAMENT = 'shalom';
+const DEPARTAMENT = 'FrancoShop';
 watch(
   () => props.modelValue,
   (v) => {

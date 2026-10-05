@@ -2,14 +2,14 @@
   <q-page class="about-page q-pa-lg">
     <div class="row justify-center">
       <div class="col-12 col-md-8 col-lg-6">
-        <div class="about-title text-center q-mb-lg">SHALOM</div>
+        <div class="about-title text-center q-mb-lg">FrancoShop</div>
 
         <div class="about-rule q-mx-auto q-mb-lg" style="width: 60px;"></div>
 
         <div class="about-content">
-          <p>Shalom es tu tienda de productos para el hogar y la familia. Alimentos, bebidas, aseo personal, limpieza y artículos para tu casa — todo lo que necesitas en un solo lugar.</p>
+          <p>FrancoShop es tu tienda de productos para el hogar y la familia. Alimentos, bebidas, aseo personal, limpieza y artículos para tu casa — todo lo que necesitas en un solo lugar.</p>
           <p>Trabajamos con precios en CUP y puedes pedir por WhatsApp con atención personalizada y rápida.</p>
-          <p>Shalom: paz, confianza y buena atención para ti y los tuyos.</p>
+          <p>FrancoShop: paz, confianza y buena atención para ti y los tuyos.</p>
         </div>
 
         <div class="about-rule q-mx-auto q-my-lg" style="width: 60px;"></div>
@@ -29,12 +29,12 @@ import { useMeta } from 'quasar';
 useMeta({
   title: `Acerca de | ${branding.name}`,
   meta: {
-    description: { name: 'description', content: 'Conoce Shalom, tu tienda de productos de confianza.' },
+    description: { name: 'description', content: 'Conoce FrancoShop, tu tienda de productos de confianza.' },
     'og:title': { property: 'og:title', content: `Acerca de | ${branding.name}` },
-    'og:description': { property: 'og:description', content: 'Conoce Shalom, tu tienda de productos de confianza.' },
+    'og:description': { property: 'og:description', content: 'Conoce FrancoShop, tu tienda de productos de confianza.' },
     'og:url': { property: 'og:url', content: '/acerca' },
     'twitter:title': { name: 'twitter:title', content: `Acerca de | ${branding.name}` },
-    'twitter:description': { name: 'twitter:description', content: 'Conoce Shalom, tu tienda de productos de confianza.' },
+    'twitter:description': { name: 'twitter:description', content: 'Conoce FrancoShop, tu tienda de productos de confianza.' },
   },
 });
 </script>

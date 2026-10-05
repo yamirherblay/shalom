@@ -220,7 +220,7 @@ import type { QTableColumn } from 'quasar';
 import { useMeta, useQuasar } from 'quasar';
 
 useMeta({
-  title: 'Admin | Shalom',
+  title: 'Admin | FrancoShop',
   meta: {
     robots: { name: 'robots', content: 'noindex, nofollow' },
   },

@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-btn flat dense round icon="menu" @click="left = !left" class="q-mr-sm" />
         <q-toolbar-title class="row items-center">
-          <span style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.2rem;">Shalom</span>
+          <span style="font-family: 'DM Serif Display', serif; letter-spacing: 2px; font-size: 1.2rem;">FrancoShop</span>
           <span class="text-grey-4 q-ml-sm" style="font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.5px;">Admin</span>
         </q-toolbar-title>
         <AdminChangeNotifications />
@@ -78,7 +78,7 @@
       <div class="absolute-bottom q-pa-md text-center">
         <q-img
           src="/images/logo.jpeg"
-          alt="Shalom"
+          alt="FrancoShop"
           style="width: 60px; height: 60px; border-radius: 50%;"
           class="q-mb-sm"
         />

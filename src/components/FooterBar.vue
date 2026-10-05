@@ -53,9 +53,9 @@
       </div>
     </q-toolbar>
     <div class="row justify-center q-py-sm">
-      <div class="sello-shalom">
+      <div class="sello-FrancoShop">
         <span class="sello-icon">✦</span>
-        <span class="sello-text">SHALOM</span>
+        <span class="sello-text">FrancoShop</span>
         <span class="sello-text" style="font-size: 0.45rem; letter-spacing: 1px;">paz</span>
       </div>
     </div>
@@ -86,7 +86,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  brand: 'Shalom',
+  brand: 'FrancoShop',
   phone: '',
   email: '',
   whatsapp: '',

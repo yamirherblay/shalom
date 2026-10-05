@@ -12,7 +12,7 @@
         text-color="dark"
         unelevated
         to="/"
-        label="Volver a Shalom"
+        label="Volver a FrancoShop"
         no-caps
         size="lg"
       />
@@ -24,7 +24,7 @@
 import { useMeta } from 'quasar';
 
 useMeta({
-  title: '404 | Shalom',
+  title: '404 | FrancoShop',
   meta: {
     robots: { name: 'robots', content: 'noindex, nofollow' },
   },

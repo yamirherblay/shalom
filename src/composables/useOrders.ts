@@ -2,7 +2,7 @@ import { supabase } from 'boot/supabase';
 import { getBusinessId } from 'src/config/business';
 import type { CartDelivery, CartItem } from 'src/stores/types';
 
-const PENDING_KEY = 'shalom_pending_order';
+const PENDING_KEY = 'FrancoShop_pending_order';
 
 function itemsHash(items: CartItem[]): string {
   return items

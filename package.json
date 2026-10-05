@@ -1,8 +1,8 @@
 {
-  "name": "ShalomStore",
+  "name": "FrancoShopStore",
   "version": "0.0.1",
-  "description": "Catalogo online de Shalom, Productos y servicios",
-  "productName": "Shalom APP",
+  "description": "Catalogo online de FrancoShop, Productos y servicios",
+  "productName": "FrancoShop APP",
   "author": "Yyd Solution",
   "type": "module",
   "private": true,

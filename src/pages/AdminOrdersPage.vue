@@ -236,7 +236,7 @@ import type { Order, OrderProductRow, OrderStatus } from 'src/stores/types';
 import { formatPrice as formatPriceUtil } from 'src/utils/format';
 
 useMeta({
-  title: 'Pedidos | Admin Shalom',
+  title: 'Pedidos | Admin FrancoShop',
   meta: {
     robots: { name: 'robots', content: 'noindex, nofollow' },
   },
