@@ -13,7 +13,7 @@ export function useProducts() {
     loading.value = true;
     error.value = null;
     try {
-      let query = supabase.from('products').select('*').eq('negocio_id', negocio_id);
+      let query = supabase.from('products').select('*').eq('negocio_id', negocio_id).is('deleted_at', null);
 
       if (category && category !== 'all') {
         query = query.eq('category', category);
@@ -22,7 +22,7 @@ export function useProducts() {
       if (excludeAgotado) {
         query = query.neq('estado', 'Agotado');
       }
-
+      
       query = query.order('new', { ascending: false });
 
       const { data, error: fetchError } = await query;
@@ -102,19 +102,7 @@ export function useProducts() {
     }
   }
 
-  function extractStoragePath(imageUrl: string): string | null {
-    try {
-      const url = new URL(imageUrl);
-      const prefix = '/object/public/products/';
-      const idx = url.pathname.indexOf(prefix);
-      if (idx === -1) return null;
-      return url.pathname.slice(idx + prefix.length);
-    } catch {
-      return null;
-    }
-  }
-
-  async function deleteProduct(id: string, imageUrl?: string): Promise<boolean> {
+  async function deleteProduct(id: string): Promise<boolean> {
     const adminNegocioId = getAdminBusinessId();
     if (!adminNegocioId) {
       error.value = 'No autorizado: inicia sesión para eliminar productos';
@@ -124,23 +112,15 @@ export function useProducts() {
     loading.value = true;
     error.value = null;
     try {
-      if (imageUrl) {
-        const storagePath = extractStoragePath(imageUrl);
-        if (storagePath) {
-          const { error: storageError } = await supabase.storage
-            .from('products')
-            .remove([storagePath]);
-          if (storageError) console.warn('Error borrando imagen de storage:', storageError);
-        }
-      }
-
       const { error: deleteError } = await supabase
         .from('products')
-        .delete()
+        .update({ deleted_at: new Date().toISOString() })
         .eq('id', id)
-        .eq('negocio_id', adminNegocioId);
+        .eq('negocio_id', adminNegocioId)
+        .is('deleted_at', null);
 
       if (deleteError) throw deleteError;
+      products.value = products.value.filter((p) => p.id !== id);
       return true;
     } catch (e) {
       error.value = e instanceof Error ? e.message : 'Error eliminando producto';

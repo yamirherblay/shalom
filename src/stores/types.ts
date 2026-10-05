@@ -13,6 +13,7 @@ export interface Product {
   new?: boolean;
   negocio_id?: string;
   created_at?: string;
+  deleted_at?: string | null;
 }
 
 export interface ProductFormData {
